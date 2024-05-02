@@ -12,5 +12,5 @@ export default defineConfig({
         assets: '/src/assets',
         },
     },
-    base: '/SevenTeam-07',
+    base: '/project-SevenTeam-07',
 });
