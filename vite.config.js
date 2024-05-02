@@ -12,5 +12,5 @@ export default defineConfig({
         assets: '/src/assets',
         },
     },
-    base: '/taskpro-team7-front',
+    base: '/SevenTeam-07',
 });
