@@ -9,19 +9,19 @@ import { AppWrapper } from './App.styled';
 const test = import.meta.env.VITE_API_TEST;
 
 function App() {
-  console.log(test);
-  return (
-    <AppWrapper>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route path="/first" element={<FirstPage />} />
-          <Route path="/second" element={<SecondPage />}>
-            <Route path=":half" element={<HalfPage />} />
-          </Route>
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
-      </Routes>
-    </AppWrapper>
-  );
+    console.log(test);
+    return (
+        <AppWrapper>
+        <Routes>
+            <Route path="/" element={<SharedLayout />}>
+            <Route path="/first" element={<FirstPage />} />
+            <Route path="/second" element={<SecondPage />}>
+                <Route path=":half" element={<HalfPage />} />
+            </Route>
+            <Route path="*" element={<ErrorPage />} />
+            </Route>
+        </Routes>
+        </AppWrapper>
+    );
 }
 export default App;
