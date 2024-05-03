@@ -4,7 +4,7 @@ import {
   StyledLink,
   IconWrapper,
 } from './Header.styled';
-import sprite from 'assets/sprite.svg';
+// import sprite from 'assets/sprite.svg';
 
 export const Header = () => {
 
@@ -13,13 +13,13 @@ export const Header = () => {
       <Navigation>
         <StyledLink to="/first">
           <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
+            {/* <use href={`${sprite}#icon-logo`} /> */}
           </IconWrapper>
           First
         </StyledLink>
         <StyledLink to="/second">
           <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
+            {/* <use href={`${sprite}#icon-logo`} /> */}
           </IconWrapper>
           Second
         </StyledLink>
