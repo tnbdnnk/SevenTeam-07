@@ -22,7 +22,11 @@
 
 @media (min-width: 1440px) {
   .section {
+    width: calc(100% - 260px);
     padding: 14px 24px 8px 24px;
+    margin: 0;
+    right: 0;
+    position: absolute;
   }
 }
 

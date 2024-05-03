@@ -4,7 +4,7 @@ import FirstPage from 'pages/FirstPage/FirstPage';
 import SecondPage from 'pages/SecondPage/SecondPage';
 import HalfPage from 'pages/HalfPage/HalfPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
-import { AppWrapper } from './App.styled';
+// import { AppWrapper } from './App.styled';
 // import ScreensPage from './components/ScreensPage/ScreensPage';
 
 const test = import.meta.env.VITE_API_TEST;
@@ -12,7 +12,7 @@ const test = import.meta.env.VITE_API_TEST;
 function App() {
     console.log(test);
     return (
-        <AppWrapper>
+        // <AppWrapper>
         <Routes>
             <Route path="/" element={<SharedLayout />}>
                 {/* <Route path="/home/:boardName" element={<ScreensPage />}/> */}
@@ -23,7 +23,7 @@ function App() {
                 <Route path="*" element={<ErrorPage />} />
             </Route>
         </Routes>
-        </AppWrapper>
+        // </AppWrapper>
     );
 }
 export default App;

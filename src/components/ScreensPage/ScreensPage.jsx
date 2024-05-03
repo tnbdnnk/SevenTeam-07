@@ -15,7 +15,7 @@ const ScreensPage = () => {
     // ];
 
     let boards = {
-        name: 'Project office', column: ['To Do', 'In Progress'], id: '12345'
+        name: 'Project office', column: ['To Do'], id: '12345'
     };
 
     let isBoardAdded = boards?.length !== 0;
