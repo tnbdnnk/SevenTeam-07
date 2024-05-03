@@ -79,7 +79,6 @@
 .filterText {
   font-weight: 500;
   font-size: 14px;
-  /* ? letter-spacing: -0.02em; */
   letter-spacing: -0.02em;
   color: rgba(255, 255, 255, 0.8);
   /* ???  margin: 0;  */
@@ -103,27 +102,20 @@
 }
 
 .text {
-  /* ? letter-spacing: -0.02em; */
   font-size: 12px;
   font-weight: 400;
   letter-spacing: -0.02em;
   text-align: center;
   color: rgba(255, 255, 255, 0.5);
   margin: 0 auto;
-
-  /* в процентах line-height !!! */
   line-height: 16px;
-  /* line-height: 1.33333; */
 }
 
 @media (min-width: 768px) {
   .text {
     width: 486px;
     font-size: 14px;
-
-    /* в процентах line-height !!! */
     line-height: 18px;
-    /* line-height: 1.28571; */
   }
 }
 
