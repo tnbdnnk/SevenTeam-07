@@ -1,0 +1,132 @@
+.section {
+  width: 100%;
+  /* ??? */
+  height: calc(100vh - 60px);
+  padding: 14px 20px 24px 14px;
+  background-color: #1f1f1f;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .section {
+    height: calc(100vh - 68px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .section {
+    padding: 20px 32px 32px 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section {
+    padding: 14px 24px 8px 24px;
+  }
+}
+
+.settingsWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.activeSettingsWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 39px;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .activeSettingsWrapper {
+    margin-bottom: 26px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .activeSettingsWrapper {
+    margin-bottom: 10px;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 18px;
+  }
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+
+.icon {
+  fill: transparent;
+  stroke: #ffffff;
+}
+
+.filterText {
+  font-weight: 500;
+  font-size: 14px;
+  /* ? letter-spacing: -0.02em; */
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.8);
+  /* ???  margin: 0;  */
+  margin: 0;
+}
+
+.columnListWrap {
+  display: flex;
+}
+
+.columnList {
+  display: flex;
+  gap: 34px;
+  margin-right: 34px;
+}
+
+.mainContentWrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  /* ? letter-spacing: -0.02em; */
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 auto;
+
+  /* в процентах line-height !!! */
+  line-height: 16px;
+  /* line-height: 1.33333; */
+}
+
+@media (min-width: 768px) {
+  .text {
+    width: 486px;
+    font-size: 14px;
+
+    /* в процентах line-height !!! */
+    line-height: 18px;
+    /* line-height: 1.28571; */
+  }
+}
+
+.accentText {
+  color: #bedbb0;
+}

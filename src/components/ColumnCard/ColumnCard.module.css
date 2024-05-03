@@ -1,0 +1,39 @@
+.card {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+}
+
+@media (min-width: 375px) {
+  .card {
+    width: 335px;
+  }
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.buttonsWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.button {
+  height: 16px;
+  padding: 0;
+  background-color: transparent;
+  fill: transparent;
+  border: none;
+}
+
+.icon {
+  stroke: rgba(255, 255, 255, 0.5);
+}
