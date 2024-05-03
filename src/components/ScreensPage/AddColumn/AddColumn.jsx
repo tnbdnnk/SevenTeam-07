@@ -1,5 +1,5 @@
 import css from './AddColumn.module.css';
-import icons from '../../images/symbol-defs.svg';
+import icons from '../../../images/symbol-defs.svg';
 
 
 const AddColumn = () => {
