@@ -6,10 +6,9 @@ export default defineConfig({
     plugins: [react(), svgr()],
     resolve: {
         alias: {
-        src: '/src',
-        components: '/src/components',
-        pages: '/src/pages',
-        assets: '/src/assets',
+            src: '/src',
+            components: '/src/components',
+            pages: '/src/pages',
         },
     },
     base: '/project-SevenTeam-07',
