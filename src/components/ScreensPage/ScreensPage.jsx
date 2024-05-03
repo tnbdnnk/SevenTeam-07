@@ -3,7 +3,6 @@ import ColumnCard from './ColumnCard/ColumnCard';
 
 import css from './ScreensPage.module.css';
 import icons from '../../images/symbol-defs.svg';
-// import CardItem from './CardItem/CardItem';
 
 
 const ScreensPage = () => {
@@ -40,11 +39,11 @@ const ScreensPage = () => {
 
                 <ul className={css.columnList}>
                     {boards?.column.map((item, index) => <ColumnCard key={index} name={item} />)}
-                    {/* <CardItem /> */}
                 </ul>
 
                 {isBoardAdded ? <AddColumn/> : (
                     <div className={css.mainContentWrapper}>
+                        {/* to create a board = посилання на створення дошки */}
                         <p className={css.text}>Before starting your project, it is essential <span className={css.accentText}>to create a board</span> to visualize and track all the necessary tasks and milestones. This board serves as a powerful tool to organize the workflow and ensure effective collaboration among team members.</p>
                     </div>)                
                 }

@@ -8,7 +8,7 @@ const CardItem = () => {
     }
 
     const handleDeleteCard = () => { 
-        console.log("??? Має відкритися модальне вікно - Delete card");
+        console.log("Має відкритися модальне вікно - Delete card");
     }
 
     const handleChangeColumn = () => { 
@@ -40,10 +40,10 @@ const CardItem = () => {
                     </div>
                 </div>
 
-                <div className={css.buttonsWrap}>
+                <div className={css.buttonsWrap}>  
                     {/* Який функціонал дзвіночка ? */}
                     <button className={css.button} type='button'>
-                        <svg className={css.icon} width='16' height='16'>
+                        <svg className={css.iconAccent} width='16' height='16'>
                             <use href={icons + '#icon-bell'}></use>
                         </svg>
                     </button>

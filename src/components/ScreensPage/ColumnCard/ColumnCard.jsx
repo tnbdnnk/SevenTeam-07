@@ -1,6 +1,7 @@
 import css from './ColumnCard.module.css';
 import icons from '../../../images/symbol-defs.svg';
 import CardItem from '../CardItem/CardItem';
+import AddCard from '../AddCard/AddCard';
 
 
 const ColumnCard = ({ id, name }) => {
@@ -9,12 +10,12 @@ const ColumnCard = ({ id, name }) => {
     }
 
     const handleDeleteColumn = () => { 
-        console.log("??? Має відкритися модальне вікно - Delete column");
+        console.log("Має відкритися модальне вікно - Delete column");
     }
 
     return (
         <li className={css.item} key={id}>
-            {/* <p className={css.text}>In progress</p> */}
+            {/* <div> */}
             <div className={css.columnCard}>
                 <p className={css.text}>{name}</p>
                 <div className={css.buttonsWrapper}>
@@ -31,9 +32,11 @@ const ColumnCard = ({ id, name }) => {
                 </div>
             </div>
             
-            <div>
+            {/* <div> */}
                 <CardItem />
-            </div>
+            {/* </div> */}
+            {/* </div> */}
+                <AddCard />
         </li>
     );
 };
