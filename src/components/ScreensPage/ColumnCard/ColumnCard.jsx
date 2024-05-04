@@ -14,29 +14,34 @@ const ColumnCard = ({ id, name }) => {
     }
 
     return (
-        <li className={css.item} key={id}>
-            {/* <div> */}
-            <div className={css.columnCard}>
-                <p className={css.text}>{name}</p>
-                <div className={css.buttonsWrapper}>
-                    <button className={css.button} type='button' onClick={handleEditColumn}>
-                        <svg className={css.icon} width='16' height='16'>
-                            <use href={icons + '#icon-pen'}></use>
-                        </svg>
-                    </button>
-                    <button className={css.button} type='button' onClick={handleDeleteColumn}>
-                        <svg className={css.icon} width='16' height='16'>
-                            <use href={icons + '#icon-trash'}></use>
-                        </svg>
-                    </button>
+        // прописати умову для другого класу: 
+        // <li className={css.item} key={id}>
+        <li className={`${css.item} ${css.itemAdded}`} key={id}>
+            <div className={css.columnMainInfo}>
+                <div className={css.columnCard}>
+                    <p className={css.text}>{name}</p>
+                    <div className={css.buttonsWrapper}>
+                        <button className={css.button} type='button' onClick={handleEditColumn}>
+                            <svg className={css.icon} width='16' height='16'>
+                                <use href={icons + '#icon-pen'}></use>
+                            </svg>
+                        </button>
+                        <button className={css.button} type='button' onClick={handleDeleteColumn}>
+                            <svg className={css.icon} width='16' height='16'>
+                                <use href={icons + '#icon-trash'}></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div className={css.cardsWrap}>
+                    <CardItem />
+                    <CardItem />
+                    <CardItem />
+                    <CardItem />
                 </div>
             </div>
-            
-            {/* <div> */}
-                <CardItem />
-            {/* </div> */}
-            {/* </div> */}
-                <AddCard />
+            <AddCard />
         </li>
     );
 };

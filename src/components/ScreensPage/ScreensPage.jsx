@@ -14,15 +14,20 @@ const ScreensPage = () => {
     // ];
 
     let boards = {
-        name: 'Project office', column: ['To Do'], id: '12345'
+        name: 'Project office', column: ['To Do', 'In Progress', 'Done'], id: '12345'
     };
 
     let isBoardAdded = boards?.length !== 0;
-    // console.log(boards, ' = isBoardAdded');
 
     const handleOpenModal = () => { 
         console.log("Має відкритися модальне вікно - Filters");
     }
+
+    // підправити умову і перевірити класи:
+    // let columnListStyle = 'columnList';
+    // if (this.props.isActive) {
+    //     className += ' columnListAdded';
+    // }
 
     return (
         <section className={css.section}>
@@ -37,7 +42,8 @@ const ScreensPage = () => {
             </div>
             <div className={css.columnListWrap}>
 
-                <ul className={css.columnList}>
+                {/* <ul className={css.columnList}> */}
+                <ul className={`${css.columnList} ${css.columnListAdded}`}>
                     {boards?.column.map((item, index) => <ColumnCard key={index} name={item} />)}
                 </ul>
 

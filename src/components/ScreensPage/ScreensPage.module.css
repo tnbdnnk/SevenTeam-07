@@ -1,36 +1,44 @@
+/* 
+
+*/
+
+/* !!! Перенести в головні стилі: */
 body:focus {
   scrollbar-color: transparent transparent;
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-thumb {
+  /* width: 8px; */
+  width: 0px;
   background-color: rgba(255, 255, 255, 0.1);
-  width: 179px;
   border-radius: 12px;
 }
 
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-thumb {
   background-color: #161616;
-  padding-bottom: 24px;
+  border-radius: 12px;
 }
+
+/*  */
 
 .section {
   width: 100%;
   /* ??? */
   height: calc(100vh - 60px);
-  padding: 14px 20px 24px 14px;
   background-color: #1f1f1f;
+  padding: 14px 20px 24px 14px;
   margin-left: auto;
   margin-right: auto;
+  /* padding: 14px 0 24px 0;
+  margin-right: 20px;
+  margin-left: 14px; */
 
   overflow: auto;
 }
 
 @media (min-width: 768px) {
   .section {
+    /* 68px = висота Header ??? */
     height: calc(100vh - 68px);
   }
 }
@@ -49,6 +57,18 @@ body:focus {
     right: 0;
     position: absolute;
   }
+}
+
+.section::-webkit-scrollbar {
+  width: 0px;
+  height: 12px;
+  border-radius: 12px;
+  background-color: #161616;
+}
+
+.section::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
 }
 
 .settingsWrapper {
@@ -111,13 +131,31 @@ body:focus {
 }
 
 .columnListWrap {
+  height: calc(100% - 38px);
   display: flex;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .columnListWrap {
+    height: calc(100% - 52px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .columnListWrap {
+    height: calc(100% - 22px);
+  }
 }
 
 .columnList {
   display: flex;
-  gap: 34px;
-  margin-right: 34px;
+  gap: 18px;
+  /* gap: 34px;
+  margin-right: 34px; */
+}
+
+.columnListAdded {
+  margin-right: 18px;
 }
 
 .mainContentWrapper {

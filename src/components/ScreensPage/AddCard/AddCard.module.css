@@ -1,6 +1,7 @@
 .button {
   width: 100%;
   height: 56px;
+  padding: 14px 0;
   background-color: #bedbb0;
   display: flex;
   align-items: center;
@@ -9,13 +10,13 @@
   border-radius: 8px;
   border: none;
 
-  position: fixed;
-  bottom: 32px;
+  /* position: fixed; */
+  /* bottom: 32px; */
 }
 
 @media (min-width: 375px) {
   .button {
-    width: 335px;
+    width: 334px;
   }
 }
 
