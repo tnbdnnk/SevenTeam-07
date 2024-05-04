@@ -8,6 +8,11 @@ import icons from '../../images/symbol-defs.svg';
 // import CardItem from './CardItem/CardItem';
 
 const ScreensPage = () => {
+  const [boards, setBoards] = useState({
+    name: 'Project office',
+    column: [],
+    id: '12345',
+  });
   // Замінити на Бек
 
   // let boards = [
@@ -15,17 +20,11 @@ const ScreensPage = () => {
   //     {name: 'Neon', column: [], id: '67890'},
   // ];
 
-  const [boards, setBoards] = useState({
-    name: 'Project office',
-    columns: ['To Do'],
-    id: '12345',
-  });
-
-  //   let boards = {
-  //     name: 'Project office',
-  //     column: ['To Do'],
-  //     id: '12345',
-  //   };
+  // let boards = {
+  //   name: 'Project office',
+  //   column: [],
+  //   id: '12345',
+  // };
 
   let isBoardAdded = boards?.length !== 0;
   // console.log(boards, ' = isBoardAdded');
@@ -34,12 +33,20 @@ const ScreensPage = () => {
     console.log('Має відкритися модальне вікно - Filters');
   };
 
-  const handleDeleteColumn = (columnIndex) => {
+  const handleDeleteColumn = (index) => {
     setBoards((prevBoards) => {
-      const newColumns = [...prevBoards.columns];
-      newColumns.splice(columnIndex, 1);
-      return { ...prevBoards, columns: newColumns };
+      const newColumns = [...prevBoards.column];
+      newColumns.splice(index, 1);
+      console.log({ ...prevBoards, column: newColumns });
+      return { ...prevBoards, column: newColumns };
     });
+  };
+
+  const handleAddColumn = (newColumn) => {
+    setBoards((prevBoards) => ({
+      ...prevBoards,
+      column: [...prevBoards.column, newColumn],
+    }));
   };
 
   return (
@@ -59,18 +66,19 @@ const ScreensPage = () => {
       </div>
       <div className={css.columnListWrap}>
         <ul className={css.columnList}>
-          {boards.columns.map((item, index) => (
+          {boards.column.map((item, i) => (
             <ColumnCard
-              key={index}
+              key={item}
               name={item}
-              onDelete={() => handleDeleteColumn(index)}
+              onDelete={() => handleDeleteColumn(i)}
+              index={i}
             />
           ))}
           {/* <CardItem /> */}
         </ul>
 
         {isBoardAdded ? (
-          <AddColumn />
+          <AddColumn onAddColumn={handleAddColumn} />
         ) : (
           <div className={css.mainContentWrapper}>
             <p className={css.text}>

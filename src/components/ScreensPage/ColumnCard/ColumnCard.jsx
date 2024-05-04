@@ -1,12 +1,12 @@
 import css from './ColumnCard.module.css';
 import { useState } from 'react';
 import icons from '../../../images/symbol-defs.svg';
-import CardItem from '../CardItem/CardItem';
+// import CardItem from '../CardItem/CardItem';
 import { useModal } from '../../../hooks/useModal';
 import DeleteColumnModal from './DeleteColumn/DeleteColumnModal';
 import EditColumnModal from './EditColumn/EditColumnModal';
 
-const ColumnCard = ({ id, name, onDelete }) => {
+const ColumnCard = ({ id, name, onDelete, index }) => {
   const [currentName, setCurrentName] = useState(name);
   const {
     openModal: openEditModal,
@@ -24,7 +24,7 @@ const ColumnCard = ({ id, name, onDelete }) => {
   };
 
   const confirmDelete = () => {
-    onDelete();
+    onDelete(index);
     closeDeleteModal();
   };
 
@@ -64,9 +64,7 @@ const ColumnCard = ({ id, name, onDelete }) => {
           </button>
         </div>
       </div>
-      <div>
-        <CardItem />
-      </div>
+      <div>{/* <CardItem /> */}</div>
     </li>
   );
 };
