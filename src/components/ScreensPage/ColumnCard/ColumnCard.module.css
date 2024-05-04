@@ -1,17 +1,25 @@
-.card {
+.item {
   width: 100%;
-  padding: 14px 20px;
-  background-color: #121212;
+  gap: 14px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 8px;
+  flex-direction: column;
 }
 
 @media (min-width: 375px) {
-  .card {
+  .item {
     width: 335px;
   }
+}
+
+.columnCard {
+  height: 56px;
+  padding: 18px 20px;
+  /* padding: 14px 20px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121212;
+  border-radius: 8px;
 }
 
 .text {

@@ -1,16 +1,20 @@
-import { Container, Block, Title, StyledLink } from './SecondPage.styled';
 import Sidebar from '../../components/Sidebar/Sidebar'
+import ScreensPage from '../../components/ScreensPage/ScreensPage';
+
+import css from './SecondPage.module.css';
+
 
 const SecondPage = () => {
   return (
-    <Container>
-      <Block>
-        <Title>Second Page</Title>
-        <Sidebar />
-        <StyledLink to="/second/5">Half</StyledLink>
-      </Block>
-    </Container>
+    <div className={css.wrapper} >
+      <Sidebar />
+      <div>
+        {/* місце для Header */}
+        <ScreensPage />
+      </div>
+    </div>
   );
 };
+
 
 export default SecondPage;
