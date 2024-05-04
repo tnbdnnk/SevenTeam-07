@@ -10,7 +10,7 @@ const ScreensPage = () => {
 
     const [boards, setBoards] = useState({
     name: 'Project office',
-    columns: ['To Do'],
+    columns: ['To Do', 'In Progress', 'Done'],
     id: '12345',
   });
 
