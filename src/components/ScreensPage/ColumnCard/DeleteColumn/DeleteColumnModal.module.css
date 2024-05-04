@@ -1,0 +1,18 @@
+.delete_confirm_text {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.delete_confirm_btn {
+  color: white;
+  border: 1px solid white;
+  width: 100px;
+  height: 30px;
+}
+
+.delete_cancel_btn {
+  color: white;
+  border: 1px solid white;
+  width: 100px;
+  height: 30px;
+}
