@@ -3,8 +3,8 @@ import { useState } from 'react';
 import icons from '../../../images/symbol-defs.svg';
 import CardItem from '../CardItem/CardItem';
 import { useModal } from '../../../hooks/useModal';
-import EditColumnModal from './editColumn/editColumnModal';
 import DeleteColumnModal from './DeleteColumn/DeleteColumnModal';
+import EditColumnModal from './EditColumn/EditColumnModal';
 
 const ColumnCard = ({ id, name, onDelete }) => {
   const [currentName, setCurrentName] = useState(name);
