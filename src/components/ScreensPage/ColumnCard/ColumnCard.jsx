@@ -1,42 +1,74 @@
 import css from './ColumnCard.module.css';
+import { useState } from 'react';
 import icons from '../../../images/symbol-defs.svg';
 import CardItem from '../CardItem/CardItem';
+import { useModal } from '../../../hooks/useModal';
+import EditColumnModal from './editColumn/editColumnModal';
+import DeleteColumnModal from './DeleteColumn/DeleteColumnModal';
 
+const ColumnCard = ({ id, name, onDelete }) => {
+  const [currentName, setCurrentName] = useState(name);
+  const {
+    openModal: openEditModal,
+    closeModal: closeEditModal,
+    isModalOpen: isEditModalOpen,
+  } = useModal();
+  const {
+    openModal: openDeleteModal,
+    closeModal: closeDeleteModal,
+    isModalOpen: isDeleteModalOpen,
+  } = useModal();
 
-const ColumnCard = ({ id, name }) => {
-    const handleEditColumn = () => { 
-        console.log("Має відкритися модальне вікно - Edit column");
-    }
+  const handleNameChange = (newName) => {
+    setCurrentName(newName);
+  };
 
-    const handleDeleteColumn = () => { 
-        console.log("??? Має відкритися модальне вікно - Delete column");
-    }
+  const confirmDelete = () => {
+    onDelete();
+    closeDeleteModal();
+  };
 
-    return (
-        <li className={css.item} key={id}>
-            {/* <p className={css.text}>In progress</p> */}
-            <div className={css.columnCard}>
-                <p className={css.text}>{name}</p>
-                <div className={css.buttonsWrapper}>
-                    <button className={css.button} type='button' onClick={handleEditColumn}>
-                        <svg className={css.icon} width='16' height='16'>
-                            <use href={icons + '#icon-pen'}></use>
-                        </svg>
-                    </button>
-                    <button className={css.button} type='button' onClick={handleDeleteColumn}>
-                        <svg className={css.icon} width='16' height='16'>
-                            <use href={icons + '#icon-trash'}></use>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <div>
-                <CardItem />
-            </div>
-        </li>
-    );
+  return (
+    <li className={css.item} key={id}>
+      {isEditModalOpen && (
+        <EditColumnModal
+          isModalOpen={isEditModalOpen}
+          closeModal={closeEditModal}
+          handleRenameColumn={handleNameChange}
+          currentName={currentName}
+        />
+      )}
+      {isDeleteModalOpen && (
+        <DeleteColumnModal
+          isModalOpen={isDeleteModalOpen}
+          closeModal={closeDeleteModal}
+          onConfirmDelete={confirmDelete}
+        />
+      )}
+      <div className={css.columnCard}>
+        <p className={css.text}>{currentName}</p>
+        <div className={css.buttonsWrapper}>
+          <button className={css.button} type="button" onClick={openEditModal}>
+            <svg className={css.icon} width="16" height="16">
+              <use href={icons + '#icon-pen'}></use>
+            </svg>
+          </button>
+          <button
+            className={css.button}
+            type="button"
+            onClick={openDeleteModal}
+          >
+            <svg className={css.icon} width="16" height="16">
+              <use href={icons + '#icon-trash'}></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div>
+        <CardItem />
+      </div>
+    </li>
+  );
 };
-
 
 export default ColumnCard;
