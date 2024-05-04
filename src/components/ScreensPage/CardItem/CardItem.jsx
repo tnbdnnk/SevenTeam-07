@@ -12,13 +12,13 @@ const CardItem = () => {
     }
 
     const handleChangeColumn = () => { 
-        console.log("Має відкритися модальне вікно - Change column");
+        console.log("Має відкритися tooltip - Change column");
     }
 
     return (
         <div className={css.card}>
             <div className={css.textCardWrap}>
-                <h3 className={css.title}>Design and Prototyping SoYummy</h3>
+                <h4 className={css.title}>Design and Prototyping SoYummy</h4>
                 {/* Приховуввати більше 2х рядків:*/}
                 <p className={css.subscribe}>Create visually appealing and functional design prototypes based on the approved concepts,...</p>
             </div>
@@ -41,7 +41,7 @@ const CardItem = () => {
                 </div>
 
                 <div className={css.buttonsWrap}>  
-                    {/* Який функціонал дзвіночка ? */}
+                    {/* кнопка дзвоника сигналізує про те що сьогодні дата дедлайну */}
                     <button className={css.button} type='button'>
                         <svg className={css.iconAccent} width='16' height='16'>
                             <use href={icons + '#icon-bell'}></use>
