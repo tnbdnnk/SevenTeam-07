@@ -14,13 +14,6 @@ const ScreensPage = () => {
         id: '12345',
     });
 
-
-    // let isBoardAdded = boards?.length !== 0;
-
-    // const handleCreateBoard = () => {
-    //     console.log('Має відкритися модальне вікно - New Board');
-    // };
-
   const handleDeleteColumn = (index) => {
     setBoards((prevBoards) => {
       const newColumns = [...prevBoards.column];
@@ -40,14 +33,11 @@ const ScreensPage = () => {
     return (
         <section className={css.section}>
             <div className={css.activeSettingsWrapper}>
-            {/* <div className={isBoardAdded ? css.activeSettingsWrapper : css.settingsWrapper}>
-                {isBoardAdded ? <h2 className={css.title}>{boards.name}</h2> : ''} */}
                 <h2 className={css.title}>{boards.name}</h2>
                 <Filters />
             </div>
             <div className={css.columnListWrap}>
 
-                {/* <ul className={isBoardAdded ? css.columnList : css.columnListAdded }> */}
                 <ul className={css.columnList}>
                     {boards.column.map((item, i) => (
                         <ColumnCard
@@ -58,18 +48,7 @@ const ScreensPage = () => {
                         />
                     ))}
                     <AddColumn onAddColumn={handleAddColumn}/> 
-                    {/* {isBoardAdded && <AddColumn /> } */}
                 </ul>
-
-                {/* {!isBoardAdded && (<div className={css.mainContentWrapper}>
-                    <p className={css.text}>
-                        Before starting your project, it is essential
-                        <a href="#" onClick={handleCreateBoard} className={css.link}> to create a board</a> to
-                        visualize and track all the necessary tasks and milestones. This
-                        board serves as a powerful tool to organize the workflow and
-                        ensure effective collaboration among team members.
-                    </p>
-                </div>)} */}
             </div>
         </section>
     );
