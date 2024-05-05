@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 export const Header = ({ openBurger }) => {
   const [isThemeOpen, setisThemeOpen] = useState(false);
+  const [isActive, setisActive] = useState(false);
 
   return (
     <header className={css.header}>
@@ -21,7 +22,12 @@ export const Header = ({ openBurger }) => {
             className={css.btnTheme}
             onClick={() => setisThemeOpen((isThemeOpen) => !isThemeOpen)}
           >
-            <svg className={css.svgTheme}>
+            <svg
+              className={
+                isActive ? `${css.svgTheme} ${css.active}` : css.svgTheme
+              }
+              onClick={() => setisActive((isActive) => !isActive)}
+            >
               <use href={`${sprite}#icon-chevron-down`} />
             </svg>
           </button>
