@@ -1,10 +1,11 @@
-import css from './ColumnCard.module.css';
 import { useState } from 'react';
-import icons from '../../../images/symbol-defs.svg';
-// import CardItem from '../CardItem/CardItem';
 import { useModal } from '../../../hooks/useModal';
+import CardItem from '../CardItem/CardItem';
+import AddCard from '../AddCard/AddCard';
 import DeleteColumnModal from './DeleteColumn/DeleteColumnModal';
 import EditColumnModal from './EditColumn/EditColumnModal';
+import css from './ColumnCard.module.css';
+import icons from '../../../images/symbol-defs.svg';
 
 const ColumnCard = ({ id, name, onDelete, index }) => {
   const [currentName, setCurrentName] = useState(name);

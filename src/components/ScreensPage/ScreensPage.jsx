@@ -1,11 +1,9 @@
 import { useState } from 'react';
-
 import AddColumn from './AddColumn/AddColumn';
 import ColumnCard from './ColumnCard/ColumnCard';
 
 import css from './ScreensPage.module.css';
 import icons from '../../images/symbol-defs.svg';
-// import CardItem from './CardItem/CardItem';
 
 const ScreensPage = () => {
   const [boards, setBoards] = useState({
@@ -13,12 +11,6 @@ const ScreensPage = () => {
     column: [],
     id: '12345',
   });
-  // Замінити на Бек
-
-  // let boards = [
-  //     {name: 'Project office', column: ['To Do', 'In Progress', 'Done'], id: '12345'},
-  //     {name: 'Neon', column: [], id: '67890'},
-  // ];
 
   // let boards = {
   //   name: 'Project office',
@@ -26,8 +18,7 @@ const ScreensPage = () => {
   //   id: '12345',
   // };
 
-  let isBoardAdded = boards?.length !== 0;
-  // console.log(boards, ' = isBoardAdded');
+    let isBoardAdded = boards?.length !== 0;
 
   const handleOpenModal = () => {
     console.log('Має відкритися модальне вікно - Filters');
@@ -94,5 +85,6 @@ const ScreensPage = () => {
     </section>
   );
 };
+
 
 export default ScreensPage;
