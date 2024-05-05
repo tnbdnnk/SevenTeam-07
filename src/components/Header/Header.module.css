@@ -50,6 +50,10 @@
   stroke: #ffffffcc;
 }
 
+.active {
+  transform: rotate(180deg);
+}
+
 .wraperUser {
   display: flex;
   align-items: center;
@@ -59,11 +63,13 @@
 .wrapbtnTheme {
   position: relative;
   display: flex;
+  align-items: center;
   gap: 4px;
   color: #ffffffcc;
   font-weight: 500;
   font-size: 14px;
-  align-items: center;
+
+  letter-spacing: -0.02em;
 }
 
 .btnTheme {
