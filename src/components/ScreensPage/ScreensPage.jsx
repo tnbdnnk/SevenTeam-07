@@ -9,8 +9,8 @@ import css from './ScreensPage.module.css';
 const ScreensPage = () => {
   const [boards, setBoards] = useState({
         name: 'Project office',
-        // column: ['To Do', 'In Progress', 'Done'],
-        column: [],
+        column: ['To Do', 'In Progress', 'Done'],
+        // column: [],
         id: '12345',
     });
 
