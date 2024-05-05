@@ -1,29 +1,34 @@
-import {
-  HeaderContainer,
-  Navigation,
-  StyledLink,
-  IconWrapper,
-} from './Header.styled';
-// import sprite from 'assets/sprite.svg';
+import css from '../Header/Header.module.css';
+import sprite from '../../images/symbol-defs.svg';
+import { UserInfo } from '../UserInfo/UserInfo';
+import { Theme } from '../Theme/Theme';
+import { useState } from 'react';
 
-export const Header = () => {
+export const Header = ({ openBurger }) => {
+  const [isThemeOpen, setisThemeOpen] = useState(false);
 
   return (
-    <HeaderContainer>
-      <Navigation>
-        <StyledLink to="/first">
-          <IconWrapper>
-            {/* <use href={`${sprite}#icon-logo`} /> */}
-          </IconWrapper>
-          First
-        </StyledLink>
-        <StyledLink to="/second">
-          <IconWrapper>
-            {/* <use href={`${sprite}#icon-logo`} /> */}
-          </IconWrapper>
-          Second
-        </StyledLink>
-      </Navigation>
-    </HeaderContainer>
+    <header className={css.header}>
+      <button className={css.btn} onClick={openBurger}>
+        <svg className={css.svg}>
+          <use href={`${sprite}#icon-burger`} />
+        </svg>
+      </button>
+      <div className={css.wraperUser}>
+        <div className={css.wrapbtnTheme}>
+          Theme
+          <button
+            className={css.btnTheme}
+            onClick={() => setisThemeOpen((isThemeOpen) => !isThemeOpen)}
+          >
+            <svg className={css.svgTheme}>
+              <use href={`${sprite}#icon-chevron-down`} />
+            </svg>
+          </button>
+          {isThemeOpen && <Theme />}
+        </div>
+        <UserInfo />
+      </div>
+    </header>
   );
 };
