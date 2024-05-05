@@ -1,9 +1,8 @@
 .item {
   width: 100%;
+  height: calc(100vh - 177px);
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-  /* gap: 14px; */
 }
 
 .itemAdded {
@@ -13,14 +12,25 @@
 
 @media (min-width: 375px) {
   .item {
-    /* width: 335px; */
     width: 351px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .item {
+    height: calc(100vh - 211px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .item {
+    height: calc(100vh - 154px);
   }
 }
 
 .columnCard {
   height: 56px;
-  width: 100%;
+  width: 280px;
   margin-bottom: 12px;
   padding: 18px 20px;
   display: flex;
@@ -50,24 +60,52 @@
 
 .button {
   height: 16px;
-  padding: 0;
-  background-color: transparent;
   fill: transparent;
-  border: none;
+}
+
+.button:hover .icon,
+.button:focus .icon {
+  stroke: #bedbb0;
 }
 
 .icon {
   stroke: rgba(255, 255, 255, 0.5);
+  transition: stroke 500ms cubic-bezier(0, 0, 1, 1);
 }
 
 .cardsWrap {
-  /* ??? */
-  max-height: calc(100vh - 322px);
-  padding-right: 8px;
+  /* ++++ */
+  max-height: calc(100vh - 315px);
+  width: 288px;
   display: grid;
   gap: 8px;
 
   overflow-y: auto;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .cardsWrap {
+    width: 346px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cardsWrap {
+    width: 350px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1439px) {
+  .cardsWrap {
+    /* ++++ */
+    max-height: calc(100vh - 349px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .cardsWrap {
+    /* ++++ */
+    max-height: calc(100vh - 290px);
+  }
 }
 
 .cardsWrap::-webkit-scrollbar {

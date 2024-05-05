@@ -32,7 +32,7 @@ const ColumnCard = ({ id, name, onDelete }) => {
   };
 
     return (
-        // прописати умову для другого класу:
+        // ??? прописати умову для другого класу:
         <li className={`${css.item} ${css.itemAdded}`} key={id}>
         {isEditModalOpen && (
             <EditColumnModal
@@ -66,6 +66,10 @@ const ColumnCard = ({ id, name, onDelete }) => {
                     </div>
                 </div>
                 <div className={css.cardsWrap}>
+                    <CardItem />
+                    <CardItem />
+                    <CardItem />
+                    <CardItem />
                     <CardItem />
                     <CardItem />
                     <CardItem />

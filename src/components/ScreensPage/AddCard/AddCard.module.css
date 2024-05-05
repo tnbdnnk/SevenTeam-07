@@ -1,6 +1,4 @@
 .button {
-  width: 100%;
-  height: 56px;
   padding: 14px 0;
   background-color: #bedbb0;
   display: flex;
@@ -8,10 +6,13 @@
   justify-content: center;
   gap: 8px;
   border-radius: 8px;
-  border: none;
 
-  /* position: fixed; */
-  /* bottom: 32px; */
+  transition: background-color 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.button:hover,
+.button:focus {
+  background-color: #9dc888;
 }
 
 @media (min-width: 375px) {
