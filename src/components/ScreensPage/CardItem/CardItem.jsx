@@ -19,8 +19,7 @@ const CardItem = () => {
         <div className={css.card}>
             <div className={css.textCardWrap}>
                 <h4 className={css.title}>Design and Prototyping SoYummy</h4>
-                {/* Приховуввати більше 2х рядків:*/}
-                <p className={css.subscribe}>Create visually appealing and functional design prototypes based on the approved concepts,...</p>
+                <p className={css.subscribe}>Create visually appealing and functional design prototypes based on the approved concepts, ensuring seamless user experience and incorporating feedback for iterative improvements.</p>
             </div>
 
             <div className={css.vector}></div>

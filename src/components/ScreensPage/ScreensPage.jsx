@@ -1,28 +1,18 @@
 import { useState } from 'react';
 import AddColumn from './AddColumn/AddColumn';
 import ColumnCard from './ColumnCard/ColumnCard';
+import Filters from '../Filters/Filters';
 
 import css from './ScreensPage.module.css';
-import icons from '../../images/symbol-defs.svg';
+
 
 const ScreensPage = () => {
   const [boards, setBoards] = useState({
-    name: 'Project office',
-    column: [],
-    id: '12345',
-  });
-
-  // let boards = {
-  //   name: 'Project office',
-  //   column: [],
-  //   id: '12345',
-  // };
-
-    let isBoardAdded = boards?.length !== 0;
-
-  const handleOpenModal = () => {
-    console.log('Має відкритися модальне вікно - Filters');
-  };
+        name: 'Project office',
+        column: ['To Do', 'In Progress', 'Done'],
+        // column: [],
+        id: '12345',
+    });
 
   const handleDeleteColumn = (index) => {
     setBoards((prevBoards) => {
@@ -40,50 +30,28 @@ const ScreensPage = () => {
     }));
   };
 
-  return (
-    <section className={css.section}>
-      <div
-        className={
-          isBoardAdded ? css.activeSettingsWrapper : css.settingsWrapper
-        }
-      >
-        {isBoardAdded ? <h2 className={css.title}>{boards.name}</h2> : ''}
-        <button className={css.button} type="button" onClick={handleOpenModal}>
-          <svg className={css.icon} width="16" height="16">
-            <use href={icons + '#icon-filter'}></use>
-          </svg>
-          <p className={css.filterText}>Filters</p>
-        </button>
-      </div>
-      <div className={css.columnListWrap}>
-        <ul className={css.columnList}>
-          {boards.column.map((item, i) => (
-            <ColumnCard
-              key={item}
-              name={item}
-              onDelete={() => handleDeleteColumn(i)}
-              index={i}
-            />
-          ))}
-          {/* <CardItem /> */}
-        </ul>
+    return (
+        <section className={css.section}>
+            <div className={css.activeSettingsWrapper}>
+                <h2 className={css.title}>{boards.name}</h2>
+                <Filters />
+            </div>
+            <div className={css.columnListWrap}>
 
-        {isBoardAdded ? (
-          <AddColumn onAddColumn={handleAddColumn} />
-        ) : (
-          <div className={css.mainContentWrapper}>
-            <p className={css.text}>
-              Before starting your project, it is essential{' '}
-              <span className={css.accentText}>to create a board</span> to
-              visualize and track all the necessary tasks and milestones. This
-              board serves as a powerful tool to organize the workflow and
-              ensure effective collaboration among team members.
-            </p>
-          </div>
-        )}
-      </div>
-    </section>
-  );
+                <ul className={css.columnList}>
+                    {boards.column.map((item, i) => (
+                        <ColumnCard
+                            key={item}
+                            name={item}
+                            onDelete={() => handleDeleteColumn(i)}
+                            index={i}
+                        />
+                    ))}
+                    <AddColumn onAddColumn={handleAddColumn}/> 
+                </ul>
+            </div>
+        </section>
+    );
 };
 
 

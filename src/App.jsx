@@ -9,7 +9,8 @@ import ErrorPage from 'pages/ErrorPage/ErrorPage';
 // import LoginPage from './pages/AuthPage/LoginPage';
 
 import { AppWrapper } from './App.styled';
-// import ScreensPage from './components/ScreensPage/ScreensPage';
+// import HomePage from './pages/HomePage/HomePage';
+import ScreensPage from './components/ScreensPage/ScreensPage';
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -19,7 +20,8 @@ function App() {
         <AppWrapper>
         <Routes>
             <Route path="/" element={<SharedLayout />}>
-                {/* <Route path="/home/:boardName" element={<ScreensPage />}/> */}
+                {/* <Route path="/home" element={<HomePage />}/> */}
+                <Route path="/home/:boardName" element={<ScreensPage />}/>
                 {/* <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<LoginPage />} /> */}
                 <Route path="/first" element={<FirstPage />} />

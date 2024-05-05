@@ -2,13 +2,11 @@
 =====  ОСНОВНИЙ СКРОЛ  =====
 ? Перенести в головні стилі: */
 
-/* 
-
-body:focus {
+/*body:focus {
   scrollbar-color: transparent transparent;
 }
 
-::-webkit-scrollbar {
+ ::-webkit-scrollbar {
   width: 0px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
@@ -16,46 +14,43 @@ body:focus {
 
 ::-webkit-scrollbar-thumb {
   background-color: #161616;
-  border-radius: 12px; 
-} 
-
-*/
+  border-radius: 12px;
+} */
 
 .section {
-  width: 100%;
-  /* ??? */
+  min-width: 320px;
   height: calc(100vh - 60px);
   background-color: #1f1f1f;
-  padding: 14px 20px 24px 14px;
-  margin-left: auto;
-  margin-right: auto;
-  /* padding: 14px 0 24px 0;
-  margin-right: 20px;
-  margin-left: 14px; */
-
+  padding: 14px 8px 36px 20px;
   overflow: auto;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .section {
+    width: 375px;
+  }
 }
 
 @media (min-width: 768px) {
   .section {
-    /* 68px = висота Header ??? */
     height: calc(100vh - 68px);
   }
 }
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .section {
-    padding: 20px 32px 32px 32px;
+    width: 768px;
+    padding: 20px 32px 64px 32px;
   }
 }
 
 @media (min-width: 1440px) {
   .section {
     width: calc(100% - 260px);
-    padding: 14px 24px 8px 24px;
-    margin: 0;
+    padding: 14px 24px 28px 24px;
+    /* margin: 0;
     right: 0;
-    position: absolute;
+    position: absolute; */
   }
 }
 
@@ -71,25 +66,34 @@ body:focus {
   border-radius: 12px;
 }
 
-.settingsWrapper {
+/* .settingsWrapper {
   display: flex;
   justify-content: flex-end;
-}
+} */
 
 .activeSettingsWrapper {
+  max-width: calc(100% - 12px);
+  margin-bottom: 39px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 39px;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .activeSettingsWrapper {
+    max-width: 334px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .activeSettingsWrapper {
+    max-width: 704px;
     margin-bottom: 26px;
   }
 }
 
 @media (min-width: 1440px) {
   .activeSettingsWrapper {
+    max-width: 1132px;
     margin-bottom: 10px;
   }
 }
@@ -107,64 +111,28 @@ body:focus {
   }
 }
 
-.button {
-  background-color: transparent;
-  border: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0;
-}
-
-.icon {
-  fill: transparent;
-  stroke: #ffffff;
-}
-
-.filterText {
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.8);
-  /* ???  margin: 0;  */
-  margin: 0;
-}
-
 .columnListWrap {
-  height: calc(100% - 38px);
   display: flex;
-}
-
-@media (min-width: 768px) and (max-width: 1439px) {
-  .columnListWrap {
-    height: calc(100% - 52px);
-  }
-}
-
-@media (min-width: 1440px) {
-  .columnListWrap {
-    height: calc(100% - 22px);
-  }
 }
 
 .columnList {
   display: flex;
   gap: 18px;
-  /* gap: 34px;
-  margin-right: 34px; */
-}
-
-.columnListAdded {
+  padding-right: 20px;
   margin-right: 18px;
 }
 
-.mainContentWrapper {
+/* .columnListAdded { */
+/* display: flex; */
+/* } */
+
+/* .mainContentWrapper {
   height: 100%;
   display: flex;
   align-items: center;
-}
+} */
 
-.text {
+/* .text {
   font-size: 12px;
   font-weight: 400;
   letter-spacing: -0.02em;
@@ -184,4 +152,4 @@ body:focus {
 
 .accentText {
   color: #bedbb0;
-}
+} */
