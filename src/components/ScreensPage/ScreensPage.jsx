@@ -7,13 +7,13 @@ import css from './ScreensPage.module.css';
 
 
 const ScreensPage = () => {
-
-    const [boards, setBoards] = useState({
+  const [boards, setBoards] = useState({
         name: 'Project office',
-        // columns: [],
-        columns: ['To Do', 'In Progress', 'Done'],
+        // column: ['To Do', 'In Progress', 'Done'],
+        column: [],
         id: '12345',
     });
+
 
     // let isBoardAdded = boards?.length !== 0;
 
@@ -21,12 +21,20 @@ const ScreensPage = () => {
     //     console.log('Має відкритися модальне вікно - New Board');
     // };
 
-  const handleDeleteColumn = (columnIndex) => {
+  const handleDeleteColumn = (index) => {
     setBoards((prevBoards) => {
-      const newColumns = [...prevBoards.columns];
-      newColumns.splice(columnIndex, 1);
-      return { ...prevBoards, columns: newColumns };
+      const newColumns = [...prevBoards.column];
+      newColumns.splice(index, 1);
+      console.log({ ...prevBoards, column: newColumns });
+      return { ...prevBoards, column: newColumns };
     });
+  };
+
+  const handleAddColumn = (newColumn) => {
+    setBoards((prevBoards) => ({
+      ...prevBoards,
+      column: [...prevBoards.column, newColumn],
+    }));
   };
 
     return (
@@ -41,14 +49,15 @@ const ScreensPage = () => {
 
                 {/* <ul className={isBoardAdded ? css.columnList : css.columnListAdded }> */}
                 <ul className={css.columnList}>
-                    {boards?.columns?.map((item, index) => (
+                    {boards.column.map((item, i) => (
                         <ColumnCard
-                            key={index}
+                            key={item}
                             name={item}
-                            onDelete={() => handleDeleteColumn(index)}
+                            onDelete={() => handleDeleteColumn(i)}
+                            index={i}
                         />
                     ))}
-                    <AddColumn /> 
+                    <AddColumn onAddColumn={handleAddColumn}/> 
                     {/* {isBoardAdded && <AddColumn /> } */}
                 </ul>
 

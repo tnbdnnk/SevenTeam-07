@@ -4,12 +4,10 @@ import CardItem from '../CardItem/CardItem';
 import AddCard from '../AddCard/AddCard';
 import DeleteColumnModal from './DeleteColumn/DeleteColumnModal';
 import EditColumnModal from './EditColumn/EditColumnModal';
-
 import css from './ColumnCard.module.css';
 import icons from '../../../images/symbol-defs.svg';
 
-
-const ColumnCard = ({ id, name, onDelete }) => {
+const ColumnCard = ({ id, name, onDelete, index }) => {
   const [currentName, setCurrentName] = useState(name);
   const {
     openModal: openEditModal,
@@ -27,7 +25,7 @@ const ColumnCard = ({ id, name, onDelete }) => {
   };
 
   const confirmDelete = () => {
-    onDelete();
+    onDelete(index);
     closeDeleteModal();
   };
 
@@ -80,6 +78,5 @@ const ColumnCard = ({ id, name, onDelete }) => {
         </li>
     );
 };
-
 
 export default ColumnCard;
