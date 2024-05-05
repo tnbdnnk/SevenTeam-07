@@ -1,0 +1,25 @@
+.block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.block label {
+    width: 80px;
+}
+.btnLogin {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 80px;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btnLogin:hover {
+    background-color: blue;
+    color: white;
+}
+.loginForm {
+    margin-top: 15px;
+}
