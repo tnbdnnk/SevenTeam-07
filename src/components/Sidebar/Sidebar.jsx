@@ -5,11 +5,12 @@ import NeedHelp from "./NeedHelp/NeedHelp"
 // Для модалки
 import { useModal } from "../../hooks/useModal.js";
 import Modal from "../../helpers/ModalWindow/Modal.jsx"
+import {NewBoard} from './ModalBoards/ModalBoards.jsx'
 
 import css from './sidebar.module.css';
 import icons from '../../images/symbol-defs.svg';
 // Брати потім з бека
-const exampleBoardList = [{ id: 1, name: "First board"}, { id: 1, name: "Second board"}, ]
+const exampleBoardList = [{ id: 1, name: "First board"}, { id: 2, name: "Second board"}, ]
 
 const Sidebar = () => {
 // для модалки
@@ -25,7 +26,7 @@ const Sidebar = () => {
       <use href={icons + '#icon-plus'}></use>
     </svg></button></div>
 
-    <Modal isOpen={isModalOpen} onClose={closeModal}></Modal>
+    <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard/>}</Modal>
 
     <BoardList items={exampleBoardList} />
     <NeedHelp />
