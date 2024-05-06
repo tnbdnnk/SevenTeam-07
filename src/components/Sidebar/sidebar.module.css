@@ -82,6 +82,7 @@ button {
 
 .iconLogout{
   stroke: #BEDBB0;
+  fill: none;
 }
 
 .logoutBtn:hover .iconLogout{

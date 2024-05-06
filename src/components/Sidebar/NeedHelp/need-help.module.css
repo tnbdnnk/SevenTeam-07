@@ -25,12 +25,14 @@ span {
   font-weight: 500;
   height: 20px;
   display: flex;
+  align-items: center;
   gap: 8px;
   margin-top: 18px;
 }
 
 .icon{
   stroke: #FFFFFF;
+  fill: none;
 }
 
 .cactusBox{
