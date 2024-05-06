@@ -19,9 +19,10 @@
 
 .section {
   min-width: 320px;
+  margin: 0 auto;
   height: calc(100vh - 60px);
   background-color: #1f1f1f;
-  padding: 14px 8px 36px 20px;
+  /* padding: 14px 8px 36px 20px; */
   overflow: auto;
 }
 
@@ -40,19 +41,19 @@
 @media (min-width: 768px) and (max-width: 1439px) {
   .section {
     width: 768px;
-    padding: 20px 32px 64px 32px;
+    /* padding: 20px 32px 64px 32px; */
   }
 }
 
-@media (min-width: 1440px) {
-  .section {
-    width: calc(100% - 260px);
-    padding: 14px 24px 28px 24px;
-    /* margin: 0;
+/* @media (min-width: 1440px) {
+  .section { */
+/* width: calc(100% - 260px); */
+/* padding: 14px 24px 28px 24px; */
+/* margin: 0;
     right: 0;
     position: absolute; */
-  }
-}
+/* }
+} */
 
 .section::-webkit-scrollbar {
   width: 0px;
@@ -66,34 +67,75 @@
   border-radius: 12px;
 }
 
+/*  */
+
+.container {
+  /* min-width: 320px;
+  height: calc(100vh - 60px);
+  background-color: #1f1f1f; */
+  /* padding: 14px 8px 36px 20px; */
+  padding: 14px 8px 30px 20px;
+  /* overflow: auto; */
+}
+
+/* @media (min-width: 375px) and (max-width: 767px) {
+  .container {
+    width: 375px;
+  }
+} */
+
+/* @media (min-width: 768px) {
+  .container {
+    height: calc(100vh - 68px);
+  }
+} */
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .container {
+    /* width: 768px; */
+    /* padding: 20px 32px 64px 32px; */
+    padding: 20px 32px 58px 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    /* width: calc(100% - 260px); */
+    padding: 14px 24px 28px 24px;
+    /* margin: 0;
+    right: 0;
+    position: absolute; */
+  }
+}
+
 /* .settingsWrapper {
   display: flex;
   justify-content: flex-end;
 } */
 
 .activeSettingsWrapper {
-  max-width: calc(100% - 12px);
+  /* max-width: calc(100% - 12px); */
   margin-bottom: 39px;
   display: flex;
   justify-content: space-between;
 }
 
-@media (min-width: 375px) and (max-width: 767px) {
+/* @media (min-width: 375px) and (max-width: 767px) {
   .activeSettingsWrapper {
     max-width: 334px;
   }
-}
+} */
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .activeSettingsWrapper {
-    max-width: 704px;
+    /* max-width: 704px; */
     margin-bottom: 26px;
   }
 }
 
 @media (min-width: 1440px) {
   .activeSettingsWrapper {
-    max-width: 1132px;
+    /* max-width: 1132px; */
     margin-bottom: 10px;
   }
 }

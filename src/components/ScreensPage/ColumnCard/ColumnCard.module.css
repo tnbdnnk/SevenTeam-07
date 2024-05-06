@@ -12,7 +12,7 @@
 
 @media (min-width: 375px) {
   .item {
-    width: 351px;
+    width: 350px;
   }
 }
 
@@ -24,12 +24,14 @@
 
 @media (min-width: 1440px) {
   .item {
-    height: calc(100vh - 154px);
+    /* height: calc(100vh - 154px); */
+    height: calc(100vh - 161px);
   }
 }
 
 .columnCard {
-  height: 56px;
+  /* height: 56px; */
+  /* max-width: 280px; */
   width: 280px;
   margin-bottom: 12px;
   padding: 18px 20px;
@@ -42,7 +44,8 @@
 
 @media (min-width: 375px) {
   .columnCard {
-    width: 334px;
+    /* width: 334px; */
+    width: 294px;
   }
 }
 
@@ -80,6 +83,8 @@
   display: grid;
   gap: 8px;
 
+  /* padding-right: 4px; */
+
   overflow-y: auto;
 }
 
@@ -109,7 +114,7 @@
 }
 
 .cardsWrap::-webkit-scrollbar {
-  /* height: 8px; */
+  height: 0;
   width: 8px;
   border-radius: 12px;
   background-color: #161616;
