@@ -10,9 +10,9 @@ const WelcomePage = ()=> {
         <div>
         <h1>Task Pro</h1>
         <p>Supercharge your productivity and take control of your tasks with Task Pro - Dont wait, start achieving your goals now!</p>
-        <navbar className={styles.navbar}>
+        <nav className={styles.navbar}>
         {isLogin ? <WelcomeUser /> : <WelcomeAuth />}   
-        </navbar>
+        </nav>
         </div>
     )
 }
