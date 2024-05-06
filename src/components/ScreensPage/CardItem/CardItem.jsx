@@ -8,19 +8,18 @@ const CardItem = () => {
     }
 
     const handleDeleteCard = () => { 
-        console.log("??? Має відкритися модальне вікно - Delete card");
+        console.log("Має відкритися модальне вікно - Delete card");
     }
 
     const handleChangeColumn = () => { 
-        console.log("Має відкритися модальне вікно - Change column");
+        console.log("Має відкритися tooltip - Change column");
     }
 
     return (
         <div className={css.card}>
             <div className={css.textCardWrap}>
-                <h3 className={css.title}>Design and Prototyping SoYummy</h3>
-                {/* Приховуввати більше 2х рядків:*/}
-                <p className={css.subscribe}>Create visually appealing and functional design prototypes based on the approved concepts,...</p>
+                <h4 className={css.title}>Design and Prototyping SoYummy</h4>
+                <p className={css.subscribe}>Create visually appealing and functional design prototypes based on the approved concepts, ensuring seamless user experience and incorporating feedback for iterative improvements.</p>
             </div>
 
             <div className={css.vector}></div>
@@ -40,10 +39,10 @@ const CardItem = () => {
                     </div>
                 </div>
 
-                <div className={css.buttonsWrap}>
-                    {/* Який функціонал дзвіночка ? */}
+                <div className={css.buttonsWrap}>  
+                    {/* кнопка дзвоника сигналізує про те що сьогодні дата дедлайну */}
                     <button className={css.button} type='button'>
-                        <svg className={css.icon} width='16' height='16'>
+                        <svg className={css.iconAccent} width='16' height='16'>
                             <use href={icons + '#icon-bell'}></use>
                         </svg>
                     </button>

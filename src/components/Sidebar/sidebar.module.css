@@ -1,4 +1,6 @@
 .sidebar {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 0;
   left: 0;
@@ -40,7 +42,19 @@
 .createBtn {
   width: 40px;
   height: 36px;
-  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #BEDBB0;
+  border-radius: 5px;
+}
+
+.createBtn:hover {
+background: #9DC888;
+}
+
+.iconPlus{
+  stroke: #121212;
 }
 
 /* скинути стилі кнопок */
@@ -55,10 +69,21 @@ button {
 
 /* Позиціонувати абсолют */
 .logoutBtn {
+  display: flex;
+  gap: 14px;
+  align-items: center;
   font-weight: 500;
   font-size: 14px;
   color: #fff;
   position: absolute;
   left: 24px;
   bottom: 24px;
+}
+
+.iconLogout{
+  stroke: #BEDBB0;
+}
+
+.logoutBtn:hover .iconLogout{
+  stroke: #9DC888;
 }

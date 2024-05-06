@@ -1,0 +1,84 @@
+.header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 14px 20px;
+  background-color: #161616;
+  color: #fff;
+
+  @media screen and (min-width: 768px) {
+    height: 68px;
+    padding: 18px 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 18px 24px;
+    justify-content: flex-end;
+  }
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  /* width: 24px;
+  height: 24px; */
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.svg {
+  width: 24px;
+  height: 24px;
+  /* fill: #161616; */
+  stroke: #fff;
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.svgTheme {
+  width: 16px;
+  height: 16px;
+  fill: #161616;
+  stroke: #ffffffcc;
+}
+
+.active {
+  transform: rotate(180deg);
+}
+
+.wraperUser {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.wrapbtnTheme {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #ffffffcc;
+  font-weight: 500;
+  font-size: 14px;
+
+  letter-spacing: -0.02em;
+}
+
+.btnTheme {
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+  color: #ffffffcc;
+
+  text-align: center;
+  cursor: pointer;
+}
