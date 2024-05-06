@@ -6,6 +6,8 @@ import {signup} from "../../redux/auth/auth-operations";
 
 import { selectAuthLoading, selectAuthError } from "../../redux/auth/auth-selectors";
 
+import WelcomeAuth from "../../components/Welcome/WelcomeAuth/WelcomeAuth";
+
 import styles from './register-page.module.css'
 
 const RegisterPage = ()=> {
@@ -20,7 +22,7 @@ const RegisterPage = ()=> {
 
     return (
         <main className={styles.registerWrapper}>
-            <h1>Please Sign Up</h1>
+            <WelcomeAuth/>
             {authLoading && <p>....Register in progress</p>}
             <RegisterForm onSubmit={handleSignup} />
             {authError && <p style={{color: "red"}}>{authError}</p>}
