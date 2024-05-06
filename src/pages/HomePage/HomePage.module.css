@@ -71,3 +71,10 @@
 .link {
   color: #bedbb0;
 }
+
+/* */
+@media screen and (min-width: 1440px) {
+  .homePage{
+    display: flex;
+  }
+}

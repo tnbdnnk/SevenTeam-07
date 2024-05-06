@@ -1,7 +1,7 @@
 import LogoComponent from "./LogoComponent/LogoComponent"
 import BoardList from "./BoardList/BoardList"
 import NeedHelp from "./NeedHelp/NeedHelp"
-
+import { useEffect, useRef } from "react";
 // Для модалки
 import { useModal } from "../../hooks/useModal.js";
 import Modal from "../../helpers/ModalWindow/Modal.jsx"
@@ -12,11 +12,11 @@ import icons from '../../images/symbol-defs.svg';
 // Брати потім з бека
 const exampleBoardList = [{ id: 1, name: "First board"}, { id: 2, name: "Second board"}, ]
 
-const Sidebar = () => {
+const Sidebar = ({ className }) => {
 // для модалки
   const { isModalOpen, openModal, closeModal } = useModal();
 
-  return <aside className={css.sidebar}>
+  return <aside className={`${css.sidebar} ${className}`}>
     <LogoComponent />
     <h3 className={css.text}>My boards</h3>
     <div className={css.createBox}>
