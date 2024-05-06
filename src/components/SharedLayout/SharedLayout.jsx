@@ -7,7 +7,6 @@ import Welcome  from 'components/Welcome/Welcome'
 
 // import { selectIsLogin } from "../../redux/auth/auth-selectors";
 
-
 const SharedLayout = () => {
 
   return (
@@ -21,7 +20,5 @@ const SharedLayout = () => {
     </>
   );
 };
-
-
 
 export default SharedLayout;
