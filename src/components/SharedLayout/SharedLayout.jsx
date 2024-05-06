@@ -1,15 +1,20 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
-// import { Welcome } from 'components/Welcome/Welcome'
+import Welcome  from 'components/Welcome/Welcome'
 
-// import Welcome from "../Welcome/Welcome";
+// import { useSelector } from "react-redux";
+
+// import { selectIsLogin } from "../../redux/auth/auth-selectors";
+
 
 const SharedLayout = () => {
+
   return (
     <>
       <Header />
-      {/* <Welcome /> */}
+      <Welcome />
+
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
@@ -17,17 +22,6 @@ const SharedLayout = () => {
   );
 };
 
-
-
-    // return (
-    //     <>
-    //         <Welcome />
-    //         <Suspense fallback={<p>...Loading page</p>}>
-    //             <Outlet />
-    //         </Suspense>
-    //     </>
-    // )
-// }
 
 
 export default SharedLayout;
