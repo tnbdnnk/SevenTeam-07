@@ -1,7 +1,7 @@
 import LogoComponent from "./LogoComponent/LogoComponent"
 import BoardList from "./BoardList/BoardList"
 import NeedHelp from "./NeedHelp/NeedHelp"
-import { useEffect, useRef } from "react";
+// import { useEffect, useRef } from "react";
 // Для модалки
 import { useModal } from "../../hooks/useModal.js";
 import Modal from "../../helpers/ModalWindow/Modal.jsx"
