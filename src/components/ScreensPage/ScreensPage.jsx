@@ -30,8 +30,9 @@ const ScreensPage = () => {
     }));
   };
 
-    return (
-        <section className={css.section}>
+  return (
+    <section className={css.section}>
+        <div className={css.container}>
             <div className={css.activeSettingsWrapper}>
                 <h2 className={css.title}>{boards.name}</h2>
                 <Filters />
@@ -50,7 +51,8 @@ const ScreensPage = () => {
                     <AddColumn onAddColumn={handleAddColumn}/> 
                 </ul>
             </div>
-        </section>
+        </div>
+    </section>
     );
 };
 

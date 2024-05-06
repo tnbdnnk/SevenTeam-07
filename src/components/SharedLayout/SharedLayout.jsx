@@ -1,41 +1,23 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-// import { Header } from 'components/Header/Header';
-// import Sidebar from '../Sidebar/Sidebar';
+import { Header } from 'components/Header/Header';
+import Welcome  from 'components/Welcome/Welcome'
 
-// import { Welcome } from 'components/Welcome/Welcome'
+// import { useSelector } from "react-redux";
 
-import css from './SharedLayout.module.css';
-
-// import Welcome from "../Welcome/Welcome";
+// import { selectIsLogin } from "../../redux/auth/auth-selectors";
 
 const SharedLayout = () => {
   return (
     <>
-      {/* <Welcome /> */}
-      <div className={css.wrapper}>
-        <Suspense fallback={null}>
-          {/* <div className={css.inner}>
-            <Header />
-              <Outlet />
-            </div> */}
-          <Outlet />
-        </Suspense>
-      </div>
+      <Header />
+      <Welcome />
+
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
-
-
-    // return (
-    //     <>
-    //         <Welcome />
-    //         <Suspense fallback={<p>...Loading page</p>}>
-    //             <Outlet />
-    //         </Suspense>
-    //     </>
-    // )
-// }
-
 
 export default SharedLayout;
