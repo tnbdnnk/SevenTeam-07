@@ -1,10 +1,10 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-    <symbol id="icon-x-close" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M24 8l-16 16"></path>
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M8 8l16 16"></path>
-</symbol>
+        <symbol id="icon-x-close" viewBox="0 0 32 32">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M24 8l-16 16"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M8 8l16 16"></path>
+        </symbol>
         <symbol id="icon-help-circle" viewBox="0 0 32 32">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.88"
                 d="M16 29.333c7.364 0 13.333-5.97 13.333-13.333s-5.969-13.333-13.333-13.333-13.333 5.97-13.333 13.333c0 7.364 5.97 13.333 13.333 13.333z">
@@ -35,8 +35,8 @@
             </path>
         </symbol>
         <symbol id="icon-colors" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 27.296c1.415 1.267 3.284 2.037 5.333 2.037 4.418 0 8-3.582 8-8 0-3.689-2.497-6.795-5.893-7.72M8.56 13.614c-3.396 0.925-5.894 4.031-5.894 7.72 0 4.418 3.582 8 8 8s8-3.582 8-8c0-1.041-0.199-2.035-0.56-2.947M24 10.667c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c4.418 0 8 3.582 8 8z"></path>
-</symbol>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 27.296c1.415 1.267 3.284 2.037 5.333 2.037 4.418 0 8-3.582 8-8 0-3.689-2.497-6.795-5.893-7.72M8.56 13.614c-3.396 0.925-5.894 4.031-5.894 7.72 0 4.418 3.582 8 8 8s8-3.582 8-8c0-1.041-0.199-2.035-0.56-2.947M24 10.667c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c4.418 0 8 3.582 8 8z"></path>
+        </symbol>
         <symbol id="icon-colors-black" viewBox="0 0 32 32">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
                 d="M16 27.296c1.415 1.267 3.284 2.037 5.333 2.037 4.418 0 8-3.582 8-8 0-3.689-2.497-6.795-5.893-7.72M8.56 13.614c-3.396 0.925-5.894 4.031-5.894 7.72 0 4.418 3.582 8 8 8s8-3.582 8-8c0-1.041-0.199-2.035-0.56-2.947M24 10.667c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8c4.418 0 8 3.582 8 8z">

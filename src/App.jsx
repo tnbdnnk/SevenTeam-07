@@ -7,7 +7,6 @@ import ErrorPage from 'pages/ErrorPage/ErrorPage';
 
 import FirstPage from 'pages/FirstPage/FirstPage';
 import SecondPage from 'pages/SecondPage/SecondPage';
-import HalfPage from 'pages/HalfPage/HalfPage';
 
 // import RegisterPage from './pages/AuthPage/RegisterPage';
 // import LoginPage from './pages/AuthPage/LoginPage';
@@ -28,7 +27,6 @@ function App() {
                     <Route path="/login" element={<LoginPage />} /> */}
                     <Route path="/first" element={<FirstPage />} />
                     <Route path="/second" element={<SecondPage />}>
-                        <Route path=":half" element={<HalfPage />} />
                     </Route>
                     <Route path="*" element={<ErrorPage />} />
                 </Route>
