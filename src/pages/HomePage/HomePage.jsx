@@ -1,7 +1,16 @@
+import { useState } from 'react';
+
 import Filters from '../../components/Filters/Filters';
+import { Header } from '../../components/Header/Header.jsx';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
 import css from './HomePage.module.css';
+import cssSidebar from '../../components/Sidebar/sidebar.module.css'
 
+// Overlay for sidebar
+const Overlay = ({ onClick }) => (
+  <div className={cssSidebar.overlay} onClick={onClick}></div>
+);
 
 const HomePage = () => {
 
@@ -9,8 +18,28 @@ const HomePage = () => {
         console.log('Має відкритися модальне вікно - New Board');
     };
 
-    return (
-        <section className={css.section}>
+    // Функціонал для відкриття sidebar -----------
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const openSidebar = () => {
+    console.log('open sidebar')
+    setIsSidebarOpen(true);
+    };
+
+    const closeSidebar = () => {
+    setIsSidebarOpen(false);
+    };
+    // ------------------
+
+    return (<div className={css.homePage}>
+        {isSidebarOpen ? (
+            <>
+            <Overlay onClick={closeSidebar} />
+            <Sidebar className={cssSidebar.visible}/>
+            </>
+        ) : <Sidebar />}
+        <div className={css.inner}>
+            <Header openBurger={openSidebar} />
+            <section className={css.section}>
             <div className={css.settingsWrapper}>
                 <Filters />
             </div>
@@ -25,6 +54,9 @@ const HomePage = () => {
                 </p>
             </div>
         </section>
+            </div>
+        
+        </div>
     );
 };
 
