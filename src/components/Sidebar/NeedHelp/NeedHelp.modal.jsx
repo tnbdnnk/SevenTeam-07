@@ -18,8 +18,8 @@ const NeedHelpModal = () => {
 
         try {
             const formData = {
-            email: e.currentTarget.elements.userEmail.value,
-            comment: e.currentTarget.elements.text.value,
+                email: e.currentTarget.elements.userEmail.value,
+                comment: e.currentTarget.elements.text.value,
             };
             
             e.currentTarget.reset();
@@ -30,7 +30,7 @@ const NeedHelpModal = () => {
                     "Authorization": `Bearer ${token}`,
                 },
             });
-            console.log(response);
+            console.log(response.data);
             closeModal();
         } catch (error) {
             console.error("Error sending data to the backend:", error);
