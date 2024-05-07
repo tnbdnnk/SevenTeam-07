@@ -7,7 +7,7 @@ import css from './Background.module.css';
 
 const Background = ({ children }) => {
     
-    const [boards] = useState({
+    const [boards, setBoards] = useState({
         name: 'Project office',
         column: ['To Do', 'In Progress', 'Done'],
         // column: [],
@@ -16,6 +16,15 @@ const Background = ({ children }) => {
         // background: 'https://wallpaper.forfun.com/fetch/98/986a3988049771e452a4c8de5399e3e1.jpeg',
         // background: null,
     });
+    const handleDeleteColumn = (index) => {
+    setBoards((prevBoards) => {
+      const newColumns = [...prevBoards.column];
+      newColumns.splice(index, 1);
+      console.log({ ...prevBoards, column: newColumns });
+        return { ...prevBoards, column: newColumns };
+    });
+    };
+    console.log(handleDeleteColumn(1));
     
     const bgImage = boards?.background;
 
