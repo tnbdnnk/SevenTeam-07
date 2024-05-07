@@ -25,11 +25,12 @@ const NeedHelpModal = () => {
             e.currentTarget.reset();
 
             const response = await authInstance.post("/help", formData, {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`,
-            },
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
+                },
             });
+            console.log(response);
             closeModal();
         } catch (error) {
             console.error("Error sending data to the backend:", error);
