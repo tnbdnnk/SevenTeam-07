@@ -34,7 +34,7 @@
 
   padding: 24px;
   position: relative;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .closeBtn {
@@ -50,6 +50,7 @@
   stroke: #fff
 }
 
-.closeBtn:hover .closeIcon {
+.closeBtn:hover .closeIcon,
+.closeBtn:focus .closeIcon {
   stroke: #BEDBB0;
 }

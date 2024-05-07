@@ -2,6 +2,8 @@
   font-weight: 500;
   font-size: 18px;
   margin-bottom: 24px;
+      text-align: left;
+        color: #fff;
 }
 
 .title {
@@ -33,6 +35,7 @@
   font-size: 14px;
   color: #fff;
   margin-bottom: 14px;
+  text-align: left;
 }
 
 .iconRadios {
@@ -41,9 +44,12 @@
   margin-bottom: 24px;
 }
 
-.iconWrapper {}
+.iconWrapper {
+  width: 18px;
+  height: 18px;
+}
 
-.iconWrapper svg {
+.iconWrapper .modalIcons {
   fill: none;
   stroke: #FFFFFF;
   opacity: 0.5;
@@ -92,7 +98,7 @@ input[type="radio"]:checked+.backgroundWrapper {
   align-items: center;
 }
 
-.createBtn:hover {
+.createBtn:hover, .createBtn:focus {
   background: #9dc888;
 }
 
