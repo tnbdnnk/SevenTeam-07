@@ -36,8 +36,8 @@ function App() {
                         <Route path="/first" element={<FirstPage />} />
                         <Route path="/second" element={<SecondPage />}/>
                     </Route>
-                 </Route>
-                 <Route path="*" element={<ErrorPage />} />
+                </Route>
+                <Route path="*" element={<ErrorPage />} />
             </Routes>
         </AppWrapper>
     );
