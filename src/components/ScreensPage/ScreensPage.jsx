@@ -17,11 +17,11 @@ const ScreensPage = () => {
     background: null,
   });
 
-  const isBgImage = boards?.background;
+  const bgImage = boards?.background;
 
   const handleBackground = (image) => {
     if (image) {
-      return { backgroundImage: `url(${boards?.background})` }
+      return { backgroundImage: `url(${bgImage})` }
     };
     return;
   }
@@ -43,7 +43,7 @@ const ScreensPage = () => {
   };
 
     return (
-        <div style={handleBackground(boards?.background)} className={isBgImage ? `${css.container} ${css.imageStyles}` : `${css.container}`}>
+        <div style={handleBackground(bgImage)} className={bgImage ? `${css.container} ${css.imageStyles}` : `${css.container}`}>
             <section className={css.section}>
                 <div className={css.activeSettingsWrapper}>
                     <h2 className={css.title}>{boards.name}</h2>
