@@ -7,13 +7,15 @@ import css from './ScreensPage.module.css';
 
 
 const ScreensPage = () => {
+  
   const [boards, setBoards] = useState({
         name: 'Project office',
         column: ['To Do', 'In Progress', 'Done'],
         // column: [],
         id: '12345',
-    });
-
+        background: 'https://amiel.club/uploads/posts/2022-03/1647776100_1-amiel-club-p-yarkie-kartinki-na-zastavku-1.jpg',
+  });
+  
   const handleDeleteColumn = (index) => {
     setBoards((prevBoards) => {
       const newColumns = [...prevBoards.column];
@@ -31,8 +33,9 @@ const ScreensPage = () => {
   };
 
   return (
-    <section className={css.section}>
-        <div className={css.container}>
+      <div className={css.container}>
+      {/* <div bg={boardBackground(oneBoard)} className={css.container}> */}
+        <section className={css.section}>
             <div className={css.activeSettingsWrapper}>
                 <h2 className={css.title}>{boards.name}</h2>
                 <Filters />
@@ -51,8 +54,8 @@ const ScreensPage = () => {
                     <AddColumn onAddColumn={handleAddColumn}/> 
                 </ul>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     );
 };
 
