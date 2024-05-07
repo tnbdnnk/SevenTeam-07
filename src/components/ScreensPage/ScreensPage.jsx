@@ -9,12 +9,22 @@ import css from './ScreensPage.module.css';
 const ScreensPage = () => {
   
   const [boards, setBoards] = useState({
-        name: 'Project office',
-        column: ['To Do', 'In Progress', 'Done'],
-        // column: [],
-        id: '12345',
-        background: 'https://amiel.club/uploads/posts/2022-03/1647776100_1-amiel-club-p-yarkie-kartinki-na-zastavku-1.jpg',
+    name: 'Project office',
+    column: ['To Do', 'In Progress', 'Done'],
+    // column: [],
+    id: '12345',
+    background: 'https://wallpaper.forfun.com/fetch/98/986a3988049771e452a4c8de5399e3e1.jpeg',
+    // background: null,
   });
+
+  const isBgImage = boards?.background;
+
+  const handleBackground = (image) => {
+    if (image) {
+      return { backgroundImage: `url(${boards?.background})` }
+    };
+    return;
+  }
   
   const handleDeleteColumn = (index) => {
     setBoards((prevBoards) => {
@@ -32,30 +42,28 @@ const ScreensPage = () => {
     }));
   };
 
-  return (
-      <div className={css.container}>
-      {/* <div bg={boardBackground(oneBoard)} className={css.container}> */}
-        <section className={css.section}>
-            <div className={css.activeSettingsWrapper}>
-                <h2 className={css.title}>{boards.name}</h2>
-                <Filters />
-            </div>
-            <div className={css.columnListWrap}>
+    return (
+        <div style={handleBackground(boards?.background)} className={isBgImage ? `${css.container} ${css.imageStyles}` : `${css.container}`}>
+            <section className={css.section}>
+                <div className={css.activeSettingsWrapper}>
+                    <h2 className={css.title}>{boards.name}</h2>
+                    <Filters />
+                </div>
 
-                <ul className={css.columnList}>
+                <div className={css.columnListWrap}>
+                    <ul className={css.columnList}>
                     {boards.column.map((item, i) => (
                         <ColumnCard
-                            key={item}
-                            name={item}
-                            onDelete={() => handleDeleteColumn(i)}
-                            index={i}
-                        />
-                    ))}
-                    <AddColumn onAddColumn={handleAddColumn}/> 
-                </ul>
-            </div>
-        </section>
-    </div>
+                        key={item}
+                        name={item}
+                        onDelete={() => handleDeleteColumn(i)}
+                        index={i}
+                        />))}
+                        <AddColumn onAddColumn={handleAddColumn}/> 
+                    </ul>
+                </div>
+            </section>
+        </div>
     );
 };
 
