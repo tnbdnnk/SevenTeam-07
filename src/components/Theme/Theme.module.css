@@ -3,8 +3,6 @@
   /* top: 42px; */
   top: 34px;
   left: 0;
-  height: 70px;
-  width: 60px;
   padding: 18px;
   background-color: #161616;
   border-radius: 5px;
@@ -16,7 +14,6 @@
 .list {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   gap: 4px;
   font-weight: 400;
   font-size: 14px;
