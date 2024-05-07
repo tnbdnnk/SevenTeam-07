@@ -5,9 +5,9 @@ import styles from "./welcome-auth.module.css";
 const WelcomeAuth = ()=> {
     return (
         <div className={styles.block}>
-            <NavLink to="/register" className={styles.link}>Register</NavLink>
-            |
-            <NavLink to="/login" className={styles.link}>Login</NavLink>
+            <NavLink to="/auth/register" className={styles.link}>Registration</NavLink>
+      
+            <NavLink to="/auth/login" className={styles.link}>Log In</NavLink>
         </div>
     )
 }

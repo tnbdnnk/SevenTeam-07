@@ -1,24 +1,15 @@
-import { useSelector } from "react-redux";
+import WelcomePage from "../../pages/WelcomePage/WelcomePage";
 
-import WelcomeMenu from "./WelcomeMenu/WelcomeMenu";
-import WelcomeAuth from "./WelcomeAuth/WelcomeAuth";
-// import WelcomeUser from "./WelcomeUser/WelcomeUser";
+// import styles from "./welcome.module.css";
 
-import ScreensPage from "../ScreensPage/ScreensPage"
+const Welcome = ()=> {
 
-import { selectIsLogin } from "../../redux/auth/auth-selectors";
-
-import styles from "./welcome.module.css";
-
-export const Welcome = ()=> {
-    const isLogin = useSelector(selectIsLogin);
     
     return (
-        <navbar className={styles.navbar}>
-            <WelcomeMenu />
-            {isLogin ? <ScreensPage /> : <WelcomeAuth />}
-        </navbar>
+        <div>
+            <WelcomePage/>
+        </div>
     )
 }
 
-// export default Welcome;
+export default Welcome;

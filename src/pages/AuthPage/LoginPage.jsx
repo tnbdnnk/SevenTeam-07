@@ -6,6 +6,8 @@ import {login} from "../../redux/auth/auth-operations";
 
 import { selectAuthLoading, selectAuthError } from "../../redux/auth/auth-selectors";
 
+import WelcomeAuth from "../../components/Welcome/WelcomeAuth/WelcomeAuth";
+
 import styles from './login-page.module.css'
 
 const LoginPage = ()=> {
@@ -20,7 +22,7 @@ const LoginPage = ()=> {
 
     return (
         <div className={styles.loginwrapper}>
-            <h1>Login page</h1>
+            <WelcomeAuth/>
             {authLoading && <p>....Login in progress</p>}
             <LoginForm onSubmit={handleLogin} />
             {authError && <p style={{color: "red"}}>{authError}</p>}

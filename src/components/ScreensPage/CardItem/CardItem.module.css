@@ -1,7 +1,9 @@
 .card {
-  position: relative;
   padding: 14px 20px 14px 24px;
   background-color: #121212;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -18,7 +20,7 @@
 
 @media (min-width: 375px) {
   .card {
-    width: 334px;
+    width: 290px;
   }
 }
 

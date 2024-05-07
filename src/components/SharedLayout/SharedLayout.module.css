@@ -1,8 +1,26 @@
-.wrapper {
+
+/* .wrapper {
   display: flex;
+} */
+
+.wrapper {
+  background-color: #1f1f1f;
+}
+
+@media (min-width: 1440px) {
+  .wrapper {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .inner {
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 1440px) {
+  .inner {
+    width: calc(100% - 260px);
+  }
 }
