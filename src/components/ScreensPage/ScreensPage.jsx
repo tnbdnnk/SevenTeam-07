@@ -11,7 +11,7 @@ const ScreensPage = () => {
   
   const [boards, setBoards] = useState({
     name: 'Project office',
-    // column: ['To Do', 'In Progress', 'Done'],
+    column: ['To Do', 'In Progress', 'Done'],
     // column: [],
     id: '12345',
     background: 'https://wallpaper.forfun.com/fetch/98/986a3988049771e452a4c8de5399e3e1.jpeg',

@@ -7,7 +7,7 @@ import css from "./boardList.module.css"
 const BoardList = ({ items }) => {
 
   const list = items.map(item => {
-    const boardName = item.name.replace(' ', '').toLowerCase();
+    const boardName = item.title.replace(' ', '').toLowerCase();
 
     return (
       <li key={item.id} id={css.boardItem}>
