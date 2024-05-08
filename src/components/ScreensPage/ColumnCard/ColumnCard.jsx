@@ -7,7 +7,18 @@ import EditColumnModal from './EditColumn/EditColumnModal';
 import css from './ColumnCard.module.css';
 import icons from '../../../images/symbol-defs.svg';
 
-const ColumnCard = ({ id, name, onDelete, index }) => {
+const ColumnCard = ({ id, name, onDelete, index }) => { 
+
+    const cards = [
+        {
+            title: 'The Watch Spot Design',
+            subscription: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
+            priority: 'Low',
+            // дата буде в іншому форматі = Date?
+            deadline: '12/05/2023'
+        },
+    ];
+   
   const [currentName, setCurrentName] = useState(name);
   const {
     openModal: openEditModal,
@@ -64,14 +75,15 @@ const ColumnCard = ({ id, name, onDelete, index }) => {
                     </div>
                 </div>
                 <div className={css.cardsWrap}>
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
+                    {cards.map((card) => (
+                        <CardItem
+                            key={card.index}
+                            // title={item}
+                            // subscription={}
+                            // priority={}
+                            // deadline={}
+                            // index={i}
+                        />))}
                 </div>
             </div>
             <AddCard />
@@ -80,3 +92,8 @@ const ColumnCard = ({ id, name, onDelete, index }) => {
 };
 
 export default ColumnCard;
+// title: 'The Watch Spot Design',
+//             subscription: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
+//             priority: 'Low',
+//             // дата буде в іншому форматі = Date?
+//             deadline

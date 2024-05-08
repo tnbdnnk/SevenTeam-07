@@ -56,8 +56,13 @@
   }
 }
 
-/* .imageStyles {
-} */
+.imageStyles {
+  /* max-width: 1440px; */
+  background-color: #1f1f1f;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 
 .section {
   width: 100%;

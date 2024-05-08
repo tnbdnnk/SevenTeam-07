@@ -1,9 +1,13 @@
-/* .back {
-  width: 100%;
-  height: calc(100% - 68px);
-  background-size: cover;
+/* .container {
+
 } */
 
 .imageStyles {
-  width: 100%;
+  /* width: 100%;
+  max-width: 1440px;
+  height: calc(100% - 68px); */
+  background-color: #1f1f1f;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

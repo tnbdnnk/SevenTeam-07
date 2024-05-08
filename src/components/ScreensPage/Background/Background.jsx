@@ -1,51 +1,59 @@
 import {useMedia} from 'react-use';
-import { useState } from 'react';
-// import { useBoards } from 'hooks/useBoards';
+// import { useState } from 'react';
+// import aa from '../../../images/bg-images/test-image_1180_@1x.jpg';
 
 import css from './Background.module.css';
 
 
 const Background = ({ children }) => {
     
-    const [boards, setBoards] = useState({
-        name: 'Project office',
-        column: ['To Do', 'In Progress', 'Done'],
-        // column: [],
-        id: '12345',
-        background: 'test-image',
+    // const [boards, setBoards] = useState({
+    //     name: 'Project office',
+    //     column: ['To Do', 'In Progress', 'Done'],
+    //     // column: [],
+    //     id: '12345',
+    //     background: 'test-image',
         // background: 'https://wallpaper.forfun.com/fetch/98/986a3988049771e452a4c8de5399e3e1.jpeg',
         // background: null,
-    });
-    const handleDeleteColumn = (index) => {
-    setBoards((prevBoards) => {
-      const newColumns = [...prevBoards.column];
-      newColumns.splice(index, 1);
-      console.log({ ...prevBoards, column: newColumns });
-        return { ...prevBoards, column: newColumns };
-    });
-    };
-    console.log(handleDeleteColumn(1));
+    // });
+
+    const boards = [
+        {
+            background: 'test-image',
+        }
+    ];
     
-    const bgImage = boards?.background;
+    const bgImage = boards[0].background;
 
-    // const {boards, current} = useBoards();
-    // const selectedBgIndex = boards[current]?.background;
     const isWide = useMedia('(min-width: 1180px)');
-    const isMobile = useMedia('(max-width: 320px)');
+    const isMobile = useMedia('(max-width: 767px)');
     const userRatio = useMedia('(-webkit-min-device-pixel-ratio: 2)') ? "@2x" : "@1x";
-    let background = {};
+    // const Ratio = useMedia('(-webkit-min-device-pixel-ratio: 2)');
+    // const userRatio = Ratio ? "@2x" : "@1x";
+    let bg = {};
 
-    if(bgImage) {
-        const userScreen = isWide ? "1180" : isMobile ? "320-min" : "768-min";
-        const url = `url('../../../images/${bgImage}_${userScreen}_${userRatio}.jpg')`;
-        // const url = `https://res.cloudinary.com/pro-task-cloud/image/upload/v1687806931/backgrounds/diego-ph-wyeapf7Gy-U-unsplash%20${selectedBgIndex}%40${userRatio}_${userScreen}.jpg.webp`;
-        background = { backgroundImage: `url(${url})` };
-        console.log(url);
-        console.log(background);
+    const handleBackground = (image) => {
+        if (image) {
+            const userScreen = isWide ? "1180" : isMobile ? "320" : "768";
+            const url = `url('../../../images/bg-images/${image}_${userScreen}_${userRatio}.jpg')`;
+            // const url = `https://cloudinary.com/.jpg`;
+            bg = { backgroundImage: url };
+            console.log(bg);
+            return bg;
+        };
+        return;
     }
 
+    // if(bgImage) {
+    //     const userScreen = isWide ? "1180" : isMobile ? "320" : "768";
+    //     const url = `url('../../../images/bg-images/${bgImage}_${userScreen}_${userRatio}.jpg')`
+    //     // const url = `https://cloudinary.com/.jpg`;
+    //     bg = { backgroundImage: url };
+    // }
+
     return (
-        <div className={bgImage && `${css.imageStyles}`} style={background}>
+        <div style={handleBackground(bgImage)} className={bgImage ? `${css.container} ${css.imageStyles}` : `${css.container}`}>
+        {/* <div className={bgImage && `${css.imageStyles}`} style={bg}> */}
             {children}
         </div>
     )

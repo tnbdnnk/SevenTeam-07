@@ -2,7 +2,9 @@ import css from './CardItem.module.css';
 import icons from '../../../images/symbol-defs.svg';
 
 
-const CardItem = () => {
+const CardItem = ({ card }) => {
+    const { title, subscription, priority, deadline } = card;
+    
     const handleEditCard= () => { 
         console.log("Має відкритися модальне вікно - Edit card");
     }
@@ -18,8 +20,10 @@ const CardItem = () => {
     return (
         <div className={css.card}>
             <div className={css.textCardWrap}>
-                <h4 className={css.title}>Design and Prototyping SoYummy</h4>
-                <p className={css.subscribe}>Create visually appealing and functional design prototypes based on the approved concepts, ensuring seamless user experience and incorporating feedback for iterative improvements.</p>
+                <h4 className={css.title}>{title}</h4>
+                <p className={css.subscribe}>{subscription}</p>
+                {/* <h4 className={css.title}>Design and Prototyping SoYummy</h4>
+                <p className={css.subscribe}>Create visually appealing and functional design prototypes based on the approved concepts, ensuring seamless user experience and incorporating feedback for iterative improvements.</p> */}
             </div>
 
             <div className={css.vector}></div>
@@ -30,12 +34,12 @@ const CardItem = () => {
                         <p className={css.caption}>Priority</p>
                         <div className={css.priorityDataWrap}>
                             <div className={css.circle}></div>
-                            <p className={css.text}>Low</p>
+                            <p className={css.text}>{priority}</p>
                         </div>
                     </div>
                     <div>
                         <p className={css.caption}>Deadline</p>
-                        <p className={css.text}>12/05/2023</p>
+                        <p className={css.text}>{deadline}</p>
                     </div>
                 </div>
 
