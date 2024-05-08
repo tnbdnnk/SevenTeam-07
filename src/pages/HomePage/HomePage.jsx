@@ -6,6 +6,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 
 import css from './HomePage.module.css';
 import cssSidebar from '../../components/Sidebar/sidebar.module.css'
+import { Outlet } from 'react-router-dom';
 
 // Overlay for sidebar
 const Overlay = ({ onClick }) => (
@@ -46,8 +47,9 @@ const HomePage = () => {
             <Sidebar className={cssSidebar.visible}/>
             </>
         ) : <Sidebar />}
+<div>
+        <Header openBurger={openSidebar} />
         <div className={css.inner}>
-            <Header openBurger={openSidebar} />
             <section className={css.section}>
             <div className={css.settingsWrapper}>
                 <Filters />
@@ -63,6 +65,8 @@ const HomePage = () => {
                 </p>
             </div>
         </section>
+            </div>
+            <Outlet/>
             </div>
         
         </div>
