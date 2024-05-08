@@ -5,9 +5,9 @@ import ScreensPage from './components/ScreensPage/ScreensPage';
 
 
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
-
-import FirstPage from 'pages/FirstPage/FirstPage';
-import SecondPage from 'pages/SecondPage/SecondPage';
+// Видалити:
+// import FirstPage from 'pages/FirstPage/FirstPage';
+// import SecondPage from 'pages/SecondPage/SecondPage';
 
 // import { lazy } from "react";
 // const RegisterPage = lazy(() => import("./pages/AuthPage/RegisterPage"));
@@ -27,16 +27,21 @@ function App() {
         <AppWrapper>
             <Routes>
                 <Route path="/" element={<SharedLayout />}>
-                    <Route path="/home" element={<HomePage />}/>
+
                     <Route element={<PublicRoute />}>
                         {/* <Route path="/welcome" element={<WelcomePage />}/>
                         <Route path="auth/register" element={<RegisterPage />} />
                         <Route path="auth/login" element={<LoginPage />} /> */}
-                        <Route path="/home/:boardName" element={<ScreensPage />}/>
+                        
                     </Route>
                     <Route element={<PrivateRoute />}>
-                        <Route path="/first" element={<FirstPage />} />
-                        <Route path="/second" element={<SecondPage />}/>
+                        <Route path="/home" element={<HomePage />}>
+                            <Route path=":boardName" element={<ScreensPage />}/>
+                        </Route>
+
+                        {/* Видалити FirstPage SecondPage  */}
+                        {/* <Route path="/first" element={<FirstPage />} />
+                        <Route path="/second" element={<SecondPage />}/> */}
                     </Route>
                 </Route>
                 <Route path="*" element={<ErrorPage />} />
