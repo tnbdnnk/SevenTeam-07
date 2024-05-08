@@ -2,7 +2,8 @@ p {
   margin: 0;
 }
 
-.box {
+.needHelpBox {
+  box-sizing: border-box;
   padding: 14px;
 
   border-radius: 8px;

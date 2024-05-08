@@ -41,15 +41,15 @@ const RegisterForm = ({ onSubmit }) => {
         <form className={styles.registerForm} onSubmit={handleSubmit}>
             <div className={styles.block}>
                 <label htmlFor={nameId}></label>
-                <input value={name} onChange={handleChange} name="name" placeholder="Enter your name" id={nameId} required />
+                <input value={name} className={styles.registerInput} onChange={handleChange} name="name" placeholder="Enter your name" id={nameId} required />
             </div>
             <div className={styles.block}>
                 <label htmlFor={emailId}></label>
-                <input value={email} onChange={handleChange} type="email" name="email" placeholder="Enter your email" id={emailId} required />
+                <input value={email} className={styles.registerInput} onChange={handleChange} type="email" name="email" placeholder="Enter your email" id={emailId} required />
             </div>
             <div className={styles.block}>
                 <label htmlFor={passwordId}></label>
-                <input value={password} onChange={handleChange} type="password" name="password" placeholder="Create a password" id={passwordId} required />
+                <input value={password} className={styles.registerInput} onChange={handleChange} type="password" name="password" placeholder="Create a password" id={passwordId} required />
             </div>
             <button className={styles.btnRegister} type="submit">Register Now</button>
         </form>

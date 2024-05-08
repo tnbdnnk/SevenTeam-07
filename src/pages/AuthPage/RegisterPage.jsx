@@ -1,12 +1,14 @@
 import { useSelector, useDispatch } from "react-redux";
 
+import { NavLink } from "react-router-dom";
+
 import RegisterForm from "../../components/AuthForm/RegisterForm";
 
 import {signup} from "../../redux/auth/auth-operations";
 
 import { selectAuthLoading, selectAuthError } from "../../redux/auth/auth-selectors";
 
-import WelcomeAuth from "../../components/Welcome/WelcomeAuth/WelcomeAuth";
+// import WelcomeAuth from "../../components/Welcome/WelcomeAuth/WelcomeAuth";
 
 import styles from './register-page.module.css'
 
@@ -22,10 +24,17 @@ const RegisterPage = ()=> {
 
     return (
         <main className={styles.registerWrapper}>
-            <WelcomeAuth/>
+            <div className={styles.register}>
+            {/* <WelcomeAuth/> */}
+            <div className={styles.blockRegister}>
+            <NavLink to="/auth/register" className={styles.linkRegister}>Registration</NavLink>
+      
+            <NavLink to="/auth/login" className={styles.linkRegister}>Log In</NavLink>
+            </div>
             {authLoading && <p>....Register in progress</p>}
             <RegisterForm onSubmit={handleSignup} />
             {authError && <p style={{color: "red"}}>{authError}</p>}
+            </div>
         </main>
     )
 }

@@ -59,12 +59,13 @@ export const NewBoard = () => {
     background: ""
   });
 
-  useEffect(() => {
-    console.log("Стан boardData змінився:", boardData);
-  }, [boardData]);
+  // useEffect(() => {
+  //   console.log("Стан boardData змінився:", boardData);
+  // }, [boardData]);
 
   const onSubmit = ({ title, icons, background}) => {
-    setBoardData({ title, icons,  background });
+    setBoardData({ title, icons, background });
+    console.log(boardData)
       //  додати логіку відправки  даних на сервер
   }
   
@@ -77,9 +78,17 @@ export const NewBoard = () => {
 
 export const EditBoard = ({ boardData }) => {
   const { register, handleSubmit } = useForm();
-  console.log(boardData)
 
-  const onSubmit = (data) => {
+
+    const [editBoardData, setBoardData] = useState({
+    title: "",
+    icons: "",
+    background: ""
+    });
+  
+  const onSubmit = ({ title, icons, background}) => {
+    
+    setBoardData({ title, icons, background });
     console.log("відправка даних на сервер");
         //  Логіка відправки  даних на сервер
   }

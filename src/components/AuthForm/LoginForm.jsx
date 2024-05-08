@@ -1,6 +1,7 @@
 import { useState, useId } from "react";
 
-import styles from "./login-form.module.css";
+// import styles from "./login-form.module.css";
+import styles from "../AuthForm/register-form.module.css";
 
 const INITIAL_STATE = {
     email: "",
@@ -36,16 +37,16 @@ const LoginForm = ({ onSubmit }) => {
     const { email, password } = state;
 
     return (
-        <form className={styles.loginForm} onSubmit={handleSubmit}>
+        <form className={styles.registerForm} onSubmit={handleSubmit}>
             <div className={styles.block}>
                 <label htmlFor={emailId}></label>
-                <input value={email} onChange={handleChange} type="email" name="email" placeholder="Enter your email" id={emailId} required />
+                <input value={email} className={styles.registerInput} onChange={handleChange} type="email" name="email" placeholder="Enter your email" id={emailId} required />
             </div>
             <div className={styles.block}>
                 <label htmlFor={passwordId}></label>
-                <input value={password} onChange={handleChange} type="password" name="password" placeholder="Confirm a password" id={passwordId} required />
+                <input value={password} className={styles.registerInput} onChange={handleChange} type="password" name="password" placeholder="Confirm a password" id={passwordId} required />
             </div>
-            <button className={styles.btnLogin} type="submit">Log In Now</button>
+            <button className={styles.btnRegister} type="submit">Log In Now</button>
         </form>
     )
 }

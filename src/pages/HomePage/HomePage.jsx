@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useModal } from "../../hooks/useModal.js";
 
 import Filters from '../../components/Filters/Filters';
@@ -9,6 +9,7 @@ import { NewBoard } from '../../components/Sidebar/ModalBoards/ModalBoards.jsx';
 
 import css from './HomePage.module.css';
 import cssSidebar from '../../components/Sidebar/sidebar.module.css'
+import { Outlet } from 'react-router-dom';
 
 // Overlay for sidebar
 const Overlay = ({ onClick }) => (
@@ -29,6 +30,11 @@ const HomePage = () => {
     const closeSidebar = () => {
     setIsSidebarOpen(false);
     };
+
+    useEffect(() => {
+    if (isSidebarOpen) {
+    openSidebar()  }
+  }, [isSidebarOpen]);
     // ------------------
 
     return (<div className={css.homePage}>
@@ -38,8 +44,9 @@ const HomePage = () => {
             <Sidebar className={cssSidebar.visible}/>
             </>
         ) : <Sidebar />}
+<div>
+        <Header openBurger={openSidebar} />
         <div className={css.inner}>
-            <Header openBurger={openSidebar} />
             <section className={css.section}>
             <div className={css.settingsWrapper}>
                 <Filters />
@@ -56,6 +63,8 @@ const HomePage = () => {
                 <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard/>}</Modal>
             </div>
         </section>
+            </div>
+            <Outlet/>
             </div>
         
         </div>
