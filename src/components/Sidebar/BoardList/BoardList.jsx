@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import css from "./boardList.module.css"
+// import sprite from '../../../images/symbol-defs.svg'
 
 
 const BoardList = ({ items }) => {
@@ -16,8 +17,6 @@ const BoardList = ({ items }) => {
         </NavLink>
       </li>)
   })
-
-  return <ul className={css.list}>Тут буде список бордів: {list}</ul>
 }
 
-export default BoardList
+export default BoardList;

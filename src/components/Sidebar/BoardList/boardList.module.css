@@ -1,5 +1,79 @@
+h3 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+}
+
 .list {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  overflow-y: auto;
+  margin-bottom: 40px;
+}   
+
+.item {
+  height: 61px;
+  width: 100%;
+  padding: 0 14px;
+  color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+}
+
+.boardBtn {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.active {
+  background-color: rgba(31, 31, 31, 0.4);
+  color: #fff;
+}
+
+.active .boardInfo svg {
+  stroke: #fff;
+  opacity: 1;
+}
+
+.boardInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.boardIcon {
+  stroke: #FFFFFF;
+  opacity: 0.5;
+}
+
+.boarSettings {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.boarSettings button:hover svg,
+.boarSettings button:focus svg {
+  stroke: #BEDBB0;
+  opacity: 1;
+}
+
+.boarSettingsSvg {
+  display: none;
+}
+
+.active .boarSettingsSvg {
+  display: block;
+  fill: none;
+  stroke: #FFFFFF;
+  opacity: 0.5;
+}
+
 }
 
 .link {
