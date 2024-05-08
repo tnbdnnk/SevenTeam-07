@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Filters from '../../components/Filters/Filters';
 import { Header } from '../../components/Header/Header.jsx';
@@ -18,6 +18,10 @@ const HomePage = () => {
         console.log('Має відкритися модальне вікно - New Board');
     };
 
+    // const { isModalOpen, openModal, closeModal } = useModal();
+
+    // <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard/>}</Modal>
+
     // Функціонал для відкриття sidebar -----------
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const openSidebar = () => {
@@ -28,6 +32,11 @@ const HomePage = () => {
     const closeSidebar = () => {
     setIsSidebarOpen(false);
     };
+
+    useEffect(() => {
+    if (isSidebarOpen) {
+    openSidebar()  }
+  }, [isSidebarOpen]);
     // ------------------
 
     return (<div className={css.homePage}>
