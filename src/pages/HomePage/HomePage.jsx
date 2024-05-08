@@ -18,6 +18,10 @@ const HomePage = () => {
         console.log('Має відкритися модальне вікно - New Board');
     };
 
+    // const { isModalOpen, openModal, closeModal } = useModal();
+
+    // <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard/>}</Modal>
+
     // Функціонал для відкриття sidebar -----------
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const openSidebar = () => {

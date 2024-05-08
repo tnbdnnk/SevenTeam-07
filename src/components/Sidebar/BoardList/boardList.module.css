@@ -73,3 +73,13 @@ h3 {
   stroke: #FFFFFF;
   opacity: 0.5;
 }
+
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.active {
+  color: #fff;
+}
