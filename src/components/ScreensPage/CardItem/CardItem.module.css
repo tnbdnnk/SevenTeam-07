@@ -15,7 +15,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: #8fa1d0;
+  background-color: #8fa1d0;
 }
 
 @media (min-width: 375px) {
