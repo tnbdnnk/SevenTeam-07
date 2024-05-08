@@ -8,14 +8,12 @@
   overflow: hidden;
 }
 
-.card::before {
+.cardLine {
   position: absolute;
-  content: '';
   width: 4px;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #8fa1d0;
 }
 
 @media (min-width: 375px) {

@@ -33,6 +33,7 @@ const CardItem = (card) => {
 
     return (
         <div className={css.card}>
+            <div style={handleSetColor(priorityColor)} className={css.cardLine}></div>
             <div className={css.textCardWrap}>
                 <h4 className={css.title}>{title}</h4>
                 <p className={css.subscribe}>{subscription}</p>
