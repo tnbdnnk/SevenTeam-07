@@ -70,11 +70,12 @@
 
 .link {
   color: #bedbb0;
+  cursor: pointer;
 }
 
 /* */
 @media screen and (min-width: 1440px) {
-  .homePage{
+  .homePage {
     display: flex;
   }
 }
