@@ -17,6 +17,7 @@ const BoardList = ({ items }) => {
         </NavLink>
       </li>)
   })
+  return <ul className={css.list}>Тут буде список бордів: {list}</ul>;
 }
 
 export default BoardList;
