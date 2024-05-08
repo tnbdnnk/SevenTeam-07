@@ -3,6 +3,7 @@ import SharedLayout from 'components/SharedLayout/SharedLayout';
 // import HomePage from './pages/HomePage/HomePage';
 import ScreensPage from './components/ScreensPage/ScreensPage';
 
+
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 
 import FirstPage from 'pages/FirstPage/FirstPage';
@@ -17,10 +18,11 @@ import PublicRoute from "./components/PublicRoute/PublicRoute";
 
 import { AppWrapper } from './App.styled';
 
-const test = import.meta.env.VITE_API_TEST;
+// const test = import.meta.env.VITE_API_TEST;
 
 function App() {
-    console.log(test);
+    // console.log(test);
+
     return (
         <AppWrapper>
             <Routes>
