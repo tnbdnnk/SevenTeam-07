@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header } from 'components/Header/Header';
+// import { Header } from 'components/Header/Header';
 import Welcome from 'components/Welcome/Welcome'
-import Sidebar from '../../components/Sidebar/Sidebar'
+// import Sidebar from '../../components/Sidebar/Sidebar'
 
 // import { useSelector } from "react-redux";
 
@@ -11,9 +11,9 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 const SharedLayout = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Welcome />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>

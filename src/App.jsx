@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
-// import HomePage from './pages/HomePage/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import ScreensPage from './components/ScreensPage/ScreensPage';
 
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
@@ -25,7 +25,7 @@ function App() {
         <AppWrapper>
             <Routes>
                 <Route path="/" element={<SharedLayout />}>
-                    {/* <Route path="/home" element={<HomePage />}/> */}
+                    <Route path="/home" element={<HomePage />}/>
                     <Route element={<PublicRoute />}>
                         {/* <Route path="/welcome" element={<WelcomePage />}/>
                         <Route path="auth/register" element={<RegisterPage />} />
