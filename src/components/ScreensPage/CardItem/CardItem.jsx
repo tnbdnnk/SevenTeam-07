@@ -5,21 +5,12 @@ import icons from '../../../images/symbol-defs.svg';
 const CardItem = (card) => {
     const { title, subscription, priority, deadline } = card;
 
-    // написати функціонал для обробки дат:
+    // написати функціонал для обробки дат і кольору:
     const deadlineDate = '2011-10-10';
-    // const deadline = new Date('July 20, 69 00:20:18');
-    // console.log(deadline.getMonth() + 1);
-
-    // const today = Date.now();
-    // const today = new Date();
     const today = '2011-10-10';
-
-    // console.log(today);
-    // console.log(deadlineDate);
     const priorityColor = '#8fa1d0';
-    const isDeadlineToday = (today === deadlineDate);
 
-    // const handleSetColor = priorityColor ?? { backgroundColor: `${priorityColor}` };
+    const isDeadlineToday = (today === deadlineDate);
 
     const handleSetColor = (image) => {
         if (image) {

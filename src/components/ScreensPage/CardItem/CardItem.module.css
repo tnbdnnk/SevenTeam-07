@@ -137,21 +137,3 @@
 .iconAccent {
   stroke: #bedbb0;
 }
-
-/* .iconAccent::after {
-  filter: blur(4px);
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 4px;
-  border-radius: 2px;
-  bottom: -1px;
-  left: 0;
-  box-shadow: #bedbb0;
-  background: radial-gradient(
-    circle,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(190, 219, 176, 0.5326724439775911) 56%,
-    rgba(0, 212, 255, 1) 100%
-  );
-} */
