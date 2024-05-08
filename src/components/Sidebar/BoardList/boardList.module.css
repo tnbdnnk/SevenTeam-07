@@ -12,30 +12,31 @@ h3 {
   width: 100%;
   overflow-y: auto;
   margin-bottom: 40px;
-}   
+}
 
 .item {
   height: 61px;
   width: 100%;
-  padding: 0 14px;
-  color: rgba(255, 255, 255, 0.5);
-  width: 100%;
 }
 
-.boardBtn {
+.boardLink {
+  box-sizing: border-box;
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: space-between;
+    color: rgba(255, 255, 255, 0.5);
+      padding: 0 14px;
 }
 
-.active {
-  background-color: rgba(31, 31, 31, 0.4);
-  color: #fff;
+.active .boardLink{
+    color: #fff;
+    background-color: rgba(31, 31, 31, 0.4);
 }
 
 .active .boardInfo svg {
+  fill: none;
   stroke: #fff;
   opacity: 1;
 }
@@ -56,12 +57,11 @@ h3 {
   align-items: center;
   gap: 8px;
 }
-
-.boarSettings button:hover svg,
-.boarSettings button:focus svg {
+/* .boarSettings .boardLink:focus svg */
+/* .boarSettings .boardLink:hover svg {
   stroke: #BEDBB0;
   opacity: 1;
-}
+} */
 
 .boarSettingsSvg {
   display: none;
@@ -74,10 +74,14 @@ h3 {
   opacity: 0.5;
 }
 
-.link {
+.boarSettingsSvg:hover {
+    stroke: #BEDBB0;
+      opacity: 1;
+}
+/* .link {
   color: rgba(255, 255, 255, 0.5);
 }
 
 .active {
   color: #fff;
-}
+} */
