@@ -1,10 +1,11 @@
+import { Suspense } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 // import { useSelector } from "react-redux";
-// import { Navigate } from "react-router-dom";
-import { Outlet } from "react-router-dom";
+
 
 // import { selectIsLogin, selectToken } from "../../redux/auth/auth-selectors";
 
-const PublicRoute = ()=> {
+// const PublicRoute = ()=> {
     // const isLogin = useSelector(selectIsLogin);
     // const token = useSelector(selectToken);
 
@@ -16,7 +17,30 @@ const PublicRoute = ()=> {
     //     return <Navigate to="/first" />
     // }
 
-    return <Outlet />
+//     return <Outlet />
+// }
+
+// export default PublicRoute;
+
+// =================================================================
+
+
+
+// import { useAuth } from 'hooks/useAuth';
+
+
+const PublicRoute = () => {
+    // const {isLoggedIn} = useAuth();
+    // const isLoggedIn = true;
+    const isLoggedIn = false;
+    
+    return isLoggedIn ?
+        <Navigate to='/home' />
+        :
+        <Suspense fallback={<div>Loading...</div>}>
+            <Outlet/> 
+        </Suspense> 
 }
 
-export default PublicRoute;
+
+export default PublicRoute; 
