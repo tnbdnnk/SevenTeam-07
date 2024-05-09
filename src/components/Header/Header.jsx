@@ -9,7 +9,7 @@ export const Header = ({ openBurger }) => {
   const [isActive, setisActive] = useState(false);
 
   // для проверки
-  const [activeIactivTheme, setactiveIactivTheme] = useState('ligth');
+  const [activeIactivTheme, setactiveIactivTheme] = useState('dark');
 
   return (
     <header className={[css.header, css[activeIactivTheme]].join(' ')}>
