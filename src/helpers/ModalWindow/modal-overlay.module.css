@@ -19,6 +19,12 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9999;
 }
+.overlay.ligth {
+  background: #fcfcfc;
+}
+.overlay.violet {
+  background: #fcfcfc;
+}
 
 .modal {
   position: fixed;
@@ -47,10 +53,10 @@
 }
 
 .closeIcon {
-  stroke: #fff
+  stroke: #fff;
 }
 
 .closeBtn:hover .closeIcon,
 .closeBtn:focus .closeIcon {
-  stroke: #BEDBB0;
+  stroke: #bedbb0;
 }

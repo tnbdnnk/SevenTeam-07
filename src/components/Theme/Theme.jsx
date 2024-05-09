@@ -1,51 +1,35 @@
 import css from '../Theme/Theme.module.css';
 import { useState } from 'react';
+// import { useDispatch } from 'react-redux';
 
 export const Theme = () => {
   const [activeIndex, setActiveIndex] = useState(1);
+  const [activeTheme, setactiveTheme] = useState('dark');
 
-  // const options = [
-  //   { label: 'Light', current: false },
-  //   { label: 'Dark', current: true },
-  //   { label: 'Violet', current: false },
-  // ];
+  const options = [
+    { label: 'Light', theme: 'ligth' },
+    { label: 'Dark', theme: 'dark' },
+    { label: 'Violet', theme: 'violet' },
+  ];
 
-  const options = [{ label: 'Light' }, { label: 'Dark' }, { label: 'Violet' }];
+  // const dispatch = useDispatch();
 
-  const current = (e, item, index) => {
+  const current = (e, theme, index) => {
     e.preventDefault();
-    console.log(item);
+    console.log(theme);
     setActiveIndex(index);
-    // const idxCurrent = options.findIndex(option => option.current === true);
-    // options[idxCurrent] = { ...options[idxCurrent], current: false };
-    // const idx = options.findIndex(option => option.label === item);
-    // if (idx === -1) {
-    //   return;
-    // }
-    // options[idx] = { ...options[idx], current: true };
-    console.log(options);
+
+    setactiveTheme(theme);
   };
 
-  // const elements = options.map(item => (
-  //   <li
-  //     key={item.label}
-  //     onClick={() => current(item.label)}
-  //     className={
-  //       item.current ? `${css.itemTheme} ${css.current}` : css.itemTheme
-  //     }
-  //   >
-  //     {item.label}
-  //   </li>
-  // ));
-
-  const elements = options.map(({ label }, index) => (
+  const elements = options.map(({ label, theme }, index) => (
     <li
       key={label}
-      onClick={(e) => current(e, label, index)}
+      onClick={(e) => current(e, theme, index)}
       className={
         index === activeIndex
-          ? `${css.itemTheme} ${css.current}`
-          : css.itemTheme
+          ? `${css.itemTheme} ${css.current} ${css[activeTheme]}`
+          : `${css.itemTheme} ${css[activeTheme]}`
       }
     >
       {label}
@@ -53,7 +37,7 @@ export const Theme = () => {
   ));
 
   return (
-    <div className={css.wraper}>
+    <div className={[css.wraper, css[activeTheme]].join(' ')}>
       <ul className={css.list}>{elements}</ul>
     </div>
   );
