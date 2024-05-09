@@ -10,7 +10,7 @@ const LoginPage = lazy(() => import("./pages/AuthPage/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/AuthPage/RegisterPage"));
 
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-// import PublicRoute from "./components/PublicRoute/PublicRoute";
+import PublicRoute from "./components/PublicRoute/PublicRoute";
 
 // const test = import.meta.env.VITE_API_TEST;
 
