@@ -3,7 +3,11 @@ import styles from './welcome-page.module.css';
 import { selectIsLogin } from '../../redux/auth/auth-selectors';
 import WelcomeAuth from '../../components/Welcome/WelcomeAuth/WelcomeAuth';
 import WelcomeUser from '../../components/Welcome/WelcomeUser/WelcomeUser';
+
 import welcomepageemoji from '/src/images/welcompage-emoji.svg';
+
+import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 
 const WelcomePage = () => {
     const isLogin = useSelector(selectIsLogin);
@@ -28,13 +32,16 @@ const WelcomePage = () => {
             </div>
             </div>
             <p className={styles.welcomeText}>
-            Supercharge your productivity and take control of your tasks with Task
-            Pro - Dont wait, start achieving your goals now!
+              Supercharge your productivity and take control of your tasks with Task
+              Pro - Dont wait, start achieving your goals now!
             </p>
             <nav className={styles.navbar}>
-            {isLogin ? <WelcomeUser /> : <WelcomeAuth />}
-            </nav>
-        </div>
-    );
+              {isLogin ? <WelcomeUser /> : <WelcomeAuth />}
+          </nav>
+          <Suspense fallback={null}> 
+            <Outlet />
+          </Suspense>
+          </div>
+  );
 };
 export default WelcomePage;
