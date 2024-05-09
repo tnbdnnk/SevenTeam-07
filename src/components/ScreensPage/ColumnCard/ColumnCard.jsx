@@ -7,7 +7,28 @@ import EditColumnModal from './EditColumn/EditColumnModal';
 import css from './ColumnCard.module.css';
 import icons from '../../../images/symbol-defs.svg';
 
-const ColumnCard = ({ id, name, onDelete, index }) => {
+const ColumnCard = ({ id, name, onDelete, index }) => { 
+
+    // const cards = [];
+    const cards = [
+        {
+            id: '11',
+            title: 'The Watch Spot Design',
+            subscription: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
+            priority: 'Low',
+            // дата буде в іншому форматі = Date?
+            deadline: '12/05/2023'
+        },
+        {
+            id: '22',
+            title: 'Design',
+            subscription: "Your design should be unique, innovative, and reflective of the latest trends in watch design.",
+            priority: 'Low',
+            // дата буде в іншому форматі = Date?
+            deadline: '22/05/2023'
+          },
+    ];
+   
   const [currentName, setCurrentName] = useState(name);
   const {
     openModal: openEditModal,
@@ -51,12 +72,12 @@ const ColumnCard = ({ id, name, onDelete, index }) => {
                 <div className={css.columnCard}>
                     <p className={css.text}>{currentName}</p>
                     <div className={css.buttonsWrapper}>
-                        <button className={css.button} type="button" onClick={openEditModal}>
+                        <button className={`${css.button} ${css.green}`} type="button" onClick={openEditModal}>
                             <svg className={css.icon} width="16" height="16">
                                 <use href={icons + '#icon-pen'}></use>
                             </svg>
                         </button>
-                        <button className={css.button} type="button" onClick={openDeleteModal}>
+                        <button className={`${css.button} ${css.red}`} type="button" onClick={openDeleteModal}>
                             <svg className={css.icon} width="16" height="16">
                                 <use href={icons + '#icon-trash'}></use>
                             </svg>
@@ -64,14 +85,14 @@ const ColumnCard = ({ id, name, onDelete, index }) => {
                     </div>
                 </div>
                 <div className={css.cardsWrap}>
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
+                    {cards.map((card) => (
+                        <CardItem
+                            key={card.id}
+                            title={card.title}
+                            subscription={card.subscription}
+                            priority={card.priority}
+                            deadline={card.deadline}
+                        />))}
                 </div>
             </div>
             <AddCard />

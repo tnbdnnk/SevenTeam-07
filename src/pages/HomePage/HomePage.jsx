@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useModal } from "../../hooks/useModal.js";
 
 import Filters from '../../components/Filters/Filters';
 import { Header } from '../../components/Header/Header.jsx';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import Modal from '../../helpers/ModalWindow/Modal.jsx';
+import { NewBoard } from '../../components/Sidebar/ModalBoards/ModalBoards.jsx';
 
 import css from './HomePage.module.css';
 import cssSidebar from '../../components/Sidebar/sidebar.module.css'
@@ -15,13 +18,7 @@ const Overlay = ({ onClick }) => (
 
 const HomePage = () => {
 
-    const handleCreateBoard = () => {
-        console.log('Має відкритися модальне вікно - New Board');
-    };
-
-    // const { isModalOpen, openModal, closeModal } = useModal();
-
-    // <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard/>}</Modal>
+    const { isModalOpen, openModal, closeModal } = useModal();
 
     // Функціонал для відкриття sidebar -----------
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -58,11 +55,12 @@ const HomePage = () => {
             <div className={css.textWrapper}>
                 <p className={css.text}>
                     Before starting your project, it is essential
-                    <a href="#" onClick={handleCreateBoard} className={css.link}> to create a board</a> to
+                    <a onClick={openModal} className={css.link}> to create a board</a> to
                     visualize and track all the necessary tasks and milestones. This
                     board serves as a powerful tool to organize the workflow and
                     ensure effective collaboration among team members.
-                </p>
+                    </p>
+                <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard/>}</Modal>
             </div>
         </section>
             </div>
