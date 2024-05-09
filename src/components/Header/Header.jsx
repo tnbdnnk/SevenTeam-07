@@ -4,11 +4,13 @@ import { UserInfo } from '../UserInfo/UserInfo';
 import { Theme } from '../Theme/Theme';
 import { useState } from 'react';
 
+
 export const Header = ({ openBurger }) => {
+  
   const [isThemeOpen, setisThemeOpen] = useState(false);
   const [isActive, setisActive] = useState(false);
 
-  return (
+return (
     <header className={css.header}>
       <button className={css.btn} onClick={openBurger}>
         <svg className={css.svg}>

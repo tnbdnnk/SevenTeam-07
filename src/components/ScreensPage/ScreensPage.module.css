@@ -1,28 +1,10 @@
-/* 
-=====  ОСНОВНИЙ СКРОЛ  =====
-? Перенести в головні стилі: */
-
-/*body:focus {
-  scrollbar-color: transparent transparent;
-}
-
- ::-webkit-scrollbar {
-  width: 0px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #161616;
-  border-radius: 12px;
-} */
-
 .container {
   /* min-width: 320px;
   height: calc(100vh - 60px);*/
   background-color: #1f1f1f;
   /* padding: 14px 8px 36px 20px; */
-  padding: 14px 8px 30px 20px;
+  /* padding: 14px 8px 30px 20px; */
+  padding: 14px 8px 0 20px;
   /* overflow: auto; */
 }
 
@@ -42,7 +24,8 @@
   .container {
     /* width: 768px; */
     /* padding: 20px 32px 64px 32px; */
-    padding: 20px 32px 58px 32px;
+    /* padding: 20px 32px 58px 32px; */
+    padding: 20px 32px 0 32px;
   }
 }
 
@@ -50,6 +33,7 @@
   .container {
     /* width: calc(100% - 260px); */
     padding: 14px 24px 28px 24px;
+    /* padding: 14px 24px 0 24px; */
     /* margin: 0;
     right: 0;
     position: absolute; */
@@ -69,7 +53,6 @@
   min-width: 320px;
   margin: 0 auto;
   height: calc(100vh - 60px);
-  /* background-color: #1f1f1f; */
   /* padding: 14px 8px 36px 20px; */
   overflow: auto;
 }
@@ -82,7 +65,8 @@
 
 @media (min-width: 768px) {
   .section {
-    height: calc(100vh - 68px);
+    /* height: calc(100vh - 68px); */
+    height: calc(100vh - 110px);
   }
 }
 

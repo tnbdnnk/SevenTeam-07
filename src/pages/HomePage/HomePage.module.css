@@ -1,6 +1,6 @@
 .section {
   min-width: 320px;
-  width: 100%;
+  /* width: 100%; */
   height: calc(100vh - 60px);
   background-color: #1f1f1f;
   padding: 14px 20px;
@@ -71,11 +71,4 @@
 .link {
   color: #bedbb0;
   cursor: pointer;
-}
-
-/* */
-@media screen and (min-width: 1440px) {
-  .homePage {
-    display: flex;
-  }
 }
