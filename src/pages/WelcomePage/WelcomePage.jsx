@@ -4,6 +4,9 @@ import { selectIsLogin } from '../../redux/auth/auth-selectors';
 import WelcomeAuth from '../../components/Welcome/WelcomeAuth/WelcomeAuth';
 import WelcomeUser from '../../components/Welcome/WelcomeUser/WelcomeUser';
 
+import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+
 
 const WelcomePage = () => {
   const isLogin = useSelector(selectIsLogin);
@@ -33,7 +36,10 @@ const WelcomePage = () => {
         </p>
         <nav className={styles.navbar}>
           {isLogin ? <WelcomeUser /> : <WelcomeAuth />}
-        </nav>
+      </nav>
+      <Suspense fallback={null}> 
+        <Outlet />
+      </Suspense>
       </div>
   );
 };

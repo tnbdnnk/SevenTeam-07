@@ -10,7 +10,7 @@ import {NewBoard} from './ModalBoards/ModalBoards.jsx'
 import css from './sidebar.module.css';
 import icons from '../../images/symbol-defs.svg';
 // Брати потім з бека
-const exampleBoardList = [{ id: 1, title: "First board", icons:"#icon-four-balls"}, { id: 2, title: "Second board", icons:'#icon-puzzle'}, { id: 3, title: "Third board", icons:"#icon-star"}, ]
+const exampleBoardList = [{ id: 1, title: "First board", icons:"#icon-four-balls", background:"bg3"}, { id: 2, title: "Second board", icons:'#icon-puzzle', background:"bg4"}, { id: 3, title: "Third board", icons:"#icon-star", background:"bg12"}, ]
 
 const Sidebar = ({ className }) => {
 // для модалки
