@@ -4,21 +4,22 @@ import { UserInfo } from '../UserInfo/UserInfo';
 import { Theme } from '../Theme/Theme';
 import { useState } from 'react';
 
-
 export const Header = ({ openBurger }) => {
-  
   const [isThemeOpen, setisThemeOpen] = useState(false);
   const [isActive, setisActive] = useState(false);
 
-return (
-    <header className={css.header}>
+  // для проверки
+  const [activeIactivTheme, setactiveIactivTheme] = useState('dark');
+
+  return (
+    <header className={[css.header, css[activeIactivTheme]].join(' ')}>
       <button className={css.btn} onClick={openBurger}>
-        <svg className={css.svg}>
+        <svg className={[css.svg, css[activeIactivTheme]].join(' ')}>
           <use href={`${sprite}#icon-burger`} />
         </svg>
       </button>
       <div className={css.wraperUser}>
-        <div className={css.wrapbtnTheme}>
+        <div className={[css.wrapbtnTheme, css[activeIactivTheme]].join(' ')}>
           Theme
           <button
             className={css.btnTheme}
@@ -26,7 +27,9 @@ return (
           >
             <svg
               className={
-                isActive ? `${css.svgTheme} ${css.active}` : css.svgTheme
+                isActive
+                  ? `${css.svgTheme} ${css.active} ${css[activeIactivTheme]}`
+                  : `${css.svgTheme} ${css[activeIactivTheme]}`
               }
               onClick={() => setisActive((isActive) => !isActive)}
             >
