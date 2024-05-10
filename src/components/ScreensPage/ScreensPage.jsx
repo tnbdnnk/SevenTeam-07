@@ -20,7 +20,7 @@ const ScreensPage = () => {
 
   const board = useSelector(selectBoard);
   // const error = useSelector(selectError);
-  const columns = board.columns;
+  // const columns = board.columns;
   console.log(board);
   // console.log(columns);
 
@@ -80,7 +80,7 @@ const ScreensPage = () => {
             <div className={css.columnListWrap}>
               <ul className={css.columnList}>
                 {/* {columns && columns.map((item) => ( */}
-                {columns.length > 1 && columns.map(({ _id, title, index }) => (
+                {board.columns.map(({ _id, title, index }) => (
                   <ColumnCard
                     key={_id}
                     title={title}
