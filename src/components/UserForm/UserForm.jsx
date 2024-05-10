@@ -1,23 +1,26 @@
 import css from '../UserForm/UserForm.module.css';
 import sprite from '../../images/symbol-defs.svg';
-// import { nanoid } from 'nanoid';
-import { useState } from 'react';
-// import React, { useState } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { selectUser } from '../../../redux/auth/auth-selectors';
+
+import { useState, useRef } from 'react';
+import { toast } from 'react-hot-toast';
+import { UpdateUser } from '../../redux/auth/auth-operations';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser } from '../../redux/auth/auth-selectors';
 
 export const UserForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const fileInputRef = useRef(null);
 
   const [visible, setVisible] = useState(false);
-  // const { name,email,  avatarURL } = useSelector(selectUser);
-  //   const [avatar, setAvatar] = useState(useSelector(avatarURL));
-  //   const [name, setName] = useState(useSelector(name));
-  //   const [email, setEmail] = useState(useSelector(email));
-  //   const [password, setPassword] = useState('');
+  const { name, email, avatarURL, theme } = useSelector(selectUser);
+  const [avatarUser, setAvatarUser] = useState(useSelector(avatarURL));
+  const [nameUser, setNameUser] = useState(useSelector(name));
+  const [emailUser, setEmailUser] = useState(useSelector(email));
+  const [password, setPassword] = useState('');
 
   //временно
   const [activeTheme, setactiveTheme] = useState('dark');
+  // const [activeTheme, setactiveTheme] = useState(theme);
 
   const avatarLight = `${sprite}#icon-user-icon-white-theme`;
   const avatarViolet = `${sprite}#icon-user-icon-violet-theme`;
@@ -44,10 +47,71 @@ export const UserForm = () => {
 
   const avatar = userAvatar(activeTheme);
 
-  function handleSubmit(e) {
+  const handleChangeImg = (event) => {
+    const file = event.target.files[0];
+
+    if (file.size > 50 * 1024) {
+      toast.error('Ooops, the file size must not exceed 50 KB', {
+        style: {
+          border: '1px solid #713200',
+          padding: '10px',
+          color: '#713200',
+          fontWeight: 700,
+        },
+      });
+      return;
+    }
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        setAvatarUser(reader.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    switch (name) {
+      case 'name':
+        setNameUser(value);
+        break;
+      case 'email':
+        setEmailUser(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // const user = { avatar, name, email, password };
-  }
+    try {
+      const user = {
+        avatarURL: avatarUser,
+        name: nameUser,
+        email: emailUser,
+        password,
+      };
+      await dispatch(UpdateUser(user));
+      e.target.reset();
+    } catch (error) {
+      toast.error('Ooops, there was an error...', {
+        style: {
+          border: '1px solid #713200',
+          padding: '10px',
+          color: '#713200',
+          fontWeight: 700,
+        },
+      });
+    }
+  };
 
   return (
     <div>
@@ -55,21 +119,21 @@ export const UserForm = () => {
       <form className={css.form} onSubmit={handleSubmit}>
         <div className={css.formGroupImg}>
           <label className="css.nameLable">
-            {/* {avatarURL ? (
-          <img className={css.avatar} src={avatarURL} alt="user-avatar" />
-        ) : ( */}
-            <svg className={css.avatar}>
-              <use href={avatar} />
-            </svg>
-            {/* )} */}
+            {avatarURL ? (
+              <img className={css.avatar} src={avatarURL} alt="user-avatar" />
+            ) : (
+              <svg className={css.avatar}>
+                <use href={avatar} />
+              </svg>
+            )}
             <div className={[css.plusWrap, css[activeTheme]].join(' ')}>
               <input
                 className={css.inputImg}
                 type="file"
-                // value={avatar}
-                // onChange={handleChangeImg}
+                onChange={handleChangeImg}
                 name="avatar"
                 accept=".png, .jpg, .jpeg"
+                ref={fileInputRef}
               />
 
               <svg className={css.plus}>
@@ -85,8 +149,8 @@ export const UserForm = () => {
               className={[css.input, css[activeTheme]].join(' ')}
               type="text"
               placeholder="Name"
-              // value={name}
-              // onChange={handleChange}
+              value={name}
+              onChange={handleChange}
               name="name"
             />
           </label>
@@ -96,8 +160,8 @@ export const UserForm = () => {
           <label>
             <input
               className={[css.input, css[activeTheme]].join(' ')}
-              // value={email}
-              // onChange={handleChange}
+              value={email}
+              onChange={handleChange}
               type="email"
               name="email"
               placeholder="Email"
@@ -109,8 +173,8 @@ export const UserForm = () => {
           <label>
             <input
               className={[css.input, css[activeTheme]].join(' ')}
-              // value={password}
-              // onChange={handleChange}
+              value={password}
+              onChange={handleChange}
               type={visible ? 'text' : 'password'}
               name="password"
               placeholder="Password"
