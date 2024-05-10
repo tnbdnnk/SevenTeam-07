@@ -34,3 +34,57 @@ img {
 button {
   cursor: pointer;
 }
+
+
+:root {
+/* Dark thema ------------------------*/
+--background-black: #121212;
+--background-grey: #1f1f1f;
+--dark-header: #161616;
+--dark-modal: #151515;
+
+--text-white: #fff;
+--text-grey: rgba(255, 255, 255, 0.5);
+--text-black: #161616;
+
+--accent-light: #bedbb0;
+--accent-dark: #9dc888;
+
+--black-btn:#161616;
+--white-btn: #ffffff;
+
+
+/* Light thema ----------------------------*/
+/* --accent-light  і --accent-dark   такий самий як в Dark thema */
+--background-white: #fff;
+--background-light: #f6f6f7;
+--light-header: #fcfcfc;
+--light-modal: #fcfcfc;
+
+--text-light-grey: rgba(22, 22, 22, 0.7);
+--text-light-grey-05: rgba(22, 22, 22, 0.5);
+--text-black: #161616;
+
+
+/* -Violet thema ----------------------------*/
+
+--white-header: #fff;
+--background-light-violet: #ecedfd;
+--background-violet-04: rgba(236, 237, 253, 0.4);
+/* --light-modal: #fcfcfc;  ------- такий самий */
+
+--accent-violet-dark: #5255bc;
+--accent-violet-light: #B8BCFD;
+
+
+--text-white: #fff;
+/* --text-light-grey: rgba(22, 22, 22, 0.7);    ---- такий самий */
+/* --text-grey: rgba(255, 255, 255, 0.5);    ------  такий самий */
+
+
+
+
+
+
+
+}
