@@ -1,42 +1,17 @@
 .container {
-  /* min-width: 320px;
-  height: calc(100vh - 60px);*/
   background-color: #1f1f1f;
-  /* padding: 14px 8px 36px 20px; */
-  /* padding: 14px 8px 30px 20px; */
-  padding: 14px 8px 0 20px;
-  /* overflow: auto; */
+  padding: 14px 8px 24px 20px;
 }
-
-/* @media (min-width: 375px) and (max-width: 767px) {
-  .container {
-    width: 375px;
-  }
-} */
-
-/* @media (min-width: 768px) {
-  .container {
-    height: calc(100vh - 68px);
-  }
-} */
 
 @media (min-width: 768px) and (max-width: 1439px) {
   .container {
-    /* width: 768px; */
-    /* padding: 20px 32px 64px 32px; */
-    /* padding: 20px 32px 58px 32px; */
-    padding: 20px 32px 0 32px;
+    padding: 26px 18px 32px 32px;
   }
 }
 
 @media (min-width: 1440px) {
   .container {
-    /* width: calc(100% - 260px); */
-    padding: 14px 24px 28px 24px;
-    /* padding: 14px 24px 0 24px; */
-    /* margin: 0;
-    right: 0;
-    position: absolute; */
+    padding: 14px 24px 8px 24px;
   }
 }
 
@@ -50,47 +25,29 @@
 
 .section {
   width: 100%;
-  min-width: 320px;
+  padding-bottom: 36px;
   margin: 0 auto;
-  height: calc(100vh - 60px);
-  /* padding: 14px 8px 36px 20px; */
   overflow: auto;
 }
 
-/* @media (min-width: 375px) and (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1439px) {
   .section {
-    width: 375px;
-  }
-} */
-
-@media (min-width: 768px) {
-  .section {
-    /* height: calc(100vh - 68px); */
-    height: calc(100vh - 110px);
+    padding-bottom: 64px;
   }
 }
 
-/* @media (min-width: 768px) and (max-width: 1439px) {
+@media (min-width: 1440px) {
   .section {
-    width: 768px;
+    padding-bottom: 28px;
   }
-} */
-
-/* @media (min-width: 1440px) {
-  .section { */
-/* width: calc(100% - 260px); */
-/* padding: 14px 24px 28px 24px; */
-/* margin: 0;
-    right: 0;
-    position: absolute; */
-/* }
-} */
+}
 
 .section::-webkit-scrollbar {
   width: 0px;
   height: 12px;
   border-radius: 12px;
   background-color: #161616;
+  scroll-behavior: smooth;
 }
 
 .section::-webkit-scrollbar-thumb {
@@ -99,28 +56,19 @@
 }
 
 .activeSettingsWrapper {
-  /* max-width: calc(100% - 12px); */
-  margin-bottom: 39px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: space-between;
 }
 
-/* @media (min-width: 375px) and (max-width: 767px) {
-  .activeSettingsWrapper {
-    max-width: 334px;
-  }
-} */
-
 @media (min-width: 768px) and (max-width: 1439px) {
   .activeSettingsWrapper {
-    /* max-width: 704px; */
     margin-bottom: 26px;
   }
 }
 
 @media (min-width: 1440px) {
   .activeSettingsWrapper {
-    /* max-width: 1132px; */
     margin-bottom: 10px;
   }
 }
