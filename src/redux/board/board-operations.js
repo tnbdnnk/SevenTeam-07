@@ -3,13 +3,13 @@ import { getBoardById } from '../../api/board-api';
 
 
 // export const fetchBoard = createAsyncThunk('boards/fetchBoard', async (_, thunkAPI) => { 
-export const fetchBoard = createAsyncThunk('board/board', async (id, thunkAPI) => { 
+export const fetchBoard = createAsyncThunk('board/board', async (id, {rejectWithValue, getState}) => { 
     try {
         console.log(id);
-        console.log("object");
-        const board = await getBoardById(id);
+        const {auth} = getState();
+        const board = await getBoardById(id, auth);
         return board;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+        return rejectWithValue(error.message);
     }
 });

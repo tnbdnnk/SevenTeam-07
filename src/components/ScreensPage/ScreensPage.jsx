@@ -16,15 +16,13 @@ const ScreensPage = () => {
   const dispatch = useDispatch();
 
   const board = useSelector(selectBoard);
-  // console.log(board);
-    // const error = useSelector(selectError);
-
-  useEffect(() => { 
-    // console.log('boards');
-    
-        dispatch(fetchBoard('id'));
-    }, [dispatch]) 
+  // const error = useSelector(selectError);
   
+  useEffect(() => {     
+    dispatch(fetchBoard('663e636c0ebfde3777089cd6'));
+  }, [dispatch]) 
+  
+  console.log(board);
   // 
  
   // const [boards, setBoards] = useState({
@@ -69,15 +67,15 @@ const ScreensPage = () => {
           {/* <Background className={css.container}> */}
           <section className={css.section}>
             <div className={css.activeSettingsWrapper}>
-              <h2 className={css.title}>{board.name}</h2>
+              <h2 className={css.title}>{board.title}</h2>
               <Filters />
             </div>
-
+{/* columns */}
             <div className={css.columnListWrap}>
               <ul className={css.columnList}>
-                {board.column.map((item, i) => (
+                {board.column?.map((item, i) => (
                   <ColumnCard
-                    key={item}
+                    key={i}
                     name={item}
                     
                     // onDelete={() => handleDeleteColumn(i)}
