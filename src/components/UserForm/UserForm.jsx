@@ -3,9 +3,9 @@ import sprite from '../../images/symbol-defs.svg';
 
 import { useState, useRef } from 'react';
 import { toast } from 'react-hot-toast';
-import { UpdateUser } from '../../../redux/auth/authOperations';
+import { UpdateUser } from '../../redux/auth/auth-operations';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUser } from '../../../redux/auth/auth-selectors';
+import { selectUser } from '../../redux/auth/auth-selectors';
 
 export const UserForm = () => {
   const dispatch = useDispatch();
