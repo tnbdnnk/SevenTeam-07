@@ -8,7 +8,7 @@ import css from './ScreensPage.module.css';
 
 
 const ScreensPage = () => {
-  
+ 
   const [boards, setBoards] = useState({
     name: 'Project office',
     column: ['To Do', 'In Progress', 'Done'],
@@ -43,31 +43,31 @@ const ScreensPage = () => {
     }));
   };
 
-    return (
+  return (
         <div style={handleBackground(bgImage)} className={bgImage ? `${css.container} ${css.imageStyles}` : `${css.container}`}>
-        {/* <Background className={css.container}> */}
-            <section className={css.section}>
-                <div className={css.activeSettingsWrapper}>
-                    <h2 className={css.title}>{boards.name}</h2>
-                    <Filters />
-                </div>
+          {/* <Background className={css.container}> */}
+          <section className={css.section}>
+            <div className={css.activeSettingsWrapper}>
+              <h2 className={css.title}>{boards.name}</h2>
+              <Filters />
+            </div>
 
-                <div className={css.columnListWrap}>
-                    <ul className={css.columnList}>
-                    {boards.column.map((item, i) => (
-                        <ColumnCard
-                            key={item}
-                            name={item}
-                            onDelete={() => handleDeleteColumn(i)}
-                            index={i}
-                        />))}
-                        <AddColumn onAddColumn={handleAddColumn}/> 
-                    </ul>
-                </div>
-        </section>
-        {/* </Background> */}
+            <div className={css.columnListWrap}>
+              <ul className={css.columnList}>
+                {boards.column.map((item, i) => (
+                  <ColumnCard
+                    key={item}
+                    name={item}
+                    onDelete={() => handleDeleteColumn(i)}
+                    index={i}
+                  />))}
+                <AddColumn onAddColumn={handleAddColumn} />
+              </ul>
+            </div>
+          </section>
+            {/* </Background> */}
         </div>
-    );
+  );
 };
 
 
