@@ -20,13 +20,29 @@ const ColumnCard = ({ id, name, onDelete, index }) => {
             deadline: '12/05/2023'
         },
         {
-            id: '22',
-            title: 'Design',
-            subscription: "Your design should be unique, innovative, and reflective of the latest trends in watch design.",
+            id: '11',
+            title: 'The Watch Spot Design',
+            subscription: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
             priority: 'Low',
             // дата буде в іншому форматі = Date?
-            deadline: '22/05/2023'
-          },
+            deadline: '12/05/2023'
+        },
+        {
+            id: '11',
+            title: 'The Watch Spot Design',
+            subscription: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
+            priority: 'Low',
+            // дата буде в іншому форматі = Date?
+            deadline: '12/05/2023'
+        },
+        {
+            id: '11',
+            title: 'The Watch Spot Design',
+            subscription: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
+            priority: 'Low',
+            // дата буде в іншому форматі = Date?
+            deadline: '12/05/2023'
+        },
     ];
    
   const [currentName, setCurrentName] = useState(name);
@@ -51,8 +67,7 @@ const ColumnCard = ({ id, name, onDelete, index }) => {
   };
 
     return (
-        // ??? прописати умову для другого класу:
-        <li className={`${css.item} ${css.itemAdded}`} key={id}>
+        <li className={cards.length > 0 ? `${css.item} ${css.itemAdded}` : `${css.item}`} key={id}>
         {isEditModalOpen && (
             <EditColumnModal
                 isModalOpen={isEditModalOpen}
