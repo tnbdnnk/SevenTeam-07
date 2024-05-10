@@ -20,12 +20,11 @@ const App = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<PublicRoute />}>
+            <Route path="/" element={<PublicRoute />} >
                 <Route path="/welcome" element={<WelcomePage />}/>
                 <Route path="auth/register" element={<RegisterPage />}/>
                 <Route path="auth/login" element={<LoginPage />}/>
             </Route>
-
             <Route path="/" element={<PrivateRoute />}>
                 <Route index path="/home" element={<SharedLayout><HomePage /></SharedLayout>}/>
                 <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>}/>

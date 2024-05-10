@@ -9,13 +9,13 @@ import { Navigate, Outlet } from "react-router-dom";
     // const isLogin = useSelector(selectIsLogin);
     // const token = useSelector(selectToken);
 
-    // if(!isLogin && token) {
-    //     return <p>...Loading</p>
-    // }
+//     if(!isLogin && token) {
+//         return <p>...Loading</p>
+//     }
 
-    // if(isLogin) {
-    //     return <Navigate to="/first" />
-    // }
+//     if(isLogin) {
+//         return <Navigate to="/home" />
+//     }
 
 //     return <Outlet />
 // }
@@ -30,12 +30,13 @@ import { Navigate, Outlet } from "react-router-dom";
 
 
 const PublicRoute = () => {
+
     // const {isLoggedIn} = useAuth();
     // const isLoggedIn = true;
     const isLoggedIn = false;
-    
+
     return isLoggedIn ?
-        <Navigate to='/home' />
+        <Navigate to='/login' />
         :
         <Suspense fallback={<div>Loading...</div>}>
             <Outlet/> 

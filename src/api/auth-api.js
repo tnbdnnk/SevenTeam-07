@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const authInstance = axios.create({
-    baseURL: "http://localhost:3000"
+    baseURL: "https://project-seventeam07.onrender.com/api"
 })
 
 const setToken = token => {
