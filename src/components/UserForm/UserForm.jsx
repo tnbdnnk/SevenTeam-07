@@ -3,6 +3,7 @@ import sprite from '../../images/symbol-defs.svg';
 
 import { useState, useRef } from 'react';
 import { toast } from 'react-hot-toast';
+
 import { UpdateUser } from '../../redux/auth/auth-operations';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../redux/auth/auth-selectors';
