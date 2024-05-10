@@ -1,1 +1,0 @@
-const e="_block_9fbbm_1",r="_btnRegister_9fbbm_14",t="_registerForm_9fbbm_33",s="_registerInput_9fbbm_42",n={block:e,btnRegister:r,registerForm:t,registerInput:s},i="_registerWrapper_803fl_1",_="_register_803fl_1",g="_blockRegister_803fl_17",o="_linkRegister_803fl_23",b={registerWrapper:i,register:_,blockRegister:g,linkRegister:o};export{b as a,n as s};
