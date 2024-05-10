@@ -6,16 +6,16 @@ import { Outlet, Navigate } from "react-router-dom";
 // import { selectIsLogin, selectToken } from "../../redux/auth/auth-selectors";
 
 // const PrivateRoute = ()=> {
-    // const isLogin = useSelector(selectIsLogin);
-    // const token = useSelector(selectToken);
+//     const isLogin = useSelector(selectIsLogin);
+//     const token = useSelector(selectToken);
 
-    // if(!isLogin && token) {
-    //     return <p>...Loading</p>
-    // }
+//     if(!isLogin && token) {
+//         return <p>...Loading</p>
+//     }
 
-    // if(!isLogin && !token) {
-    //     return <Navigate to="/login" />
-    // }
+//     if(!isLogin && !token) {
+//         return <Navigate to="/login" />
+//     }
 
 //     return <Outlet />
 // }
@@ -39,7 +39,8 @@ const PrivateRoute = () => {
     const shouldRedirect = !isRefreshing && !isLoggedIn;
     
     return shouldRedirect ?
-        <Navigate to='/welcome' /> :
+        <Navigate to='/home' /> :
+
         <Suspense fallback={<div>Loading...</div>}>
             <Outlet/> 
         </Suspense>
