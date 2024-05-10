@@ -77,7 +77,7 @@ export const updateUser = createAsyncThunk(
     }
     try {
       setToken(persistedToken);
-      const res = await axios.put('/user', userData, {
+      const res = await axios.patch('/user', userData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
