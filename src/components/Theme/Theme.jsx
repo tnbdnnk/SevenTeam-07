@@ -1,6 +1,7 @@
 import css from '../Theme/Theme.module.css';
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { updateTheme } from 'redux/auth/auth-operations';
 
 export const Theme = () => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -12,13 +13,14 @@ export const Theme = () => {
     { label: 'Violet', theme: 'violet' },
   ];
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const current = (e, theme, index) => {
     e.preventDefault();
     console.log(theme);
     setActiveIndex(index);
 
+    dispatch(updateTheme(theme));
     setactiveTheme(theme);
   };
 
