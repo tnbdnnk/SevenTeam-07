@@ -1,40 +1,18 @@
 import Modal from "../../../helpers/ModalWindow/Modal";
-import { useSelector } from 'react-redux';
-import { selectToken } from "../../../redux/auth/auth-selectors";
-import axios from "axios";
+import { useDispatch } from 'react-redux';
 import { useModal } from "../../../hooks/useModal";
-
-const authInstance = axios.create({
-    baseURL: "http://localhost:3000"
-})
+import { sendHelpRequest } from "../../../api/auth-api";
 
 const NeedHelpModal = () => { 
-
-    const token = useSelector(selectToken);
+    const dispatch = useDispatch();
     const { closeModal } = useModal();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        try {
-            const formData = {
-                email: e.currentTarget.elements.userEmail.value,
-                comment: e.currentTarget.elements.text.value,
-            };
-            
-            e.currentTarget.reset();
-
-            const response = await authInstance.post("/help", formData, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`,
-                },
-            });
-            console.log(response.data);
-            closeModal();
-        } catch (error) {
-            console.error("Error sending data to the backend:", error);
-        }
+        const formData = new FormData(e.currentTarget);
+        dispatch(sendHelpRequest(formData));
+        console.log(response.data);
+        closeModal();
     };
 
     return (
@@ -44,10 +22,12 @@ const NeedHelpModal = () => {
                     type="email"
                     name="userEmail"
                     placeholder="Email address"
+                    required
                 />
                 <textarea
                     name="text"
                     placeholder="Comment"
+                    required
                 ></textarea>
                 <button type="submit">Send</button>
             </form>
