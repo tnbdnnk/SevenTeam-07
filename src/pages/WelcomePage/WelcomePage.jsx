@@ -2,11 +2,11 @@ import { useSelector } from 'react-redux';
 import styles from './welcome-page.module.css';
 import { selectIsLogin } from '../../redux/auth/auth-selectors';
 import WelcomeAuth from '../../components/Welcome/WelcomeAuth/WelcomeAuth';
-import WelcomeUser from '../../components/Welcome/WelcomeUser/WelcomeUser';
+// import WelcomeUser from '../../components/Welcome/WelcomeUser/WelcomeUser';
 
 import welcomepageemoji from '/src/images/welcompage-emoji.svg';
 
-import { Outlet } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
 import { Suspense } from 'react';
 
 const WelcomePage = () => {
@@ -36,7 +36,7 @@ const WelcomePage = () => {
               Pro - Dont wait, start achieving your goals now!
             </p>
             <nav className={styles.navbar}>
-              {isLogin ? <WelcomeUser /> : <WelcomeAuth />}
+              {isLogin ? <Navigate to="/home"/>: <WelcomeAuth/>}
           </nav>
           <Suspense fallback={null}> 
             <Outlet />
