@@ -1,12 +1,12 @@
-import css from '../UserForm/UserForm.module.css';
-import sprite from '../../images/symbol-defs.svg';
+import css from './UserForm.module.css';
+import sprite from '../../../images/symbol-defs.svg';
 
 import { useState, useRef } from 'react';
 import { toast } from 'react-hot-toast';
-import {updateUser} from '../../redux/auth/auth-operations.js';
-// import { UpdateUser } from '../../redux/auth/auth-operations';
+import { updateUser } from '../../../redux/auth/auth-operations';
+
 import { useSelector, useDispatch } from 'react-redux';
-import { selectUser } from '../../redux/auth/auth-selectors';
+import { selectUser } from '../../../redux/auth/auth-selectors';
 
 export const UserForm = () => {
   const dispatch = useDispatch();
@@ -100,7 +100,7 @@ export const UserForm = () => {
         email: emailUser,
         password,
       };
-      await dispatch(updateUser(user));
+      dispatch(updateUser(user));
       e.target.reset();
     } catch (error) {
       toast.error('Ooops, there was an error...', {

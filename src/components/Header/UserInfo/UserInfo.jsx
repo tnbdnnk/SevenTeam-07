@@ -1,11 +1,11 @@
-import css from '../UserInfo/UserInfo.module.css';
+import css from './UserInfo.module.css';
 import { useState } from 'react';
-import { useModal } from '../../hooks/useModal';
-import Modal from '../../helpers/ModalWindow/Modal';
-import { UserForm } from 'components/UserForm/UserForm';
-import sprite from '../../images/symbol-defs.svg';
+import { useModal } from '../../../hooks/useModal';
+import Modal from '../../../helpers/ModalWindow';
+import { UserForm } from '../UserForm/UserForm';
+import sprite from '../../../images/symbol-defs.svg';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/auth/auth-selectors';
+import { selectUser } from '../../../redux/auth/auth-selectors';
 
 export const UserInfo = () => {
   const { name, avatarURL, theme } = useSelector(selectUser);
