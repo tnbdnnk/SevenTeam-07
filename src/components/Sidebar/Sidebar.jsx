@@ -1,7 +1,7 @@
 import LogoComponent from "./LogoComponent/LogoComponent"
 import BoardList from "./BoardList/BoardList"
 import NeedHelp from "./NeedHelp/NeedHelp"
-// import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 // Для модалки
 import { useModal } from "../../hooks/useModal.js";
 import Modal from "../../helpers/ModalWindow/Modal.jsx"
@@ -9,12 +9,22 @@ import {NewBoard} from './ModalBoards/ModalBoards.jsx'
 
 import css from './sidebar.module.css';
 import icons from '../../images/symbol-defs.svg';
-// Брати потім з бека
-const exampleBoardList = [{ id: 1, title: "First board", icons:"#icon-four-balls", background:"bg3"}, { id: 2, title: "Second board", icons:'#icon-puzzle', background:"bg4"}, { id: 3, title: "Third board", icons:"#icon-star", background:"bg12"}, ]
 
-const Sidebar = ({ className }) => {
+import { getAllBoards } from '../../redux/boards/board-operations.js';
+import { useDispatch } from 'react-redux';
+
+
+
+const Sidebar = ({className }) => {
 // для модалки
   const { isModalOpen, openModal, closeModal } = useModal();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllBoards());
+  }, [dispatch]);
+
 
   return <aside className={`${css.sidebar} ${className}`}>
     <div className={css.partSidebar}>
@@ -29,7 +39,7 @@ const Sidebar = ({ className }) => {
     </div>
     <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard/>}</Modal>
 
-    <BoardList items={exampleBoardList} />
+    <BoardList />
     <div className={css.partSidebar}>
     <NeedHelp />
     <button className={css.logoutBtn}>
