@@ -15,39 +15,29 @@ import css from './ScreensPage.module.css';
 
 const ScreensPage = () => {
   const dispatch = useDispatch();
-  let { boardName } = useParams();
-  console.log(boardName);
 
+  let { boardName } = useParams();
   const board = useSelector(selectBoard);
+  // підключити ререндери після зміни і видалення борди !
+  const bgImage = board?.background;
+  
+  useEffect(() => {
+    dispatch(fetchBoard(`${boardName}`));
+  }, [dispatch, boardName]); 
   // const error = useSelector(selectError);
   // const columns = board.columns;
-  console.log(board);
+  // console.log(board);
+  // console.log(boardName);
   // console.log(columns);
-
-  useEffect(() => {     
-    dispatch(fetchBoard(`${boardName}`));
-    // dispatch(fetchBoard());
-  }, [dispatch, boardName]) 
-  
-  // const [boards, setBoards] = useState({
-  //   name: 'Project office',
-  //   column: ['To Do', 'In Progress', 'Done'],
-  //   // column: [],
-  //   id: '12345',
-  //   // background: 'https://wallpaper.forfun.com/fetch/98/986a3988049771e452a4c8de5399e3e1.jpeg',
-  //   background: null,
-  // });
-
-    // const [boards, setBoards] = useState();
-
-  const bgImage = board?.background;
-
+   
   const handleBackground = (image) => {
     if (image) {
       return { backgroundImage: `url(${bgImage})` }
     };
     return;
   }
+
+  // const [boards, setBoards] = useState();
   
   // const handleDeleteColumn = (index) => {
   //   setBoards((prevBoards) => {
@@ -79,13 +69,13 @@ const ScreensPage = () => {
 
             <div className={css.columnListWrap}>
               <ul className={css.columnList}>
-                {/* {columns && columns.map((item) => ( */}
-                {board.columns.map(({ _id, title, index }) => (
+                {/* {board.columns.map(({ _id, title }, index) => ( */}
+                {board.columns.map((columnItem) => (
                   <ColumnCard
-                    key={_id}
-                    title={title}
+                    key={columnItem._id}
+                    // columnItem={columnItem}
                     // onDelete={() => handleDeleteColumn(i)}
-                    index={index}
+                    // index={index}
                   />))}
                 {/* <AddColumn onAddColumn={handleAddColumn} /> */}
                 <AddColumn />
