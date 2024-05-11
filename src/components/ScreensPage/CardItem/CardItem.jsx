@@ -16,7 +16,7 @@ const CardItem = ({
 
     const { _id, title, description, label, deadline } = card;
     const isDeadlineToday = true;
-    // console.log(label);
+    // console.log(deadline);
 
     const handleSetColor = (label) => { 
         switch (label) {
@@ -31,6 +31,19 @@ const CardItem = ({
             default:
                 return { backgroundColor: 'rgba(255, 255, 255, 0.3)' }
         }
+    }
+
+    const handleFormatDate = (deadline) => {
+        // const dateParts = deadline.split(', ')[0].split('/');
+        // const formattedDate = `${dateParts[1]}/${dateParts[0]}/${dateParts[2]}`;
+        // return formattedDate;
+
+        const dateParts = deadline.split(', ')[0].split('/');
+        const day = dateParts[1].padStart(2, '0');
+        const month = dateParts[0].padStart(2, '0');
+        const year = dateParts[2];
+        const formattedDate = `${day}/${month}/${year}`;
+        return formattedDate;
     }
 
 //   const {
@@ -88,7 +101,7 @@ const CardItem = ({
                 </div>
                 <div>
                     <p className={css.caption}>Deadline</p>
-                    <p className={css.text}>{deadline}</p>
+                    <p className={css.text}>{handleFormatDate(deadline)}</p>
                 </div>
             </div>
 
