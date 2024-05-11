@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form"
 // import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addBoard, editBoard } from '../../../redux/boards/board-operations';
+import { addBoard, editBoard } from '../../../redux/boards/boards-operations';
 // import { createNewBoard } from "../../../api/services-api.js"
 import css from "./modalBoards.module.css";
 import sprite from "../../../images/symbol-defs.svg"
@@ -31,7 +31,7 @@ const NewBoardForm = ({ onSubmit}) => {
 
   const iconsList = arrayIcons.map((icon, index) => {
     return (<label key={icon}>
-          <input type="radio" {...register("icons")} value={icon} defaultChecked={index === 0} />
+          <input type="radio" {...register("icons")} value={icon} defaultChecked={index === 0 || !index} />
           <div className={css.iconWrapper}>
         <svg className={css.modalIcons} width="18" height="18" >
               <use href={sprite + icon}></use></svg>
@@ -44,7 +44,7 @@ const NewBoardForm = ({ onSubmit}) => {
     // console.log(bgValue)
     
     return (<label key={bgName}>
-          <input type="radio" {...register("background")} value={bgValue} defaultChecked={index === 0}/>
+          <input type="radio" {...register("background")} value={bgValue} defaultChecked={index === 0 || !index}/>
       <div className={css.backgroundWrapper}>
         <img  src={bgName} alt={bgName} />
           </div>
@@ -70,13 +70,13 @@ const NewBoardForm = ({ onSubmit}) => {
 };
 
 
-export const NewBoard = () => {
+export const NewBoard = ({onClose}) => {
   const dispatch = useDispatch();
 
   const onSubmit = async ({ title, icons, background}) => {
     try {
       await dispatch(addBoard({ title, icons, background}));
-      console.log("cтворили нову борду");
+      onClose();
 
     } catch (error) {
       console.error("Помилка при створенні нової борди:", error);
@@ -90,7 +90,7 @@ export const NewBoard = () => {
 }
 
 
-export const EditBoard = ({ boardData }) => {
+export const EditBoard = ({ boardData, onClose }) => {
   const { register, handleSubmit } = useForm();
   console.log('boardData', boardData)
 
@@ -98,9 +98,9 @@ export const EditBoard = ({ boardData }) => {
   
   const onSubmit = async ({ title, icons, background}) => {
     try {
-      const newBoardData = { title, icons, background };
-      await dispatch(editBoard({ _id: boardData._id, newBoardData }));
-      console.log("cтворили нову борду");
+      const editData = { title, icons, background };
+      await dispatch(editBoard({ _id: boardData._id, editData }));
+      onClose()
 
     } catch (error) {
       console.error("Помилка при зміні борди:", error);
