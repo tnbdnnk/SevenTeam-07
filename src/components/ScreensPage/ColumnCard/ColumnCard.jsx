@@ -7,44 +7,15 @@ import EditColumnModal from './EditColumn/EditColumnModal';
 import css from './ColumnCard.module.css';
 import icons from '../../../images/symbol-defs.svg';
 
-const ColumnCard = ({ id, name, onDelete, index }) => { 
-
-    // const cards = [];
-    const cards = [
-        {
-            id: '11',
-            title: 'The Watch Spot Design',
-            subscription: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
-            priority: 'Low',
-            // дата буде в іншому форматі = Date?
-            deadline: '12/05/2023'
-        },
-        {
-            id: '11',
-            title: 'The Watch Spot Design',
-            subscription: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
-            priority: 'Low',
-            // дата буде в іншому форматі = Date?
-            deadline: '12/05/2023'
-        },
-        {
-            id: '11',
-            title: 'The Watch Spot Design',
-            subscription: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
-            priority: 'Low',
-            // дата буде в іншому форматі = Date?
-            deadline: '12/05/2023'
-        },
-        {
-            id: '11',
-            title: 'The Watch Spot Design',
-            subscription: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
-            priority: 'Low',
-            // дата буде в іншому форматі = Date?
-            deadline: '12/05/2023'
-        },
-    ];
-   
+const ColumnCard = ({
+  id,
+  name,
+  onDelete,
+  onDeleteCard,
+  cards,
+  addNewCardToColumn,
+  updateCard,
+}) => {
   const [currentName, setCurrentName] = useState(name);
   const {
     openModal: openEditModal,
@@ -62,57 +33,70 @@ const ColumnCard = ({ id, name, onDelete, index }) => {
   };
 
   const confirmDelete = () => {
-    onDelete(index);
+    onDelete(id);
     closeDeleteModal();
   };
-
-    return (
-        <li className={cards.length > 0 ? `${css.item} ${css.itemAdded}` : `${css.item}`} key={id}>
-        {isEditModalOpen && (
-            <EditColumnModal
-                isModalOpen={isEditModalOpen}
-                closeModal={closeEditModal}
-                handleRenameColumn={handleNameChange}
-                currentName={currentName}
-            />
-        )}
-        {isDeleteModalOpen && (
-            <DeleteColumnModal
-                isModalOpen={isDeleteModalOpen}
-                closeModal={closeDeleteModal}
-                onConfirmDelete={confirmDelete}
-            />
-        )}
-            <div className={css.columnMainInfo}>
-                <div className={css.columnCard}>
-                    <p className={css.text}>{currentName}</p>
-                    <div className={css.buttonsWrapper}>
-                        <button className={`${css.button} ${css.green}`} type="button" onClick={openEditModal}>
-                            <svg className={css.icon} width="16" height="16">
-                                <use href={icons + '#icon-pen'}></use>
-                            </svg>
-                        </button>
-                        <button className={`${css.button} ${css.red}`} type="button" onClick={openDeleteModal}>
-                            <svg className={css.icon} width="16" height="16">
-                                <use href={icons + '#icon-trash'}></use>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div className={css.cardsWrap}>
-                    {cards.map((card) => (
-                        <CardItem
-                            key={card.id}
-                            title={card.title}
-                            subscription={card.subscription}
-                            priority={card.priority}
-                            deadline={card.deadline}
-                        />))}
-                </div>
-            </div>
-            <AddCard />
-        </li>
-    );
+  
+  return (
+    // ??? прописати умову для другого класу:
+ <li className={`${css.item} ${css.itemAdded}`} key={id}>
+      {isEditModalOpen && (
+        <EditColumnModal
+          isModalOpen={isEditModalOpen}
+          closeModal={closeEditModal}
+          handleRenameColumn={handleNameChange}
+          currentName={currentName}
+        />
+      )}
+      {isDeleteModalOpen && (
+        <DeleteColumnModal
+          isModalOpen={isDeleteModalOpen}
+          closeModal={closeDeleteModal}
+          onConfirmDelete={confirmDelete}
+        />
+      )}
+      <div className={css.columnMainInfo}>
+        <div className={css.columnCard}>
+          <p className={css.text}>{currentName}</p>
+          <div className={css.buttonsWrapper}>
+            <button
+              className={css.button}
+              type="button"
+              onClick={openEditModal}
+            >
+              <svg className={css.icon} width="16" height="16">
+                <use href={icons + '#icon-pen'}></use>
+              </svg>
+            </button>
+            <button
+              className={css.button}
+              type="button"
+              onClick={openDeleteModal}
+            >
+              <svg className={css.icon} width="16" height="16">
+                <use href={icons + '#icon-trash'}></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <ul>
+          {cards &&
+            cards.map((card) => (
+              <li key={card.id}>
+                <CardItem
+                  key={card.id}
+                  card={card}
+                  onDeleteCard={() => onDeleteCard(id, card.id)}
+                  updateCard={updateCard}
+                  columnId={id}
+                />
+              </li>
+            ))}
+        </ul>
+      </div>
+      <AddCard onAddCard={addNewCardToColumn} columnId={id} />
+    </li>
+  );
 };
 
 export default ColumnCard;
