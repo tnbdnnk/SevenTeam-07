@@ -1,7 +1,7 @@
-import css from '../Theme/Theme.module.css';
+import css from './Theme.module.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateTheme } from '../../redux/auth/auth-operations';
+import { updateTheme } from '../../../redux/auth/auth-operations';
 
 export const Theme = () => {
   const [activeIndex, setActiveIndex] = useState(1);

@@ -1,7 +1,7 @@
-import css from '../Header/Header.module.css';
+import css from './Header.module.css';
 import sprite from '../../images/symbol-defs.svg';
-import { UserInfo } from '../UserInfo/UserInfo';
-import { Theme } from '../Theme/Theme';
+import { UserInfo } from './UserInfo/UserInfo';
+import { Theme } from './Theme/Theme';
 import { useState } from 'react';
 
 export const Header = ({ openBurger }) => {
