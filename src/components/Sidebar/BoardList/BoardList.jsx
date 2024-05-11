@@ -26,7 +26,7 @@ const BoardList = ({ items }) => {
           isActive ? `${css.active}` : `${css.link}`}>
             {item.name}
         </NavLink> */}
-      <Link to={`/home/:${item.id}`} className={css.boardLink} onClick={() => handleBoardClick(item)}>
+      <Link to={`/home/${item.id}`} className={css.boardLink} onClick={() => handleBoardClick(item)}>
       <div className={css.boardInfo}>
         <svg width="18" height="18" className={css.boardIcon}><use href={sprite + item.icons}></use></svg>
         <h3>{item.title}</h3>

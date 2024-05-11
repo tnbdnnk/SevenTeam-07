@@ -16,33 +16,31 @@ const CardItem = ({
 
     const { _id, title, description, label, deadline } = card;
     const isDeadlineToday = true;
-    // console.log(label);
+    console.log(label);
 
-    // const handleSetColor = (label) => { 
-    //     switch (label) {
-    //     case label = 'without':
-    //         //Здесь выполняются инструкции, если результат выражения равен value1
-    //         break;
-    //     case label = 'low':
-    //         //Инструкции, соответствующие value2
-    //         break;
-    //     ...
-    //     case label = 'medium':
-    //         //Инструкции, соответствующие значению valueN
-    //         //statementsN
-    //         break;
-    //     case label = 'high':
-    //         //Инструкции, соответствующие значению valueN
-    //         //statementsN
-    //         break;
-    //     default:
-    //         //Здесь находятся инструкции, которые выполняются при отсутствии соответствующего значения
-    //         //statements_def
-    //         break;
-    //     }
+    const handleSetColor = (label) => { 
+        // label = 'without';
+
+        switch (label) {
+        case label = 'without':
+            return { backgroundColor: 'rgba(255, 255, 255, 0.3)' }
+            // break;
+        case label = 'low':
+            return { backgroundColor: '#8fa1d0' }
+            // break;
+        case label = 'medium':
+            return { backgroundColor: '#e09cb5' }
+            // break;
+        case label = 'high':
+            return { backgroundColor: '#bedbb0' }
+            // break;
+        default:
+            return { backgroundColor: 'rgba(255, 255, 255, 0.3)' }
+            // break;
+        }
+    }
     //         //   return { backgroundColor: `${bgImage}` };
     //     // label: Joi.string().valid("without", "low", "medium", "high"),
-    // }
 
 //   const {
 //     openModal: openDeleteModal,
@@ -94,7 +92,7 @@ const CardItem = ({
                     <p className={css.caption}>Priority</p>
                     <div className={css.priorityDataWrap}>
                         <div className={css.circle}></div>
-                        {/* <div style={handleSetColor(label)} className={css.circle}></div> */}
+                        <div style={handleSetColor(label)} className={css.circle}></div>
                         <p className={css.text}>{label}</p>
                     </div>
                 </div>
