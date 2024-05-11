@@ -2,13 +2,14 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import LoginForm from '../../components/AuthForm/LoginForm';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 
 import { login } from '../../redux/auth/auth-operations';
 
 import {
   selectAuthLoading,
   selectAuthError,
+  selectIsLogin
 } from '../../redux/auth/auth-selectors';
 
 // import WelcomeAuth from "../../components/Welcome/WelcomeAuth/WelcomeAuth";
@@ -19,6 +20,7 @@ import styles from '../AuthPage/register-page.module.css';
 const LoginPage = () => {
   const authLoading = useSelector(selectAuthLoading);
   const authError = useSelector(selectAuthError);
+  const isLogin = useSelector(selectIsLogin);
 
   const dispatch = useDispatch();
 
@@ -43,7 +45,7 @@ const LoginPage = () => {
        
         {authLoading && <p>....Login in progress</p>}
         <LoginForm onSubmit={handleLogin} />
-        {authError && <p style={{ color: 'red' }}>{authError}</p>}
+        {isLogin ? <Navigate to="/home"/>: authError && <p style={{color: "red"}}>{authError}</p>}
         </div>
       </div>
     </div>

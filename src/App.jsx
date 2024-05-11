@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense } from "react";
 import { Route, Routes, Navigate } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 
@@ -19,18 +19,18 @@ const App = () => {
         // console.log(test);
     
     return (
-        <Suspense fallback={<div>Loading...</div>}> {/* Додано Suspense */}
-            <Routes>
-                <Route path="/" element={<Navigate to="/welcome" />} />
-                <Route path="/welcome" element={<WelcomePage />} />
-                <Route path="/auth/register" element={<RegisterPage />} />
-                <Route path="/auth/login" element={<LoginPage />} />
-                <Route path="/" element={<PrivateRoute />}>
-                    <Route index path="/home" element={<SharedLayout><HomePage /></SharedLayout>} />
-                    <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>} />
-                </Route>
-                <Route path="*" element={<ErrorPage />} />
-            </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+            <Route path="/" element={<Navigate to="/welcome"/>}/>
+            <Route path="/welcome" element={<WelcomePage />}/>
+            <Route path="auth/register" element={<RegisterPage />}/>
+            <Route path="auth/login" element={<LoginPage />}/>
+            <Route path="/" element={<PrivateRoute />}>
+                <Route index path="/home" element={<SharedLayout><HomePage /></SharedLayout>}/>
+                <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>}/>
+            </Route>
+            <Route path="*" element={<ErrorPage />} />
+        </Routes>
         </Suspense>
 
         // <Routes>
