@@ -40,8 +40,7 @@ export const logoutRequest = async () => {
   return data;
 };
 
-export const sendHelpRequest = async (formData, token) => {
-  setToken(token);
+export const sendHelpRequest = async (formData) => {
   try {  
     const response = await authInstance.post("/users/help", formData);
     return response.data;
