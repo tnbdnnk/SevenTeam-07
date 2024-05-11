@@ -30,12 +30,16 @@ const BoardList = () => {
 
     const { isModalOpen, openModal, closeModal } = useModal();
 
-  const list = boardList.map(item => {
-    const boardName = item.title.replace(' ', '').toLowerCase();
+  const list = items.map(item => {
+    // const boardName = item.title.replace(' ', '').toLowerCase();
 
     return (
-      <li key={item._id} className={activeBoard._id === item._id ? `${css.item} ${css.active}` : css.item}>
-      <Link to={`/home/:${boardName}`} className={css.boardLink} onClick={() => handleBoardClick(item)}>
+      <li key={item.id} className={activeBoard.id === item.id ? `${css.item} ${css.active}` : css.item}>
+        {/* <NavLink to={`/home/:${boardName}`} className={({ isActive }) =>
+          isActive ? `${css.active}` : `${css.link}`}>
+            {item.name}
+        </NavLink> */}
+      <Link to={`/home/${item.id}`} className={css.boardLink} onClick={() => handleBoardClick(item)}>
       <div className={css.boardInfo}>
         <svg width="18" height="18" className={css.boardIcon}><use href={sprite + item.icons}></use></svg>
         <h3>{item.title}</h3>
