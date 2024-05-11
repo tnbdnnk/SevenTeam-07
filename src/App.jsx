@@ -16,8 +16,8 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 
 const App = () => {
-    // console.log(test);
-
+        // console.log(test);
+    
     return (
         <Suspense fallback={<div>Loading...</div>}>
         <Routes>
@@ -32,6 +32,30 @@ const App = () => {
             <Route path="*" element={<ErrorPage />} />
         </Routes>
         </Suspense>
+
+        // <Routes>
+        //     <Route path="/welcome" element={<WelcomePage />} />
+        //     <Route path="/auth/register" element={<RegisterPage />} />
+        //     <Route path="/auth/login" element={<LoginPage />} />
+        //     <Route element={<PrivateRoute />}>
+        //         <Route path="/home" element={<SharedLayout><HomePage /></SharedLayout>} />
+        //         <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>} />
+        //     </Route>
+        //     <Route path="*" element={<ErrorPage />} />
+        // </Routes>
+
+        // <Routes>
+        //     <Route path="/" element={<PublicRoute />} >
+        //         <Route path="/welcome" element={<WelcomePage />}/>
+        //         <Route path="auth/register" element={<RegisterPage />}/>
+        //         <Route path="auth/login" element={<LoginPage />}/>
+        //     </Route>
+        //     <Route path="/" element={<PrivateRoute />}>
+        //         <Route index path="/home" element={<SharedLayout><HomePage /></SharedLayout>}/>
+        //         <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>}/>
+        //     </Route>
+        //     <Route path="*" element={<ErrorPage />} />
+        // </Routes>
     );
 }
 
