@@ -35,7 +35,7 @@ const NeedHelpModal = ({ isOpen, closeModal }) => {
             <form onSubmit={handleSubmit}>
                 <input
                     type="email"
-                    name="userEmail"
+                    name="email"
                     placeholder="Email address"
                     required
                 />
