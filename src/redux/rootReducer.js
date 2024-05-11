@@ -17,9 +17,10 @@ const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 const persistedBoardReducer = persistReducer(persistConfig, boardReducer);
 
 const rootReducer = combineReducers({
-    auth: persistedAuthReducer,
-    board: persistedBoardReducer,
-    // contacts: contactsReducer,
-    // filter: filterReducer,
+  auth: persistedAuthReducer,
+  board: persistedBoardReducer,
+  // contacts: contactsReducer,
+  // filter: filterReducer,
+})
 
 export default rootReducer;
