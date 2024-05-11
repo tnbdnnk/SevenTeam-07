@@ -113,22 +113,6 @@ export const updateTheme = createAsyncThunk(
   }
 );
 
-// export const sendHelp = createAsyncThunk(
-//   'auth/help',
-//   async (formData, { getState, rejectWithValue }) => {
-//     try {
-//       const { auth } = getState();
-//       const token = auth.token;
-//       setToken(token);
-      
-//       const response = await axios.post("/users/help", formData);
-//       return response.data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 export const sendHelp = createAsyncThunk(
   'auth/sendHelp',
   async (data, { rejectWithValue }) => {
