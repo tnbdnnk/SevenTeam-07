@@ -1,6 +1,6 @@
-import { combineReducers } from "@reduxjs/toolkit";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { combineReducers } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 import authReducer from "./auth/auth-slice";
 import boardReducer from "./boardById/board-slice";
@@ -8,10 +8,10 @@ import boardReducer from "./boardById/board-slice";
 // import filterReducer from "./filter/filter-slice";
 
 const persistConfig = {
-    key: 'root',
-    storage,
-    whitelist: ["token"]
-}
+  key: 'root',
+  storage,
+  whitelist: ['token'],
+};
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 const persistedBoardReducer = persistReducer(persistConfig, boardReducer);
@@ -21,6 +21,5 @@ const rootReducer = combineReducers({
     board: persistedBoardReducer,
     // contacts: contactsReducer,
     // filter: filterReducer,
-})
 
 export default rootReducer;

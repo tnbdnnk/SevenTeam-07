@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form"
-import { useState, useEffect  } from "react";
+// import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addBoard, editBoard } from '../../../redux/boards/board-operations';
+// import { createNewBoard } from "../../../api/services-api.js"
 import css from "./modalBoards.module.css";
 import sprite from "../../../images/symbol-defs.svg"
 
@@ -23,7 +26,7 @@ import bg15 from "../../../images/background_icons/bg15.jpg"
 const arrayIcons = ["#icon-four-balls", "#icon-star", "#icon-loading", '#icon-puzzle', "#icon-box", "#icon-lightning", "#icon-colors",   "#icon-hexagon"]
 const arrayBg = [noBg, bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11, bg12, bg13, bg14, bg15]
 
-const NewBoardForm = ({ onSubmit }) => {
+const NewBoardForm = ({ onSubmit}) => {
   const { register, handleSubmit } = useForm();
 
   const iconsList = arrayIcons.map((icon, index) => {
@@ -68,22 +71,16 @@ const NewBoardForm = ({ onSubmit }) => {
 
 
 export const NewBoard = () => {
+  const dispatch = useDispatch();
 
-  // створення данних форми
-  const [boardData, setBoardData] = useState({
-    title: "",
-    icons: "",
-    background: ""
-  });
+  const onSubmit = async ({ title, icons, background}) => {
+    try {
+      await dispatch(addBoard({ title, icons, background}));
+      console.log("cтворили нову борду");
 
-  useEffect(() => {
-    console.log("Стан boardData змінився:", boardData);
-  }, [boardData]);
-
-  const onSubmit = ({ title, icons, background}) => {
-    setBoardData({ title, icons, background });
-    console.log(boardData)
-      //  додати логіку відправки  даних на сервер
+    } catch (error) {
+      console.error("Помилка при створенні нової борди:", error);
+    }
   }
   
   return <>
@@ -97,18 +94,17 @@ export const EditBoard = ({ boardData }) => {
   const { register, handleSubmit } = useForm();
   console.log('boardData', boardData)
 
+  const dispatch = useDispatch();
+  
+  const onSubmit = async ({ title, icons, background}) => {
+    try {
+      const newBoardData = { title, icons, background };
+      await dispatch(editBoard({ _id: boardData._id, newBoardData }));
+      console.log("cтворили нову борду");
 
-  const [editBoardData, seteditBoardData] = useState(boardData);
-  
-  useEffect(() => {
-    console.log("Стан editBoardData змінився:", editBoardData);
-  }, [editBoardData]);
-  
-  const onSubmit = ({ title, icons, background}) => {
-    
-    seteditBoardData({ title, icons, background });
-    console.log("відправка даних на сервер");
-        //  Логіка відправки  даних на сервер
+    } catch (error) {
+      console.error("Помилка при зміні борди:", error);
+    }
   }
 
   const iconsList = arrayIcons.map((icon) => {
