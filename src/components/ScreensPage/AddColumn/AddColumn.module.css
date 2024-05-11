@@ -7,6 +7,14 @@
   justify-content: center;
   gap: 8px;
   border-radius: 8px;
+
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.button:hover,
+.button:focus {
+  background-color: #9dc888;
+  scale: 1.1;
 }
 
 @media (min-width: 375px) {
@@ -24,10 +32,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: background-color 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.button:hover .iconBox,
+.button:focus .iconBox {
+  background-color: #161616;
 }
 
 .icon {
   stroke: #121212;
+  transition: stroke 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.button:hover .icon,
+.button:focus .icon {
+  stroke: #fff;
 }
 
 .text {
@@ -35,4 +56,10 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #fff;
+  transition: color 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+button:hover .text,
+.button:focus .text {
+  color: #161616;
 }

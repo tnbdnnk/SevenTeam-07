@@ -4,6 +4,8 @@ import ColumnCard from './ColumnCard/ColumnCard';
 import Filters from '../Filters/Filters';
 import { nanoid } from 'nanoid';
 
+// import Background from './Background/Background';
+
 import css from './ScreensPage.module.css';
 
 const ScreensPage = () => {

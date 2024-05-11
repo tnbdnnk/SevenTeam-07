@@ -2,30 +2,32 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #121212;
+  background-color: var(--background-black);
   z-index: 10;
-
+/* width: 100%; */
   width: 225px;
   height: 100vh;
   padding: 14px 0px;
   padding-bottom: 80px;
   text-align: left;
-  color: #fff;
+  color: var(--text-white);
 }
 
 @media screen and (max-width: 1439px) {
-  .sidebar{
+  .sidebar {
     display: none;
   }
 
-    .sidebar.visible {
-      display: flex;
-        position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 101;
-    }
+  .sidebar.visible {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    height: 100vh;
+  }
 }
+
 
 /* overley for sidebar */
 .overlay {
@@ -47,7 +49,7 @@
   font-size: 12px;
   font-weight: 400;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-grey);
   margin-bottom: 8px;
 }
 
@@ -66,25 +68,25 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--text-white);
 }
 
-.createBtn {    
+.createBtn {
   width: 40px;
   height: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #BEDBB0;
-  border-radius: 5px; 
+  background: var(--accent-light);
+  border-radius: 5px;
 }
 
 .createBtn:hover,
 .createBtn:focus {
-background: #9DC888;
+  background: var(--accent-dark);
 }
 
-.iconPlus{
+.iconPlus {
   stroke: #121212;
 }
 
@@ -105,18 +107,42 @@ button {
   align-items: center;
   font-weight: 500;
   font-size: 14px;
-  color: #fff;
+  color: var(--text-white);
   position: absolute;
   left: 24px;
   bottom: 24px;
 }
 
-.iconLogout{
-  stroke: #BEDBB0;
+.iconLogout {
+  stroke: var(--accent-light);
   fill: none;
 }
 
-.logoutBtn:hover .iconLogout, 
+.logoutBtn:hover .iconLogout,
 .logoutBtn:focus .iconLogout {
-  stroke: #9DC888;
+  stroke: var(--accent-dark);
 }
+
+
+/* styles for tablet -------------------------------- */
+@media screen and (min-width: 768px){
+.sidebar{
+  width: 260px;
+  padding: 24px 0px;
+  padding-bottom: 80px;
+}
+
+.partSidebar {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+
+}
+
+/* styles for desctop -------------------------------*/
+@media screen and (min-width: 1440px){
+.sidebar {
+    width: 260px;
+  }
+} 

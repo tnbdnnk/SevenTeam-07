@@ -58,7 +58,6 @@ const CardItem = ({
       </div>
 
       <div className={css.vector}></div>
-
       <div className={css.addedInfoWrap}>
         <div className={css.propertyWrap}>
           <div>
@@ -103,7 +102,7 @@ const CardItem = ({
             <svg className={css.icon} width="16" height="16">
               <use href={icons + '#icon-trash'}></use>
             </svg>
-          </button>
+          </button> 
         </div>
       </div>
     </div>

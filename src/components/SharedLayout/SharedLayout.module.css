@@ -1,14 +1,10 @@
-
-/* .wrapper {
-  display: flex;
-} */
-
 .wrapper {
   background-color: #1f1f1f;
 }
 
 @media (min-width: 1440px) {
   .wrapper {
+    width: 100%;
     display: flex;
     justify-content: center;
   }

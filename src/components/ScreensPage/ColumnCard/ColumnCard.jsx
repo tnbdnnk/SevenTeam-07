@@ -36,10 +36,10 @@ const ColumnCard = ({
     onDelete(id);
     closeDeleteModal();
   };
-
+  
   return (
     // ??? прописати умову для другого класу:
-    <li className={`${css.item} ${css.itemAdded}`} key={id}>
+ <li className={`${css.item} ${css.itemAdded}`} key={id}>
       {isEditModalOpen && (
         <EditColumnModal
           isModalOpen={isEditModalOpen}

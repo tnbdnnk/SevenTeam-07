@@ -1,0 +1,27 @@
+.wrapUserInfo {
+  /* height: 32px; */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.textUser {
+  font-size: 14px;
+  font-weight: 500px;
+  letter-spacing: -0.02em;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  /* border-radius: 8px; */
+}
+
+.avatarBtn {
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  background-color: #161616;
+}

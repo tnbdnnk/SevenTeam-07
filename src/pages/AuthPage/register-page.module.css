@@ -1,5 +1,65 @@
 .registerWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff, 25%, #bedbb0 92.19%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  height: 363px;
+}
+.register {
+  background: #151515;
+  margin: 0 auto;
+  border-radius: 8px;
+  min-width: 280px;
+  /* height: 363px; */
+
+}
+.blockRegister {
+  margin-top: 24px;
+  display: flex;
+  gap: 40px;
+  flex-direction:column;
+  margin-left: 24px;
+  margin-bottom: 24px;
+}
+.navRegister {
+  display: flex;
+  gap: 14px;
+}
+.linkRegister {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.3);
+}
+.authActivPage {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 375px) {
+  .register {
+    min-width: 335px;
+  }
+  .blockRegister {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .register {
+    min-width: 424px;
+  }
+  .blockRegister {
+    margin-left: 40px;
+    margin-top: 40px;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 1140px) {
 }

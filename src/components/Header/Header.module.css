@@ -19,6 +19,16 @@
   }
 }
 
+.ligth {
+  background-color: #fcfcfc;
+  color: #161616;
+}
+
+.violet {
+  background-color: #fcfcfc;
+  color: #161616;
+}
+
 .btn {
   background-color: transparent;
   border: none;
@@ -43,11 +53,23 @@
   }
 }
 
+.svg.ligth {
+  stroke: #161616;
+}
+
+.svg.violet {
+  stroke: #161616;
+}
+
 .svgTheme {
   width: 16px;
   height: 16px;
   fill: #161616;
   stroke: #ffffffcc;
+}
+.svgTheme.ligth {
+  fill: #ffffffcc;
+  stroke: #161616;
 }
 
 .active {
@@ -65,11 +87,19 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #ffffffcc;
+
+  color: 255, 255, 255, 0.8;
+
   font-weight: 500;
   font-size: 14px;
-
   letter-spacing: -0.02em;
+}
+
+.wrapbtnTheme.ligth {
+  color: rgba(22, 22, 22, 0.8);
+}
+.wrapbtnTheme.violet {
+  color: rgba(22, 22, 22, 0.8);
 }
 
 .btnTheme {

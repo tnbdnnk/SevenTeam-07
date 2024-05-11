@@ -1,19 +1,52 @@
+
 .block {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
+    align-items: center;
+    margin: 0 auto;
 }
-
-.link {
+.linkAuthRegistration {
+    margin: 0;
+    padding: 0;
     text-decoration: none;
-    font-size: 18px;
-    color: #ffffffcc;
+    font-size: 14px;
+    color:#ffffff;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    height: 49px;
+    align-content: center;
+    width: 280px;
+    background-color: #161616;
+    border-radius: 8px;
+    align-content: center;
+    text-align: center;
+}
+.linkAuthLogin {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 14px;
+    color:#161616;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    height: 49px;
+    align-content: center;
 }
 
-.link:hover {
-    border-bottom: 1px solid;
+@media screen and (min-width: 375px) {
+    .linkAuthRegistration{
+        min-width: 335px;
+    }
 }
 
-.link:global(.active) {
-    font-weight: bold;
+@media screen and (min-width: 768px) {
+    .linkAuthRegistration{
+        min-width: 344px;
+    }
+
+}
+
+@media screen and (min-width: 1140px) {
+
 }
