@@ -1,7 +1,7 @@
 import css from './UserInfo.module.css';
 import { useState } from 'react';
 import { useModal } from '../../../hooks/useModal';
-import Modal from '../../../helpers/ModalWindow';
+import Modal from '../../../helpers/ModalWindow/Modal.jsx';
 import { UserForm } from '../UserForm/UserForm';
 import sprite from '../../../images/symbol-defs.svg';
 import { useSelector } from 'react-redux';
