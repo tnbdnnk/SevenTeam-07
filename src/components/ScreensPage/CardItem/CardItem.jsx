@@ -16,6 +16,33 @@ const CardItem = ({
 
     const { _id, title, description, label, deadline } = card;
     const isDeadlineToday = true;
+    // console.log(label);
+
+    // const handleSetColor = (label) => { 
+    //     switch (label) {
+    //     case label = 'without':
+    //         //Здесь выполняются инструкции, если результат выражения равен value1
+    //         break;
+    //     case label = 'low':
+    //         //Инструкции, соответствующие value2
+    //         break;
+    //     ...
+    //     case label = 'medium':
+    //         //Инструкции, соответствующие значению valueN
+    //         //statementsN
+    //         break;
+    //     case label = 'high':
+    //         //Инструкции, соответствующие значению valueN
+    //         //statementsN
+    //         break;
+    //     default:
+    //         //Здесь находятся инструкции, которые выполняются при отсутствии соответствующего значения
+    //         //statements_def
+    //         break;
+    //     }
+    //         //   return { backgroundColor: `${bgImage}` };
+    //     // label: Joi.string().valid("without", "low", "medium", "high"),
+    // }
 
 //   const {
 //     openModal: openDeleteModal,

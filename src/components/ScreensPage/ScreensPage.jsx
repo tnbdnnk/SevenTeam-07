@@ -19,6 +19,7 @@ const ScreensPage = () => {
 
   let { boardName } = useParams();
   const board = useSelector(selectBoard);
+  console.log(board);
   // підключити ререндери після зміни і видалення борди !
   const bgImage = board?.background;
   
