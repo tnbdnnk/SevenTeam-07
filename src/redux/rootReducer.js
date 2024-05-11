@@ -3,7 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import authReducer from "./auth/auth-slice";
-import boardReducer from "./board/board-slice";
+import boardReducer from "./boardById/board-slice";
 // import contactsReducer from "./contacts/contacts-slice";
 // import filterReducer from "./filter/filter-slice";
 

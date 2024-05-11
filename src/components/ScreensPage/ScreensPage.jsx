@@ -1,14 +1,15 @@
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectBoard } from '../../redux/boardById/board-selectors';
+import { fetchBoard } from '../../redux/boardById/board-operations';
 // import { useState } from 'react';
+// import { nanoid } from 'nanoid';
+
 import AddColumn from './AddColumn/AddColumn';
 import ColumnCard from './ColumnCard/ColumnCard';
 import Filters from '../Filters/Filters';
 // import Background from './Background/Background';
-
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectBoard } from '../../redux/board/board-selectors';
-import { fetchBoard } from '../../redux/board/board-operations';
 
 import css from './ScreensPage.module.css';
 
@@ -26,35 +27,101 @@ const ScreensPage = () => {
   }, [dispatch, boardName]); 
   // const error = useSelector(selectError);
    
+  
   const handleBackground = (image) => {
     if (image) {
-      return { backgroundImage: `url(${bgImage})` }
-    };
+      return { backgroundImage: `url(${bgImage})` };
+    }
     return;
-  }
+  };
 
-  // const [boards, setBoards] = useState();
-  
-  // const handleDeleteColumn = (index) => {
+  //  const [boards, setBoards] = useState({
+  //   name: 'Project office',
+  //   columns: [],
+  //   // background: 'https://wallpaper.forfun.com/fetch/98/986a3988049771e452a4c8de5399e3e1.jpeg',
+  //   background: null,
+  //  });
+
+  // const addNewCardToColumn = (columnId, newCard) => {
+  //   console.log(columnId);
+  //   console.log(newCard);
   //   setBoards((prevBoards) => {
-  //     const newColumns = [...prevBoards.column];
-  //     newColumns.splice(index, 1);
-  //     console.log({ ...prevBoards, column: newColumns });
-  //     return { ...prevBoards, column: newColumns };
+  //     const updatedColumns = prevBoards.columns.map((column) => {
+  //       if (column.id === columnId) {
+  //         const updatedCards = [...column.cards, newCard];
+  //         return { ...column, cards: updatedCards };
+  //       }
+  //       return column;
+  //     });
+  //     const res = { ...prevBoards, columns: updatedColumns };
+  //     console.log(res);
+  //     return res;
+  //   });
+  // };
+
+  // const handleDeleteCard = (columnId, cardId) => {
+  //   setBoards((prevBoards) => {
+  //     const updatedColumns = prevBoards.columns.map((column) => {
+  //       if (column.id === columnId) {
+  //         const updatedCards = column.cards.filter(
+  //           (card) => card.id !== cardId
+  //         );
+  //         return { ...column, cards: updatedCards };
+  //       }
+  //       return column;
+  //     });
+  //     const res = { ...prevBoards, columns: updatedColumns };
+  //     console.log(res);
+  //     return res;
+  //   });
+  // };
+
+  // const updateCard = (columnId, cardId, updatedFields) => {
+  //   setBoards((prevBoards) => {
+  //     const updatedColumns = prevBoards.columns.map((column) => {
+  //       if (column.id === columnId) {
+  //         const updatedCards = column.cards.map((card) => {
+  //           if (card.id === cardId) {
+  //             return { ...card, ...updatedFields };
+  //           }
+  //           return card;
+  //         });
+  //         return { ...column, cards: updatedCards };
+  //       }
+  //       return column;
+  //     });
+  //     const res = { ...prevBoards, columns: updatedColumns };
+  //     console.log(res);
+  //     return res;
+  //   });
+  // };
+
+  // const handleDeleteColumn = (id) => {
+  //   setBoards((prevBoards) => {
+  //     const updatedColumns = prevBoards.columns.filter(
+  //       (column) => column.id !== id
+  //     );
+
+  //     const res = { ...prevBoards, columns: updatedColumns };
+  //     console.log(res);
+  //     return res;
   //   });
   // };
 
   // const handleAddColumn = (newColumn) => {
+  //   const columnWithId = {
+  //     ...newColumn,
+  //     id: nanoid(),
+  //   };
   //   setBoards((prevBoards) => ({
   //     ...prevBoards,
-  //     column: [...prevBoards.column, newColumn],
+  //     columns: [...prevBoards.columns, columnWithId],
   //   }));
   // };
 
   return (
   <>
     {board && 
-      
         <div style={handleBackground(bgImage)} className={bgImage ? `${css.container} ${css.imageStyles}` : `${css.container}`}>
           {/* <Background className={css.container}> */}
           <section className={css.section}>
@@ -65,13 +132,14 @@ const ScreensPage = () => {
 
             <div className={css.columnListWrap}>
               <ul className={css.columnList}>
-                {/* {board.columns.map(({ _id, title }, index) => ( */}
                 {board.columns.map((columnItem) => (
                   <ColumnCard
                     key={columnItem._id}
                     columnItem={columnItem}
-                    // onDelete={() => handleDeleteColumn(i)}
-                    // index={index}
+                    // onDelete={() => handleDeleteColumn(column.id)}
+                    // onDeleteCard={handleDeleteCard}
+                    // addNewCardToColumn={addNewCardToColumn}
+                    // updateCard={updateCard}
                   />))}
                 {/* <AddColumn onAddColumn={handleAddColumn} /> */}
                 <AddColumn />

@@ -25,7 +25,7 @@ const Filters = () => {
                 <p className={css.subscribe}>Filters</p>
             </button>
 
-            <div>
+            {/* <div>
                 <h4>Filters</h4>
                 <div className={css.vector}></div>
                 <div>
@@ -35,26 +35,22 @@ const Filters = () => {
                 <ul>
                    <li className={css.priorityDataWrap}>
                         <div className={css.circle}></div>
-                        {/* <div style={handleSetColor(label)} className={css.circle}></div> */}
                         <p className={css.text}>Without priority</p>
                     </li>
                     <li className={css.priorityDataWrap}>
                         <div className={css.circle}></div>
-                        {/* <div style={handleSetColor(label)} className={css.circle}></div> */}
                         <p className={css.text}>Low</p>
                     </li>
                     <li className={css.priorityDataWrap}>
                         <div className={css.circle}></div>
-                        {/* <div style={handleSetColor(label)} className={css.circle}></div> */}
                         <p className={css.text}>Medium</p>
                     </li>
                     <li className={css.priorityDataWrap}>
                         <div className={css.circle}></div>
-                        {/* <div style={handleSetColor(label)} className={css.circle}></div> */}
                         <p className={css.text}>High</p>
                     </li>
                 </ul>
-            </div>
+            </div> */}
         </>
     );
 };

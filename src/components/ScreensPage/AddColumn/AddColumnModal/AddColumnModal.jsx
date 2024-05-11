@@ -14,7 +14,11 @@ const AddColumnModal = ({ isModalOpen, closeModal, onAddColumn }) => {
       alert('Please enter a column name');
       return;
     }
-    onAddColumn(columnName);
+    const newColumn = {
+      name: columnName,
+      cards: [],
+    };
+    onAddColumn(newColumn);
     closeModal();
   };
 
