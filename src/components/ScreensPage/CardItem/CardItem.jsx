@@ -1,32 +1,10 @@
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectBoard } from '../../../redux/board/board-selectors';
-// import { fetchBoard } from '../../../redux/board/board-operations';
-
 import css from './CardItem.module.css';
 import icons from '../../../images/symbol-defs.svg';
 
 
-const CardItem = (card) => {
+const CardItem = ({ card }) => {
     const { _id, title, description, label, deadline } = card;
 
-    // const dispatch = useDispatch();
-    // const board = useSelector(selectBoard);
-    // const error = useSelector(selectError);
-    
-    // const columns = board.columns;
-    // const columnsLength = Object.keys(columns).length;
-    // console.log(columnsLength);
-
-    
-    // useEffect(() => {     
-    //     dispatch(fetchBoard(columns));
-    //     // dispatch(fetchBoard());
-    // }, [dispatch, columns]) 
-
-    // 
-
-    // console.log(card);
     // написати функціонал для обробки дат і кольору:
     const deadlineDate = '2011-10-10';
     const today = '2011-10-10';
@@ -54,7 +32,6 @@ const CardItem = (card) => {
     }
 
     return (
-        // <div key={_id} className={css.card}>
         <li key={_id} className={css.card}>
             <div className={css.cardLine}></div>
             {/* <div style={handleSetColor(label)} className={css.cardLine}></div> */}
@@ -105,7 +82,6 @@ const CardItem = (card) => {
                 </div>
             </div>
         </li>
-        // </div>
     );
 };
 

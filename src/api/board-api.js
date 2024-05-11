@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import { setToken } from './auth-api';
 
 
 const authInstance = axios.create({
@@ -7,7 +8,6 @@ const authInstance = axios.create({
 
 const setToken = token => {
     if (token) {
-        // console.log(token);
         return authInstance.defaults.headers.authorization = `Bearer ${token}`;
     }
     authInstance.defaults.headers.authorization = "";
@@ -16,10 +16,7 @@ const setToken = token => {
 export const getBoardById = async (id, user) => {
     setToken(user.token);
     const { data } = await authInstance.get(`/boards/${id}`);
-    // console.log(data);
-    // console.log(user);
-    // console.log(id);
-    
+   
     return data;
 };
 

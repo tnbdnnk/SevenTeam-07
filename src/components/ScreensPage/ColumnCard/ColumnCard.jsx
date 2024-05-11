@@ -1,12 +1,6 @@
 import { useState } from 'react';
 import { useModal } from '../../../hooks/useModal';
-// import { useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-// import { useDispatch, useSelector } from 'react-redux';
-import { selectBoard } from '../../../redux/board/board-selectors';
-// import { fetchBoard } from '../../../redux/board/board-operations';
-// import CardItem from '../CardItem/CardItem';
+import CardItem from '../CardItem/CardItem';
 import AddCard from '../AddCard/AddCard';
 import DeleteColumnModal from './DeleteColumn/DeleteColumnModal';
 import EditColumnModal from './EditColumn/EditColumnModal';
@@ -16,23 +10,10 @@ import icons from '../../../images/symbol-defs.svg';
 
 
 // const ColumnCard = ({ _id, title, index }) => { 
-const ColumnCard = (columnItem) => { 
-    const { _id, title } = columnItem;
-    // const { _id, title, cards } = columnItem;
-    // const dispatch = useDispatch();
-    const board = useSelector(selectBoard);
-    // const error = useSelector(selectError);
-    
-    const columns = board.columns;
-    console.log(columns);
-    // const columnsLength = Object.keys(columns).length;
-    // console.log(columnsLength);
-    
-    // useEffect(() => {     
-    //     dispatch(fetchBoard(columns));
-    //     // dispatch(fetchBoard());
-    // }, [dispatch, columns]) 
-   
+const ColumnCard = ({ columnItem }) => { 
+
+    const { _id, title, cards } = columnItem;
+
   const [currentName, setCurrentName] = useState(name);
   const {
     openModal: openEditModal,
@@ -56,23 +37,22 @@ const ColumnCard = (columnItem) => {
 
 
     return (
-        // <li className={cards.length > 0 ? `${css.item} ${css.itemAdded}` : `${css.item}`} key={id}>
-        <li className={css.item} key={_id}>
-        {isEditModalOpen && (
-            <EditColumnModal
-                isModalOpen={isEditModalOpen}
-                closeModal={closeEditModal}
-                handleRenameColumn={handleNameChange}
-                currentName={currentName}
-            />
-        )}
-        {isDeleteModalOpen && (
-            <DeleteColumnModal
-                isModalOpen={isDeleteModalOpen}
-                closeModal={closeDeleteModal}
-                // onConfirmDelete={confirmDelete}
-            />
-        )}
+        <li className={cards.length > 0 ? `${css.item} ${css.itemAdded}` : `${css.item}`} key={_id}>
+            {isEditModalOpen && (
+                <EditColumnModal
+                    isModalOpen={isEditModalOpen}
+                    closeModal={closeEditModal}
+                    handleRenameColumn={handleNameChange}
+                    currentName={currentName}
+                />
+            )}
+            {isDeleteModalOpen && (
+                <DeleteColumnModal
+                    isModalOpen={isDeleteModalOpen}
+                    closeModal={closeDeleteModal}
+                    // onConfirmDelete={confirmDelete}
+                />
+            )}
             <div className={css.columnMainInfo}>
                 <div className={css.columnCard}>
                     <p className={css.text}>{title}</p>
@@ -89,19 +69,18 @@ const ColumnCard = (columnItem) => {
                         </button>
                     </div>
                 </div>
-                {/* <div className={css.cardsWrap}> */}
-                {/* <ul className={css.cardsWrap}>
+                <ul className={css.cardsWrap}>
                     {cards.map((card) => (
                         <CardItem 
                             key={card._id}
-                            // card={card}
+                            card={card}
                         />))}
-                </ul> */}
-                {/* </div> */}
+                </ul>
             </div>
             <AddCard />
         </li>
     );
 };
+
 
 export default ColumnCard;

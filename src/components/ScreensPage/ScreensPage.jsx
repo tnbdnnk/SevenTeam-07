@@ -25,10 +25,6 @@ const ScreensPage = () => {
     dispatch(fetchBoard(`${boardName}`));
   }, [dispatch, boardName]); 
   // const error = useSelector(selectError);
-  // const columns = board.columns;
-  // console.log(board);
-  // console.log(boardName);
-  // console.log(columns);
    
   const handleBackground = (image) => {
     if (image) {
@@ -73,7 +69,7 @@ const ScreensPage = () => {
                 {board.columns.map((columnItem) => (
                   <ColumnCard
                     key={columnItem._id}
-                    // columnItem={columnItem}
+                    columnItem={columnItem}
                     // onDelete={() => handleDeleteColumn(i)}
                     // index={index}
                   />))}
