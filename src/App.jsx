@@ -1,5 +1,5 @@
-import { lazy } from "react";
-import { Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -10,27 +10,52 @@ const LoginPage = lazy(() => import("./pages/AuthPage/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/AuthPage/RegisterPage"));
 
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import PublicRoute from "./components/PublicRoute/PublicRoute";
+// import PublicRoute from "./components/PublicRoute/PublicRoute";
 
 // const test = import.meta.env.VITE_API_TEST;
 
 
 const App = () => {
-    // console.log(test);
-
+        // console.log(test);
+    
     return (
-        <Routes>
-            <Route path="/" element={<PublicRoute />} >
-                <Route path="/welcome" element={<WelcomePage />}/>
-                <Route path="auth/register" element={<RegisterPage />}/>
-                <Route path="auth/login" element={<LoginPage />}/>
-            </Route>
-            <Route path="/" element={<PrivateRoute />}>
-                <Route index path="/home" element={<SharedLayout><HomePage /></SharedLayout>}/>
-                <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>}/>
-            </Route>
-            <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}> {/* Додано Suspense */}
+            <Routes>
+                <Route path="/" element={<Navigate to="/welcome" />} />
+                <Route path="/welcome" element={<WelcomePage />} />
+                <Route path="/auth/register" element={<RegisterPage />} />
+                <Route path="/auth/login" element={<LoginPage />} />
+                <Route path="/" element={<PrivateRoute />}>
+                    <Route index path="/home" element={<SharedLayout><HomePage /></SharedLayout>} />
+                    <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>} />
+                </Route>
+                <Route path="*" element={<ErrorPage />} />
+            </Routes>
+        </Suspense>
+
+        // <Routes>
+        //     <Route path="/welcome" element={<WelcomePage />} />
+        //     <Route path="/auth/register" element={<RegisterPage />} />
+        //     <Route path="/auth/login" element={<LoginPage />} />
+        //     <Route element={<PrivateRoute />}>
+        //         <Route path="/home" element={<SharedLayout><HomePage /></SharedLayout>} />
+        //         <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>} />
+        //     </Route>
+        //     <Route path="*" element={<ErrorPage />} />
+        // </Routes>
+
+        // <Routes>
+        //     <Route path="/" element={<PublicRoute />} >
+        //         <Route path="/welcome" element={<WelcomePage />}/>
+        //         <Route path="auth/register" element={<RegisterPage />}/>
+        //         <Route path="auth/login" element={<LoginPage />}/>
+        //     </Route>
+        //     <Route path="/" element={<PrivateRoute />}>
+        //         <Route index path="/home" element={<SharedLayout><HomePage /></SharedLayout>}/>
+        //         <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>}/>
+        //     </Route>
+        //     <Route path="*" element={<ErrorPage />} />
+        // </Routes>
     );
 }
 
