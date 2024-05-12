@@ -1,7 +1,7 @@
 import LogoComponent from "./LogoComponent/LogoComponent"
 import BoardList from "./BoardList/BoardList"
 import NeedHelp from "./NeedHelp/NeedHelp"
-// import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 // Для модалки
 import { useModal } from "../../hooks/useModal.js";
 import Modal from "../../helpers/ModalWindow/Modal.jsx"
@@ -14,8 +14,12 @@ const exampleBoardList = [{ id: 1, title: "First board", icons:"#icon-four-balls
 import { useDispatch } from 'react-redux';
 import { logout } from "../../redux/auth/auth-operations.js";
 
+import { getAllBoards } from '../../redux/boards/boards-operations.js';
+import { useDispatch } from 'react-redux';
 
-const Sidebar = ({ className }) => {
+
+
+const Sidebar = ({className }) => {
 // для модалки
   const { isModalOpen, openModal, closeModal } = useModal();
 
@@ -24,6 +28,9 @@ const Sidebar = ({ className }) => {
   const handleLogout = () => {
     dispatch(logout());
   };
+  useEffect(() => {
+    dispatch(getAllBoards());
+  }, [dispatch]);
 
   return <aside className={`${css.sidebar} ${className}`}>
     <div className={css.partSidebar}>
@@ -36,9 +43,9 @@ const Sidebar = ({ className }) => {
       <use href={icons + '#icon-plus'}></use>
     </svg></button></div>
     </div>
-    <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard/>}</Modal>
+    <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard onClose={closeModal}/>}</Modal>
 
-    <BoardList items={exampleBoardList} />
+    <BoardList />
     <div className={css.partSidebar}>
     <NeedHelp />
     <button onClick={handleLogout} className={css.logoutBtn}>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const authInstance = axios.create({
+export const authInstance = axios.create({
   baseURL: 'https://project-seventeam07.onrender.com/api',
 });
 
