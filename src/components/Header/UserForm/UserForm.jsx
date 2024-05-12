@@ -8,20 +8,22 @@ import { updateUser } from '../../../redux/auth/auth-operations';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../../redux/auth/auth-selectors';
 
-export const UserForm = () => {
+export const UserForm = ({ onClose }) => {
   const dispatch = useDispatch();
   const fileInputRef = useRef(null);
 
   const [visible, setVisible] = useState(false);
   const { name, email, avatarURL, theme } = useSelector(selectUser);
-  const [avatarUser, setAvatarUser] = useState(useSelector(avatarURL));
-  const [nameUser, setNameUser] = useState(useSelector(name));
-  const [emailUser, setEmailUser] = useState(useSelector(email));
+
+  const [avatarUser, setAvatarUser] = useState(avatarURL);
+  const [nameUser, setNameUser] = useState(name);
+  const [emailUser, setEmailUser] = useState(email);
   const [password, setPassword] = useState('');
 
   //временно
-  const [activeTheme, setactiveTheme] = useState('dark');
-  // const [activeTheme, setactiveTheme] = useState(theme);
+  // const [activeTheme, setactiveTheme] = useState('dark');
+  const [activeTheme, setactiveTheme] = useState(theme);
+  console.log(theme);
 
   const avatarLight = `${sprite}#icon-user-icon-white-theme`;
   const avatarViolet = `${sprite}#icon-user-icon-violet-theme`;
@@ -91,8 +93,8 @@ export const UserForm = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const user = {
         avatarURL: avatarUser,
@@ -101,7 +103,8 @@ export const UserForm = () => {
         password,
       };
       dispatch(updateUser(user));
-      e.target.reset();
+
+      onClose();
     } catch (error) {
       toast.error('Ooops, there was an error...', {
         style: {
