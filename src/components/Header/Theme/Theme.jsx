@@ -28,7 +28,7 @@ export const Theme = () => {
     console.log(theme);
     setActiveIndex(index);
 
-    dispatch(updateTheme(theme));
+    dispatch(updateTheme({ theme }));
     setactiveTheme(theme);
   };
 
