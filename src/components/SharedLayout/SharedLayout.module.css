@@ -1,5 +1,10 @@
+.loaderWrap {
+  height: 100vh;
+}
+
 .wrapper {
   background-color: #1f1f1f;
+  height: 100vh;
 }
 
 @media (min-width: 1440px) {
