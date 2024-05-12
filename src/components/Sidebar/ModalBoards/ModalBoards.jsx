@@ -23,7 +23,7 @@ import bg13 from "../../../images/background_icons/bg13.jpg"
 import bg14 from "../../../images/background_icons/bg14.jpg"
 import bg15 from "../../../images/background_icons/bg15.jpg"
 
-const arrayIcons = ["#icon-four-balls", "#icon-star", "#icon-loading", '#icon-puzzle', "#icon-box", "#icon-lightning", "#icon-colors",   "#icon-hexagon"]
+const arrayIcons = ["#icon-four-balls", "#icon-star", "#icon-loading", '#icon-puzzle', "#icon-container", "#icon-lightning", "#icon-colors",   "#icon-hexagon"]
 const arrayBg = [noBg, bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11, bg12, bg13, bg14, bg15]
 
 const NewBoardForm = ({ onSubmit}) => {
@@ -41,7 +41,7 @@ const NewBoardForm = ({ onSubmit}) => {
 
   const bgList = arrayBg.map((bgName, index) => {
     const bgValue = bgName.slice(50, 54).replace(".","");
-    // console.log(bgValue)
+    console.log("bgValue", bgValue)
     
     return (<label key={bgName}>
           <input type="radio" {...register("background")} value={bgValue} defaultChecked={index === 0 || !index}/>
@@ -75,6 +75,7 @@ export const NewBoard = ({onClose}) => {
 
   const onSubmit = async ({ title, icons, background}) => {
     try {
+      console.log({ title, icons, background})
       await dispatch(addBoard({ title, icons, background}));
       onClose();
 

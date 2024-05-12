@@ -54,9 +54,7 @@ const boardsSlice = createSlice({
       .addCase(fetchBoard.pending, pending)
       .addCase(fetchBoard.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.selectBoard = state.boards.find(
-          (board) => board._id === payload._id
-        );
+        state.selectBoard = payload;
       })
       .addCase(fetchBoard.rejected, rejected);
 

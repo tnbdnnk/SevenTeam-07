@@ -13,8 +13,16 @@ import Filters from '../Filters/Filters';
 
 import css from './ScreensPage.module.css';
 
+// import {getBoardById} from "../../api/board-api.js"
+
 
 const ScreensPage = () => {
+// тестовий код
+  //   useEffect(() => {
+  //     const data = getBoardById("663e636c0ebfde3777089cd6");
+  //     console.log(data);
+  // }, []); 
+
   const dispatch = useDispatch();
 
   let { boardName } = useParams();
