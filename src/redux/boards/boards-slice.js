@@ -4,6 +4,7 @@ import {
   addBoard,
   editBoard,
   fetchBoard,
+  deleteBoard,
 } from './boards-operations';
 
 const initialState = {
@@ -42,13 +43,11 @@ const boardsSlice = createSlice({
       .addCase(addBoard.rejected, rejected)
       .addCase(editBoard.pending, pending)
       .addCase(editBoard.fulfilled, (state, { payload }) => {
+        console.log(payload);
         state.isLoading = false;
-        const index = state.boards.findIndex(
-          (board) => board._id === payload._id
+        state.boards = state.boards.map((board) =>
+          board._id === payload._id ? (board = payload) : board
         );
-        if (index !== -1) {
-          state.boards[index] = payload;
-        }
       })
       .addCase(editBoard.rejected, rejected)
       .addCase(fetchBoard.pending, pending)
@@ -56,14 +55,14 @@ const boardsSlice = createSlice({
         state.isLoading = false;
         state.selectBoard = payload;
       })
-      .addCase(fetchBoard.rejected, rejected);
-
-    // .addCase(deleteContact.pending, pending)
-    // .addCase(deleteContact.fulfilled, (state, { payload }) => {
-    //   state.isLoading = false;
-    //   state.items = state.items.filter(({ id }) => id !== payload);
-    // })
-    // .addCase(deleteContact.rejected, rejected)
+      .addCase(fetchBoard.rejected, rejected)
+      .addCase(deleteBoard.pending, pending)
+      .addCase(deleteBoard.fulfilled, (state, { payload }) => {
+        console.log(payload);
+        state.isLoading = false;
+        state.boards = state.boards.filter((board) => board._id !== payload);
+      })
+      .addCase(deleteBoard.rejected, rejected);
   },
 });
 

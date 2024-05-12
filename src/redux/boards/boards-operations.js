@@ -54,23 +54,25 @@ export const addBoard = createAsyncThunk(
   }
 );
 
-// export const deleteBoard = createAsyncThunk(
-//   'boards/deleteBoard',
-//   async (boardId, thunkAPI) => {
-//     try {
-//       const { data } = await axiosInstance.delete(`/boards/${boardId}`);
-//       return data.deletedId;
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
+export const deleteBoard = createAsyncThunk(
+  'boards/deleteBoard',
+  async (boardId, thunkAPI) => {
+    try {
+      const { data } = await authInstance.delete(`/boards/${boardId}`);
+      console.log(data.id);
+      return data.id;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
 export const editBoard = createAsyncThunk(
   'boards/editBoard',
   async ({ _id, newBoardData }, thunkAPI) => {
     try {
       const { data } = await authInstance.patch(`/boards/${_id}`, newBoardData);
+      console.log('editBoard - ', data);
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

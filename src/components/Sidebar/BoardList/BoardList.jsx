@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import { useDispatch } from "react-redux";
 import { useModal } from "../../../hooks/useModal.js";
 import Modal from "../../../helpers/ModalWindow/Modal.jsx"
 import {EditBoard} from '../../../components/Sidebar/ModalBoards/ModalBoards.jsx'
-
+import {deleteBoard} from "../../../redux/boards/boards-operations.js"
 import css from "./boardList.module.css"
 import sprite from '../../../images/symbol-defs.svg'
 
@@ -28,7 +29,17 @@ const BoardList = () => {
     }
   }, [ ]);
 
-    const { isModalOpen, openModal, closeModal } = useModal();
+  const { isModalOpen, openModal, closeModal } = useModal();
+  
+  const dispatch = useDispatch();
+  const handleDeleteBord = async (id) => {
+    try {
+      console.log("id for delete",id)
+      await dispatch(deleteBoard(id));
+    } catch (error) {
+      console.error("Помилка при видалені борди:", error);
+    }
+  }
 
   const list = boardList.map(item => {
     // const boardName = item.title.replace(' ', '').toLowerCase();
@@ -43,7 +54,7 @@ const BoardList = () => {
       <div className={css.boarSettings}>
           <span onClick={openModal}><svg className={css.boarSettingsSvg} width="16" height="16">
             <use href={sprite + '#icon-pen'}></use></svg></span>
-        <span><svg className={css.boarSettingsSvg} width="16" height="16"><use href={sprite + '#icon-trash'}></use></svg></span>
+        <span onClick={() => handleDeleteBord(item._id)}><svg className={css.boarSettingsSvg} width="16" height="16"><use href={sprite + '#icon-trash'}></use></svg></span>
       </div>
       </Link>
       <Modal isOpen={isModalOpen} onClose={closeModal}>{<EditBoard boardData={activeBoard} onClose={closeModal} />}</Modal>

@@ -50,6 +50,7 @@ h3 {
 .boardIcon {
   stroke: #FFFFFF;
   opacity: 0.5;
+  fill: none;
 }
 
 .boarSettings {
