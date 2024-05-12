@@ -1,6 +1,7 @@
 // import DeleteCardModal from './DeleteCard/DeleteCardModal';
 // import { useModal } from '../../../hooks/useModal';
 // import EditCardModal from './EditCard/EditCardModal';
+import { handleSetColor, handleFormatDate, handleCompareDates } from './CardItemFunctions/CardItemFunctions';
 
 import css from './CardItem.module.css';
 import icons from '../../../images/symbol-defs.svg';
@@ -14,38 +15,12 @@ const CardItem = ({
 //   columnId,
 }) => {
 
-    const { _id, title, description, label, deadline } = card;
-    const isDeadlineToday = true;
-    // console.log(deadline);
+const { _id, title, description, label, deadline } = card;
 
-    const handleSetColor = (label) => { 
-        switch (label) {
-            case label = 'without':
-                return { backgroundColor: 'rgba(255, 255, 255, 0.3)' }
-            case label = 'low':
-                return { backgroundColor: '#8fa1d0' }
-            case label = 'medium':
-                return { backgroundColor: '#e09cb5' }
-            case label = 'high':
-                return { backgroundColor: '#bedbb0' }
-            default:
-                return { backgroundColor: 'rgba(255, 255, 255, 0.3)' }
-        }
-    }
-
-    const handleFormatDate = (deadline) => {
-        // const dateParts = deadline.split(', ')[0].split('/');
-        // const formattedDate = `${dateParts[1]}/${dateParts[0]}/${dateParts[2]}`;
-        // return formattedDate;
-
-        const dateParts = deadline.split(', ')[0].split('/');
-        const day = dateParts[1].padStart(2, '0');
-        const month = dateParts[0].padStart(2, '0');
-        const year = dateParts[2];
-        const formattedDate = `${day}/${month}/${year}`;
-        return formattedDate;
-    }
-
+const currentDate = Date.now();
+const formattedDeadline = handleFormatDate(deadline);
+const isDeadlineToday = handleCompareDates(currentDate, formattedDeadline);
+  
 //   const {
 //     openModal: openDeleteModal,
 //     closeModal: closeDeleteModal,

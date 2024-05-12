@@ -10,10 +10,31 @@
   transition: all 500ms cubic-bezier(0, 0, 1, 1);
 }
 
+.button.dark,
+.button.ligth {
+  background-color: #bedbb0;
+}
+
+.button.violet {
+  background-color: #5255bc;
+}
+
 .button:hover,
 .button:focus {
   background-color: #9dc888;
   box-shadow: 12px 11px 14px -7px rgba(0, 0, 0, 0.63);
+}
+
+.button.dark:hover,
+.button.dark:focus,
+.button.ligth:hover,
+.button.ligth:focus {
+  background-color: #9dc888;
+}
+
+.button.violet:hover,
+.button.violet:focus {
+  background-color: #7b7ede;
 }
 
 @media (min-width: 375px) {
@@ -32,8 +53,26 @@
   align-items: center;
 }
 
+.iconBox.dark,
+.iconBox.ligth {
+  background-color: #161616;
+}
+
+.iconBox.violet {
+  background-color: #fff;
+}
+
 .icon {
   stroke: white;
+}
+
+.icon.dark,
+.icon.ligth {
+  stroke: white;
+}
+
+.icon.violet {
+  stroke: #161616;
 }
 
 .text {
@@ -41,4 +80,13 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #161616;
+}
+
+.text.dark,
+.text.ligth {
+  color: #161616;
+}
+
+.text.violet {
+  color: #fff;
 }
