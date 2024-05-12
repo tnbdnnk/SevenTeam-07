@@ -26,7 +26,7 @@ const BoardList = () => {
     if (boardList.length > 0) {
       setActiveBoard(boardList[0]);
     }
-  }, []);
+  }, [ ]);
 
     const { isModalOpen, openModal, closeModal } = useModal();
 

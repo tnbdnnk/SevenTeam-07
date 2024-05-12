@@ -10,12 +10,12 @@ import {NewBoard} from './ModalBoards/ModalBoards.jsx'
 import css from './sidebar.module.css';
 import icons from '../../images/symbol-defs.svg';
 // Брати потім з бека
-const exampleBoardList = [{ id: 1, title: "First board", icons:"#icon-four-balls", background:"bg3"}, { id: 2, title: "Second board", icons:'#icon-puzzle', background:"bg4"}, { id: 3, title: "Third board", icons:"#icon-star", background:"bg12"}, ]
+// const exampleBoardList = [{ id: 1, title: "First board", icons:"#icon-four-balls", background:"bg3"}, { id: 2, title: "Second board", icons:'#icon-puzzle', background:"bg4"}, { id: 3, title: "Third board", icons:"#icon-star", background:"bg12"}, ]
 import { useDispatch } from 'react-redux';
 import { logout } from "../../redux/auth/auth-operations.js";
 
 import { getAllBoards } from '../../redux/boards/boards-operations.js';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 
 
