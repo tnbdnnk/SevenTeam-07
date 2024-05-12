@@ -7,7 +7,7 @@ import { selectUser } from '../../../redux/auth/auth-selectors';
 
 export const Theme = () => {
   const { theme } = useSelector(selectUser);
-  const [activeIndex, setActiveIndex] = useState(1);
+
   const [activeTheme, setactiveTheme] = useState(theme);
   console.log(theme);
 
@@ -16,6 +16,10 @@ export const Theme = () => {
     { label: 'Dark', theme: 'dark' },
     { label: 'Violet', theme: 'violet' },
   ];
+  const indexTheme = options.findIndex(
+    (option) => option.theme === activeTheme
+  );
+  const [activeIndex, setActiveIndex] = useState(indexTheme);
 
   const dispatch = useDispatch();
 
