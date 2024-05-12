@@ -9,9 +9,11 @@ import { selectUser } from '../../../redux/auth/auth-selectors';
 
 export const UserInfo = () => {
   const { name, avatarURL, theme } = useSelector(selectUser);
+  // const us = useSelector(selectUser);
+  // console.log(us);
 
-  const [activeTheme, setactiveTheme] = useState('dark');
-  // const [activeTheme, setactiveTheme] = useState(theme);
+  // const [activeTheme, setactiveTheme] = useState('dark');
+  const [activeTheme, setactiveTheme] = useState(theme);
 
   const avatarLight = `${sprite}#icon-user-icon-white-theme`;
   const avatarViolet = `${sprite}#icon-user-icon-violet-theme`;
@@ -55,7 +57,7 @@ export const UserInfo = () => {
       </button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         {/* <UserForm avatar={avatar} onClose={closeModal} /> */}
-        <UserForm />
+        <UserForm onClose={closeModal} />
       </Modal>
     </div>
   );

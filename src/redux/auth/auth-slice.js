@@ -12,7 +12,7 @@ import {
 import { pending, rejected } from '../../shared/functions/redux';
 
 const initialState = {
-  user: {},
+  user: { name: null, email: null, avatarURL: null, theme: 'dark' },
   token: '',
   isLogin: false,
   isLoading: false,
@@ -65,16 +65,16 @@ const authSlice = createSlice({
       .addCase(updateUser.rejected, (state) => {
         state.isLoading = false;
       })
-      .addCase(updateUser.fulfilled, (state, action) => {
-        state.user.name = action.payload.name;
-        state.user.email = action.payload.email;
-        state.user.avatarURL = action.payload.avatarURL;
-        state.user.password = action.payload.password;
+      .addCase(updateUser.fulfilled, (state, { payload }) => {
+        state.user.name = payload.name;
+        state.user.email = payload.email;
+        state.user.avatarURL = payload.avatarURL;
+        state.user.password = payload.password;
         state.isLogin = true;
         state.isLoading = false;
       })
-      .addCase(updateTheme.fulfilled, (state, action) => {
-        state.user.theme = action.payload.theme;
+      .addCase(updateTheme.fulfilled, (state, { payload }) => {
+        state.user.theme = payload.theme;
         state.isLogin = true;
         state.isLoading = false;
       });
