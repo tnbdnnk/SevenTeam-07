@@ -5,8 +5,10 @@
   justify-content: space-between;
   height: 60px;
   padding: 14px 20px;
-  background-color: #161616;
-  color: #fff;
+
+  background-color: var(--dark-header);
+
+  color: var(--text-white);
 
   @media screen and (min-width: 768px) {
     height: 68px;
@@ -20,13 +22,13 @@
 }
 
 .light {
-  background-color: #fcfcfc;
-  color: #161616;
+  background-color: var(--light-header);
+  color: var(--text-black);
 }
 
 .violet {
-  background-color: #fcfcfc;
-  color: #161616;
+  background-color: var(--white-header);
+  color: var(--text-black);
 }
 
 .btn {
@@ -54,22 +56,27 @@
 }
 
 .svg.light {
-  stroke: #161616;
+  stroke: var(--text-black);
 }
 
 .svg.violet {
-  stroke: #161616;
+  stroke: var(--text-black);
 }
 
 .svgTheme {
   width: 16px;
   height: 16px;
-  fill: #161616;
-  stroke: #ffffffcc;
+  fill: var(--text-black);
+  stroke: var(--text-dark-grey);
 }
 .svgTheme.light {
-  fill: #ffffffcc;
-  stroke: #161616;
+  fill: var(--light-header);
+  stroke: var(--text-dark-grey-08);
+}
+
+.svgTheme.violet {
+  fill: var(--white-header);
+  stroke: var(--text-dark-grey-08);
 }
 
 .active {
@@ -88,7 +95,7 @@
   align-items: center;
   gap: 4px;
 
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-dark-grey);
 
   font-weight: 500;
   font-size: 14px;
@@ -96,10 +103,10 @@
 }
 
 .wrapbtnTheme.light {
-  color: rgba(22, 22, 22, 0.8);
+  color: var(--text-dark-grey-08);
 }
 .wrapbtnTheme.violet {
-  color: rgba(22, 22, 22, 0.8);
+  color: var(--text-dark-grey-08);
 }
 
 .btnTheme {
@@ -107,7 +114,8 @@
   font-size: 14px;
   border: none;
   background-color: transparent;
-  color: #ffffffcc;
+
+  /* color: #ffffffcc; */
 
   text-align: center;
   cursor: pointer;

@@ -155,7 +155,7 @@ export const UserForm = ({ onClose }) => {
               className={[css.input, css[activeTheme]].join(' ')}
               type="text"
               placeholder="Name"
-              value={name}
+              value={nameUser}
               onChange={handleChange}
               name="name"
             />
@@ -166,7 +166,7 @@ export const UserForm = ({ onClose }) => {
           <label>
             <input
               className={[css.input, css[activeTheme]].join(' ')}
-              value={email}
+              value={emailUser}
               onChange={handleChange}
               type="email"
               name="email"

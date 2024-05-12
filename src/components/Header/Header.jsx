@@ -11,14 +11,12 @@ export const Header = ({ openBurger }) => {
   const [isActive, setisActive] = useState(false);
   const { theme } = useSelector(selectUser);
   console.log(theme);
-  // const [activeTheme, setactiveTheme] = useState(theme);
 
   // // для проверки
   // const [activeTheme, setactivTheme] = useState(theme);
 
   return (
     <header className={[css.header, css[theme]].join(' ')}>
-      {/* // <header className={`${css.header} ${css[theme]}`}> */}
       <button className={css.btn} onClick={openBurger}>
         <svg className={[css.svg, css[theme]].join(' ')}>
           <use href={`${sprite}#icon-burger`} />

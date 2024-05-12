@@ -9,10 +9,7 @@ import { selectUser } from '../../../redux/auth/auth-selectors';
 
 export const UserInfo = () => {
   const { name, avatarURL, theme } = useSelector(selectUser);
-  // const us = useSelector(selectUser);
-  // console.log(us);
 
-  // const [activeTheme, setactiveTheme] = useState('dark');
   const [activeTheme, setactiveTheme] = useState(theme);
 
   const avatarLight = `${sprite}#icon-user-icon-white-theme`;
@@ -45,7 +42,7 @@ export const UserInfo = () => {
   return (
     <div className={css.wrapUserInfo}>
       <p className={css.textUser}>{name ? name : 'Name'} </p>
-      {/* <p className={css.textUser}>Name </p> */}
+
       <button className={css.avatarBtn} onClick={openModal}>
         {avatarURL ? (
           <img className={css.avatar} src={avatarURL} alt="user-avatar" />
