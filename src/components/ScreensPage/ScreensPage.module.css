@@ -3,6 +3,18 @@
   padding: 14px 8px 24px 20px;
 }
 
+.container.dark {
+  background-color: #1f1f1f;
+}
+
+.container.ligth {
+  background-color: #f6f6f7;
+}
+
+.container.violet {
+  background-color: #ecedfc;
+}
+
 @media (min-width: 768px) and (max-width: 1439px) {
   .container {
     padding: 26px 18px 32px 32px;
@@ -21,6 +33,18 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.imageStyles.dark {
+  background-color: #1f1f1f;
+}
+
+.imageStyles.ligth {
+  background-color: #f6f6f7;
+}
+
+.imageStyles.violet {
+  background-color: #ecedfc;
 }
 
 .section {
@@ -50,9 +74,30 @@
   scroll-behavior: smooth;
 }
 
+.section.dark::-webkit-scrollbar {
+  background-color: #161616;
+}
+
+.section.ligth::-webkit-scrollbar,
+.section.violet::-webkit-scrollbar {
+  background-color: #fff;
+}
+
 .section::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
+}
+
+.section.dark::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.section.ligth::-webkit-scrollbar-thumb {
+  background-color: #e8e8e8;
+}
+
+.section.violet::-webkit-scrollbar-thumb {
+  background-color: #b8bcfd;
 }
 
 .activeSettingsWrapper {
@@ -78,6 +123,15 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #fff;
+}
+
+.title.dark {
+  color: #fff;
+}
+
+.title.ligth,
+.title.violet {
+  color: #161616;
 }
 
 @media (min-width: 768px) {
