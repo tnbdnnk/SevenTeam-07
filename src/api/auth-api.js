@@ -51,7 +51,7 @@ export const sendHelpRequest = async (formData) => {
 
 export const sendThemeRequest = async (formData) => {
   try {
-    const response = await authInstance.patch('/user/theme', formData);
+    const response = await authInstance.patch('/users/theme', formData);
     return response.data;
   } catch (error) {
     throw new Error('Error sending theme request');
@@ -60,7 +60,7 @@ export const sendThemeRequest = async (formData) => {
 
 export const sendUpdateRequest = async (formData) => {
   try {
-    const response = await authInstance.patch('/user', formData, {
+    const response = await authInstance.patch('/users/update', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
     return response.data;
