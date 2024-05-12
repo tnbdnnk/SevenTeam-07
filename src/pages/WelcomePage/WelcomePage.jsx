@@ -5,6 +5,7 @@ import WelcomeAuth from '../../components/Welcome/WelcomeAuth/WelcomeAuth';
 // import WelcomeUser from '../../components/Welcome/WelcomeUser/WelcomeUser';
 
 import welcomepageemoji from '/src/images/welcompage-emoji.svg';
+import icons from 'src/images/symbol-defs.svg';
 
 import { Outlet, Navigate } from 'react-router-dom';
 import { Suspense } from 'react';
@@ -25,7 +26,9 @@ const WelcomePage = () => {
                 <svg className={styles.welcomeSvg} width="40" height="40">
                 <use
                     className={styles.welcomeUse}
-                    href="../../images/iconWelcome.svg"
+                    href={icons + '#icon-logo-icon-black'}
+                    width="40" 
+                    height="40"
                 ></use>
                 </svg>
                 <h1 className={styles.welcomeTitle}>Task Pro</h1>

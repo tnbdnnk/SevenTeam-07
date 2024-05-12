@@ -1,5 +1,5 @@
 import { useState, useId } from 'react';
-// import sprite from '../../images/symbol-defs.svg';
+import sprite from '../../images/symbol-defs.svg';
 // import styles from "./login-form.module.css";
 import styles from '../AuthForm/register-form.module.css';
 
@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 
 const LoginForm = ({ onSubmit }) => {
   const [state, setState] = useState({ ...INITIAL_STATE });
-  //   const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(false);
 
   const handleChange = ({ target }) => {
     const { name, value, type, checked } = target;
@@ -58,24 +58,23 @@ const LoginForm = ({ onSubmit }) => {
           value={password}
           className={styles.registerInput}
           onChange={handleChange}
-          //   type={visible ? 'text' : 'password'}
-          type="password"
+            type={visible ? 'text' : 'password'}
           name="password"
           placeholder="Confirm a password"
           id={passwordId}
           required
         />
-        {/* <button
+        <button
           type="button"
           className={styles.visiblePassword}
           onClick={() => {
             setVisible(!visible);
           }}
         >
-          <svg>
+          <svg className={styles.svgEye}>
             <use href={`${sprite}#icon-eye`} width="18" height="18" />
           </svg>
-        </button> */}
+        </button>
       </div>
       <button className={styles.btnRegister} type="submit">
         Log In Now
