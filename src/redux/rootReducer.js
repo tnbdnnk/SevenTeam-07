@@ -10,7 +10,7 @@ import boardsReducer from './boards/boards-slice';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'user'],
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
