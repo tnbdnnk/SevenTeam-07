@@ -36,7 +36,7 @@ const Modal = ({ isOpen, onClose, children }) => {
     <div className={css.overlay} onClick={handleClickOutside}>
       <div className={[css.modal, css[theme]].join(' ')} ref={modalRef}>
         <button className={css.closeBtn} onClick={onClose}>
-          <svg className={css.closeIcon} width="18" height="18">
+          <svg className={[css.closeIcon, css[theme]].join(' ')} width="18" height="18">
             <use href={icons + '#icon-x-close'}></use>
           </svg>
         </button>

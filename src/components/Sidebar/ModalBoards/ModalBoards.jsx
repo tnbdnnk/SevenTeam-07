@@ -93,7 +93,6 @@ export const NewBoard = ({onClose}) => {
 
 export const EditBoard = ({ boardData, onClose }) => {
   const { register, handleSubmit } = useForm();
-  console.log('boardData', boardData)
 
   const dispatch = useDispatch();
   
