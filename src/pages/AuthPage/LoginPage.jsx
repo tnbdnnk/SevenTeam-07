@@ -7,7 +7,7 @@ import { NavLink, Navigate } from 'react-router-dom';
 import { login } from '../../redux/auth/auth-operations';
 
 import {
-  selectAuthLoading,
+  // selectAuthLoading,
   selectAuthError,
   selectIsLogin
 } from '../../redux/auth/auth-selectors';
@@ -18,7 +18,7 @@ import {
 import styles from '../AuthPage/register-page.module.css';
 
 const LoginPage = () => {
-  const authLoading = useSelector(selectAuthLoading);
+  // const authLoading = useSelector(selectAuthLoading);
   const authError = useSelector(selectAuthError);
   const isLogin = useSelector(selectIsLogin);
 
@@ -43,7 +43,7 @@ const LoginPage = () => {
             </NavLink>
           </div>
        
-        {authLoading && <p>....Login in progress</p>}
+        {/* {authLoading && <p>....Login in progress</p>} */}
         <LoginForm onSubmit={handleLogin} />
         {isLogin ? <Navigate to="/home"/>: authError && <p style={{color: "red"}}>{authError}</p>}
         </div>

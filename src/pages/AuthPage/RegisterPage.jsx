@@ -6,14 +6,18 @@ import RegisterForm from "../../components/AuthForm/RegisterForm";
 
 import {signup} from "../../redux/auth/auth-operations";
 
-import { selectAuthLoading, selectAuthError, selectIsLogin } from "../../redux/auth/auth-selectors";
+import { 
+    // selectAuthLoading, 
+    selectAuthError, 
+    selectIsLogin 
+} from "../../redux/auth/auth-selectors";
 
 // import WelcomeAuth from "../../components/Welcome/WelcomeAuth/WelcomeAuth";
 
 import styles from './register-page.module.css'
 
 const RegisterPage = ()=> {
-    const authLoading = useSelector(selectAuthLoading);
+    // const authLoading = useSelector(selectAuthLoading);
     const authError = useSelector(selectAuthError);
     const isLogin = useSelector(selectIsLogin);
 
@@ -31,7 +35,7 @@ const RegisterPage = ()=> {
                     <NavLink to="/auth/register" className={styles.authActivPage} >Registration</NavLink>
                     <NavLink to="/auth/login" className={styles.linkRegister}>Log In</NavLink>
                     </div>
-                {authLoading && <p>....Register in progress</p>}
+                {/* {authLoading && <p>....Register in progress</p>} */}
                 <RegisterForm onSubmit={handleSignup} />
                 {isLogin ? <Navigate to="/home"/>: authError && <p style={{color: "red"}}>{authError}</p>}
                 </div>
