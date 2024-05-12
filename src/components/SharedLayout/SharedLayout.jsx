@@ -13,11 +13,9 @@ const Overlay = ({ onClick }) => (
 
 
 const SharedLayout = ({ children }) => {
-
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
     const openSidebar = () => {
-        console.log('open sidebar')
         setIsSidebarOpen(true);
     };
   

@@ -11,7 +11,7 @@ const Loader = () => {
             color="#4fa94d"
             ariaLabel="tail-spin-loading"
             radius="1"
-            wrapperStyle={{height: '100vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}
+            wrapperStyle={{height: '100%', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', alignContent: 'center'}}
             wrapperClass=""
         />  
 	)

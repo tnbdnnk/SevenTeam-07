@@ -31,12 +31,17 @@ const ScreensPage = () => {
   // підключити ререндери після зміни і видалення борди !
   const bgImage = board?.background;
   
+  const isColumnListEmpty = () => {
+    const column = board.columns[0];
+    const hasId = Object.hasOwn(column, '_id');
+    return hasId;
+  }
+
   useEffect(() => {
     dispatch(fetchBoard(`${boardName}`));
   }, [dispatch, boardName]); 
   // const error = useSelector(selectError);
    
-  
   const handleBackground = (image) => {
     if (image) {
       return { backgroundImage: `url(${bgImage})` };
@@ -141,7 +146,7 @@ const ScreensPage = () => {
 
             <div className={css.columnListWrap}>
               <ul className={css.columnList}>
-                {board.columns.map((columnItem) => (
+                {isColumnListEmpty() && board.columns.map((columnItem) => (
                   <ColumnCard
                     key={columnItem._id}
                     columnItem={columnItem}
