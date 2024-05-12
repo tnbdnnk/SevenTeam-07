@@ -100,7 +100,8 @@ export const EditBoard = ({ boardData, onClose }) => {
   const onSubmit = async ({ title, icons, background}) => {
     try {
       const editData = { title, icons, background };
-      await dispatch(editBoard({ _id: boardData._id, editData }));
+      console.log(editData);
+      await dispatch(editBoard({ _id: boardData._id, newBoardData: editData }));
       onClose()
 
     } catch (error) {
