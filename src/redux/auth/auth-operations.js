@@ -127,7 +127,7 @@ export const updateUser = createAsyncThunk(
 // );
 
 export const updateTheme = createAsyncThunk(
-  'auth',
+  'auth/theme',
   async (userTheme, { rejectWithValue }) => {
     try {
       const payload = {

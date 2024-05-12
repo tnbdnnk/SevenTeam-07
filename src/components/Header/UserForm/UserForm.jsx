@@ -107,6 +107,7 @@ export const UserForm = ({ onClose }) => {
       dispatch(updateUser(user));
 
       onClose();
+      toast.success('Update accepted!');
     } catch (error) {
       toast.error('Ooops, there was an error...', {
         style: {
