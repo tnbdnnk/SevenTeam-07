@@ -49,15 +49,6 @@ export const sendHelpRequest = async (formData) => {
   }
 };
 
-export const sendThemeRequest = async (formData) => {
-  try {
-    const response = await authInstance.patch('/users/theme', formData);
-    return response.data;
-  } catch (error) {
-    throw new Error('Error sending theme request');
-  }
-};
-
 export const sendUpdateRequest = async (formData) => {
   try {
     const response = await authInstance.patch('/users/update', formData, {
