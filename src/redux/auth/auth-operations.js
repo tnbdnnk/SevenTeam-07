@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 // import axios from 'axios';
-import { setToken } from '../../api/auth-api';
+// import { setToken } from '../../api/auth-api';
 
 import {
   signupRequest,
@@ -70,39 +70,40 @@ export const logout = createAsyncThunk(
   }
 );
 
+// export const updateUser = createAsyncThunk(
+//   'auth/update',
+//   async (userData, thunkAPI) => {
+//     const state = thunkAPI.getState();
+//     const persistedToken = state.auth.token;
+
+//     if (persistedToken === null) {
+//       return thunkAPI.rejectWithValue('Unable to fetch user');
+//     }
+//     try {
+//       setToken(persistedToken);
+//       const res = await axios.patch('/users/update', userData, {
+//         headers: { 'Content-Type': 'multipart/form-data' },
+//       });
+
+//       return res.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
 export const updateUser = createAsyncThunk(
-  'auth/update',
+  'users/updateUser',
   async (userData, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
     try {
-      setToken(persistedToken);
-      const res = await axios.patch('/users/update', userData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
+      const { data } = await authInstance.patch('users/update', userData);
 
-      return res.data;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
-// export const updateUser = createAsyncThunk(
-//   'auth/update',
-//   async (userData, { rejectWithValue }) => {
-//     try {
-//       const res = await sendUpdateRequest(userData);
-//       return res.data;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 export const updateTheme = createAsyncThunk(
   'users/updateTheme',
