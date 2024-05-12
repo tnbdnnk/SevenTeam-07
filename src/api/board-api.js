@@ -1,24 +1,23 @@
-import axios from 'axios';
+// import axios from 'axios';
 // import { setToken } from './auth-api';
 
+// const authInstance = axios.create({
+//     baseURL: 'https://project-seventeam07.onrender.com/api',
+// });
 
-const authInstance = axios.create({
-    baseURL: 'https://project-seventeam07.onrender.com/api',
-});
+// const setToken = token => {
+//     if (token) {
+//         return authInstance.defaults.headers.authorization = `Bearer ${token}`;
+//     }
+//     authInstance.defaults.headers.authorization = "";
+// }
 
-const setToken = token => {
-    if (token) {
-        return authInstance.defaults.headers.authorization = `Bearer ${token}`;
-    }
-    authInstance.defaults.headers.authorization = "";
-}
+// export const getBoardById = async (id, user) => {
+//     setToken(user.token);
+//     const { data } = await authInstance.get(`/boards/${id}`);
 
-export const getBoardById = async (id, user) => {
-    setToken(user.token);
-    const { data } = await authInstance.get(`/boards/${id}`);
-   
-    return data;
-};
+//     return data;
+// };
 
 // token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2M2U0MzA2NmQxNjI1ZmRjNDU3YWM3ZCIsImlhdCI6MTcxNTM2NDI4MCwiZXhwIjoxNzE1NTM3MDgwfQ.Ie7DcuIqKslxu07lqSesutjYYe7xSm2CR7B6zzJTy0Q
 
