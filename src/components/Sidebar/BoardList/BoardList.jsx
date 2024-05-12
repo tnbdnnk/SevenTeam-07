@@ -7,9 +7,9 @@ import {EditBoard} from '../../../components/Sidebar/ModalBoards/ModalBoards.jsx
 import css from "./boardList.module.css"
 import sprite from '../../../images/symbol-defs.svg'
 
-// import { getAllBoards } from '../../redux/boards/board-operations.js';
+// import { getAllBoards } from '../../redux/boards/boards-operations.js';
 import { useSelector } from 'react-redux';
-import {selectAllBoardsList} from '../../../redux/boards/bords-selectors.js'
+import {selectAllBoardsList} from '../../../redux/boards/boards-selectors.js'
 
 
 const BoardList = () => {
@@ -30,16 +30,12 @@ const BoardList = () => {
 
     const { isModalOpen, openModal, closeModal } = useModal();
 
-  const list = items.map(item => {
+  const list = boardList.map(item => {
     // const boardName = item.title.replace(' ', '').toLowerCase();
 
     return (
-      <li key={item.id} className={activeBoard.id === item.id ? `${css.item} ${css.active}` : css.item}>
-        {/* <NavLink to={`/home/:${boardName}`} className={({ isActive }) =>
-          isActive ? `${css.active}` : `${css.link}`}>
-            {item.name}
-        </NavLink> */}
-      <Link to={`/home/${item.id}`} className={css.boardLink} onClick={() => handleBoardClick(item)}>
+      <li key={item._id} className={activeBoard._id === item._id ? `${css.item} ${css.active}` : css.item}>
+      <Link to={`/home/${item._id}`} className={css.boardLink} onClick={() => handleBoardClick(item)}>
       <div className={css.boardInfo}>
         <svg width="18" height="18" className={css.boardIcon}><use href={sprite + item.icons}></use></svg>
         <h3>{item.title}</h3>
@@ -50,7 +46,7 @@ const BoardList = () => {
         <span><svg className={css.boarSettingsSvg} width="16" height="16"><use href={sprite + '#icon-trash'}></use></svg></span>
       </div>
       </Link>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>{<EditBoard boardData={activeBoard} />}</Modal>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>{<EditBoard boardData={activeBoard} onClose={closeModal} />}</Modal>
       
       </li>)
   })

@@ -1,10 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllBoards, addBoard, editBoard } from './board-operations';
+import {
+  getAllBoards,
+  addBoard,
+  editBoard,
+  fetchBoard,
+} from './boards-operations';
 
 const initialState = {
   boards: [],
   isLoading: false,
   error: null,
+  selectBoard: null,
 };
 
 const pending = (state) => {
@@ -44,7 +50,16 @@ const boardsSlice = createSlice({
           state.boards[index] = payload;
         }
       })
-      .addCase(editBoard.rejected, rejected);
+      .addCase(editBoard.rejected, rejected)
+      .addCase(fetchBoard.pending, pending)
+      .addCase(fetchBoard.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.selectBoard = state.boards.find(
+          (board) => board._id === payload._id
+        );
+      })
+      .addCase(fetchBoard.rejected, rejected);
+
     // .addCase(deleteContact.pending, pending)
     // .addCase(deleteContact.fulfilled, (state, { payload }) => {
     //   state.isLoading = false;

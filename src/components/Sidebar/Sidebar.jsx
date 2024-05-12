@@ -10,7 +10,7 @@ import {NewBoard} from './ModalBoards/ModalBoards.jsx'
 import css from './sidebar.module.css';
 import icons from '../../images/symbol-defs.svg';
 
-import { getAllBoards } from '../../redux/boards/board-operations.js';
+import { getAllBoards } from '../../redux/boards/boards-operations.js';
 import { useDispatch } from 'react-redux';
 
 
@@ -37,7 +37,7 @@ const Sidebar = ({className }) => {
       <use href={icons + '#icon-plus'}></use>
     </svg></button></div>
     </div>
-    <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard/>}</Modal>
+    <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard onClose={closeModal}/>}</Modal>
 
     <BoardList />
     <div className={css.partSidebar}>

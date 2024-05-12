@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectBoard } from '../../redux/boardById/board-selectors';
-import { fetchBoard } from '../../redux/boardById/board-operations';
+import { selectBoard } from '../../redux/boards/boards-selectors';
+import { fetchBoard } from '../../redux/boards/boards-operations';
 // import { useState } from 'react';
 // import { nanoid } from 'nanoid';
 
