@@ -14,6 +14,8 @@ export const UserForm = ({ onClose }) => {
 
   const [visible, setVisible] = useState(false);
   const { name, email, avatarURL, theme } = useSelector(selectUser);
+  const us = useSelector(selectUser);
+  console.log(us);
 
   const [avatarUser, setAvatarUser] = useState(avatarURL);
   const [nameUser, setNameUser] = useState(name);

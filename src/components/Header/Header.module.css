@@ -19,7 +19,7 @@
   }
 }
 
-.ligth {
+.light {
   background-color: #fcfcfc;
   color: #161616;
 }
@@ -53,7 +53,7 @@
   }
 }
 
-.svg.ligth {
+.svg.light {
   stroke: #161616;
 }
 
@@ -67,7 +67,7 @@
   fill: #161616;
   stroke: #ffffffcc;
 }
-.svgTheme.ligth {
+.svgTheme.light {
   fill: #ffffffcc;
   stroke: #161616;
 }
@@ -88,14 +88,14 @@
   align-items: center;
   gap: 4px;
 
-  color: 255, 255, 255, 0.8;
+  color: rgba(255, 255, 255, 0.8);
 
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
 }
 
-.wrapbtnTheme.ligth {
+.wrapbtnTheme.light {
   color: rgba(22, 22, 22, 0.8);
 }
 .wrapbtnTheme.violet {
