@@ -1,53 +1,48 @@
 import Modal from "../../../helpers/ModalWindow/Modal";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { sendHelp } from "../../../redux/auth/auth-operations";
 import { selectToken } from "../../../redux/auth/auth-selectors";
-import axios from "axios";
-import { useModal } from "../../../hooks/useModal";
 
-const authInstance = axios.create({
-    baseURL: "http://localhost:3000"
-})
 
-const NeedHelpModal = () => { 
+const NeedHelpModal = ({ isOpen, closeModal }) => {
+    const dispatch = useDispatch();
 
     const token = useSelector(selectToken);
-    const { closeModal } = useModal();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = (e) => {
+    e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const data = {
+        formData,
+        token
+    };
+    try {
+        dispatch(sendHelp(data));
+        console.log("Request sent successfully");
+        closeModal();
+    } catch (error) {
+        console.error("Error sending help request:", error.message);
+    }
+};
 
-        try {
-            const formData = {
-                email: e.currentTarget.elements.userEmail.value,
-                comment: e.currentTarget.elements.text.value,
-            };
-            
-            e.currentTarget.reset();
-
-            const response = await authInstance.post("/help", formData, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`,
-                },
-            });
-            console.log(response.data);
-            closeModal();
-        } catch (error) {
-            console.error("Error sending data to the backend:", error);
-        }
+    const handleClose = () => {
+        closeModal();
     };
 
     return (
-        <Modal>
+        <Modal isOpen={isOpen} onClose={handleClose}>
+            <h3>Need Help</h3>
             <form onSubmit={handleSubmit}>
                 <input
                     type="email"
-                    name="userEmail"
+                    name="email"
                     placeholder="Email address"
+                    required
                 />
                 <textarea
                     name="text"
                     placeholder="Comment"
+                    required
                 ></textarea>
                 <button type="submit">Send</button>
             </form>

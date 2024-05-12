@@ -40,4 +40,13 @@ export const logoutRequest = async () => {
   return data;
 };
 
+export const sendHelpRequest = async (formData) => {
+  try {  
+    const response = await authInstance.post("/users/help", formData);
+    return response.data;
+  } catch (error) {
+    throw new Error("Error sending help request");
+  }
+};
+
 export default authInstance;

@@ -6,6 +6,7 @@ import {
   loginRequest,
   currentRequest,
   logoutRequest,
+  sendHelpRequest,
   setToken,
 } from '../../api/auth-api';
 
@@ -66,6 +67,7 @@ export const logout = createAsyncThunk(
   }
 );
 
+
 export const updateUser = createAsyncThunk(
   'auth/update',
   async (userData, thunkAPI) => {
@@ -107,6 +109,18 @@ export const updateTheme = createAsyncThunk(
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const sendHelp = createAsyncThunk(
+  'auth/sendHelp',
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await sendHelpRequest(data);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   }
 );
