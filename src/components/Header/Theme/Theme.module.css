@@ -17,16 +17,16 @@
   color: #bedbb0;
 }
 
-.ligth {
+.light {
   background-color: #fcfcfc;
   color: #161616;
 }
 
-.wraper.ligth {
+.wraper.light {
   border: 1px solid #bedbb0;
 }
 
-.ligth.current {
+.light.current {
   color: #bedbb0;
 }
 

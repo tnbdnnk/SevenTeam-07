@@ -2,13 +2,17 @@ import css from './Theme.module.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateTheme } from '../../../redux/auth/auth-operations';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../redux/auth/auth-selectors';
 
 export const Theme = () => {
+  const { theme } = useSelector(selectUser);
   const [activeIndex, setActiveIndex] = useState(1);
-  const [activeTheme, setactiveTheme] = useState('dark');
+  const [activeTheme, setactiveTheme] = useState(theme);
+  console.log(theme);
 
   const options = [
-    { label: 'Light', theme: 'ligth' },
+    { label: 'Light', theme: 'light' },
     { label: 'Dark', theme: 'dark' },
     { label: 'Violet', theme: 'violet' },
   ];
