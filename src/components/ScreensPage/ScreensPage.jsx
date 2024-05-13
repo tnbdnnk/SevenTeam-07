@@ -171,8 +171,9 @@ const ScreensPage = () => {
               </ul>
             </div>
           </section>
+          {/*</Background>*/}
         </div>
-      )}
+      }
     </>
   );
 };
