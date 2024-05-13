@@ -11,11 +11,15 @@ const NeedHelpModal = ({ isOpen, closeModal }) => {
 
     const handleSubmit = (e) => {
     e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        const formData = {
+                email: e.currentTarget.elements.email.value,
+                text: e.currentTarget.elements.text.value,
+            };
         const data = {
         formData,
         token
     };
+
     try {
         dispatch(sendHelp(data));
         console.log("Request sent successfully");
