@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form"
-// import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addBoard, editBoard } from '../../../redux/boards/boards-operations';
-// import { createNewBoard } from "../../../api/services-api.js"
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../redux/auth/auth-selectors';
 import css from "./modalBoards.module.css";
 import sprite from "../../../images/symbol-defs.svg"
 
@@ -28,12 +28,13 @@ const arrayBg = [noBg, bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11, 
 
 const NewBoardForm = ({ onSubmit}) => {
   const { register, handleSubmit } = useForm();
+  const { theme } = useSelector(selectUser);
 
   const iconsList = arrayIcons.map((icon, index) => {
     return (<label key={icon}>
           <input type="radio" {...register("icons")} value={icon} defaultChecked={index === 0 || !index} />
           <div className={css.iconWrapper}>
-        <svg className={css.modalIcons} width="18" height="18" >
+        <svg className={[css.modalIcons, css[theme]].join(' ')} width="18" height="18" >
               <use href={sprite + icon}></use></svg>
           </div>
         </label>)
@@ -45,7 +46,7 @@ const NewBoardForm = ({ onSubmit}) => {
     
     return (<label key={bgName}>
           <input type="radio" {...register("background")} value={bgValue} defaultChecked={index === 0 || !index}/>
-      <div className={css.backgroundWrapper}>
+      <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
         <img  src={bgName} alt={bgName} />
           </div>
         </label>)
@@ -53,16 +54,16 @@ const NewBoardForm = ({ onSubmit}) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("title")} placeholder="Title" className={css.title} required />
-<h3 className={css.text}>Icons</h3>
+      <input {...register("title")} placeholder="Title" className={[css.title, css[theme]].join(' ')} required />
+<h3 className={[css.text, css[theme]].join(' ')}>Icons</h3>
       <div className={css.iconRadios}>
         { iconsList}
       </div>
-<h3 className={css.text}>Background</h3>
+<h3 className={[css.text, css[theme]].join(' ')}>Background</h3>
       <div className={css.backgroundRadios}>
         {bgList}
       </div>
-      <button type="submit" className={css.createBtn}><div className={css.iconWrap}><svg className={css.iconPlus} width="14" height="14">
+      <button type="submit" className={[css.createBtn, css[theme]].join(' ')}><div className={css.iconWrap}><svg className={css.iconPlus} width="14" height="14">
       <use href={sprite + '#icon-plus'}></use>
     </svg></div>Create</button>      
     </form>
@@ -70,7 +71,8 @@ const NewBoardForm = ({ onSubmit}) => {
 };
 
 
-export const NewBoard = ({onClose}) => {
+export const NewBoard = ({ onClose }) => {
+    const { theme } = useSelector(selectUser);
   const dispatch = useDispatch();
 
   const onSubmit = async ({ title, icons, background}) => {
@@ -85,7 +87,7 @@ export const NewBoard = ({onClose}) => {
   }
   
   return <>
-    <h2 className={css.modalHeader}>New board</h2>
+    <h2 className={[css.modalHeader, css[theme]].join(' ')}>New board</h2>
     <NewBoardForm onSubmit={onSubmit} />
   </>
 }
@@ -93,6 +95,7 @@ export const NewBoard = ({onClose}) => {
 
 export const EditBoard = ({ boardData, onClose }) => {
   const { register, handleSubmit } = useForm();
+  const { theme } = useSelector(selectUser);
 
   const dispatch = useDispatch();
   
@@ -112,7 +115,7 @@ export const EditBoard = ({ boardData, onClose }) => {
     return (<label key={icon}>
           <input type="radio" {...register("icons")} value={icon} defaultChecked={boardData.icons === icon} />
           <div className={css.iconWrapper}>
-        <svg className={css.modalIcons} width="18" height="18" >
+        <svg className={[css.modalIcons, css[theme]].join(' ')} width="18" height="18" >
               <use href={sprite + icon}></use></svg>
           </div>
         </label>)
@@ -122,25 +125,25 @@ export const EditBoard = ({ boardData, onClose }) => {
     const bgValue = bgName.slice(50, 54).replace(".","");
     return (<label key={bgName}>
           <input type="radio" {...register("background")} value={bgValue} defaultChecked={boardData.background === bgValue} />
-      <div className={css.backgroundWrapper}>
+      <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
         <img  src={bgName} alt={bgName} />
           </div>
         </label>)
   })
 
   return <>
-    <h2 className={css.modalHeader}>Edit board</h2>
+    <h2 className={[css.modalHeader, css[theme]].join(' ')}>Edit board</h2>
 <form onSubmit={handleSubmit(onSubmit) }>
-      <input {...register("title")} placeholder="Title" className={css.title} defaultValue={boardData.title} required />
-<h3 className={css.text}>Icons</h3>
+      <input {...register("title")} placeholder="Title" className={[css.title, css[theme]].join(' ')} defaultValue={boardData.title} required />
+<h3 className={[css.text, css[theme]].join(' ')}>Icons</h3>
       <div className={css.iconRadios}>
         { iconsList}
       </div>
-<h3 className={css.text}>Background</h3>
+<h3 className={[css.text, css[theme]].join(' ')}>Background</h3>
       <div className={css.backgroundRadios}>
         {bgList}
       </div>
-      <button type="submit" className={css.createBtn}>
+      <button type="submit" className={[css.createBtn, css[theme]].join(' ')}>
         <div className={css.iconWrap}>
           <svg className={css.iconPlus} width="14" height="14">
             <use href={sprite + '#icon-plus'}></use>
