@@ -20,7 +20,6 @@ export const fetchBoard = createAsyncThunk(
     try {
       // const { auth } = getState();
       const { data } = await authInstance.get(`/boards/${id}`);
-      console.log('запит Анни getBoardById', data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
