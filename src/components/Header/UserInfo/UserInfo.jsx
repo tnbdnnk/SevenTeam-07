@@ -52,7 +52,7 @@ export const UserInfo = () => {
           </svg>
         )}
       </button>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} userInfo>
         {/* <UserForm avatar={avatar} onClose={closeModal} /> */}
         <UserForm onClose={closeModal} />
       </Modal>

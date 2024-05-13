@@ -45,7 +45,7 @@
   background-color: #121212;
 }
 
-.columnCard.ligth,
+.columnCard.light,
 .columnCard.violet {
   background-color: #fff;
 }
@@ -67,7 +67,7 @@
   color: #fff;
 }
 
-.text.ligth,
+.text.light,
 .text.violet {
   color: #161616;
 }
@@ -106,7 +106,7 @@
   stroke: rgba(255, 255, 255, 0.5);
 }
 
-.icon.ligth,
+.icon.light,
 .icon.violet {
   stroke: rgba(22, 22, 22, 0.5);
 }
@@ -153,7 +153,7 @@
   background-color: #161616;
 }
 
-.cardsWrap.ligth::-webkit-scrollbar {
+.cardsWrap.light::-webkit-scrollbar {
   background-color: #e8e8e8;
 }
 
@@ -170,7 +170,7 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.cardsWrap.ligth::-webkit-scrollbar-thumb {
+.cardsWrap.light::-webkit-scrollbar-thumb {
   background-color: rgba(22, 22, 22, 0.1);
 }
 

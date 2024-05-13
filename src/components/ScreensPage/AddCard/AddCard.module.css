@@ -11,7 +11,7 @@
 }
 
 .button.dark,
-.button.ligth {
+.button.light {
   background-color: #bedbb0;
 }
 
@@ -27,8 +27,8 @@
 
 .button.dark:hover,
 .button.dark:focus,
-.button.ligth:hover,
-.button.ligth:focus {
+.button.light:hover,
+.button.light:focus {
   background-color: #9dc888;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .iconBox.dark,
-.iconBox.ligth {
+.iconBox.light {
   background-color: #161616;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .icon.dark,
-.icon.ligth {
+.icon.light {
   stroke: white;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .text.dark,
-.text.ligth {
+.text.light {
   color: #161616;
 }
 

@@ -1,4 +1,5 @@
 import Modal from "../../../helpers/ModalWindow/Modal";
+import css from "./need-help.module.css"
 import { useSelector, useDispatch } from 'react-redux';
 import { sendHelp } from "../../../redux/auth/auth-operations";
 import { selectToken } from "../../../redux/auth/auth-selectors";
@@ -11,11 +12,16 @@ const NeedHelpModal = ({ isOpen, closeModal }) => {
 
     const handleSubmit = (e) => {
     e.preventDefault();
-        const formData = new FormData(e.currentTarget);
+        const formData = {
+                email: e.currentTarget.elements.email.value,
+                text: e.currentTarget.elements.text.value,
+            };
         const data = {
         formData,
         token
     };
+    console.log(data);
+
     try {
         dispatch(sendHelp(data));
         console.log("Request sent successfully");
@@ -30,21 +36,23 @@ const NeedHelpModal = ({ isOpen, closeModal }) => {
     };
 
     return (
-        <Modal isOpen={isOpen} onClose={handleClose}>
-            <h3>Need Help</h3>
+        <Modal className={css.needHelpBox} isOpen={isOpen} onClose={handleClose}>
+            <h3 className={css.title}>Need Help</h3>
             <form onSubmit={handleSubmit}>
                 <input
+                    className={css.input}
                     type="email"
                     name="email"
                     placeholder="Email address"
                     required
                 />
                 <textarea
+                    className={`${css.input} ${css.textarea}`}
                     name="text"
                     placeholder="Comment"
                     required
                 ></textarea>
-                <button type="submit">Send</button>
+                <button className={css.btnSend} type="submit">Send</button>
             </form>
         </Modal>
     );

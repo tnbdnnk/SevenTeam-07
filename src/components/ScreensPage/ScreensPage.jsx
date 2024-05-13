@@ -6,6 +6,8 @@ import { fetchBoard } from '../../redux/boards/boards-operations';
 // import { useState } from 'react';
 // import { nanoid } from 'nanoid';
 
+import { selectUser } from '../../redux/auth/auth-selectors';
+
 import AddColumn from './AddColumn/AddColumn';
 import ColumnCard from './ColumnCard/ColumnCard';
 import Filters from '../Filters/Filters';
@@ -17,13 +19,14 @@ import css from './ScreensPage.module.css';
 
 
 const ScreensPage = () => {
-// тестовий код
+  // тестовий код
   //   useEffect(() => {
-  //     const data = getBoardById("663e636c0ebfde3777089cd6");
-  //     console.log(data);
-  // }, []); 
-
-  const dispatch = useDispatch();
+    //     const data = getBoardById("663e636c0ebfde3777089cd6");
+    //     console.log(data);
+    // }, []); 
+    
+    const dispatch = useDispatch();
+    const { theme } = useSelector(selectUser);
 
   let { boardName } = useParams();
   const board = useSelector(selectBoard);
@@ -132,15 +135,21 @@ const ScreensPage = () => {
   //     columns: [...prevBoards.columns, columnWithId],
   //   }));
   // };
+  // <svg className={[css.svg, css[theme]].join(' ')}></svg>
+  // `${css.container} ${css.imageStyles}` : `${css.container}`
 
+  const container = [css.container, css[theme]].join(' ');
+  const imageStyles = [css.imageStyles, css[theme]].join(' ');
+  console.log(container);
   return (
   <>
     {board && 
-        <div style={handleBackground(bgImage)} className={bgImage ? `${css.container} ${css.imageStyles}` : `${css.container}`}>
+        <div style={handleBackground(bgImage)} className={bgImage ? `${imageStyles}` : `${container}`}>
+        {/* <div style={handleBackground(bgImage)} className={bgImage ? `${css.container} ${css.imageStyles}` : `${css.container}`}> */}
           {/* <Background className={css.container}> */}
-          <section className={css.section}>
+          <section className={[css.section, css[theme]].join(' ')}>
             <div className={css.activeSettingsWrapper}>
-              <h2 className={css.title}>{board.title}</h2>
+              <h2 className={[css.title, css[theme]].join(' ')}>{board.title}</h2>
               <Filters />
             </div>
 
