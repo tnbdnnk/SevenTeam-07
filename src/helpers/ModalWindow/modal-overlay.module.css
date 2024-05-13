@@ -29,7 +29,15 @@
   background: var(--light-modal);
 }
 .modal.violet {
-  background: var(--light-modal);;
+  background: var(--light-modal);
+}
+
+.modal.userInfo {
+  width: 335px;
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
 }
 
 .closeBtn {
@@ -49,7 +57,7 @@
   stroke: var(--text-black);
 }
 .closeIcon.light {
-  stroke:var(--text-black);
+  stroke: var(--text-black);
 }
 
 .closeBtn:hover .closeIcon,
@@ -61,7 +69,6 @@
 .closeBtn:focus .closeIcon.violet {
   stroke: var(--accent-violet-dark);
 }
-
 
 @media screen and (min-width: 768px) {
   .modal {

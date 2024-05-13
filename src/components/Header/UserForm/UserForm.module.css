@@ -3,13 +3,13 @@
   letter-spacing: -0.02em;
   font-size: 18px;
   font-weight: 500;
-  color: #fff;
+  color: var(--text-white);
 }
-.title.ligth {
-  color: #161616;
+.title.light {
+  color: var(--text-black);
 }
 .title.violet {
-  color: #161616;
+  color: var(--text-black);
 }
 
 .formGroupImg {
@@ -31,7 +31,7 @@
 .plus {
   width: 10px;
   height: 10px;
-  stroke: #161616;
+  stroke: var(--black-btn);
 }
 .plusWrap {
   height: 24px;
@@ -40,19 +40,26 @@
   top: 100%;
 
   border-radius: 6px;
-  background-color: #bedbb0;
+  background-color: var(--accent-light);
   position: absolute;
   translate: 50% -50%;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.plusWrap:hover {
+  background-color: var(--accent-dark);
 }
 
 .plusWrap.violet {
-  background-color: #ecedfd;
+  background-color: var(--background-light-violet);
 }
 
+.plusWrap.violet:hover {
+  background-color: var(--accent-violet-dark);
+}
 .inputImg {
   display: none;
 }
@@ -64,22 +71,23 @@
   padding: 14px 18px;
   margin-bottom: 14px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid;
+  border-color: var(--accent-light);
   border-radius: 8px;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
   background-color: transparent;
-
-  color: #fff;
+  color: var(--text-white);
 }
 
-.input.ligth {
-  color: #161616;
+.input.light {
+  color: var(--text-black);
 }
 .input.violet {
-  border: 1px solid #5255bc;
-  color: #161616;
+  border: 1px solid;
+  border-color: var(--accent-violet-dark);
+  color: var(--text-black);
 }
 
 .input::placeholder {
@@ -92,7 +100,7 @@
 .input:placeholder-shown {
   opacity: 0.4;
 }
-.input.ligth:placeholder-shown,
+.input.light:placeholder-shown,
 .input.violet:placeholder-shown {
   opacity: 0.4;
 }
@@ -100,14 +108,17 @@
 .svgEye {
   width: 18px;
   height: 18px;
-  stroke: #bedbb0;
+  stroke: var(--accent-light);
   opacity: 0.4;
 }
-.svgEye.violet {
-  stroke: #161616;
+
+.svgEye.light {
+  stroke: var(--black-btn);
+  fill: var(--light-modal);
 }
-.svgEye.ligth {
-  stroke: #161616;
+.svgEye.violet {
+  stroke: var(--black-btn);
+  fill: var(--light-modal);
 }
 
 .btnEye {
@@ -130,13 +141,22 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
-  background-color: #bedbb0;
+  background-color: var(--accent-light);
+  color: var(--black-btn);
   border-radius: 8px;
   border: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnSend:hover {
+  background-color: var(--accent-dark);
 }
 
 .btnSend.violet {
-  background-color: #5255bc;
-  color: #fff;
+  background-color: var(--accent-violet-dark);
+  color: var(--text-white);
+}
+
+.btnSend.violet:hover {
+  background-color: var(--accent-violet-light);
 }
