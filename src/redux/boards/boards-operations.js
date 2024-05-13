@@ -71,6 +71,7 @@ export const editBoard = createAsyncThunk(
   async ({ _id, newBoardData }, thunkAPI) => {
     try {
       const { data } = await authInstance.patch(`/boards/${_id}`, newBoardData);
+      thunkAPI.dispatch(fetchBoard(_id));
       console.log('editBoard - ', data);
       return data;
     } catch (e) {
