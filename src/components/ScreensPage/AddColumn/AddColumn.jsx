@@ -3,6 +3,9 @@ import icons from '../../../images/symbol-defs.svg';
 import { useModal } from '../../../hooks/useModal';
 import AddColumnModal from './AddColumnModal/AddColumnModal';
 
+import { useDispatch } from 'react-redux';
+import { addColumn } from '../../../../redux/columns/column-operations';
+
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../../redux/auth/auth-selectors';
 
@@ -11,10 +14,21 @@ const AddColumn = ({ onAddColumn }) => {
   const { isModalOpen, openModal, closeModal } = useModal();
   const { theme } = useSelector(selectUser);
 
+   const dispatch = useDispatch();
+// const AddColumn = () => {
+//   const dispatch = useDispatch();
+//   const { isModalOpen, openModal, closeModal } = useModal();
+//   const { theme } = useSelector(selectUser);
+
   const handleAddColumn = (columnName) => {
     onAddColumn(columnName);
+    dispatch(addColumn(columnName));
     closeModal();
   };
+  // const handleAddColumn = (columnName) => {
+  //   onAddColumn(columnName);
+  //   closeModal();
+  // };
 
   return (
     <>

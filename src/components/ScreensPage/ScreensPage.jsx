@@ -36,6 +36,9 @@ const ScreensPage = () => {
   useEffect(() => {
     dispatch(fetchBoard(`${boardName}`));
   }, [dispatch, boardName]); 
+
+
+
   // const error = useSelector(selectError);
 
   // 
