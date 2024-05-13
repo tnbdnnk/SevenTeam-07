@@ -107,7 +107,7 @@ export const UserForm = ({ onClose }) => {
         password,
       };
       dispatch(updateUser(user));
-      console.log(user);
+
       onClose();
       toast.success('Update accepted!');
     } catch (error) {

@@ -35,11 +35,7 @@ const Modal = ({ isOpen, onClose, children, userInfo }) => {
   return (
     <div className={css.overlay} onClick={handleClickOutside}>
       <div
-        className={
-          userInfo
-            ? [css.modal, css[theme], css.userInfo].join(' ')
-            : [css.modal, css[theme]].join(' ')
-        }
+        className={userInfo && [css.modal, css[theme], css.userInfo].join(' ')}
         ref={modalRef}
       >
         <button className={css.closeBtn} onClick={onClose}>
