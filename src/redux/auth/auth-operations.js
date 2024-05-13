@@ -96,7 +96,9 @@ export const updateUser = createAsyncThunk(
   'users/updateUser',
   async (userData, thunkAPI) => {
     try {
-      const { data } = await authInstance.patch('users/update', userData);
+      const { data } = await authInstance.patch('users/update', userData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
 
       return data;
     } catch (error) {
