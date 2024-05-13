@@ -7,6 +7,18 @@
   height: 100vh;
 }
 
+.wrapper.dark {
+  background-color: #1f1f1f;
+}
+
+.wrapper.light {
+  background-color: #f6f6f7;
+}
+
+.wrapper.violet {
+  background-color: #ecedfc;
+}
+
 @media (min-width: 1440px) {
   .wrapper {
     width: 100%;

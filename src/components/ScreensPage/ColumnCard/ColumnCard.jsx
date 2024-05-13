@@ -5,6 +5,9 @@ import AddCard from '../AddCard/AddCard';
 // import DeleteColumnModal from './DeleteColumn/DeleteColumnModal';
 // import EditColumnModal from './EditColumn/EditColumnModal';
 
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../redux/auth/auth-selectors';
+
 import css from './ColumnCard.module.css';
 import icons from '../../../images/symbol-defs.svg';
 
@@ -18,6 +21,7 @@ import icons from '../../../images/symbol-defs.svg';
   }) => {
 
     const { _id, title, cards } = columnItem;
+    const { theme } = useSelector(selectUser);
 
   // const [currentName, setCurrentName] = useState(name);
   //   const [currentName, setCurrentName] = useState(title);
@@ -61,24 +65,24 @@ import icons from '../../../images/symbol-defs.svg';
         />
       )} */}
       <div className={css.columnMainInfo}>
-        <div className={css.columnCard}>
-          <p className={css.text}>{title}</p>
+          <div className={[css.columnCard, css[theme]].join(' ')}>
+          <p className={[css.text, css[theme]].join(' ')}>{title}</p>
           <div className={css.buttonsWrapper}>
             {/* <button className={`${css.button} ${css.green}`} type="button" onClick={openEditModal}> */}
             <button className={`${css.button} ${css.green}`} type="button">
-              <svg className={css.icon} width="16" height="16">
+              <svg className={[css.icon, css[theme]].join(' ')} width="16" height="16">
                 <use href={icons + '#icon-pen'}></use>
               </svg>
             </button>
             {/* <button className={`${css.button} ${css.red}`} type="button" onClick={openDeleteModal}> */}
             <button className={`${css.button} ${css.red}`} type="button">
-              <svg className={css.icon} width="16" height="16">
+              <svg className={[css.icon, css[theme]].join(' ')} width="16" height="16">
                 <use href={icons + '#icon-trash'}></use>
               </svg>
             </button>
           </div>
         </div>
-        <ul className={css.cardsWrap}>
+        <ul className={[css.cardsWrap, css[theme]].join(' ')}>
           {cards.map((card) => (
               <CardItem 
                   key={card._id}

@@ -3,8 +3,13 @@ import icons from '../../../images/symbol-defs.svg';
 import { useModal } from '../../../hooks/useModal';
 import AddColumnModal from './AddColumnModal/AddColumnModal';
 
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../redux/auth/auth-selectors';
+
+
 const AddColumn = ({ onAddColumn }) => {
   const { isModalOpen, openModal, closeModal } = useModal();
+  const { theme } = useSelector(selectUser);
 
   const handleAddColumn = (columnName) => {
     onAddColumn(columnName);
@@ -20,13 +25,13 @@ const AddColumn = ({ onAddColumn }) => {
           onAddColumn={handleAddColumn}
         />
       )}
-      <button className={css.button} type="button" onClick={openModal}>
-          <div className={css.iconBox}>
-            <svg className={css.icon} width="14" height="14">
+      <button className={[css.button, css[theme]].join(' ')} type="button" onClick={openModal}>
+          <div className={[css.iconBox, css[theme]].join(' ')}>
+            <svg className={[css.icon, css[theme]].join(' ')} width="14" height="14">
               <use href={icons + '#icon-plus'}></use>
             </svg>
           </div>
-          <p className={css.text}>Add new column</p>
+          <p className={[css.text, css[theme]].join(' ')}>Add new column</p>
       </button>
     </>
   );
