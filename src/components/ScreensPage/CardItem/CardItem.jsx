@@ -1,3 +1,6 @@
+
+import { useDispatch } from 'react-redux';
+import { deleteCard, editCard } from '../../../redux/cards/card-operations';
 // import DeleteCardModal from './DeleteCard/DeleteCardModal';
 // import { useModal } from '../../../hooks/useModal';
 // import EditCardModal from './EditCard/EditCardModal';
@@ -8,7 +11,18 @@ import { selectUser } from '../../../redux/auth/auth-selectors';
 
 import css from './CardItem.module.css';
 import icons from '../../../images/symbol-defs.svg';
+import {
+  handleSetColor,
+  handleFormatDate,
+  handleCompareDates,
+} from './CardItemFunctions/CardItemFunctions';
 
+const CardItem = ({ card }) => {
+  const { _id, title, description, label, deadline } = card;
+  const dispatch = useDispatch();
+  const currentDate = Date.now();
+  const formattedDeadline = handleFormatDate(deadline);
+  const isDeadlineToday = handleCompareDates(currentDate, formattedDeadline);
 
 const CardItem = ({
     card
@@ -21,27 +35,13 @@ const CardItem = ({
 const { _id, title, description, label, deadline } = card;
 const { theme } = useSelector(selectUser);
 
-const currentDate = Date.now();
-const formattedDeadline = handleFormatDate(deadline);
-const isDeadlineToday = handleCompareDates(currentDate, formattedDeadline);
+  const handleEditCard = () => {
+    dispatch(editCard({ _id, title, description, label, deadline }));
+  };
+const handleDeleteCard = () => {
+    dispatch(deleteCard(_id));
+  };
   
-//   const {
-//     openModal: openDeleteModal,
-//     closeModal: closeDeleteModal,
-//     isModalOpen: isDeleteModalOpen,
-//     } = useModal();
-    
-//   const {
-//     openModal: openEditCardModal,
-//     closeModal: closeEditCardModal,
-//     isModalOpen: isEditCardModalOpen,
-//     } = useModal();
-    
-//   const handleDeleteCard = () => {
-//     onDeleteCard(id);
-//     closeDeleteModal();
-//   };
-
   return (
     <li key={_id} className={[css.card, css[theme]].join(' ')}>
       {/* {isDeleteModalOpen && (
@@ -83,6 +83,12 @@ const isDeadlineToday = handleCompareDates(currentDate, formattedDeadline);
                     <p className={[css.text, css[theme]].join(' ')}>{handleFormatDate(deadline)}</p>
                 </div>
             </div>
+          </div>
+          <div>
+            <p className={css.caption}>Deadline</p>
+            <p className={css.text}>{handleFormatDate(deadline)}</p>
+          </div>
+        </div>
 
             <div className={css.buttonsWrap}>  
                 {isDeadlineToday && <button className={`${css.button} ${css.green}`} type='button'>
@@ -95,11 +101,28 @@ const isDeadlineToday = handleCompareDates(currentDate, formattedDeadline);
                         <use href={icons + '#icon-arrow-circle-broken-right'}></use>
                     </svg>
                 </button>
+                <button
+                  className={`${css.button} ${css.green}`}
+                  type="button"
+                  onClick={handleEditCard}
+                >
+                  <svg className={css.icon} width="16" height="16">
+                    <use href={icons + '#icon-pen'}></use>
+                  </svg>
+                </button>
                 {/* <button className={`${css.button} ${css.green}`} type='button' onClick={openEditCardModal}> */}
                 <button className={`${css.button} ${css.green}`} type='button'>
                     <svg className={[css.icon, css[theme]].join(' ')} width='16' height='16'>
                         <use href={icons + '#icon-pen'}></use>
                     </svg>
+                </button>
+                <button
+                  className={`${css.button} ${css.red}`}
+                  type="button"
+                  onClick={handleDeleteCard}
+                > <svg className={css.icon} width="16" height="16">
+                    <use href={icons + '#icon-trash'}></use>
+                  </svg>
                 </button>
                 {/* <button className={`${css.button} ${css.red}`} type='button' onClick={openDeleteModal}> */}
                 <button className={`${css.button} ${css.red}`} type='button'>
@@ -109,9 +132,9 @@ const isDeadlineToday = handleCompareDates(currentDate, formattedDeadline);
                 </button>
             </div>
         </div>
+      </div>
     </li>
-    );
+  );
 };
-
 
 export default CardItem;

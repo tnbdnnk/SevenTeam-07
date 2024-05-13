@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectBoard } from '../../redux/boards/boards-selectors';
+import { useParams } from 'react-router-dom';
 import { fetchBoard } from '../../redux/boards/boards-operations';
+import { selectBoard } from '../../redux/boards/boards-selectors';
+
 // import { useState } from 'react';
 // import { nanoid } from 'nanoid';
 
@@ -11,12 +12,7 @@ import { selectUser } from '../../redux/auth/auth-selectors';
 import AddColumn from './AddColumn/AddColumn';
 import ColumnCard from './ColumnCard/ColumnCard';
 import Filters from '../Filters/Filters';
-// import Background from './Background/Background';
-
 import css from './ScreensPage.module.css';
-
-// import {getBoardById} from "../../api/board-api.js"
-
 
 const ScreensPage = () => {
   // тестовий код
@@ -155,6 +151,11 @@ const ScreensPage = () => {
 
             <div className={css.columnListWrap}>
               <ul className={css.columnList}>
+
+                {board.columns.map((columnItem) => (
+                  <ColumnCard key={columnItem._id} columnItem={columnItem} />
+                ))}
+
                 {isColumnListEmpty() && board.columns.map((columnItem) => (
                   <ColumnCard
                     key={columnItem._id}
@@ -165,16 +166,15 @@ const ScreensPage = () => {
                     // updateCard={updateCard}
                   />))}
                 {/* <AddColumn onAddColumn={handleAddColumn} /> */}
+
                 <AddColumn />
               </ul>
             </div>
           </section>
-            {/* </Background> */}
-        </div >
-      }
-      </>
+        </div>
+      )}
+    </>
   );
 };
-
 
 export default ScreensPage;
