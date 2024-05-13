@@ -208,16 +208,26 @@ input[type="radio"]:checked+.backgroundWrapper.light {
 }
 
 /* підправити стилі іконки */
+
 .noBgIcon{
-  width: 28px;
+  width:  28px;
   height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 6px;
-    fill: #1f1f1f;
+    /* fill: #1f1f1f; */
   stroke:#fff;
-  stroke-opacity: 0.1;
+  text-align: center;
+  /* stroke-opacity: 0.1; */
  }
 
 .noBgIcon.violet {
-  fill: #ecedfd;
+  background: #ecedfd;
+  stroke: #161616;
+}
+
+.noBgIcon.light {
+  background: #f6f6f7;
   stroke: #161616;
 }

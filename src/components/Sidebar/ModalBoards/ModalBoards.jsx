@@ -40,12 +40,11 @@ const NewBoardForm = ({ onSubmit}) => {
         </label>)
   })
 
-  const bgList = arrayBg.map((bgName, index) => {
+  const bgList = arrayBg.map((bgName) => {
     const bgValue = bgName.slice(50, 54).replace(".","");
-    console.log("bgValue", bgValue)
     
     return (<label key={bgName}>
-          <input type="radio" {...register("background")} value={bgValue} defaultChecked={index === 0 || !index}/>
+          <input type="radio" {...register("background")} value={bgValue}/>
       <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
         <img  src={bgName} alt={bgName} />
           </div>
