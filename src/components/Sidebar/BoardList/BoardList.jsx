@@ -8,7 +8,6 @@ import {deleteBoard} from "../../../redux/boards/boards-operations.js"
 import css from "./boardList.module.css"
 import sprite from '../../../images/symbol-defs.svg'
 
-// import { getAllBoards } from '../../redux/boards/boards-operations.js';
 import { useSelector } from 'react-redux';
 import { selectAllBoardsList } from '../../../redux/boards/boards-selectors.js'
 import { selectUser } from '../../../redux/auth/auth-selectors.js';
@@ -42,8 +41,6 @@ const { theme } = useSelector(selectUser);
   }
 
   const list = boardList.map(item => {
-    // const boardName = item.title.replace(' ', '').toLowerCase();
-
     return (
       <li key={item._id} className={activeBoard._id === item._id ? `${css.item} ${css.active}` : css.item}>
       <Link to={`/home/${item._id}`} className={[css.boardLink, css[theme]].join(' ')} onClick={() => handleBoardClick(item)}>
@@ -57,11 +54,13 @@ const { theme } = useSelector(selectUser);
         <span onClick={() => handleDeleteBord(item._id)}><svg className={[css.boarSettingsSvg, css[theme]].join(' ')} width="16" height="16"><use href={sprite + '#icon-trash'}></use></svg></span>
       </div>
       </Link>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>{<EditBoard boardData={activeBoard} onClose={closeModal} />}</Modal>
       
       </li>)
   })
-  return <ul className={[css.list, css[theme]].join(' ')}>{list}</ul>;
+  return <><ul className={[css.list, css[theme]].join(' ')}>{list}</ul>
+    <Modal isOpen={isModalOpen} onClose={closeModal}>{<EditBoard boardData={activeBoard} onClose={closeModal} />}</Modal>
+      
+  </>;
 }
 
 export default BoardList;
