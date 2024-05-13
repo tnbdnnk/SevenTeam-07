@@ -7,18 +7,22 @@ import AddCard from '../AddCard/AddCard';
 
 import css from './ColumnCard.module.css';
 import icons from '../../../images/symbol-defs.svg';
+import { useSelector } from 'react-redux';
+import { selectFilter } from '../../../redux/filter/filter-selectors';
+import { filterCards } from '../../../helpers/filterCards';
 
-
-  const ColumnCard = ({
-    columnItem,
-    // onDelete,
-    // onDeleteCard,
-    // addNewCardToColumn,
-    // updateCard,
-  }) => {
-
-    const { _id, title, cards } = columnItem;
-
+const ColumnCard = ({
+  columnItem,
+  // onDelete,
+  // onDeleteCard,
+  // addNewCardToColumn,
+  // updateCard,
+}) => {
+  const { _id, title, cards } = columnItem;
+  const filter = useSelector(selectFilter);
+  console.log('filter', filter);
+  const filteredCards = filterCards(cards, filter);
+  console.log('filteredCards', filteredCards);
   // const [currentName, setCurrentName] = useState(name);
   //   const [currentName, setCurrentName] = useState(title);
   //   const {
@@ -39,12 +43,17 @@ import icons from '../../../images/symbol-defs.svg';
 
   // const confirmDelete = () => {
   //   // onDelete(id);
-  //   onDelete(_id); 
+  //   onDelete(_id);
   //   closeDeleteModal();
   // };
-  
+
   return (
- <li className={cards.length > 0 ? `${css.item} ${css.itemAdded}` : `${css.item}`} key={_id}>
+    <li
+      className={
+        cards.length > 0 ? `${css.item} ${css.itemAdded}` : `${css.item}`
+      }
+      key={_id}
+    >
       {/* {isEditModalOpen && (
         <EditColumnModal
           isModalOpen={isEditModalOpen}
@@ -79,15 +88,15 @@ import icons from '../../../images/symbol-defs.svg';
           </div>
         </div>
         <ul className={css.cardsWrap}>
-          {cards.map((card) => (
-              <CardItem 
-                  key={card._id}
-                  card={card}
-                  // onDeleteCard={() => onDeleteCard(_id, card.id)}
-                  // updateCard={updateCard}
-                  // columnId={id}
-                />
-            ))}
+          {filteredCards.map((card) => (
+            <CardItem
+              key={card._id}
+              card={card}
+              // onDeleteCard={() => onDeleteCard(_id, card.id)}
+              // updateCard={updateCard}
+              // columnId={id}
+            />
+          ))}
         </ul>
       </div>
       {/* <AddCard onAddCard={addNewCardToColumn} columnId={_id} /> */}
@@ -95,6 +104,5 @@ import icons from '../../../images/symbol-defs.svg';
     </li>
   );
 };
-
 
 export default ColumnCard;

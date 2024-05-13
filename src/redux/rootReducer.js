@@ -5,7 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth-slice';
 import boardsReducer from './boards/boards-slice';
 // import contactsReducer from "./contacts/contacts-slice";
-// import filterReducer from "./filter/filter-slice";
+import { filterReducer } from './filter/filter-slice';
 
 const persistConfig = {
   key: 'root',
@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
   auth: persistedAuthReducer,
   boards: boardsReducer,
   // contacts: contactsReducer,
-  // filter: filterReducer,
+  filter: filterReducer,
 });
 
 export default rootReducer;
