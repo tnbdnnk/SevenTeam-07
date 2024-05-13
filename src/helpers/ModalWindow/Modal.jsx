@@ -7,7 +7,7 @@ import { selectUser } from '../../redux/auth/auth-selectors';
 import css from './modal-overlay.module.css';
 import icons from '../../images/symbol-defs.svg';
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, userInfo }) => {
   const { theme } = useSelector(selectUser);
 
   const modalRef = useRef(null);
@@ -34,9 +34,16 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   return (
     <div className={css.overlay} onClick={handleClickOutside}>
-      <div className={[css.modal, css[theme]].join(' ')} ref={modalRef}>
+      <div
+        className={userInfo && [css.modal, css[theme], css.userInfo].join(' ')}
+        ref={modalRef}
+      >
         <button className={css.closeBtn} onClick={onClose}>
-          <svg className={[css.closeIcon, css[theme]].join(' ')} width="18" height="18">
+          <svg
+            className={[css.closeIcon, css[theme]].join(' ')}
+            width="18"
+            height="18"
+          >
             <use href={icons + '#icon-x-close'}></use>
           </svg>
         </button>
