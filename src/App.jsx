@@ -1,7 +1,8 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 import { Toaster } from 'react-hot-toast';
+import {useDispatch} from "react-redux";
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const ScreensPage = lazy(() => import('./components/ScreensPage/ScreensPage'));
@@ -10,6 +11,8 @@ const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const LoginPage = lazy(() => import('./pages/AuthPage/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/AuthPage/RegisterPage'));
 
+import { current } from "./redux/auth/auth-operations";
+
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 // import PublicRoute from "./components/PublicRoute/PublicRoute";
 
@@ -17,6 +20,12 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 const App = () => {
   // console.log(test);
+
+  const dispatch = useDispatch();
+
+  useEffect(()=> {
+    dispatch(current())
+  }, [dispatch]);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
