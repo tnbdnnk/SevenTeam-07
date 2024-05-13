@@ -2,7 +2,7 @@
 export const handleSetColor = (label) => { 
     switch (label) {
         case label = 'without':
-            return { backgroundColor: 'rgba(255, 255, 255, 0.3)' }
+            return { backgroundColor: '#746666' }
         case label = 'low':
             return { backgroundColor: '#8fa1d0' }
         case label = 'medium':
@@ -10,7 +10,7 @@ export const handleSetColor = (label) => {
         case label = 'high':
             return { backgroundColor: '#bedbb0' }
         default:
-            return { backgroundColor: 'rgba(255, 255, 255, 0.3)' }
+            return { backgroundColor: '#746666' }
     }
 }
 

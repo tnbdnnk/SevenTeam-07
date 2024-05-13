@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBoard } from '../../redux/boards/boards-selectors';
 import { fetchBoard } from '../../redux/boards/boards-operations';
+// import { selectAllBoardsList } from '';
 // import { useState } from 'react';
 // import { nanoid } from 'nanoid';
 
@@ -11,28 +12,20 @@ import { selectUser } from '../../redux/auth/auth-selectors';
 import AddColumn from './AddColumn/AddColumn';
 import ColumnCard from './ColumnCard/ColumnCard';
 import Filters from '../Filters/Filters';
-// import Background from './Background/Background';
+import Background from './Background/Background';
 
 import css from './ScreensPage.module.css';
 
-// import {getBoardById} from "../../api/board-api.js"
-
 
 const ScreensPage = () => {
-  // тестовий код
-  //   useEffect(() => {
-    //     const data = getBoardById("663e636c0ebfde3777089cd6");
-    //     console.log(data);
-    // }, []); 
     
-    const dispatch = useDispatch();
-    const { theme } = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const { theme } = useSelector(selectUser);
 
   let { boardName } = useParams();
   const board = useSelector(selectBoard);
+
   console.log(board);
-  // підключити ререндери після зміни і видалення борди !
-  const bgImage = board?.background;
   
   const isColumnListEmpty = () => {
     const column = board.columns[0];
@@ -44,13 +37,8 @@ const ScreensPage = () => {
     dispatch(fetchBoard(`${boardName}`));
   }, [dispatch, boardName]); 
   // const error = useSelector(selectError);
-   
-  const handleBackground = (image) => {
-    if (image) {
-      return { backgroundImage: `url(${bgImage})` };
-    }
-    return;
-  };
+
+  // 
 
   //  const [boards, setBoards] = useState({
   //   name: 'Project office',
@@ -135,18 +123,12 @@ const ScreensPage = () => {
   //     columns: [...prevBoards.columns, columnWithId],
   //   }));
   // };
-  // <svg className={[css.svg, css[theme]].join(' ')}></svg>
-  // `${css.container} ${css.imageStyles}` : `${css.container}`
 
-  const container = [css.container, css[theme]].join(' ');
-  const imageStyles = [css.imageStyles, css[theme]].join(' ');
-  console.log(container);
   return (
   <>
-    {board && 
-        <div style={handleBackground(bgImage)} className={bgImage ? `${imageStyles}` : `${container}`}>
-        {/* <div style={handleBackground(bgImage)} className={bgImage ? `${css.container} ${css.imageStyles}` : `${css.container}`}> */}
-          {/* <Background className={css.container}> */}
+      {board && 
+    <>
+        <Background>
           <section className={[css.section, css[theme]].join(' ')}>
             <div className={css.activeSettingsWrapper}>
               <h2 className={[css.title, css[theme]].join(' ')}>{board.title}</h2>
@@ -169,8 +151,8 @@ const ScreensPage = () => {
               </ul>
             </div>
           </section>
-            {/* </Background> */}
-        </div >
+        </Background>
+        </>
       }
       </>
   );
