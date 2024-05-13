@@ -6,7 +6,7 @@ import { selectUser } from '../../../redux/auth/auth-selectors';
 import css from "./modalBoards.module.css";
 import sprite from "../../../images/symbol-defs.svg"
 
-import noBg from "../../../images/background_icons/noBg.jpg"
+// import noBg from "../../../images/background_icons/noBg.jpg"
 import bg1 from "../../../images/background_icons/bg1.jpg"
 import bg2 from "../../../images/background_icons/bg2.jpg"
 import bg3 from "../../../images/background_icons/bg3.jpg"
@@ -24,7 +24,7 @@ import bg14 from "../../../images/background_icons/bg14.jpg"
 import bg15 from "../../../images/background_icons/bg15.jpg"
 
 const arrayIcons = ["#icon-four-balls", "#icon-star", "#icon-loading", '#icon-puzzle', "#icon-container", "#icon-lightning", "#icon-colors",   "#icon-hexagon"]
-const arrayBg = [noBg, bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11, bg12, bg13, bg14, bg15]
+const arrayBg = [ bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11, bg12, bg13, bg14, bg15]
 
 const NewBoardForm = ({ onSubmit}) => {
   const { register, handleSubmit } = useForm();
@@ -61,6 +61,13 @@ const NewBoardForm = ({ onSubmit}) => {
       </div>
 <h3 className={[css.text, css[theme]].join(' ')}>Background</h3>
       <div className={css.backgroundRadios}>
+        <label key={"noBg"}>
+          <input type="radio" {...register("background")} value={"noBg"} defaultChecked/>
+      <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
+        <svg className={[css.noBgIcon, css[theme]].join(' ')} width="28" height="28" >
+              <use href={sprite + "#noBg"}></use></svg>
+          </div>
+        </label>
         {bgList}
       </div>
       <button type="submit" className={[css.createBtn, css[theme]].join(' ')}><div className={css.iconWrap}><svg className={css.iconPlus} width="14" height="14">
@@ -141,6 +148,13 @@ export const EditBoard = ({ boardData, onClose }) => {
       </div>
 <h3 className={[css.text, css[theme]].join(' ')}>Background</h3>
       <div className={css.backgroundRadios}>
+        <label key={"noBg"}>
+          <input type="radio" {...register("background")} value="noBg" defaultChecked={boardData.background === "noBg"} />
+      <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
+        <svg className={[css.noBgIcon, css[theme]].join(' ')} width="28" height="28" >
+              <use href={sprite + "#noBg"}></use></svg>
+          </div>
+        </label>
         {bgList}
       </div>
       <button type="submit" className={[css.createBtn, css[theme]].join(' ')}>
