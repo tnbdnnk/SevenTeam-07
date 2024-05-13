@@ -10,7 +10,7 @@ import { selectUser } from '../../../redux/auth/auth-selectors';
 
 import css from './ColumnCard.module.css';
 import icons from '../../../images/symbol-defs.svg';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { selectFilter } from '../../../redux/filter/filter-selectors';
 import { filterCards } from '../../../helpers/filterCards';
 
