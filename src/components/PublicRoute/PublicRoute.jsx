@@ -36,7 +36,7 @@ const PublicRoute = () => {
     const isLoggedIn = false;
 
     return isLoggedIn ?
-        <Navigate to='/login' />
+        <Navigate to='/auth/login' />
         :
         <Suspense fallback={<div>Loading...</div>}>
             <Outlet/> 

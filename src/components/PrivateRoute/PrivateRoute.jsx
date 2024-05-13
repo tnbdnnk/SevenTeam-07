@@ -14,7 +14,7 @@ const PrivateRoute = ()=> {
     const shouldRedirect = !isLogin && !token;
 
         return shouldRedirect ?
-        <Navigate to='/login' /> :
+        <Navigate to='/auth/login' /> :
         // <Navigate to='/login' />
 
     // if(!isLogin && token) {
