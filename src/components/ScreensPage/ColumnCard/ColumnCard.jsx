@@ -20,9 +20,9 @@ const ColumnCard = ({
 }) => {
   const { _id, title, cards } = columnItem;
   const filter = useSelector(selectFilter);
-  console.log('filter', filter);
+  // console.log('filter', filter);
   const filteredCards = filterCards(cards, filter);
-  console.log('filteredCards', filteredCards);
+  // console.log('filteredCards', filteredCards);
   // const [currentName, setCurrentName] = useState(name);
   //   const [currentName, setCurrentName] = useState(title);
   //   const {

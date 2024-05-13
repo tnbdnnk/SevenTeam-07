@@ -12,17 +12,10 @@ const Filters = () => {
   const dispatch = useDispatch();
 
   const chooseBtn = (e) => {
-    console.log('e', e.target.value);
     setRadioChoose(e.target.value);
-    console.log('radioChoose', radioChoose);
 
     dispatch(filterTasksByPriority(e.target.value));
   };
-  // const label = card;
-
-  //   const handleOpenModal = () => {
-  //     console.log('Має відкритися модальне вікно - Filters');
-  //   };
 
   // const handleSetColor = (image) => {
   //     if (image) {
@@ -42,7 +35,6 @@ const Filters = () => {
       </button>
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        {/* <UserForm avatar={avatar} onClose={closeModal} /> */}
         <div>
           <h4>Filters</h4>
           <div className={css.vector}></div>
@@ -122,33 +114,6 @@ const Filters = () => {
           </ul>
         </div>
       </Modal>
-
-      {/* <div>
-                <h4>Filters</h4>
-                <div className={css.vector}></div>
-                <div>
-                    <p>Label color</p>
-                    <p>Show all</p>
-                </div>
-                <ul>
-                   <li className={css.priorityDataWrap}>
-                        <div className={css.circle}></div>
-                        <p className={css.text}>Without priority</p>
-                    </li>
-                    <li className={css.priorityDataWrap}>
-                        <div className={css.circle}></div>
-                        <p className={css.text}>Low</p>
-                    </li>
-                    <li className={css.priorityDataWrap}>
-                        <div className={css.circle}></div>
-                        <p className={css.text}>Medium</p>
-                    </li>
-                    <li className={css.priorityDataWrap}>
-                        <div className={css.circle}></div>
-                        <p className={css.text}>High</p>
-                    </li>
-                </ul>
-            </div> */}
     </>
   );
 };
