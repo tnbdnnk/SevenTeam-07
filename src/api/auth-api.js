@@ -40,9 +40,13 @@ export const logoutRequest = async () => {
   return data;
 };
 
-export const sendHelpRequest = async (formData) => {
+export const sendHelpRequest = async (formData, token) => {
   try {
-    const response = await authInstance.post('/users/help', formData);
+    const response = await authInstance.post('/users/help', formData, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
     return response.data;
   } catch (error) {
     throw new Error('Error sending help request');
