@@ -206,3 +206,18 @@ input[type="radio"]:checked+.backgroundWrapper.light {
 .violet .iconPlus {
   stroke: var(--text-black);
 }
+
+/* підправити стилі іконки */
+.noBgIcon{
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+    fill: #1f1f1f;
+  stroke:#fff;
+  stroke-opacity: 0.1;
+ }
+
+.noBgIcon.violet {
+  fill: #ecedfd;
+  stroke: #161616;
+}
