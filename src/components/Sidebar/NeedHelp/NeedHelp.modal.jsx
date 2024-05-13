@@ -19,7 +19,6 @@ const NeedHelpModal = ({ isOpen, closeModal }) => {
         formData,
         token
     };
-    console.log("Data sent to backend:", data);
 
     try {
         dispatch(sendHelp(data));
