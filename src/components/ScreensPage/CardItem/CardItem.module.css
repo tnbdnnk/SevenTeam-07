@@ -13,7 +13,7 @@
   background-color: #121212;
 }
 
-.card.ligth,
+.card.light,
 .card.violet {
   background-color: #fff;
 }
@@ -48,7 +48,7 @@
   color: #fff;
 }
 
-.title.ligth,
+.title.light,
 .title.violet {
   color: #161616;
 }
@@ -61,7 +61,7 @@
   color: rgba(255, 255, 255, 0.5);
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
+  /* display: -webkit-box; */
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
@@ -70,7 +70,7 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-.subscribe.ligth,
+.subscribe.light,
 .subscribe.violet {
   color: rgba(22, 22, 22, 0.7);
 }
@@ -90,7 +90,7 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.vector.ligth,
+.vector.light,
 .vector.violet {
   background-color: rgba(22, 22, 22, 0.1);
 }
@@ -124,7 +124,7 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-.caption.ligth,
+.caption.light,
 .caption.violet {
   color: rgba(22, 22, 22, 0.5);
 }
@@ -151,7 +151,7 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-.text.ligth,
+.text.light,
 .text.violet {
   color: #161616;
 }
@@ -191,7 +191,7 @@
   stroke: rgba(255, 255, 255, 0.5);
 }
 
-.icon.ligth,
+.icon.light,
 .icon.violet {
   stroke: rgba(22, 22, 22, 0.5);
 }
