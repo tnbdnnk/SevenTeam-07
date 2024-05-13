@@ -30,9 +30,25 @@ h3 {
       padding: 0 14px;
 }
 
+.boardLink.light{
+  color: var(--text-light-grey-05);
+}
+
 .active .boardLink{
-    color: #fff;
+    color: var(--text-white);
     background-color: rgba(31, 31, 31, 0.4);
+}
+
+.active .boardLink.violet {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-white);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.active .boardLink.light {
+  background-color: rgba(246, 246, 247, 0.4);
+  color: var(--text-black);
+  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
 }
 
 .active .boardInfo svg {
@@ -48,8 +64,15 @@ h3 {
 }
 
 .boardIcon {
-  stroke: #FFFFFF;
+  stroke: var(--text-white);
   opacity: 0.5;
+  fill: none;
+}
+.active .boardIcon.light{
+  stroke:var(--text-black) ;
+}
+.boardIcon.light{
+  stroke: var(--text-light-grey-05);
 }
 
 .boarSettings {
@@ -57,11 +80,7 @@ h3 {
   align-items: center;
   gap: 8px;
 }
-/* .boarSettings .boardLink:focus svg */
-/* .boarSettings .boardLink:hover svg {
-  stroke: #BEDBB0;
-  opacity: 1;
-} */
+
 
 .boarSettingsSvg {
   display: none;
@@ -70,13 +89,24 @@ h3 {
 .active .boarSettingsSvg {
   display: block;
   fill: none;
-  stroke: #FFFFFF;
+  stroke: var(--text-white);
   opacity: 0.5;
 }
 
-.boarSettingsSvg:hover {
-    stroke: #BEDBB0;
-      opacity: 1;
+.boarSettingsSvg.light{
+  stroke: #161616;
+}
+
+.boarSettingsSvg:hover,
+.boarSettingsSvg:focus {
+    stroke: var(--accent-light);
+    opacity: 1;
+}
+
+.violet .boarSettingsSvg:hover,
+.violet .boarSettingsSvg:focus {
+  stroke: var(--accent-violet-dark);
+  opacity: 1;
 }
     
 @media screen and (min-width: 768px){
@@ -91,9 +121,13 @@ h3 {
     }
     
     .list::-webkit-scrollbar-thumb {
-      background-color: #bedbb0;
+      background-color: var(--accent-light);
       border-radius: 4px 0 0 4px;
     }
+
+        .violet.list::-webkit-scrollbar-thumb {
+          background-color: var(--text-white);
+        }
     
     .list::-webkit-scrollbar-track {
       background-color: transparent;

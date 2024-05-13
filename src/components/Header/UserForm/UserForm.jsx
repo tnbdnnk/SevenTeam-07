@@ -21,6 +21,7 @@ export const UserForm = ({ onClose }) => {
   const [nameUser, setNameUser] = useState(name);
   const [emailUser, setEmailUser] = useState(email);
   const [password, setPassword] = useState('');
+  const [preview, setPreview] = useState(null);
 
   //временно
   // const [activeTheme, setactiveTheme] = useState('dark');
@@ -68,10 +69,11 @@ export const UserForm = ({ onClose }) => {
     }
 
     if (file) {
+      setAvatarUser(file);
       const reader = new FileReader();
 
       reader.onload = () => {
-        setAvatarUser(reader.result);
+        setPreview(reader.result);
       };
 
       reader.readAsDataURL(file);
@@ -107,6 +109,7 @@ export const UserForm = ({ onClose }) => {
       dispatch(updateUser(user));
 
       onClose();
+      toast.success('Update accepted!');
     } catch (error) {
       toast.error('Ooops, there was an error...', {
         style: {
@@ -126,7 +129,11 @@ export const UserForm = ({ onClose }) => {
         <div className={css.formGroupImg}>
           <label className="css.nameLable">
             {avatarURL ? (
-              <img className={css.avatar} src={avatarURL} alt="user-avatar" />
+              <img
+                className={css.avatar}
+                src={preview || avatarURL}
+                alt="user-avatar"
+              />
             ) : (
               <svg className={css.avatar}>
                 <use href={avatar} />
@@ -155,7 +162,7 @@ export const UserForm = ({ onClose }) => {
               className={[css.input, css[activeTheme]].join(' ')}
               type="text"
               placeholder="Name"
-              value={name}
+              value={nameUser}
               onChange={handleChange}
               name="name"
             />
@@ -166,7 +173,7 @@ export const UserForm = ({ onClose }) => {
           <label>
             <input
               className={[css.input, css[activeTheme]].join(' ')}
-              value={email}
+              value={emailUser}
               onChange={handleChange}
               type="email"
               name="email"

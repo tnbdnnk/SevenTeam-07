@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+// import axios from 'axios';
+// import { setToken } from '../../api/auth-api';
 
 import {
   signupRequest,
@@ -7,7 +8,9 @@ import {
   currentRequest,
   logoutRequest,
   sendHelpRequest,
-  setToken,
+  authInstance,
+
+  // sendUpdateRequest,
 } from '../../api/auth-api';
 
 export const signup = createAsyncThunk(
@@ -67,23 +70,35 @@ export const logout = createAsyncThunk(
   }
 );
 
+// export const updateUser = createAsyncThunk(
+//   'auth/update',
+//   async (userData, thunkAPI) => {
+//     const state = thunkAPI.getState();
+//     const persistedToken = state.auth.token;
+
+//     if (persistedToken === null) {
+//       return thunkAPI.rejectWithValue('Unable to fetch user');
+//     }
+//     try {
+//       setToken(persistedToken);
+//       const res = await axios.patch('/users/update', userData, {
+//         headers: { 'Content-Type': 'multipart/form-data' },
+//       });
+
+//       return res.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const updateUser = createAsyncThunk(
-  'auth/update',
+  'users/updateUser',
   async (userData, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
     try {
-      setToken(persistedToken);
-      const res = await axios.patch('/user', userData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
+      const { data } = await authInstance.patch('users/update', userData);
 
-      return res.data;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -91,22 +106,12 @@ export const updateUser = createAsyncThunk(
 );
 
 export const updateTheme = createAsyncThunk(
-  'auth',
-  async (userTheme, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
+  'users/updateTheme',
+  async (theme, thunkAPI) => {
     try {
-      setToken(persistedToken);
-      const payload = {
-        theme: userTheme,
-      };
-      const res = await axios.patch('/user/theme', payload);
+      const { data } = await authInstance.patch('users/theme', theme);
 
-      return res.data;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

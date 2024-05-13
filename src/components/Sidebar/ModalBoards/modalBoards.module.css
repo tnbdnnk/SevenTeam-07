@@ -7,22 +7,40 @@
   font-size: 18px;
   margin-bottom: 24px;
       text-align: left;
-        color: #fff;
+        color: var(--text-white);
+}
+
+.modalHeader.light{
+  color: var(--text-black);
+}
+
+.modalHeader.violet {
+  color: var(--text-black);
 }
 
 .title {
   margin-bottom: 24px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--accent-light);
   border-radius: 8px;
   width: 100%;
   height: 49px;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
-  background: #1f1f1f;
+  background: var(--background-grey);
   opacity: 0.4;
   padding: 18px 14px;
-  color: #FFFFFF;
+  color: var(--text-white);
   font-weight: 400;
   font-size: 14px;
+}
+
+.title.light{
+  background: none;
+  color: var(--text-black);
+}
+.title.violet {
+  background: none;
+  border: 1px solid var(--accent-violet-dark);
+  color: var(--text-black);
 }
 
 .title:not(:placeholder-shown) {
@@ -31,15 +49,31 @@
 
 .title::placeholder {
   font-size: 14px;
-  color: #fff;
+  color: var(--text-white);
+}
+
+.title.light::placeholder {
+  color: var(--text-black);
+}
+
+.title.violet::placeholder {
+  color: var(--text-black);
 }
 
 .text {
   font-weight: 500;
   font-size: 14px;
-  color: #fff;
+  color: var(--text-white);
   margin-bottom: 14px;
   text-align: left;
+}
+
+.text.violet{
+  color: var(--text-black);
+}
+
+.text.light {
+  color: var(--text-black);
 }
 
 .iconRadios {
@@ -55,9 +89,17 @@
 
 .iconWrapper .modalIcons {
   fill: none;
-  stroke: #FFFFFF;
+  stroke: var(--text-white);
   opacity: 0.5;
 
+}
+
+.iconWrapper .modalIcons.light{
+  stroke: var(--text-black);
+}
+
+.iconWrapper .modalIcons.violet {
+  stroke: var(--text-black);
 }
 
 input[type="radio"] {
@@ -82,12 +124,18 @@ input[type="radio"]:checked+.iconWrapper svg {
   width: 28px;
   height: 28px;
   overflow: hidden;
-  /* background-color: #151515; */
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0.7;
+}
+
+.backgroundWrapper.violet{
+  opacity: 1;
+}
+.backgroundWrapper.light {
+  opacity: 1;
 }
 
 
@@ -99,15 +147,22 @@ input[type="radio"]:checked+.iconWrapper svg {
 
 input[type="radio"]:checked+.backgroundWrapper {
   opacity: 1;
-  border: 1px solid #FFFFFF;
+  border: 1px solid var(--white-btn);
+}
+
+input[type="radio"]:checked+.backgroundWrapper.violet{
+  border: 1px solid var(--accent-violet-dark);
+}
+input[type="radio"]:checked+.backgroundWrapper.light {
+  border: 1px solid var(--accent-dark);
 }
 
 .createBtn {
   border-radius: 8px;
   width: 100%;
   height: 49px;
-  background: #bedbb0;
-  color: #161616;
+  background: var(--accent-light);
+  color: var(--text-black);
   font-weight: 500;
   font-size: 14px;
   display: flex;
@@ -116,8 +171,18 @@ input[type="radio"]:checked+.backgroundWrapper {
   align-items: center;
 }
 
+.createBtn.violet{
+  background: var(--accent-violet-dark);
+    color: var(--text-white);
+}
+
 .createBtn:hover, .createBtn:focus {
-  background: #9dc888;
+  background: var(--accent-dark);
+}
+
+.createBtn.violet:hover,
+.createBtn.violet:focus {
+  background: #7b7ede;
 }
 
 .iconWrap {
@@ -130,6 +195,29 @@ input[type="radio"]:checked+.backgroundWrapper {
   align-items: center;
 }
 
+.violet .iconWrap{
+  background: var(--white-btn);
+}
+
 .iconPlus {
-  stroke: #FFFFFF;
+  stroke: var(--text-white);
+}
+
+.violet .iconPlus {
+  stroke: var(--text-black);
+}
+
+/* підправити стилі іконки */
+.noBgIcon{
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+    fill: #1f1f1f;
+  stroke:#fff;
+  stroke-opacity: 0.1;
+ }
+
+.noBgIcon.violet {
+  fill: #ecedfd;
+  stroke: #161616;
 }

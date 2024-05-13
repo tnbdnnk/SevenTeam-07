@@ -27,13 +27,13 @@ const AddCard = ({ columnId }) => {
           onAddCard={handleAddCard}
         />
       )}
-      <button className={css.button} type="button" onClick={openAddModal}>
-        <div className={css.iconBox}>
-          <svg className={css.icon} width="14" height="14">
+      <button className={[css.button, css[theme]].join(' ')} type="button" onClick={openAddModal}>
+        <div className={[css.iconBox, css[theme]].join(' ')}>
+          <svg className={[css.icon, css[theme]].join(' ')} width="14" height="14">
             <use href={icons + '#icon-plus'}></use>
           </svg>
         </div>
-        <p className={css.text}>Add another card</p>
+        <p className={[css.text, css[theme]].join(' ')}>Add another card</p>
       </button>
     </>
   );

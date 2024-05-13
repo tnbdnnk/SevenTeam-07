@@ -15,15 +15,15 @@
   background-color: #121212;
 }
 
-.button.ligth,
+.button.light,
 .button.violet {
   background-color: #ffffff;
 }
 
 .button.dark:hover,
 .button.dark:focus,
-.button.ligth:hover,
-.button.ligth:focus {
+.button.light:hover,
+.button.light:focus {
   background-color: #9dc888;
   box-shadow: 12px 11px 14px -7px rgba(0, 0, 0, 0.63);
 }
@@ -31,6 +31,7 @@
 .button.violet:hover,
 .button.violet:focus {
   background-color: #7b7ede;
+  box-shadow: 12px 11px 14px -7px rgba(0, 0, 0, 0.63);
 }
 
 @media (min-width: 375px) {
@@ -56,7 +57,7 @@
   background-color: #ffffff;
 }
 
-.iconBox.ligth {
+.iconBox.light {
   background-color: #161616;
 }
 
@@ -71,8 +72,8 @@
 
 .button:hover .iconBox.dark,
 .button:focus .iconBox.dark,
-.button:hover .iconBox.ligth,
-.button:focus .iconBox.ligth {
+.button:hover .iconBox.light,
+.button:focus .iconBox.light {
   background-color: #161616;
 }
 
@@ -90,7 +91,7 @@
   stroke: #121212;
 }
 
-.icon.ligth,
+.icon.light,
 .icon.violet {
   stroke: #fff;
 }
@@ -102,8 +103,8 @@
 
 .button.dark:hover .icon,
 .button.dark:focus .icon,
-.button.ligth:hover .icon,
-.button.ligth:focus .icon {
+.button.light:hover .icon,
+.button.light:focus .icon {
   stroke: #fff;
 }
 
@@ -124,7 +125,7 @@
   color: #fff;
 }
 
-.text.ligth,
+.text.light,
 .text.violet {
   color: #161616;
 }
@@ -136,8 +137,8 @@
 
 .button.dark:hover .text,
 .button.dark:focus .text,
-.button.ligth:hover .text,
-.button.ligth:focus .text {
+.button.light:hover .text,
+.button.light:focus .text {
   color: #161616;
 }
 

@@ -1,7 +1,23 @@
+.loaderWrap {
+  height: 100vh;
+}
+
 .section {
   height: calc(100vh - 62px);
   background-color: #1f1f1f;
   padding: 14px 20px;
+}
+
+.section.dark {
+  background-color: #1f1f1f;
+}
+
+.section.light {
+  background-color: #f6f6f7;
+}
+
+.section.violet {
+  background-color: #ecedfc;
 }
 
 @media (min-width: 768px) {
@@ -44,6 +60,15 @@
   line-height: 16px;
 }
 
+.text.dark {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.text.light,
+.text.violet {
+  color: rgba(22, 22, 22, 0.7);
+}
+
 @media (min-width: 375px) and (max-width: 767px) {
   .text {
     width: 335px;
@@ -61,4 +86,13 @@
 .link {
   color: #bedbb0;
   cursor: pointer;
+}
+
+.link.dark,
+.link.light {
+  color: #bedbb0;
+}
+
+.link.violet {
+  color: #5255bc;
 }

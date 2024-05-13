@@ -15,8 +15,21 @@ p {
   text-align: left;
 }
 
+.needHelpBox.violet {
+  background: var(--background-violet-04);
+}
+
+.needHelpBox.light {
+  background: var(--background-light);
+  color: var(--text-black);
+}
+
 span {
-  color: #bedbb0;
+  color: var(--accent-light);
+}
+
+.violet span {
+  color: var(--accent-violet-dark);
 }
 
 .btn {
@@ -28,22 +41,26 @@ span {
   margin-top: 18px;
 }
 
-.icon{
+.icon {
   stroke: #FFFFFF;
   fill: none;
 }
 
-.cactusBox{
+.light .icon{
+  stroke: var(--text-black);
+}
+
+.cactusBox {
   width: 54px;
   height: 78px;
   background-image: url("../../../images/cactus.svg");
   margin-bottom: 14px;
 }
 
-@media screen and (min-width: 768px){
-.needHelpBox {
-  line-height: 143%;
-  padding: 20px;
-  font-size: 14px;
-}
+@media screen and (min-width: 768px) {
+  .needHelpBox {
+    line-height: 143%;
+    padding: 20px;
+    font-size: 14px;
+  }
 }

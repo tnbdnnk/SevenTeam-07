@@ -41,11 +41,22 @@ export const logoutRequest = async () => {
 };
 
 export const sendHelpRequest = async (formData) => {
-  try {  
-    const response = await authInstance.post("/users/help", formData);
+  try {
+    const response = await authInstance.post('/users/help', formData);
     return response.data;
   } catch (error) {
-    throw new Error("Error sending help request");
+    throw new Error('Error sending help request');
+  }
+};
+
+export const sendUpdateRequest = async (formData) => {
+  try {
+    const response = await authInstance.patch('/users/update', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error('Error sending updateUser request');
   }
 };
 
