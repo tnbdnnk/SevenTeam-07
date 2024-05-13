@@ -13,6 +13,15 @@
   color: var(--text-white);
 }
 
+.sidebar.violet {
+  background-color: var(--accent-violet-dark);
+}
+
+.sidebar.light {
+  background-color: var(--background-white);
+  color: var(--text-black);
+}
+
 @media screen and (max-width: 1439px) {
   .sidebar {
     display: none;
@@ -53,6 +62,10 @@
   margin-bottom: 8px;
 }
 
+.light .text{
+  color: var(--text-light-grey-05);
+}
+
 .createBox {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -62,6 +75,12 @@
   margin-bottom: 40px;
 }
 
+.createBox.light{
+  border-top: 1px solid rgba(22, 22, 22, 0.1);
+    border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+}
+
+
 .createText {
   display: block;
   width: 76px;
@@ -69,6 +88,10 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: var(--text-white);
+}
+
+.light .createText{
+  color: var(--text-black);
 }
 
 .createBtn {
@@ -81,13 +104,25 @@
   border-radius: 5px;
 }
 
+.createBtn.violet {
+  background: var(--accent-violet-light);
+}
+
 .createBtn:hover,
 .createBtn:focus {
   background: var(--accent-dark);
 }
+.createBtn.violet:hover,
+.createBtn.violet:focus {
+  background: #979CEA;
+}
 
 .iconPlus {
   stroke: #121212;
+}
+
+.violet .iconPlus {
+  stroke: var(--text-white);
 }
 
 /* скинути стилі кнопок */
@@ -113,14 +148,27 @@ button {
   bottom: 24px;
 }
 
+.light .logoutBtn{
+  color: var(--text-black);;
+}
+
 .iconLogout {
   stroke: var(--accent-light);
   fill: none;
 }
 
+.iconLogout.violet {
+  stroke: var(--text-white);
+}
+
 .logoutBtn:hover .iconLogout,
 .logoutBtn:focus .iconLogout {
   stroke: var(--accent-dark);
+}
+
+.logoutBtn:hover .iconLogout.violet,
+.logoutBtn:focus .iconLogout.violet {
+  stroke: var(--accent-violet-light);
 }
 
 
@@ -136,8 +184,6 @@ button {
   padding-left: 24px;
   padding-right: 24px;
 }
-
-
 }
 
 /* styles for desctop -------------------------------*/
