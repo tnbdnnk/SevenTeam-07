@@ -1,12 +1,9 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import Modal from '../../../../helpers/ModalWindow/Modal';
-import { addColumn } from '../../../../redux/columns/column-operations';
 import css from './AddColumnModal.module.css';
+import { useState } from 'react';
+import Modal from '../../../../helpers/ModalWindow/Modal';
 
-const AddColumnModal = ({ isModalOpen, closeModal }) => {
+const AddColumnModal = ({ isModalOpen, closeModal, onAddColumn }) => {
   const [columnName, setColumnName] = useState('');
-  const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
     setColumnName(event.target.value);
@@ -21,7 +18,7 @@ const AddColumnModal = ({ isModalOpen, closeModal }) => {
       name: columnName,
       cards: [],
     };
-    dispatch(addColumn(newColumn));
+    onAddColumn(newColumn);
     closeModal();
   };
 

@@ -1,21 +1,18 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addCard } from '../../../../redux/cards/card-operations';
 import Modal from '../../../../helpers/ModalWindow/Modal';
+import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { nanoid } from 'nanoid';
 import { format } from 'date-fns';
 import { addDays } from 'date-fns';
 
-const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
+const AddCardModal = ({ isModalOpen, closeModal, onAddCard, columnId }) => {
   const [formData, setFormData] = useState({
     name: '',
     text: '',
     priority: 'Without',
     deadline: null,
   });
-  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +34,7 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
       priority: formData.priority,
       deadline: formattedDate,
     };
-    dispatch(addCard(columnId, newCard));
+    onAddCard(columnId, newCard);
     closeModal();
   };
 

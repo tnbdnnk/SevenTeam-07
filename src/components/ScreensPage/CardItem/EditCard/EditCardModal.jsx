@@ -1,5 +1,3 @@
-import { useDispatch } from 'react-redux';
-import { editCard } from '../../../../redux/cards/cards-operations'; // Подставьте правильный путь к операции обновления карточек
 import Modal from '../../../../helpers/ModalWindow/Modal';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
@@ -7,7 +5,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { parse, format } from 'date-fns';
 import { addDays } from 'date-fns';
 
-const EditCardModal = ({ isModalOpen, closeModal, card, columnId }) => {
+const EditCardModal = ({
+  isModalOpen,
+  closeModal,
+  card,
+  updateCard,
+  columnId,
+}) => {
   const initialDeadline = card.deadline
     ? parse(card.deadline, 'dd/MM/yyyy', new Date())
     : null;
@@ -17,7 +21,6 @@ const EditCardModal = ({ isModalOpen, closeModal, card, columnId }) => {
     priority: card.priority,
     deadline: initialDeadline,
   });
-  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,9 +35,7 @@ const EditCardModal = ({ isModalOpen, closeModal, card, columnId }) => {
     const formattedDate = formData.deadline
       ? format(formData.deadline, 'dd/MM/yyyy')
       : null;
-    dispatch(
-      editCard(columnId, card._id, { ...formData, deadline: formattedDate })
-    );
+    updateCard(columnId, card.id, { ...formData, deadline: formattedDate });
     closeModal();
   };
   const minDate = addDays(new Date(), 1);
