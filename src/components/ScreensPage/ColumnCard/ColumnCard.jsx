@@ -5,7 +5,6 @@ import AddCard from '../AddCard/AddCard';
 // import DeleteColumnModal from './DeleteColumn/DeleteColumnModal';
 // import EditColumnModal from './EditColumn/EditColumnModal';
 
-import { useSelector } from 'react-redux';
 import { selectUser } from '../../../redux/auth/auth-selectors';
 
 import css from './ColumnCard.module.css';
