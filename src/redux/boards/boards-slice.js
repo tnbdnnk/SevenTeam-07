@@ -6,7 +6,7 @@ import {
   fetchBoard,
   deleteBoard,
   addColumn,
-  // addCard,
+  addCard,
   deleteColumn,
   deleteCard,
 } from './boards-operations';
