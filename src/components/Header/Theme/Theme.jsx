@@ -8,8 +8,10 @@ import { selectUser } from '../../../redux/auth/auth-selectors';
 export const Theme = () => {
   const { theme } = useSelector(selectUser);
 
+  //для 2го варіанту popup для закриття після обрання теми
+  const [isThemeOpen, setisThemeOpen] = useState(true);
+
   const [activeTheme, setactiveTheme] = useState(theme);
-  // console.log(theme);
 
   const options = [
     { label: 'Light', theme: 'light' },
@@ -25,11 +27,13 @@ export const Theme = () => {
 
   const current = (e, theme, index) => {
     e.preventDefault();
-    // console.log(theme);
+
     setActiveIndex(index);
 
     dispatch(updateTheme({ theme }));
     setactiveTheme(theme);
+    //для 2го варіанту popup для закриття після оьрання теми
+    setisThemeOpen(false);
   };
 
   const elements = options.map(({ label, theme }, index) => (
@@ -47,8 +51,13 @@ export const Theme = () => {
   ));
 
   return (
-    <div className={[css.wraper, css[activeTheme]].join(' ')}>
-      <ul className={css.list}>{elements}</ul>
-    </div>
+    <>
+      {/* умова для 2 варіанту popup без перегортання */}
+      {isThemeOpen && (
+        <div className={[css.wraper, css[activeTheme]].join(' ')}>
+          <ul className={css.list}>{elements}</ul>
+        </div>
+      )}
+    </>
   );
 };
