@@ -7,9 +7,10 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../../redux/auth/auth-selectors';
 
 
-const AddCard = ({ onAddCard, columnId }) => {
+
+const AddCard = ({ columnId }) => {
   const { theme } = useSelector(selectUser);
-  
+  console.log( 'columnId', columnId);
   const {
     openModal: openAddModal,
     closeModal: closeAddModal,
@@ -22,7 +23,7 @@ const AddCard = ({ onAddCard, columnId }) => {
         <AddCardModal
           closeModal={closeAddModal}
           isModalOpen={isAddModalOpen}
-          onAddCard={onAddCard}
+          // onAddCard={onAddCard}
           columnId={columnId}
         />
       )}

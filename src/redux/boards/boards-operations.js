@@ -26,20 +26,6 @@ export const fetchBoard = createAsyncThunk(
     }
   }
 );
-// ----------запит Анни
-// export const fetchBoard = createAsyncThunk(
-//   'boards/getById',
-//   async (id, { rejectWithValue, getState }) => {
-//     try {
-//       const { auth } = getState();
-//       const board = await getBoardById(id, auth);
-//       console.log('запит Анни getBoardById');
-//       return board;
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 export const addBoard = createAsyncThunk(
   'boards/addBoard',
@@ -93,3 +79,27 @@ export const addColumn = createAsyncThunk(
   }
 );
 
+// MODAL addCards:
+export const addCard = createAsyncThunk(
+  'boards/cards/add',
+  async ({ _id, newCard }, thunkAPI) => {
+    try {
+      const { data } = await authInstance.post(`/cards/${_id}`, newCard);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// export const deleteCard = createAsyncThunk(
+//   'boards/cards/delete',
+//   async (id, thunkAPI) => {
+//     try {
+//       const { data } = await authInstance.delete(`/cards/${id}`);
+//       return data._id;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
