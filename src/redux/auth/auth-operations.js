@@ -1,6 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from 'axios';
-// import { setToken } from '../../api/auth-api';
 
 import {
   signupRequest,
@@ -9,8 +7,6 @@ import {
   logoutRequest,
   sendHelpRequest,
   authInstance,
-
-  // sendUpdateRequest,
 } from '../../api/auth-api';
 
 export const signup = createAsyncThunk(
@@ -97,8 +93,12 @@ export const updateUser = createAsyncThunk(
   'users/updateUser',
   async (userData, thunkAPI) => {
     try {
+      const { auth: { token } } = thunkAPI.getState();
       const { data } = await authInstance.patch('users/update', userData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`
+        },
       });
 
       return data;
