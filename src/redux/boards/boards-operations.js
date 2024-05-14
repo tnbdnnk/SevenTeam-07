@@ -18,7 +18,6 @@ export const fetchBoard = createAsyncThunk(
   'boards/getById',
   async (id, { rejectWithValue }) => {
     try {
-      // const { auth } = getState();
       const { data } = await authInstance.get(`/boards/${id}`);
       return data;
     } catch (error) {

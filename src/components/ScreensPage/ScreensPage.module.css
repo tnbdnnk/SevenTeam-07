@@ -91,9 +91,9 @@
   }
 }
 
-.columnListWrap {
+/* .columnListWrap {
   display: flex;
-}
+} */
 
 .columnList {
   display: flex;
