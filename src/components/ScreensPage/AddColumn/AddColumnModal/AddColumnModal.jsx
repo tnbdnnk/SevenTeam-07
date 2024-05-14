@@ -1,24 +1,31 @@
 import css from './AddColumnModal.module.css';
 import { useState } from 'react';
 import Modal from '../../../../helpers/ModalWindow/Modal';
+import { addColumn } from "../../../../api/board-api";
+import { useSelector } from 'react-redux';
+import {selectBoard} from "../../../../redux/boards/boards-selectors"
 
-const AddColumnModal = ({ isModalOpen, closeModal, onAddColumn }) => {
+
+const AddColumnModal = ({ isModalOpen, closeModal}) => {
   const [columnName, setColumnName] = useState('');
+  const {_id} = useSelector(selectBoard);
 
   const handleInputChange = (event) => {
     setColumnName(event.target.value);
   };
 
-  const handleAddColumn = () => {
+  const handleAddColumn = async() => {
     if (columnName.trim() === '') {
       alert('Please enter a column name');
       return;
     }
-    const newColumn = {
-      name: columnName,
-      cards: [],
-    };
-    onAddColumn(newColumn);
+
+    try {
+      const response = await addColumn(_id, columnName);
+      console.log(response); 
+    } catch (error) {
+      console.error('Помилка під час додавання колонки:', error);
+    }
     closeModal();
   };
 
