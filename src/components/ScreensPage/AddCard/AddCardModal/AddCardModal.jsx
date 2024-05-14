@@ -36,7 +36,6 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
       label: formData.priority,
       deadline: formattedDate,
     };
-console.log(columnId, newCard )
     dispatch(addCard({_id: columnId, newCard }));
     closeModal();
   };
@@ -68,7 +67,6 @@ console.log(columnId, newCard )
               name="priority"
               value="without"
               checked={formData.priority === 'without'}
-              defaultChecked
               onChange={handleChange}
             />
             Without
