@@ -32,21 +32,12 @@ const RegisterPage = ()=> {
             <div className={styles.register}>
                 <div className={styles.blockRegister}>
                     <div className={styles.navRegister}>   
-                        <NavLink to="/auth/register" className={styles.authActivPage}>
-                            Registration
-                        </NavLink>
-                        <NavLink to="/auth/login" className={styles.linkRegister}>
-                            Log In
-                        </NavLink>
+                    <NavLink to="/auth/register" className={styles.authActivPage} >Registration</NavLink>
+                    <NavLink to="/auth/login" className={styles.linkRegister}>Log In</NavLink>
                     </div>
                 {/* {authLoading && <p>....Register in progress</p>} */}
                 <RegisterForm onSubmit={handleSignup} />
-                    {isLogin
-                        ? <Navigate to="/home" />
-                        : authError
-                        && <p className={styles.authError} >
-                            {authError}
-                        </p>}
+                {isLogin ? <Navigate to="/home"/>: authError && <p style={{color: "red"}}>{authError}</p>}
                 </div>
             </div>
         </main>

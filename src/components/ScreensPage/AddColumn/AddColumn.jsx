@@ -27,45 +27,22 @@ const AddColumn = () => {
 
   return (
     <>
-      <button
-        className={[css.button, css[theme]].join(' ')}
-        type="button"
-        onClick={openModal}
-      >
-        <div className={[css.iconBox, css[theme]].join(' ')}>
-          <svg
-            className={[css.icon, css[theme]].join(' ')}
-            width="14"
-            height="14"
-          >
-            <use href={icons + '#icon-plus'}></use>
-          </svg>
-        </div>
-        <p className={[css.text, css[theme]].join(' ')}>Add new column</p>
+      <button className={[css.button, css[theme]].join(' ')} type="button" onClick={openModal}>
+          <div className={[css.iconBox, css[theme]].join(' ')}>
+            <svg className={[css.icon, css[theme]].join(' ')} width="14" height="14">
+              <use href={icons + '#icon-plus'}></use>
+            </svg>
+          </div>
+          <p className={[css.text, css[theme]].join(' ')}>Add new column</p>
       </button>
 
       {/* ======================= MODAL AddColumn ========================== */}
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2 className={css.addColumnTitle}>New column</h2>
+        <h2 >New column</h2>
         <form onSubmit={handleSubmit(handleAddColumn)}>
-          <input
-            {...register('title')}
-            placeholder="Title"
-            className={css.addColumnInput}
-          />
-          <button className={[css.button, css[theme]].join(' ')} type="submit">
-            <div className={[css.iconBox, css[theme]].join(' ')}>
-              <svg
-                className={[css.icon, css[theme]].join(' ')}
-                width="14"
-                height="14"
-              >
-                <use href={icons + '#icon-plus'}></use>
-              </svg>
-            </div>
-            Add
-          </button>
+          <input {...register("title")} placeholder="Title" />
+          <button className={css.buttonAddColumn} type="submit" ></button>      
         </form>
       </Modal>
     </>
