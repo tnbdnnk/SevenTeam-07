@@ -10,10 +10,6 @@ export const Header = ({ openBurger }) => {
   const [isThemeOpen, setisThemeOpen] = useState(false);
   const [isActive, setisActive] = useState(false);
   const { theme } = useSelector(selectUser);
-  // console.log(theme);
-
-  // // для проверки
-  // const [activeTheme, setactivTheme] = useState(theme);
 
   return (
     <header className={[css.header, css[theme]].join(' ')}>
@@ -30,12 +26,16 @@ export const Header = ({ openBurger }) => {
             onClick={() => setisThemeOpen((isThemeOpen) => !isThemeOpen)}
           >
             <svg
-              className={
-                isActive
-                  ? `${css.svgTheme} ${css.active} ${css[theme]}`
-                  : `${css.svgTheme} ${css[theme]}`
-              }
-              onClick={() => setisActive((isActive) => !isActive)}
+              //для 1го варіанту popup з перегортанням
+              // className={
+              //   isActive
+              //     ? `${css.svgTheme} ${css.active} ${css[theme]}`
+              //     : `${css.svgTheme} ${css[theme]}`
+              // }
+              className={`${css.svgTheme} ${css[theme]}`}
+              //для 1го варіанту popup з перегортанням
+              // onClick={() => setisActive((isActive) => !isActive)}
+              onClick={() => setisActive(true)}
             >
               <use href={`${sprite}#icon-chevron-down`} />
             </svg>

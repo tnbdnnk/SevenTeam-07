@@ -39,12 +39,36 @@ span {
   align-items: center;
   gap: 8px;
   margin-top: 18px;
+  transition: all 0.5s;
 }
 
-/* .btn.violet:hover,
-.btn.violet:focus{
-  stroke: var(--accent-violet-light);
-} */
+.btn.light {
+  color: #161616;
+}
+
+.btn:hover,
+.btn:focus{
+  color: #bedbb0;
+  transform: scale(1.1);
+}
+
+.btn.violet:hover,
+.btn.violet:focus {
+  color: #5255BC;
+  transform: scale(1.1);
+}
+
+.btn:active {
+  transform: scale(1.2);
+}
+
+.btn.light:active {
+  transform: scale(1.2);
+}
+
+.btn.violet:active {
+  transform: scale(1.2);
+}
 
 .icon {
   stroke: #FFFFFF;
@@ -55,11 +79,16 @@ span {
   stroke: var(--text-black);
 }
 
+
 .cactusBox {
   width: 54px;
   height: 78px;
   background-image: url("../../../images/cactus.svg");
   margin-bottom: 14px;
+}
+
+.text.light {
+  color: #161616;
 }
 
 .title {
@@ -92,7 +121,7 @@ span {
   letter-spacing: -0.02em;
   text-align: center;
   color: #161616;
-  transition: all 0.15s;
+  transition: all 0.5s;
 }
 
 .btnSend:active {

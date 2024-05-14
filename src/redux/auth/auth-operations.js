@@ -72,13 +72,16 @@ export const updateUser = createAsyncThunk(
   'user/updateProfile',
   async (body, thunkAPI) => {
     try {
-      const { auth: { token } } = thunkAPI.getState();
+      const {
+        auth: { token },
+      } = thunkAPI.getState();
       const { data } = await authInstance.patch('users/update', body, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
       });
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
