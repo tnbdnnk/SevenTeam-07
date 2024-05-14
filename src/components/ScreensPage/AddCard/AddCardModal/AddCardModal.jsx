@@ -2,11 +2,14 @@ import Modal from '../../../../helpers/ModalWindow/Modal';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { nanoid } from 'nanoid';
 import { format } from 'date-fns';
 import { addDays } from 'date-fns';
+import { useDispatch } from "react-redux";
+import {addCard} from '../../../../redux/boards/boards-operations'
 
-const AddCardModal = ({ isModalOpen, closeModal, onAddCard, columnId }) => {
+const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
+
+          const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: '',
     text: '',
@@ -25,16 +28,16 @@ const AddCardModal = ({ isModalOpen, closeModal, onAddCard, columnId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formattedDate = formData.deadline
-      ? format(formData.deadline, 'dd/MM/yyyy')
+      ? format(formData.deadline, 'MM/dd/yyyy')
       : null;
     const newCard = {
-      id: nanoid(),
-      name: formData.name,
-      text: formData.text,
-      priority: formData.priority,
+      title: formData.name,
+      description: formData.text,
+      label: formData.priority,
       deadline: formattedDate,
     };
-    onAddCard(columnId, newCard);
+console.log(columnId, newCard )
+    dispatch(addCard({_id: columnId, newCard }));
     closeModal();
   };
 
@@ -56,15 +59,16 @@ const AddCardModal = ({ isModalOpen, closeModal, onAddCard, columnId }) => {
           value={formData.text}
           onChange={handleChange}
           placeholder="Card description"
-          required
+
         />
         <div>
           <label>
             <input
               type="radio"
               name="priority"
-              value="Without"
-              checked={formData.priority === 'Without'}
+              value="without"
+              checked={formData.priority === 'without'}
+              defaultChecked
               onChange={handleChange}
             />
             Without
@@ -73,8 +77,8 @@ const AddCardModal = ({ isModalOpen, closeModal, onAddCard, columnId }) => {
             <input
               type="radio"
               name="priority"
-              value="Low"
-              checked={formData.priority === 'Low'}
+              value="low"
+              checked={formData.priority === 'low'}
               onChange={handleChange}
             />
             Low
@@ -83,8 +87,8 @@ const AddCardModal = ({ isModalOpen, closeModal, onAddCard, columnId }) => {
             <input
               type="radio"
               name="priority"
-              value="Medium"
-              checked={formData.priority === 'Medium'}
+              value="medium"
+              checked={formData.priority === 'medium'}
               onChange={handleChange}
             />
             Medium
@@ -93,8 +97,8 @@ const AddCardModal = ({ isModalOpen, closeModal, onAddCard, columnId }) => {
             <input
               type="radio"
               name="priority"
-              value="High"
-              checked={formData.priority === 'High'}
+              value="high"
+              checked={formData.priority === 'high'}
               onChange={handleChange}
             />
             High
@@ -105,7 +109,7 @@ const AddCardModal = ({ isModalOpen, closeModal, onAddCard, columnId }) => {
           onChange={(date) => setFormData({ ...formData, deadline: date })}
           dateFormat="dd/MM/yyyy"
           placeholderText="Select deadline"
-          required
+          
           minDate={minDate}
         />
         <button type="submit">Add</button>

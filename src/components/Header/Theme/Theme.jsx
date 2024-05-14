@@ -9,7 +9,7 @@ export const Theme = () => {
   const { theme } = useSelector(selectUser);
 
   const [activeTheme, setactiveTheme] = useState(theme);
-  console.log(theme);
+  // console.log(theme);
 
   const options = [
     { label: 'Light', theme: 'light' },
@@ -25,7 +25,7 @@ export const Theme = () => {
 
   const current = (e, theme, index) => {
     e.preventDefault();
-    console.log(theme);
+    // console.log(theme);
     setActiveIndex(index);
 
     dispatch(updateTheme({ theme }));

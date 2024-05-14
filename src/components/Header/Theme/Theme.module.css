@@ -4,6 +4,7 @@
   top: 34px;
   left: 0;
   padding: 18px;
+  padding-right: 28px;
   background-color: var(--dark-modal);
   border-radius: 5px;
 
