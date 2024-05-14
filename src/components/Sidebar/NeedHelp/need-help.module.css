@@ -21,7 +21,7 @@ p {
 
 .needHelpBox.light {
   background: var(--background-light);
-  color: var(--text-black);
+  /* color: var(--text-black); */
 }
 
 span {
@@ -40,6 +40,11 @@ span {
   gap: 8px;
   margin-top: 18px;
 }
+
+/* .btn.violet:hover,
+.btn.violet:focus{
+  stroke: var(--accent-violet-light);
+} */
 
 .icon {
   stroke: #FFFFFF;
@@ -93,13 +98,12 @@ span {
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  /* color: #fff; */
 }
 
 .input {
   margin-bottom: 14px;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
-  background: #1f1f1f;
   opacity: 0.4;
   border: 1px solid #bedbb0;
   border-radius: 8px;
@@ -107,7 +111,6 @@ span {
   width: 100%;
   height: 49px;
   color: #fff;
-  background: #151515;
   padding-left: 18px;
 
 }
@@ -115,6 +118,20 @@ span {
 .input:hover,
 .input:focus {
   opacity: 1;
+}
+
+.dark .input {
+  background: #151515;
+  color: #fff;
+}
+
+.light .input{
+  color: #151515;
+  background-color: #fff;
+}
+
+.violet .input {
+  background-color: #7b7ede;
 }
 
 .textarea {
