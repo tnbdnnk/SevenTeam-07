@@ -18,7 +18,6 @@ export const fetchBoard = createAsyncThunk(
   'boards/getById',
   async (id, { rejectWithValue }) => {
     try {
-      // const { auth } = getState();
       const { data } = await authInstance.get(`/boards/${id}`);
       return data;
     } catch (error) {
@@ -92,14 +91,26 @@ export const addCard = createAsyncThunk(
   }
 );
 
-// export const deleteCard = createAsyncThunk(
-//   'boards/cards/delete',
-//   async (id, thunkAPI) => {
-//     try {
-//       const { data } = await authInstance.delete(`/cards/${id}`);
-//       return data._id;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const deleteCard = createAsyncThunk(
+  'boards/cards/delete',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await authInstance.delete(`/cards/${id}`);
+      return data.id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteColumn = createAsyncThunk(
+  'boards/columns/delete',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await authInstance.delete(`/columns/${id}`);
+      return data.id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

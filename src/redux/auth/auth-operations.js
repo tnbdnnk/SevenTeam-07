@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { clearBoardSelection } from '../boards/boards-slice';
 
 import {
   signupRequest,
@@ -56,9 +57,10 @@ export const current = createAsyncThunk(
 
 export const logout = createAsyncThunk(
   'auth/logout',
-  async (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue, dispatch }) => {
     try {
       const data = await logoutRequest();
+      dispatch(clearBoardSelection());
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

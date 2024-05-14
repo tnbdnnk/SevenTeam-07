@@ -7,7 +7,10 @@ import {
   deleteBoard,
   addColumn,
   addCard,
+  deleteColumn,
+  deleteCard,
 } from './boards-operations';
+
 
 const initialState = {
   boards: [],
@@ -29,6 +32,12 @@ const rejected = (state, { payload }) => {
 const boardsSlice = createSlice({
   name: 'boards',
   initialState,
+  reducers: {
+    clearBoardSelection(state) {
+      state.boards = [];
+      state.selectBoard = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAllBoards.pending, pending)
@@ -74,7 +83,7 @@ const boardsSlice = createSlice({
           { ...payload, cards: [] },
         ];
       })
-      .addCase(addColumn.rejected, rejected)
+      .addCase(addColumn.rejected, rejected)    
       // addCard:
       .addCase(addCard.pending, pending)
       .addCase(addCard.fulfilled, (state, { payload }) => {
@@ -88,12 +97,44 @@ const boardsSlice = createSlice({
         } else {
           console.error('Column not found for card owner:', cardOwner);
         }
-        console.log('payload', payload);
       })
-      .addCase(addCard.rejected, rejected);
+      .addCase(addCard.rejected, rejected)
+      .addCase(deleteCard.pending, pending)
+      .addCase(deleteCard.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.selectBoard.columns.forEach((column) => {
+          column.cards = column.cards.filter((card) => card._id !== payload);
+        });
+      })
+      .addCase(deleteCard.rejected, rejected)
+      .addCase(deleteColumn.pending, pending)
+      .addCase(deleteColumn.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        console.log(payload);
+        state.selectBoard.columns = state.selectBoard.columns.filter(
+          (column) => column._id !== payload
+        );
+      })
+      .addCase(deleteColumn.rejected, rejected);
+//       .addCase(addCard.pending, pending)
+//       .addCase(addCard.fulfilled, (state, { payload }) => {
+//         state.isLoading = false;
+//         const { cardOwner } = payload;
+//         const column = state.selectBoard.columns.find(
+//           (col) => col._id === cardOwner
+//         );
+//         if (column) {
+//           column.cards.push(payload);
+//         } else {
+//           console.error('Column not found for card owner:', cardOwner);
+//         }
+//         console.log('payload', payload);
+//       })
+//       .addCase(addCard.rejected, rejected);
   },
 });
 
 const boardsReducer = boardsSlice.reducer;
 
+export const { clearBoardSelection } = boardsSlice.actions
 export default boardsReducer;

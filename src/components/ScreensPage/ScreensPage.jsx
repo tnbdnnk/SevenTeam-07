@@ -20,14 +20,7 @@ const ScreensPage = () => {
 
   let { boardName } = useParams();
   const board = useSelector(selectBoard);
-
   console.log(board);
-  
-  // const isColumnListEmpty = () => {
-  //   const column = board.columns[0];
-  //   const hasId = Object.hasOwn(column, '_id');
-  //   return hasId;
-  // }
 
   useEffect(() => {
     dispatch(fetchBoard(`${boardName}`));
@@ -46,14 +39,17 @@ const ScreensPage = () => {
               <Filters />
             </div>
 
-            <div className={css.columnListWrap}>
+            {/* <div className={css.columnListWrap}> */}
+            <div>
               <ul className={css.columnList}>
-                {/* {isColumnListEmpty() && board.columns.map((columnItem) => ( */}
-                {board.columns.map((columnItem) => (
+                {board.columns && board.columns
+                .filter(columnItem => Object.hasOwn(columnItem, '_id'))
+                .map(columnItem => (
                   <ColumnCard
                     key={columnItem._id}
                     columnItem={columnItem}
-                  />))}
+                  />
+                ))}
                 <AddColumn />
               </ul>
             </div>
