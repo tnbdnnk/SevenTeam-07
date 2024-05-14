@@ -79,3 +79,17 @@ export const editBoard = createAsyncThunk(
     }
   }
 );
+
+// MODAL addColumn:
+export const addColumn = createAsyncThunk(
+  'boards/columns/add',
+  async ({ _id, title }, thunkAPI) => {
+    try {
+      const { data } = await authInstance.post(`/columns/${_id}`, { title });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
