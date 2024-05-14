@@ -6,32 +6,52 @@
     align-items: center;
     margin: 0 auto;
 }
+
 .linkAuthRegistration {
     margin: 0;
     padding: 0;
     text-decoration: none;
     font-size: 14px;
-    color:#ffffff;
     letter-spacing: -0.02em;
     font-weight: 500;
     height: 49px;
     align-content: center;
     width: 280px;
-    background-color: #161616;
     border-radius: 8px;
     align-content: center;
     text-align: center;
+    color:#161616;
+    transition: all 500ms cubic-bezier(0, 0, 1, 1);
 }
+
+.linkAuthRegistration:hover,
+.linkAuthRegistration:focus {
+    color:#ffffff;
+    background-color: #161616;
+    box-shadow: 12px 11px 14px -7px rgba(0, 0, 0, 0.63);
+}
+
 .linkAuthLogin {
     margin: 0;
     padding: 0;
     text-decoration: none;
     font-size: 14px;
+    height: 49px;
+    width: 280px;
     color:#161616;
     letter-spacing: -0.02em;
     font-weight: 500;
-    height: 49px;
+    border-radius: 8px;
     align-content: center;
+    text-align: center;
+    transition: all 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.linkAuthLogin:hover,
+.linkAuthLogin:focus {
+    color:#ffffff;
+    background-color: #161616;
+    box-shadow: 12px 11px 14px -7px rgba(0, 0, 0, 0.63);
 }
 
 @media screen and (min-width: 375px) {

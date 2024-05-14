@@ -38,7 +38,7 @@ const Filters = () => {
           <h2 className={[css.modalHeader, css[theme]].join(' ')}>Filters</h2>
           <div className={css.vector}></div>
           <div className={css.container}>
-            <p className={[css.text, css[theme]].join(' ')}>Label color</p>
+            <p className={[css.mainText, css[theme]].join(' ')}>Label color</p>
 
             <button
               className={[css.button, css.text, css[theme]].join(' ')}
