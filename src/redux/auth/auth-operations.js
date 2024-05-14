@@ -54,7 +54,6 @@ export const current = createAsyncThunk(
   }
 );
 
-
 export const logout = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
@@ -67,40 +66,17 @@ export const logout = createAsyncThunk(
   }
 );
 
-// export const updateUser = createAsyncThunk(
-//   'auth/update',
-//   async (userData, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     const persistedToken = state.auth.token;
-
-//     if (persistedToken === null) {
-//       return thunkAPI.rejectWithValue('Unable to fetch user');
-//     }
-//     try {
-//       setToken(persistedToken);
-//       const res = await axios.patch('/users/update', userData, {
-//         headers: { 'Content-Type': 'multipart/form-data' },
-//       });
-
-//       return res.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 export const updateUser = createAsyncThunk(
-  'users/updateUser',
-  async (userData, thunkAPI) => {
+  'user/updateProfile',
+  async (body, thunkAPI) => {
     try {
       const { auth: { token } } = thunkAPI.getState();
-      const { data } = await authInstance.patch('users/update', userData, {
+      const { data } = await authInstance.patch('users/update', body, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`
         },
       });
-
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -1,6 +1,6 @@
 export const filterByPriority = {
   all: 'all',
-  without: 'without priority',
+  without: 'without',
   low: 'low',
   medium: 'medium',
   high: 'high',
