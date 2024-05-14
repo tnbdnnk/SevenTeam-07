@@ -23,8 +23,6 @@ export const UserForm = ({ onClose }) => {
   const [password, setPassword] = useState('');
   const [preview, setPreview] = useState(null);
 
-  //временно
-  // const [activeTheme, setactiveTheme] = useState('dark');
   const [activeTheme, setactiveTheme] = useState(theme);
   console.log(theme);
 
@@ -110,7 +108,7 @@ export const UserForm = ({ onClose }) => {
       // console.log(user.name);
       // dispatch(updateUser(user));
       const formData = new FormData();
-      formData.append('avatarURL', avatarUser);
+      formData.append('avatar', avatarUser);
       formData.append('name', nameUser);
       formData.append('email', emailUser);
       formData.append('password', password);
@@ -121,7 +119,7 @@ export const UserForm = ({ onClose }) => {
       // }
 
       onClose();
-      toast.success('Update accepted!');
+      // toast.success('Update accepted!');
     } catch (error) {
       toast.error('Ooops, there was an error...', {
         style: {
@@ -203,6 +201,7 @@ export const UserForm = ({ onClose }) => {
               type={visible ? 'text' : 'password'}
               name="password"
               placeholder="Password"
+              required
             />
             <button
               className={css.btnEye}
