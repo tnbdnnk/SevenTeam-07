@@ -19,69 +19,44 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 // const test = import.meta.env.VITE_API_TEST;
 
 const App = () => {
-  // console.log(test);
+    // console.log(test);
+    const dispatch = useDispatch();
 
-  const dispatch = useDispatch();
+    useEffect(()=> {
+        dispatch(current())
+    }, [dispatch]);
 
-  useEffect(()=> {
-    dispatch(current())
-  }, [dispatch]);
-
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Routes>
-        <Route path="/" element={<Navigate to="/welcome" />} />
-        <Route path="/welcome" element={<WelcomePage />} />
-        <Route path="auth/register" element={<RegisterPage />} />
-        <Route path="auth/login" element={<LoginPage />} />
-        <Route path="/" element={<PrivateRoute />}>
-          <Route
-            index
-            path="/home"
-            element={
-              <SharedLayout>
-                <HomePage />
-              </SharedLayout>
-            }
-          />
-          <Route
-            path="/home/:boardName"
-            element={
-              <SharedLayout>
-                <ScreensPage />
-              </SharedLayout>
-            }
-          />
-        </Route>
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-      <Toaster position="top-center" reverseOrder={false} />
-    </Suspense>
-
-    // <Routes>
-    //     <Route path="/welcome" element={<WelcomePage />} />
-    //     <Route path="/auth/register" element={<RegisterPage />} />
-    //     <Route path="/auth/login" element={<LoginPage />} />
-    //     <Route element={<PrivateRoute />}>
-    //         <Route path="/home" element={<SharedLayout><HomePage /></SharedLayout>} />
-    //         <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>} />
-    //     </Route>
-    //     <Route path="*" element={<ErrorPage />} />
-    // </Routes>
-
-    // <Routes>
-    //     <Route path="/" element={<PublicRoute />} >
-    //         <Route path="/welcome" element={<WelcomePage />}/>
-    //         <Route path="auth/register" element={<RegisterPage />}/>
-    //         <Route path="auth/login" element={<LoginPage />}/>
-    //     </Route>
-    //     <Route path="/" element={<PrivateRoute />}>
-    //         <Route index path="/home" element={<SharedLayout><HomePage /></SharedLayout>}/>
-    //         <Route path="/home/:boardName" element={<SharedLayout><ScreensPage /></SharedLayout>}/>
-    //     </Route>
-    //     <Route path="*" element={<ErrorPage />} />
-    // </Routes>
-  );
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+            <Route path="/" element={<Navigate to="/welcome" />} />
+            <Route path="/welcome" element={<WelcomePage />} />
+            <Route path="auth/register" element={<RegisterPage />} />
+            <Route path="auth/login" element={<LoginPage />} />
+            <Route path="/" element={<PrivateRoute />}>
+            <Route
+                index
+                path="/home"
+                element={
+                <SharedLayout>
+                    <HomePage />
+                </SharedLayout>
+                }
+            />
+            <Route
+                path="/home/:boardName"
+                element={
+                <SharedLayout>
+                    <ScreensPage />
+                </SharedLayout>
+                }
+            />
+            </Route>
+            <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        <Toaster position="top-center" reverseOrder={false} />
+        </Suspense>
+    );
 };
 
 export default App;

@@ -52,7 +52,8 @@
 
 @media screen and (min-width: 768px) {
   .welcomeTitleWrapper {
-    padding-top: 293px;
+    /* padding-top: 293px; */
+    padding: auto 0;
     gap: 24px;
   }
   .welcomeTitle {
@@ -70,7 +71,8 @@
 
 @media screen and (min-width: 1140px) {
   .welcomeTitleWrapper {
-    padding-top: 166px;
+    /* padding-top: 166px; */
+    padding: auto 0;
     gap: 24px;
   }
   .welcomeText {
