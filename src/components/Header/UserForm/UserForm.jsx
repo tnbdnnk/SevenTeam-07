@@ -100,15 +100,26 @@ export const UserForm = ({ onClose }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const user = {
-        avatarURL: avatarUser,
-        name: nameUser,
-        email: emailUser,
-        password,
-      };
-      dispatch(updateUser(user));
-      console.log(user);
-      console.log(user.name);
+      // const user = {
+      //   avatarURL: avatarUser,
+      //   name: nameUser,
+      //   email: emailUser,
+      //   password,
+      // };
+      // console.log(user);
+      // console.log(user.name);
+      // dispatch(updateUser(user));
+      const formData = new FormData();
+      formData.append('avatarURL', avatarUser);
+      formData.append('name', nameUser);
+      formData.append('email', emailUser);
+      formData.append('password', password);
+      dispatch(updateUser(formData));
+
+      // for (let input of formData.entries()) {
+      //   console.log(input[0], input[1]); //Выведет в консоль всю форму в виде "КЛЮЧ ЗНАЧЕНИЕ"
+      // }
+
       onClose();
       toast.success('Update accepted!');
     } catch (error) {

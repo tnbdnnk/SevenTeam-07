@@ -8,28 +8,21 @@ import { selectToken } from "../../../redux/auth/auth-selectors";
 const NeedHelpModal = ({ isOpen, closeModal }) => {
     const dispatch = useDispatch();
 
-    const token = useSelector(selectToken);
-
     const handleSubmit = (e) => {
-    e.preventDefault();
-        const formData = {
-                email: e.currentTarget.elements.email.value,
-                text: e.currentTarget.elements.text.value,
-            };
-        const data = {
-        formData,
-        token
-    };
-    console.log(data);
+      e.preventDefault();
+      const formData = {
+        email: e.currentTarget.elements.email.value,
+        text: e.currentTarget.elements.text.value,
+      };
 
-    try {
-        dispatch(sendHelp(data));
+      try {
+        dispatch(sendHelp(formData));
         console.log("Request sent successfully");
         closeModal();
-    } catch (error) {
+      } catch (error) {
         console.error("Error sending help request:", error.message);
-    }
-};
+      }
+    };
 
     const handleClose = () => {
         closeModal();

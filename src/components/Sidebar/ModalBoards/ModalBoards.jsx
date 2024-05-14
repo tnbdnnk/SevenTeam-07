@@ -24,7 +24,7 @@ import bg14 from "../../../images/background_icons/bg14.jpg"
 import bg15 from "../../../images/background_icons/bg15.jpg"
 
 const arrayIcons = ["#icon-four-balls", "#icon-star", "#icon-loading", '#icon-puzzle', "#icon-container", "#icon-lightning", "#icon-colors",   "#icon-hexagon"]
-const arrayBg = [ bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11, bg12, bg13, bg14, bg15]
+const arrayBg = [{ path: bg1, value: "bg1" },{ path: bg2, value: "bg2" },{ path: bg3, value: "bg3" },{ path: bg4, value: "bg4" },{ path: bg5, value: "bg5" },{ path: bg6, value: "bg6" },{ path: bg7, value: "bg7" },{ path: bg8, value: "bg8" },{ path: bg9, value: "bg9" },{ path: bg10, value: "bg10" },{ path: bg11, value: "bg11" },{ path: bg12, value: "bg12" },{ path: bg13, value: "bg13" },{ path: bg14, value: "bg14" },{ path: bg15, value: "bg15" }]
 
 const NewBoardForm = ({ onSubmit}) => {
   const { register, handleSubmit } = useForm();
@@ -40,13 +40,11 @@ const NewBoardForm = ({ onSubmit}) => {
         </label>)
   })
 
-  const bgList = arrayBg.map((bgName) => {
-    const bgValue = bgName.slice(50, 54).replace(".","");
-    
-    return (<label key={bgName}>
-          <input type="radio" {...register("background")} value={bgValue}/>
+  const bgList = arrayBg.map((bg) => {    
+    return (<label key={bg.value}>
+          <input type="radio" {...register("background")} value={bg.value}/>
       <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
-        <img  src={bgName} alt={bgName} />
+        <img  src={bg.path} alt={bg.value} />
           </div>
         </label>)
   })
@@ -83,7 +81,7 @@ export const NewBoard = ({ onClose }) => {
 
   const onSubmit = async ({ title, icons, background}) => {
     try {
-      console.log({ title, icons, background})
+      // console.log({ title, icons, background})
       await dispatch(addBoard({ title, icons, background}));
       onClose();
 
@@ -113,7 +111,7 @@ export const EditBoard = ({ boardData, onClose }) => {
       onClose()
 
     } catch (error) {
-      console.error("Помилка при зміні борди:", error);
+      console.error( error.messege);
     }
   }
 
@@ -127,12 +125,11 @@ export const EditBoard = ({ boardData, onClose }) => {
         </label>)
   })
 
-  const bgList = arrayBg.map((bgName) => {
-    const bgValue = bgName.slice(50, 54).replace(".","");
-    return (<label key={bgName}>
-          <input type="radio" {...register("background")} value={bgValue} defaultChecked={boardData.background === bgValue} />
+  const bgList = arrayBg.map((bg) => {
+    return (<label key={bg.value}>
+          <input type="radio" {...register("background")} value={bg.value} defaultChecked={boardData.background === bg.value} />
       <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
-        <img  src={bgName} alt={bgName} />
+        <img  src={bg.path} alt={bg.value} />
           </div>
         </label>)
   })

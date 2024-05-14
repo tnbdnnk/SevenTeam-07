@@ -86,6 +86,7 @@
 .wraperUser {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
 }
 
@@ -114,8 +115,8 @@
   font-size: 14px;
   border: none;
   background-color: transparent;
-
-  /* color: #ffffffcc; */
+  color: var(--text-dark-grey));
+  
 
   text-align: center;
   cursor: pointer;
