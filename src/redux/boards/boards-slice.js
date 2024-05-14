@@ -5,6 +5,7 @@ import {
   editBoard,
   fetchBoard,
   deleteBoard,
+  addColumn
 } from './boards-operations';
 
 const initialState = {
@@ -23,22 +24,6 @@ const rejected = (state, { payload }) => {
   state.isLoading = false;
   state.error = payload;
 };
-
-// 
-// const columnSlice = createSlice({
-//   name: 'columns',
-//   initialState,
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(fetchBoard.pending, pending)
-//       .addCase(fetchBoard.fulfilled, (state, { payload }) => {
-//         state.isLoading = false;
-//         state.columns = payload.columns;
-//       })
-//       .addCase(fetchBoard.rejected, rejected);
-//   },
-// });
-// 
 
 const boardsSlice = createSlice({
   name: 'boards',
@@ -70,8 +55,6 @@ const boardsSlice = createSlice({
       .addCase(fetchBoard.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.selectBoard = payload;
-        // 
-        state.columns = payload.columns;
       })
       .addCase(fetchBoard.rejected, rejected)
       .addCase(deleteBoard.pending, pending)
@@ -80,7 +63,14 @@ const boardsSlice = createSlice({
         state.isLoading = false;
         state.boards = state.boards.filter((board) => board._id !== payload);
       })
-      .addCase(deleteBoard.rejected, rejected);
+      .addCase(deleteBoard.rejected, rejected)
+      // addColumn:
+      .addCase(addColumn.pending, pending)
+      .addCase(addColumn.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.selectBoard.columns = [...state.selectBoard.columns, { ...payload, cards: [] }];
+      })
+      .addCase(addColumn.rejected, rejected)
   },
 });
 

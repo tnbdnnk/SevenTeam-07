@@ -80,14 +80,12 @@ export const editBoard = createAsyncThunk(
   }
 );
 
-// modal:
-
+// MODAL addColumn:
 export const addColumn = createAsyncThunk(
   'boards/columns/add',
-  async ({ boardId, newColumn }, thunkAPI) => {
+  async ({ _id, title }, thunkAPI) => {
     try {
-      const { data } = await authInstance.post(
-        `/boards/${boardId}/columns`, newColumn);
+      const { data } = await authInstance.post(`/columns/${_id}`, { title });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
