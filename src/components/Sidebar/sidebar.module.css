@@ -150,12 +150,10 @@ button {
   position: absolute;
   left: 24px;
   bottom: 24px;
-  transition: all 500ms cubic-bezier(0, 0, 1, 1);
 }
 
 .light .logoutBtn{
   color: var(--text-black);
-  transition: all 500ms cubic-bezier(0, 0, 1, 1);
 }
 
 .iconLogout {

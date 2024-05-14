@@ -10,7 +10,7 @@ export const Header = ({ openBurger }) => {
   const [isThemeOpen, setisThemeOpen] = useState(false);
   const [isActive, setisActive] = useState(false);
   const { theme } = useSelector(selectUser);
-  console.log(theme);
+  // console.log(theme);
 
   // // для проверки
   // const [activeTheme, setactivTheme] = useState(theme);
