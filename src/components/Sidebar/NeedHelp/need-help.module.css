@@ -59,6 +59,8 @@ span {
 
 
 
+
+
 .title {
   margin-bottom: 24px;
   letter-spacing: -0.02em;
@@ -87,7 +89,6 @@ span {
 .btnSend:focus {
   background-color: #9dc888;
 }
-
 
 .input::placeholder {
   font-weight: 400;
