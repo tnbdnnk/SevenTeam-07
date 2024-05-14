@@ -125,7 +125,7 @@ span {
   letter-spacing: -0.02em;
   text-align: center;
   color: #161616;
-  transition: all 0.15s;
+  transition: all 0.5s;
 }
 
 .btnSend:active {
