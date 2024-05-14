@@ -5,6 +5,8 @@ import {
   editBoard,
   fetchBoard,
   deleteBoard,
+  addColumn,
+  addCard,
 } from './boards-operations';
 
 const initialState = {
@@ -62,7 +64,33 @@ const boardsSlice = createSlice({
         state.isLoading = false;
         state.boards = state.boards.filter((board) => board._id !== payload);
       })
-      .addCase(deleteBoard.rejected, rejected);
+      .addCase(deleteBoard.rejected, rejected)
+      // addColumn:
+      .addCase(addColumn.pending, pending)
+      .addCase(addColumn.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.selectBoard.columns = [
+          ...state.selectBoard.columns,
+          { ...payload, cards: [] },
+        ];
+      })
+      .addCase(addColumn.rejected, rejected)
+      // addCard:
+      .addCase(addCard.pending, pending)
+      .addCase(addCard.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        const { cardOwner } = payload;
+        const column = state.selectBoard.columns.find(
+          (col) => col._id === cardOwner
+        );
+        if (column) {
+          column.cards.push(payload);
+        } else {
+          console.error('Column not found for card owner:', cardOwner);
+        }
+        console.log('payload', payload);
+      })
+      .addCase(addCard.rejected, rejected);
   },
 });
 

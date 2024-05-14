@@ -1,3 +1,17 @@
+import { authInstance } from './auth-api';
+
+export const addColumn = async (boardId, title) => {
+  try {
+    const { data } = await authInstance.post(`/columns/${boardId}`, {
+      title,
+      columnOwner: boardId,
+    });
+    console.log(data);
+    return data;
+  } catch (e) {
+    return e.message;
+  }
+};
 // import axios from 'axios';
 // import { setToken } from './auth-api';
 

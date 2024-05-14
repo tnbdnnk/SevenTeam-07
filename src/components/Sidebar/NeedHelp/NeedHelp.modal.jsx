@@ -1,7 +1,11 @@
 import Modal from "../../../helpers/ModalWindow/Modal";
 import css from "./need-help.module.css"
-import { useSelector, useDispatch } from 'react-redux';
+import {
+  // useSelector,
+  useDispatch
+} from 'react-redux';
 import { sendHelp } from "../../../redux/auth/auth-operations";
+// import { selectToken } from "../../../redux/auth/auth-selectors";
 
 
 const NeedHelpModal = ({ isOpen, closeModal }) => {
