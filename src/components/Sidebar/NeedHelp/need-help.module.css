@@ -155,7 +155,7 @@ span {
 }
 
 .input.violet {
-  background: var(--background-violet-04);
+  /* background: var(--background-violet-04); */
   border: 1px solid #5255BC;
 }
 
@@ -170,14 +170,14 @@ span {
   color: #fff;
 }
 
-.light .input{
+/* .light .input{
   color: #151515;
   background-color: #fff;
 }
 
 .violet .input {
   background-color: #7b7ede;
-}
+} */
 
 .textarea {
   height: 120px;
