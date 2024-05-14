@@ -61,6 +61,8 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .text.dark {

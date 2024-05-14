@@ -7,6 +7,7 @@ import {
   deleteBoard,
   addColumn
 } from './boards-operations';
+// import { logout } from '../auth/auth-operations';
 
 const initialState = {
   boards: [],
@@ -28,6 +29,12 @@ const rejected = (state, { payload }) => {
 const boardsSlice = createSlice({
   name: 'boards',
   initialState,
+  reducers: {
+    // clearBoardSelection(state) {
+      // state.boards = null;
+      // state.boards.selectBoard = null;
+    // },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAllBoards.pending, pending)
@@ -51,9 +58,16 @@ const boardsSlice = createSlice({
         );
       })
       .addCase(editBoard.rejected, rejected)
-      .addCase(fetchBoard.pending, pending)
+      .addCase(fetchBoard.pending, (state) => {
+        // .addCase(fetchBoard.pending, pending)
+        // state.boards.selectBoard = null;
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(fetchBoard.fulfilled, (state, { payload }) => {
         state.isLoading = false;
+        // state.boards.selectBoard = null;
+        // console.log(payload);
         state.selectBoard = payload;
       })
       .addCase(fetchBoard.rejected, rejected)
@@ -71,6 +85,19 @@ const boardsSlice = createSlice({
         state.selectBoard.columns = [...state.selectBoard.columns, { ...payload, cards: [] }];
       })
       .addCase(addColumn.rejected, rejected)
+    // logout:
+      // .addCase(logout.pending, pending)
+      // .addCase(logout.fulfilled, (state) => {
+      //   state.isLoading = false;
+      //   state.isLogin = false;
+      //   state.user = {};
+      //   state.token = '';
+      //   // state.boards.selectBoard = null;
+      //   state.boards = null;
+      //   // console.log(payload);
+      //   // state.boards = payload;
+      // })
+      // .addCase(logout.rejected, rejected)
   },
 });
 
