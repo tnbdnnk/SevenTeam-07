@@ -6,9 +6,9 @@ import {
   fetchBoard,
   deleteBoard,
   addColumn,
-  addCard,
+  // addCard,
 } from './boards-operations';
-// import { logout } from '../auth/auth-operations';
+
 
 const initialState = {
   boards: [],
@@ -31,10 +31,10 @@ const boardsSlice = createSlice({
   name: 'boards',
   initialState,
   reducers: {
-    // clearBoardSelection(state) {
-      // state.boards = null;
-      // state.boards.selectBoard = null;
-    // },
+    clearBoardSelection(state) {
+      state.boards = [];
+      state.selectBoard = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -59,16 +59,9 @@ const boardsSlice = createSlice({
         );
       })
       .addCase(editBoard.rejected, rejected)
-      .addCase(fetchBoard.pending, (state) => {
-        // .addCase(fetchBoard.pending, pending)
-        // state.boards.selectBoard = null;
-        state.isLoading = true;
-        state.error = null;
-      })
+      .addCase(fetchBoard.pending, pending)
       .addCase(fetchBoard.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        // state.boards.selectBoard = null;
-        // console.log(payload);
         state.selectBoard = payload;
       })
       .addCase(fetchBoard.rejected, rejected)
@@ -88,22 +81,7 @@ const boardsSlice = createSlice({
           { ...payload, cards: [] },
         ];
       })
-      .addCase(addColumn.rejected, rejected)
-
-    // logout:
-      // .addCase(logout.pending, pending)
-      // .addCase(logout.fulfilled, (state) => {
-      //   state.isLoading = false;
-      //   state.isLogin = false;
-      //   state.user = {};
-      //   state.token = '';
-      //   // state.boards.selectBoard = null;
-      //   state.boards = null;
-      //   // console.log(payload);
-      //   // state.boards = payload;
-      // })
-      // .addCase(logout.rejected, rejected)
-    
+      .addCase(addColumn.rejected, rejected)    
       // addCard:
 //       .addCase(addCard.pending, pending)
 //       .addCase(addCard.fulfilled, (state, { payload }) => {
@@ -125,4 +103,5 @@ const boardsSlice = createSlice({
 
 const boardsReducer = boardsSlice.reducer;
 
+export const { clearBoardSelection } = boardsSlice.actions
 export default boardsReducer;
