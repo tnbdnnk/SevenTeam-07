@@ -60,7 +60,9 @@ export const sendUpdateRequest = async (formData) => {
     });
     return response.data;
   } catch (error) {
-    throw new Error('Error sending updateUser request');
+    throw new Error(
+      error.response?.data?.message || 'An error occurred while updating user.'
+    );
   }
 };
 
