@@ -72,3 +72,12 @@
 
 @media screen and (min-width: 1140px) {
 }
+
+.authError{
+  color: rgb(222, 81, 81);
+  font-weight: 400;
+  font-size: 14px;
+  
+  /* word-wrap: break-word; */
+  max-width: 260px;
+}
