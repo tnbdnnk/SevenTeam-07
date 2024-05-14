@@ -17,16 +17,26 @@ const BoardList = () => {
 const { theme } = useSelector(selectUser);
   const boardList = useSelector(selectAllBoardsList);
 
+  // const [firstRender, setFirstRender] = useState(true);
+
   const [activeBoard, setActiveBoard] = useState("");
   const handleBoardClick = (board) => {
-  setActiveBoard(board);
+    setActiveBoard(board);
+    console.log(activeBoard)
   };
 
+  // useEffect(() => {
+  //   if (firstRender && boardList.length > 0) {
+  //     setActiveBoard(boardList[0]);
+  //     setFirstRender(false);
+  //   }
+  // }, []);
+
   useEffect(() => {
-    if (boardList.length > 0) {
-      setActiveBoard(boardList[0]);
-    }
-  }, [ ]);
+  if (boardList.length > 0) {
+    setActiveBoard(boardList[0]);
+  }
+}, []);
 
   const { isModalOpen, openModal, closeModal } = useModal();
   

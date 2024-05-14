@@ -5,7 +5,7 @@ import AddCard from '../AddCard/AddCard';
 // import DeleteColumnModal from './DeleteColumn/DeleteColumnModal';
 // import EditColumnModal from './EditColumn/EditColumnModal';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../../redux/auth/auth-selectors';
 
 import css from './ColumnCard.module.css';
@@ -13,6 +13,8 @@ import icons from '../../../images/symbol-defs.svg';
 // import { useSelector } from 'react-redux';
 import { selectFilter } from '../../../redux/filter/filter-selectors';
 import { filterCards } from '../../../helpers/filterCards';
+import { deleteColumn } from '../../../redux/boards/boards-operations'
+import { toast } from 'react-hot-toast';
 
 const ColumnCard = ({
   columnItem,
@@ -48,6 +50,18 @@ const ColumnCard = ({
   //   onDelete(_id);
   //   closeDeleteModal();
   // };
+
+  // функціонал для видалення колонки Маша
+      const dispatch = useDispatch();
+      const handleDeleteColumn = async (id) => {
+    try {
+      await dispatch(deleteColumn(id));
+      toast.success('Сolumn was deleted successfully!');
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
 
   return (
     <li
@@ -86,7 +100,7 @@ const ColumnCard = ({
               </svg>
             </button>
             {/* <button className={`${css.button} ${css.red}`} type="button" onClick={openDeleteModal}> */}
-            <button className={`${css.button} ${css.red}`} type="button">
+            <button className={`${css.button} ${css.red}`} type="button"  onClick={()=> handleDeleteColumn(_id)}>
               <svg
                 className={[css.icon, css[theme]].join(' ')}
                 width="16"
