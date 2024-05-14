@@ -13,7 +13,8 @@ import icons from '../../../images/symbol-defs.svg';
 // import { useSelector } from 'react-redux';
 import { selectFilter } from '../../../redux/filter/filter-selectors';
 import { filterCards } from '../../../helpers/filterCards';
-import {deleteColumn} from '../../../redux/boards/boards-operations'
+import { deleteColumn } from '../../../redux/boards/boards-operations'
+import { toast } from 'react-hot-toast';
 
 const ColumnCard = ({
   columnItem,
@@ -55,6 +56,7 @@ const ColumnCard = ({
       const handleDeleteColumn = async (id) => {
     try {
       await dispatch(deleteColumn(id));
+      toast.success('Сolumn was deleted successfully!');
     } catch (error) {
       console.error(error.message);
     }

@@ -4,7 +4,8 @@
 import { handleSetColor, handleFormatDate, handleCompareDates } from './CardItemFunctions/CardItemFunctions';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../../redux/auth/auth-selectors';
-import {deleteCard} from "../../../redux/boards/boards-operations"
+import { deleteCard } from "../../../redux/boards/boards-operations"
+import { toast } from 'react-hot-toast';
 import css from './CardItem.module.css';
 import icons from '../../../images/symbol-defs.svg';
 
@@ -28,7 +29,8 @@ const formattedDeadline = handleFormatDate(deadline);
     const dispatch = useDispatch();
   const handleDeleteCard = async (id) => {
     try {
-      await dispatch(deleteCard(id));
+        await dispatch(deleteCard(id));
+        toast.success('Сard was deleted successfully!');
     } catch (error) {
       console.error(error.message);
     }
