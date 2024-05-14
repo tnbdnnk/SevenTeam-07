@@ -13,14 +13,14 @@ const WelcomeMenu = () => {
     const filteredMenuItems = !isLogin ? menuItems.filter(item => !item.private) : menuItems;
 
     const elements = filteredMenuItems.map(({id, to, text}) => (
-                                                        <li key={id}>
-                                                            <NavLink className={styles.link} to={to}>{text}</NavLink>
-                                                        </li>
-                                                        ))
+        <li key={id}>
+            <NavLink className={styles.link} to={to}>{text}</NavLink>
+        </li>
+    ))
 
     return (
         <ul className={styles.menu}>
-           {elements}
+            {elements}
         </ul>
     )
 }
