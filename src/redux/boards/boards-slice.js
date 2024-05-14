@@ -6,7 +6,9 @@ import {
   fetchBoard,
   deleteBoard,
   addColumn,
+  deleteColumn,
   addCard,
+  deleteCard,
 } from './boards-operations';
 
 const initialState = {
@@ -88,9 +90,25 @@ const boardsSlice = createSlice({
         } else {
           console.error('Column not found for card owner:', cardOwner);
         }
-        console.log('payload', payload);
       })
-      .addCase(addCard.rejected, rejected);
+      .addCase(addCard.rejected, rejected)
+      .addCase(deleteCard.pending, pending)
+      .addCase(deleteCard.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.selectBoard.columns.forEach((column) => {
+          column.cards = column.cards.filter((card) => card._id !== payload);
+        });
+      })
+      .addCase(deleteCard.rejected, rejected)
+      .addCase(deleteColumn.pending, pending)
+      .addCase(deleteColumn.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        console.log(payload);
+        state.selectBoard.columns = state.selectBoard.columns.filter(
+          (column) => column._id !== payload
+        );
+      })
+      .addCase(deleteColumn.rejected, rejected);
   },
 });
 

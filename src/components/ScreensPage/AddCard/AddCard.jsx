@@ -10,7 +10,6 @@ import { selectUser } from '../../../redux/auth/auth-selectors';
 
 const AddCard = ({ columnId }) => {
   const { theme } = useSelector(selectUser);
-  console.log( 'columnId', columnId);
   const {
     openModal: openAddModal,
     closeModal: closeAddModal,

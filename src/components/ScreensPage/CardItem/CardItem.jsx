@@ -2,10 +2,9 @@
 // import { useModal } from '../../../hooks/useModal';
 // import EditCardModal from './EditCard/EditCardModal';
 import { handleSetColor, handleFormatDate, handleCompareDates } from './CardItemFunctions/CardItemFunctions';
-
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../../redux/auth/auth-selectors';
-
+import {deleteCard} from "../../../redux/boards/boards-operations"
 import css from './CardItem.module.css';
 import icons from '../../../images/symbol-defs.svg';
 
@@ -23,7 +22,17 @@ const { theme } = useSelector(selectUser);
 
 const currentDate = Date.now();
 const formattedDeadline = handleFormatDate(deadline);
-const isDeadlineToday = handleCompareDates(currentDate, formattedDeadline);
+    const isDeadlineToday = handleCompareDates(currentDate, formattedDeadline);
+    
+    // Для видалення карточки Маша
+    const dispatch = useDispatch();
+  const handleDeleteCard = async (id) => {
+    try {
+      await dispatch(deleteCard(id));
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
   
 //   const {
 //     openModal: openDeleteModal,
@@ -102,7 +111,7 @@ const isDeadlineToday = handleCompareDates(currentDate, formattedDeadline);
                     </svg>
                 </button>
                 {/* <button className={`${css.button} ${css.red}`} type='button' onClick={openDeleteModal}> */}
-                <button className={`${css.button} ${css.red}`} type='button'>
+                <button className={`${css.button} ${css.red}`} type='button' onClick={()=> handleDeleteCard(_id)}>
                     <svg className={[css.icon, css[theme]].join(' ')} width='16' height='16'>
                         <use href={icons + '#icon-trash'}></use>
                     </svg>
