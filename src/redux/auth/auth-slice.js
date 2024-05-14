@@ -7,6 +7,7 @@ import {
     logout,
     updateUser,
     updateTheme,
+    sendHelp,
 } from './auth-operations';
 
 import { pending, rejected } from '../../shared/functions/redux';
@@ -77,6 +78,14 @@ const authSlice = createSlice({
             state.user.theme = payload.theme;
             state.isLogin = true;
             state.isLoading = false;
+        })
+        .addCase(sendHelp.fulfilled, (state) => {
+            state.isLoading = false;
+            state.error = null;
+        })
+        .addCase(sendHelp.rejected, (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload;
         });
     },
 });
