@@ -23,7 +23,7 @@ const NeedHelpModal = ({ isOpen, closeModal }) => {
       try {
         dispatch(sendHelp(formData));
         closeModal();
-        toast.success(<div style={{ textAlign: 'center' }}>Message sent.<br/>We'll get back to you shortly</div>);
+        toast.success(<div style={{ textAlign: 'center' }}>Message sent.<br/>We will get back to you shortly</div>);
       } catch (error) {
         console.error("Error sending help request:", error.message);
         toast.error('Ooops, there was an error...', {
