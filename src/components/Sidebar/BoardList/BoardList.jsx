@@ -26,7 +26,6 @@ const { theme } = useSelector(selectUser);
   const dispatch = useDispatch();
   const handleDeleteBord = async (id) => {
     try {
-      console.log("id for delete",id)
       await dispatch(deleteBoard(id));
     } catch (error) {
       console.error("Помилка при видалені борди:", error);

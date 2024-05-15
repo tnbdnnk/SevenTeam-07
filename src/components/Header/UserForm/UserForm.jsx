@@ -15,7 +15,6 @@ export const UserForm = ({ onClose }) => {
   const [visible, setVisible] = useState(false);
   const { name, email, avatarURL, theme } = useSelector(selectUser);
   const us = useSelector(selectUser);
-  console.log(us);
 
   const [avatarUser, setAvatarUser] = useState(avatarURL);
   const [nameUser, setNameUser] = useState(name);
@@ -24,7 +23,6 @@ export const UserForm = ({ onClose }) => {
   const [preview, setPreview] = useState(null);
 
   const [activeTheme, setactiveTheme] = useState(theme);
-  console.log(theme);
 
   const avatarLight = `${sprite}#icon-user-icon-white-theme`;
   const avatarViolet = `${sprite}#icon-user-icon-violet-theme`;
