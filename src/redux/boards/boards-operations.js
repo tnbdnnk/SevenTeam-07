@@ -122,3 +122,20 @@ export const editColumn = createAsyncThunk(
     }
   }
 );
+
+export const editCard = createAsyncThunk(
+  'boards/cards/edit',
+  async ({ _id, title, description, priority, deadline }, thunkAPI) => {
+    try {
+      const { data } = await authInstance.patch(`/cards/${_id}`, {
+        title,
+        description,
+        priority,
+        deadline,
+      });
+      return { data, title, description, priority, deadline };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
