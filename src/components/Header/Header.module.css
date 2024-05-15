@@ -68,6 +68,7 @@
   height: 16px;
   fill: var(--text-black);
   stroke: var(--text-dark-grey);
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .svgTheme.light {
   fill: var(--light-header);
@@ -101,6 +102,7 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .wrapbtnTheme.light {
@@ -109,16 +111,21 @@
 .wrapbtnTheme.violet {
   color: var(--text-dark-grey-08);
 }
-
-.btnTheme {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  font-size: 14px;
-  border: none;
-  background-color: transparent;
-  color: var(--text-dark-grey);
-
-  text-align: center;
-  cursor: pointer;
+.wrapbtnTheme:hover {
+  color: var(--accent-light);
+}
+.wrapbtnTheme:hover .svgTheme {
+  stroke: var(--accent-light);
+}
+.wrapbtnTheme.violet:hover {
+  color: var(--accent-violet-light);
+}
+.wrapbtnTheme.violet:hover .svgTheme {
+  stroke: var(--accent-violet-light);
+}
+.wrapbtnTheme.light:hover {
+  color: var(--accent-dark);
+}
+.wrapbtnTheme.light:hover .svgTheme {
+  stroke: var(--accent-dark);
 }
