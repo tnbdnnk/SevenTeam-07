@@ -19,29 +19,32 @@ export const Header = ({ openBurger }) => {
         </svg>
       </button>
       <div className={css.wraperUser}>
-        <div className={[css.wrapbtnTheme, css[theme]].join(' ')}>
+        {/* <div className={[css.wrapbtnTheme, css[theme]].join(' ')}>
+          Theme */}
+        <button
+          className={[css.btnTheme, css.wrapbtnTheme, css[theme]].join(' ')}
+          // className={css.btnTheme}
+          onClick={() => setisThemeOpen((isThemeOpen) => !isThemeOpen)}
+        >
           Theme
-          <button
-            className={css.btnTheme}
-            onClick={() => setisThemeOpen((isThemeOpen) => !isThemeOpen)}
+          <svg
+            //для 1го варіанту popup з перегортанням
+            // className={
+            //   isActive
+            //     ? `${css.svgTheme} ${css.active} ${css[theme]}`
+            //     : `${css.svgTheme} ${css[theme]}`
+            // }
+            className={`${css.svgTheme} ${css[theme]}`}
+            //для 1го варіанту popup з перегортанням
+            // onClick={() => setisActive((isActive) => !isActive)}
+            onClick={() => setisActive(true)}
           >
-            <svg
-              //для 1го варіанту popup з перегортанням
-              // className={
-              //   isActive
-              //     ? `${css.svgTheme} ${css.active} ${css[theme]}`
-              //     : `${css.svgTheme} ${css[theme]}`
-              // }
-              className={`${css.svgTheme} ${css[theme]}`}
-              //для 1го варіанту popup з перегортанням
-              // onClick={() => setisActive((isActive) => !isActive)}
-              onClick={() => setisActive(true)}
-            >
-              <use href={`${sprite}#icon-chevron-down`} />
-            </svg>
-          </button>
+            <use href={`${sprite}#icon-chevron-down`} />
+          </svg>
           {isThemeOpen && <Theme />}
-        </div>
+        </button>
+        {/* {isThemeOpen && <Theme />} */}
+        {/* </div> */}
         <UserInfo />
       </div>
     </header>
