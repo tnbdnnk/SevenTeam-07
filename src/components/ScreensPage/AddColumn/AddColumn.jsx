@@ -10,10 +10,11 @@ import { addColumn } from '../../../redux/boards/boards-operations';
 
 import icons from '../../../images/symbol-defs.svg';
 import css from './AddColumn.module.css';
+import sprite from "../../../images/symbol-defs.svg"
 
 
 const AddColumn = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
   const board = useSelector(selectBoard);
   
@@ -23,6 +24,7 @@ const AddColumn = () => {
   const handleAddColumn = ({ title }) => {
     dispatch(addColumn({ _id: board._id, title: title }));
     closeModal();
+    reset();
   }
 
   return (
@@ -39,10 +41,13 @@ const AddColumn = () => {
       {/* ======================= MODAL AddColumn ========================== */}
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2 >New column</h2>
+        <h2 className={[css.modalHeader, css[theme]].join(' ')}>New column</h2>
         <form onSubmit={handleSubmit(handleAddColumn)}>
-          <input {...register("title")} placeholder="Title" />
-          <button className={css.buttonAddColumn} type="submit" ></button>      
+          <input {...register("title")} placeholder="Title" className={[css.addTitle, css[theme]].join(' ')} required />
+          <button className={[css.addBtn, css[theme]].join(' ')} type="submit" >
+          <div className={css.iconWrap}><svg className={css.iconPlus} width="14" height="14">
+      <use href={sprite + '#icon-plus'}></use>
+    </svg></div>Add</button>      
         </form>
       </Modal>
     </>
