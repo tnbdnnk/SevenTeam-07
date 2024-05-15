@@ -15,6 +15,7 @@ import { selectUser } from '../../../redux/auth/auth-selectors.js';
 const BoardList = () => {
 const { theme } = useSelector(selectUser);
   const boardList = useSelector(selectAllBoardsList);
+  // Витягую активну дошку
   const selectedBoard = useSelector(selectBoard);
 
   const activeBoard = selectedBoard ? selectedBoard : boardList.length > 0 ? boardList[0] : null;
