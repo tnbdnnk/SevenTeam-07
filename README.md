@@ -4,4 +4,4 @@ This is a link to the backend repository [![GitHub](https://img.shields.io/badge
 
 This is a link to the backend deploy [![Deploy to OnRender](https://img.shields.io/badge/Deploy-onRender-indigo?style=for-the-badge)](https://project-seventeam07.onrender.com/)
 
-This is a link to the swagger api documentation [![Swagger](https://img.shields.io/badge/Deploy-onRender-indigo?style=for-the-badge)](https://project-seventeam07.onrender.com/api-docs/#/)
+This is a link to the swagger api documentation [![Swagger](https://img.shields.io/badge/Swagger-Documentation-green)](https://project-seventeam07.onrender.com/api-docs/#/)
