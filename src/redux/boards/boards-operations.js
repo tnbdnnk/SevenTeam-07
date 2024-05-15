@@ -43,7 +43,6 @@ export const deleteBoard = createAsyncThunk(
   async (boardId, thunkAPI) => {
     try {
       const { data } = await authInstance.delete(`/boards/${boardId}`);
-      console.log(data.id);
       return data.id;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -57,7 +56,6 @@ export const editBoard = createAsyncThunk(
     try {
       const { data } = await authInstance.patch(`/boards/${_id}`, newBoardData);
       thunkAPI.dispatch(fetchBoard(_id));
-      console.log('editBoard - ', data);
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -113,13 +111,12 @@ export const deleteColumn = createAsyncThunk(
   }
 );
 
-// MODAL editColumn:
 export const editColumn = createAsyncThunk(
   'boards/columns/edit',
-  async ({ id, title }, thunkAPI) => {
+  async ({ _id, title }, thunkAPI) => {
     try {
-      const { data } = await authInstance.patch(`/columns/${id}`, { title });
-      return data;
+      const { data } = await authInstance.patch(`/columns/${_id}`, { title });
+      return {data, title};
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

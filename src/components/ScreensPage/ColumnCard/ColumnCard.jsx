@@ -1,59 +1,44 @@
-// import { useState } from 'react';
-// import { useModal } from '../../../hooks/useModal';
+import { useEffect } from 'react';
+import { useForm } from "react-hook-form";
+import { useSelector, useDispatch } from 'react-redux';
+import { editColumn } from '../../../redux/boards/boards-operations';
+import { deleteColumn } from '../../../redux/boards/boards-operations'
+import { selectFilter } from '../../../redux/filter/filter-selectors';
+import { selectUser } from '../../../redux/auth/auth-selectors';
+import { filterCards } from '../../../helpers/filterCards';
+import { useModal } from '../../../hooks/useModal';
+import Modal from '../../../helpers/ModalWindow/Modal';
+
 import CardItem from '../CardItem/CardItem';
 import AddCard from '../AddCard/AddCard';
-// import DeleteColumnModal from './DeleteColumn/DeleteColumnModal';
-// import EditColumnModal from './EditColumn/EditColumnModal';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { selectUser } from '../../../redux/auth/auth-selectors';
-
+import { toast } from 'react-hot-toast';
 import css from './ColumnCard.module.css';
 import icons from '../../../images/symbol-defs.svg';
-// import { useSelector } from 'react-redux';
-import { selectFilter } from '../../../redux/filter/filter-selectors';
-import { filterCards } from '../../../helpers/filterCards';
-import { deleteColumn } from '../../../redux/boards/boards-operations'
-import { toast } from 'react-hot-toast';
 
-const ColumnCard = ({
-  columnItem,
-  // onDelete,
-  // onDeleteCard,
-  // addNewCardToColumn,
-  // updateCard,
-}) => {
+
+const ColumnCard = ({ columnItem }) => {
+
+  const dispatch = useDispatch();
   const { _id, title, cards } = columnItem;
   const { theme } = useSelector(selectUser);
   const filter = useSelector(selectFilter);
+
   const filteredCards = filterCards(cards, filter);
-  // const [currentName, setCurrentName] = useState(name);
-  //   const [currentName, setCurrentName] = useState(title);
-  //   const {
-  //     openModal: openEditModal,
-  //     closeModal: closeEditModal,
-  //     isModalOpen: isEditModalOpen,
-  //   } = useModal();
+  const { isModalOpen, openModal, closeModal } = useModal();
+  const { register, handleSubmit, setValue } = useForm();
 
-  //   const {
-  //     openModal: openDeleteModal,
-  //     closeModal: closeDeleteModal,
-  //     isModalOpen: isDeleteModalOpen,
-  //   } = useModal();
+  useEffect(() => {
+    setValue('title', title);
+  }); 
 
-  // const handleNameChange = (newName) => {
-  //   setCurrentName(newName);
-  // };
+  const handleEditColumn = ({ title }) => {
+    dispatch(editColumn({ _id: _id, title: title }));
+    closeModal();
+    toast.success('Column was edited successfully!');
+  }
 
-  // const confirmDelete = () => {
-  //   // onDelete(id);
-  //   onDelete(_id);
-  //   closeDeleteModal();
-  // };
-
-  // функціонал для видалення колонки Маша
-      const dispatch = useDispatch();
-      const handleDeleteColumn = async (id) => {
+  const handleDeleteColumn = async (id) => {
     try {
       await dispatch(deleteColumn(id));
       toast.success('Column was deleted successfully!');
@@ -61,45 +46,32 @@ const ColumnCard = ({
       console.error(error.message);
     }
   }
-
-
+  
   return (
-    <li
-      className={
-        cards.length > 0 ? `${css.item} ${css.itemAdded}` : `${css.item}`
-      }
-      key={_id}
-    >
-      {/* {isEditModalOpen && (
-        <EditColumnModal
-          isModalOpen={isEditModalOpen}
-          closeModal={closeEditModal}
-          handleRenameColumn={handleNameChange}
-          currentName={currentName}
-        />
-      )}
-      {isDeleteModalOpen && (
-        <DeleteColumnModal
-          isModalOpen={isDeleteModalOpen}
-          closeModal={closeDeleteModal}
-          onConfirmDelete={confirmDelete}
-        />
-      )} */}
+    <li className={cards.length > 0 ? `${css.item} ${css.itemAdded}` : `${css.item}`} key={_id}>
       <div className={css.columnMainInfo}>
         <div className={[css.columnCard, css[theme]].join(' ')}>
           <p className={[css.text, css[theme]].join(' ')}>{title}</p>
           <div className={css.buttonsWrapper}>
-            {/* <button className={`${css.button} ${css.green}`} type="button" onClick={openEditModal}> */}
-            <button className={`${css.button} ${css.green}`} type="button">
-              <svg
-                className={[css.icon, css[theme]].join(' ')}
+            <button className={`${css.button} ${css.green}`} type="button" onClick={openModal}>
+              <svg className={[css.icon, css[theme]].join(' ')}
                 width="16"
                 height="16"
               >
                 <use href={icons + '#icon-pen'}></use>
               </svg>
             </button>
-            {/* <button className={`${css.button} ${css.red}`} type="button" onClick={openDeleteModal}> */}
+
+            <Modal isOpen={isModalOpen} onClose={closeModal}>
+              <h2 >Edit column</h2>
+              <form onSubmit={handleSubmit(handleEditColumn)}>
+                <input type="text" {...register("title")} placeholder="Title" />
+                <button className={css.edit_column_btn} type="submit" onClick={openModal}>
+                  Edit
+                </button>
+              </form>
+            </Modal>
+                    
             <button className={`${css.button} ${css.red}`} type="button"  onClick={()=> handleDeleteColumn(_id)}>
               <svg
                 className={[css.icon, css[theme]].join(' ')}
@@ -113,20 +85,14 @@ const ColumnCard = ({
         </div>
         <ul className={[css.cardsWrap, css[theme]].join(' ')}>
           {filteredCards.map((card) => (
-            <CardItem
-              key={card._id}
-              card={card}
-              // onDeleteCard={() => onDeleteCard(_id, card.id)}
-              // updateCard={updateCard}
-              // columnId={id}
-            />
+            <CardItem key={card._id} card={card} />
           ))}
         </ul>
       </div>
-      {/* <AddCard onAddCard={addNewCardToColumn} columnId={_id} /> */}
       <AddCard columnId={_id} />
     </li>
   );
 };
+
 
 export default ColumnCard;

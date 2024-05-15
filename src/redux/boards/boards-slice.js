@@ -55,7 +55,6 @@ const boardsSlice = createSlice({
       .addCase(addBoard.rejected, rejected)
       .addCase(editBoard.pending, pending)
       .addCase(editBoard.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.isLoading = false;
         state.boards = state.boards.map((board) =>
           board._id === payload._id ? (board = payload) : board
@@ -70,12 +69,10 @@ const boardsSlice = createSlice({
       .addCase(fetchBoard.rejected, rejected)
       .addCase(deleteBoard.pending, pending)
       .addCase(deleteBoard.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.isLoading = false;
         state.boards = state.boards.filter((board) => board._id !== payload);
       })
       .addCase(deleteBoard.rejected, rejected)
-      // addColumn:
       .addCase(addColumn.pending, pending)
       .addCase(addColumn.fulfilled, (state, { payload }) => {
         state.isLoading = false;
@@ -85,7 +82,6 @@ const boardsSlice = createSlice({
         ];
       })
       .addCase(addColumn.rejected, rejected)    
-      // addCard:
       .addCase(addCard.pending, pending)
       .addCase(addCard.fulfilled, (state, { payload }) => {
         state.isLoading = false;
@@ -111,20 +107,20 @@ const boardsSlice = createSlice({
       .addCase(deleteColumn.pending, pending)
       .addCase(deleteColumn.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        console.log(payload);
         state.selectBoard.columns = state.selectBoard.columns.filter(
           (column) => column._id !== payload
         );
       })
       .addCase(deleteColumn.rejected, rejected)
-      // editColumn:
       .addCase(editColumn.pending, pending)
-      .addCase(editColumn.fulfilled, (state, { payload }) => {
+      .addCase(editColumn.fulfilled, (state, { payload: { data, title } }) => {
         state.isLoading = false;
-        console.log(payload);
-        state.selectBoard.columns = state.selectBoard.columns.map((column) =>
-          column._id === payload._id ? (column = payload) : column
-        );
+        state.selectBoard.columns = state.selectBoard.columns.map((column) => { 
+          if (column._id === data._id) { 
+            column.title = title;
+          }
+          return column;
+        });
       })
       .addCase(editColumn.rejected, rejected);
   },
