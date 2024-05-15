@@ -63,10 +63,15 @@ const ColumnCard = ({ columnItem }) => {
             </button>
 
             <Modal isOpen={isModalOpen} onClose={closeModal}>
-              <h2 >Edit column</h2>
+              <h2 className={[css.modalHeader, css[theme]].join(' ')}>Edit column</h2>
               <form onSubmit={handleSubmit(handleEditColumn)}>
-                <input type="text" {...register("title")} placeholder="Title" />
-                <button className={css.edit_column_btn} type="submit" onClick={openModal}>
+                <input type="text" {...register("title")} placeholder="Title" className={[css.addTitle, css[theme]].join(' ')} required />
+                <button className={[css.addBtn, css[theme]].join(' ')} type="submit" onClick={openModal}>
+                  <div className={css.iconWrap}>
+                    <svg className={css.iconPlus} width="14" height="14">
+                      <use href={icons + '#icon-plus'}></use>
+                    </svg>
+                  </div>
                   Edit
                 </button>
               </form>
