@@ -9,6 +9,7 @@ import {
   addCard,
   deleteColumn,
   deleteCard,
+  // editColumn,
 } from './boards-operations';
 
 
@@ -116,6 +117,19 @@ const boardsSlice = createSlice({
         );
       })
       .addCase(deleteColumn.rejected, rejected);
+      // .addCase(editColumn.pending, pending)
+      // .addCase(editColumn.fulfilled, (state, { payload }) => {
+      //   state.isLoading = false;
+      //   console.log(payload);
+      //   state.selectBoard.columns = state.selectBoard.columns.map((column) =>
+      //     column._id === payload._id ? (column = payload) : column
+      //   );
+      // })
+      // .addCase(editColumn.rejected, rejected);
+  },
+}); 
+
+// 
 //       .addCase(addCard.pending, pending)
 //       .addCase(addCard.fulfilled, (state, { payload }) => {
 //         state.isLoading = false;
@@ -131,8 +145,8 @@ const boardsSlice = createSlice({
 //         console.log('payload', payload);
 //       })
 //       .addCase(addCard.rejected, rejected);
-  },
-});
+//   },
+// });
 
 const boardsReducer = boardsSlice.reducer;
 

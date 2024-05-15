@@ -2,19 +2,17 @@ import Modal from '../../../../helpers/ModalWindow/Modal';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { format } from 'date-fns';
 import { addDays } from 'date-fns';
 import { useDispatch } from "react-redux";
 import {addCard} from '../../../../redux/boards/boards-operations'
 
-const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
 
-          const dispatch = useDispatch();
+const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     name: '',
-    text: '',
-    priority: 'Without',
-    deadline: null,
+    priority: 'without',
   });
 
   const handleChange = (e) => {
@@ -27,14 +25,10 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formattedDate = formData.deadline
-      ? format(formData.deadline, 'MM/dd/yyyy')
-      : null;
+
     const newCard = {
       title: formData.name,
-      description: formData.text,
       label: formData.priority,
-      deadline: formattedDate,
     };
     dispatch(addCard({_id: columnId, newCard }));
     closeModal();
@@ -58,7 +52,6 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
           value={formData.text}
           onChange={handleChange}
           placeholder="Card description"
-
         />
         <div>
           <label>
@@ -115,5 +108,6 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
     </Modal>
   );
 };
+
 
 export default AddCardModal;

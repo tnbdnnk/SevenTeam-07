@@ -91,10 +91,6 @@
   }
 }
 
-/* .columnListWrap {
-  display: flex;
-} */
-
 .columnList {
   display: flex;
   gap: 18px;
