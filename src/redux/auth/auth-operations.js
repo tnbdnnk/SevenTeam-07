@@ -104,11 +104,11 @@ export const updateTheme = createAsyncThunk(
 
 export const sendHelp = createAsyncThunk(
   'auth/sendHelp',
-  async (jsonData, { rejectWithValue, getState }) => {
+  async (formData, { rejectWithValue, getState }) => {
     try {
       const { auth } = getState();
       const { token } = auth;
-      const response = await sendHelpRequest(jsonData, token);
+      const response = await sendHelpRequest(formData, token);
       return response;
     } catch (error) {
       return rejectWithValue(error.message);
