@@ -9,7 +9,7 @@ import Modal from "../../../helpers/ModalWindow/Modal.jsx";
 
 import icons from '../../../images/symbol-defs.svg';
 import css from './AddColumn.module.css';
-import sprite from "../../../images/symbol-defs.svg"
+
 
 const AddColumn = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -41,9 +41,13 @@ const AddColumn = () => {
         <form onSubmit={handleSubmit(handleAddColumn)}>
           <input {...register("title")} placeholder="Title" className={[css.addTitle, css[theme]].join(' ')} required />
           <button className={[css.addBtn, css[theme]].join(' ')} type="submit" >
-          <div className={css.iconWrap}><svg className={css.iconPlus} width="14" height="14">
-      <use href={sprite + '#icon-plus'}></use>
-    </svg></div>Add</button>      
+            <div className={css.iconWrap}>
+              <svg className={css.iconPlus} width="14" height="14">
+                <use href={icons + '#icon-plus'}></use>
+              </svg>
+            </div>
+            Add
+          </button>      
         </form>
       </Modal>
     </>

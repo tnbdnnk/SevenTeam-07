@@ -179,3 +179,116 @@
 .cardsWrap.violet::-webkit-scrollbar-thumb {
   background-color: #b8bcfd;
 }
+
+/* ==================== MODAL ColumnCard ===================== */
+
+.modalHeader {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 24px;
+  text-align: left;
+  color: var(--text-white);
+}
+
+.modalHeader.light {
+  color: var(--text-black);
+}
+
+.modalHeader.violet {
+  color: var(--text-black);
+}
+
+.addBtn {
+  border-radius: 8px;
+  width: 100%;
+  height: 49px;
+  background: var(--accent-light);
+  color: var(--text-black);
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.addBtn.violet {
+  background: var(--accent-violet-dark);
+  color: var(--text-white);
+}
+
+.addBtn:hover,
+.addBtn:focus {
+  background: var(--accent-dark);
+}
+
+.addBtn.violet:hover,
+.addBtn.violet:focus {
+  background: #7b7ede;
+}
+
+.iconWrap {
+  width: 28px;
+  height: 28px;
+  background: #161616;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.violet .iconWrap {
+  background: var(--white-btn);
+}
+
+.iconPlus {
+  stroke: var(--text-white);
+}
+
+.violet .iconPlus {
+  stroke: var(--text-black);
+}
+
+.addTitle {
+  margin-bottom: 24px;
+  border: 1px solid var(--accent-light);
+  border-radius: 8px;
+  width: 100%;
+  height: 49px;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  background: var(--background-grey);
+  opacity: 0.4;
+  padding: 18px 14px;
+  color: var(--text-white);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.addTitle.light {
+  background: none;
+  color: var(--text-black);
+}
+
+.addTitle.violet {
+  background: none;
+  border: 1px solid var(--accent-violet-dark);
+  color: var(--text-black);
+}
+
+.addTitle:not(:placeholder-shown) {
+  opacity: 1;
+}
+
+.addTitle::placeholder {
+  font-size: 14px;
+  color: var(--text-white);
+}
+
+.addTitle.light::placeholder {
+  color: var(--text-black);
+}
+
+.addTitle.violet::placeholder {
+  color: var(--text-black);
+}
