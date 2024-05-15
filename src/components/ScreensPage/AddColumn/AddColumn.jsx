@@ -12,7 +12,6 @@ import icons from '../../../images/symbol-defs.svg';
 import css from './AddColumn.module.css';
 import sprite from "../../../images/symbol-defs.svg"
 
-
 const AddColumn = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();

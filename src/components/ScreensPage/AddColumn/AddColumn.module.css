@@ -184,6 +184,7 @@
   gap: 8px;
   justify-content: center;
   align-items: center;
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
 }
 
 .addBtn.violet {
