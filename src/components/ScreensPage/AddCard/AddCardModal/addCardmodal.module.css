@@ -118,6 +118,7 @@
   gap: 8px;
   justify-content: center;
   align-items: center;
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
 }
 
 .addBtn.violet {
@@ -143,6 +144,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
 }
 
 .violet .iconWrap {
@@ -160,7 +162,7 @@
 .text {
   display: block;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 4px;
   text-align: left;
@@ -199,12 +201,46 @@
   color: #5255bc;
 }
 
-.radiowrap{
-  display: flex;
-  flex-direction: row;
-  gap: 8px ;
-  margin-bottom: 14px;
-}
+
 
 
 /* радіо кнопки */
+
+.radiowrap {
+  gap: 8px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: Poppins;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+    margin-bottom: 14px;
+
+}
+
+.priorityDataWrap:hover {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  /* margin-right: 8px; */
+}
+
+.circle.without {
+  background-color: gray;
+}
+
+.circle.low {
+  background-color: #8fa1d0;
+}
+
+.circle.medium {
+  background-color: #e09cb5;
+}
+
+.circle.high {
+  background-color: #bedbb0;
+}

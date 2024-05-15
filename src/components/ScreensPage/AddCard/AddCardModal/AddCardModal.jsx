@@ -70,49 +70,42 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
         />
         <p className={[css.text, css[theme]].join(' ')}>Label color</p>
         <div className={css.radiowrap}>
-          <label >
+          <label className={[css.circle, css.without].join(' ')}>
             <input
               type="radio"
               name="priority"
               value="without"
               checked={formData.priority === 'without'}
               onChange={handleChange}
-              
             />
-            
           </label>
-          <label >
+          <label className={[css.circle, css.low].join(' ')}>
             <input
               type="radio"
               name="priority"
               value="low"
               checked={formData.priority === 'low'}
               onChange={handleChange}
-              
+              className={[css.circle, css.low].join(' ')}
             />
-            
           </label>
-          <label >
+          <label className={[css.circle, css.medium].join(' ')}>
             <input
               type="radio"
               name="priority"
               value="medium"
               checked={formData.priority === 'medium'}
               onChange={handleChange}
-              
             />
-            
           </label>
-          <label >
+          <label className={[css.circle, css.high].join(' ')}>
             <input
               type="radio"
               name="priority"
               value="high"
               checked={formData.priority === 'high'}
               onChange={handleChange}
-              
             />
-            
           </label>
         </div>
         <p className={[css.text, css[theme]].join(' ')}>Deadline</p>
@@ -124,9 +117,14 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
           className={[css.date, css[theme]].join(' ')}
           minDate={minDate}
         />
-        <button type="submit" className={[css.addBtn, css[theme]].join(' ')}><div className={css.iconWrap}><svg className={css.iconPlus} width="14" height="14">
-      <use href={sprite + '#icon-plus'}></use>
-    </svg></div>Add</button>
+        <button type="submit" className={[css.addBtn, css[theme]].join(' ')}>
+          <div className={css.iconWrap}>
+            <svg className={css.iconPlus} width="14" height="14">
+              <use href={sprite + '#icon-plus'}></use>
+            </svg>
+          </div>
+          Add
+        </button>
       </form>
     </Modal>
   );
