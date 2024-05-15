@@ -15,7 +15,6 @@ export const UserForm = ({ onClose }) => {
   const [visible, setVisible] = useState(false);
   const { name, email, avatarURL, theme } = useSelector(selectUser);
   const us = useSelector(selectUser);
-  console.log(us);
 
   const [avatarUser, setAvatarUser] = useState(avatarURL);
   const [nameUser, setNameUser] = useState(name);
@@ -24,7 +23,6 @@ export const UserForm = ({ onClose }) => {
   const [preview, setPreview] = useState(null);
 
   const [activeTheme, setactiveTheme] = useState(theme);
-  console.log(theme);
 
   const avatarLight = `${sprite}#icon-user-icon-white-theme`;
   const avatarViolet = `${sprite}#icon-user-icon-violet-theme`;
@@ -98,15 +96,6 @@ export const UserForm = ({ onClose }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // const user = {
-      //   avatar: avatarUser,
-      //   name: nameUser,
-      //   email: emailUser,
-      //   password,
-      // };
-      // console.log(user);
-      // console.log(user.name);
-      // dispatch(updateUser(user));
       const formData = new FormData();
       formData.append('avatar', avatarUser);
       formData.append('name', nameUser);
@@ -114,22 +103,18 @@ export const UserForm = ({ onClose }) => {
       formData.append('password', password);
       dispatch(updateUser(formData));
 
-      // for (let input of formData.entries()) {
-      //   console.log(input[0], input[1]); //Выведет в консоль всю форму в виде "КЛЮЧ ЗНАЧЕНИЕ"
-      // }
-
       onClose();
-      // toast.success('Update accepted!');
+      toast.success('Update accepted!');
     } catch (error) {
       console.error(error.message);
-      // toast.error('Ooops, there was an error...', {
-      //   style: {
-      //     border: '1px solid #713200',
-      //     padding: '10px',
-      //     color: '#713200',
-      //     fontWeight: 700,
-      //   },
-      // });
+      toast.error('Ooops, there was an error...', {
+        style: {
+          border: '1px solid #713200',
+          padding: '10px',
+          color: '#713200',
+          fontWeight: 700,
+        },
+      });
     }
   };
 

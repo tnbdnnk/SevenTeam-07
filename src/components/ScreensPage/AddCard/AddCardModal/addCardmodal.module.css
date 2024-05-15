@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+}
+
+.modalHeader {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 24px;
+  text-align: left;
+  color: var(--text-white);
+}
+
+.modalHeader.light {
+  color: var(--text-black);
+}
+
+.modalHeader.violet {
+  color: var(--text-black);
+}
+
+.title {
+  margin-bottom: 24px;
+  border: 1px solid var(--accent-light);
+  border-radius: 8px;
+  width: 100%;
+  height: 49px;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  background: var(--background-grey);
+  opacity: 0.4;
+  padding: 18px 14px;
+  color: var(--text-white);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.title.light {
+  background: none;
+  color: var(--text-black);
+}
+
+.title.violet {
+  background: none;
+  border: 1px solid var(--accent-violet-dark);
+  color: var(--text-black);
+}
+
+.title:not(:placeholder-shown) {
+  opacity: 1;
+}
+
+.title::placeholder {
+  font-size: 14px;
+  color: var(--text-white);
+}
+
+.title.light::placeholder {
+  color: var(--text-black);
+}
+
+.title.violet::placeholder {
+  color: var(--text-black);
+}
+
+/* .description */
+
+.description {
+  margin-bottom: 24px;
+  border: 1px solid var(--accent-light);
+  border-radius: 8px;
+  width: 100%;
+  height: 154px;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  background: var(--background-grey);
+  opacity: 0.4;
+  padding: 18px 14px;
+  color: var(--text-white);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.description.light {
+  background: none;
+  color: var(--text-black);
+}
+
+.description.violet {
+  background: none;
+  border: 1px solid var(--accent-violet-dark);
+  color: var(--text-black);
+}
+
+.description:not(:placeholder-shown) {
+  opacity: 1;
+}
+
+.description::placeholder {
+  font-size: 14px;
+  color: var(--text-white);
+}
+
+.description.light::placeholder {
+  color: var(--text-black);
+}
+
+.description.violet::placeholder {
+  color: var(--text-black);
+}
+
+.addBtn {
+  border-radius: 8px;
+  width: 100%;
+  height: 49px;
+  background: var(--accent-light);
+  color: var(--text-black);
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.addBtn.violet {
+  background: var(--accent-violet-dark);
+  color: var(--text-white);
+}
+
+.addBtn:hover,
+.addBtn:focus {
+  background: var(--accent-dark);
+}
+
+.addBtn.violet:hover,
+.addBtn.violet:focus {
+  background: #7b7ede;
+}
+
+.iconWrap {
+  width: 28px;
+  height: 28px;
+  background: #161616;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.violet .iconWrap {
+  background: var(--white-btn);
+}
+
+.iconPlus {
+  stroke: var(--text-white);
+}
+
+.violet .iconPlus {
+  stroke: var(--text-black);
+}
+
+.text {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.text.violet {
+  color: rgba(22, 22, 22, 0.5);
+}
+
+.text.light {
+  color: rgba(22, 22, 22, 0.5);
+}
+
+.date {
+  width: 150px;
+    height: 21px;
+    font-weight: 500;
+      font-size: 14px;
+      color: #bedbb0;
+      background: none;
+      border: none;
+      margin-bottom: 40px;
+}
+
+.date::placeholder{
+  color: #bedbb0;
+      font-weight: 500;
+        font-size: 14px;
+}
+
+.date.violet{
+  color:#5255bc;
+}
+
+.date.violet::placeholder{
+  color: #5255bc;
+}
+
+
+
+
+/* радіо кнопки */
+
+.radiowrap {
+  gap: 8px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: Poppins;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+    margin-bottom: 14px;
+
+}
+
+.priorityDataWrap:hover {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  /* margin-right: 8px; */
+}
+
+.circle.without {
+  background-color: gray;
+}
+
+.circle.low {
+  background-color: #8fa1d0;
+}
+
+.circle.medium {
+  background-color: #e09cb5;
+}
+
+.circle.high {
+  background-color: #bedbb0;
+}
