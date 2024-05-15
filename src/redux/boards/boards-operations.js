@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
 import { authInstance } from '../../api/auth-api.js';
+
 
 export const getAllBoards = createAsyncThunk(
   'boards/getAll',
@@ -65,7 +65,6 @@ export const editBoard = createAsyncThunk(
   }
 );
 
-// MODAL addColumn:
 export const addColumn = createAsyncThunk(
   'boards/columns/add',
   async ({ _id, title }, thunkAPI) => {
@@ -78,7 +77,6 @@ export const addColumn = createAsyncThunk(
   }
 );
 
-// MODAL addCards:
 export const addCard = createAsyncThunk(
   'boards/cards/add',
   async ({ _id, newCard }, thunkAPI) => {
@@ -116,15 +114,14 @@ export const deleteColumn = createAsyncThunk(
 );
 
 // MODAL editColumn:
-// export const editColumn = createAsyncThunk(
-//   'boards/columns/edit',
-//   async ({ id, title }, thunkAPI) => {
-//     try {
-//       const { data } = await authInstance.patch(`/columns/${id}`, { title });
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
+export const editColumn = createAsyncThunk(
+  'boards/columns/edit',
+  async ({ id, title }, thunkAPI) => {
+    try {
+      const { data } = await authInstance.patch(`/columns/${id}`, { title });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

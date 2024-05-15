@@ -56,7 +56,7 @@ const ColumnCard = ({
       const handleDeleteColumn = async (id) => {
     try {
       await dispatch(deleteColumn(id));
-      toast.success('Сolumn was deleted successfully!');
+      toast.success('Column was deleted successfully!');
     } catch (error) {
       console.error(error.message);
     }

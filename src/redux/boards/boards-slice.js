@@ -9,7 +9,7 @@ import {
   addCard,
   deleteColumn,
   deleteCard,
-  // editColumn,
+  editColumn,
 } from './boards-operations';
 
 
@@ -116,37 +116,20 @@ const boardsSlice = createSlice({
           (column) => column._id !== payload
         );
       })
-      .addCase(deleteColumn.rejected, rejected);
-      // .addCase(editColumn.pending, pending)
-      // .addCase(editColumn.fulfilled, (state, { payload }) => {
-      //   state.isLoading = false;
-      //   console.log(payload);
-      //   state.selectBoard.columns = state.selectBoard.columns.map((column) =>
-      //     column._id === payload._id ? (column = payload) : column
-      //   );
-      // })
-      // .addCase(editColumn.rejected, rejected);
+      .addCase(deleteColumn.rejected, rejected)
+      // editColumn:
+      .addCase(editColumn.pending, pending)
+      .addCase(editColumn.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        console.log(payload);
+        state.selectBoard.columns = state.selectBoard.columns.map((column) =>
+          column._id === payload._id ? (column = payload) : column
+        );
+      })
+      .addCase(editColumn.rejected, rejected);
   },
 }); 
 
-// 
-//       .addCase(addCard.pending, pending)
-//       .addCase(addCard.fulfilled, (state, { payload }) => {
-//         state.isLoading = false;
-//         const { cardOwner } = payload;
-//         const column = state.selectBoard.columns.find(
-//           (col) => col._id === cardOwner
-//         );
-//         if (column) {
-//           column.cards.push(payload);
-//         } else {
-//           console.error('Column not found for card owner:', cardOwner);
-//         }
-//         console.log('payload', payload);
-//       })
-//       .addCase(addCard.rejected, rejected);
-//   },
-// });
 
 const boardsReducer = boardsSlice.reducer;
 

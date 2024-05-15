@@ -20,7 +20,7 @@ const ScreensPage = () => {
 
   let { boardName } = useParams();
   const board = useSelector(selectBoard);
-  // console.log(board);
+  console.log(board);
 
   useEffect(() => {
     dispatch(fetchBoard(`${boardName}`));
