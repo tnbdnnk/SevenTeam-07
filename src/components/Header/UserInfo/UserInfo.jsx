@@ -53,7 +53,6 @@ export const UserInfo = () => {
         )}
       </button>
       <Modal isOpen={isModalOpen} onClose={closeModal} userInfo>
-        {/* <UserForm avatar={avatar} onClose={closeModal} /> */}
         <UserForm onClose={closeModal} />
       </Modal>
     </div>
