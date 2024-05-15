@@ -20,13 +20,35 @@ const ScreensPage = () => {
 
   let { boardName } = useParams();
   const board = useSelector(selectBoard);
-  console.log(board);
+  // console.log(board);
 
   useEffect(() => {
     dispatch(fetchBoard(`${boardName}`));
   }, [dispatch, boardName]); 
 
   // const error = useSelector(selectError);
+
+  // import slug from 'slug';
+// const handleSelect = (boardId) => {
+//   // Здійснюємо запит на сервер, щоб отримати дані про борду за її ID
+//   fetch(/api/boards/${boardId})
+//     .then(response => response.json())
+//     .then(data => {
+//       if (data) {
+//         // Якщо борда знайдена, викликаємо dispatch з отриманими даними
+//         dispatch(selectBoard(data.id));
+//         // Створюємо slug для URL
+//         const boardSlug = slug(data.title);
+//         // Змінюємо шлях за допомогою navigate
+//         navigate(/home/${boardSlug}, { replace: true });
+//       } else {
+//         console.error(Борду з id ${boardId} не знайдено);
+//       }
+//     })
+//     .catch(error => {
+//       console.error('Помилка при отриманні даних про борду:', error);
+//     });
+// }
 
   return (
   <>
@@ -39,7 +61,6 @@ const ScreensPage = () => {
               <Filters />
             </div>
 
-            {/* <div className={css.columnListWrap}> */}
             <div>
               <ul className={css.columnList}>
                 {board.columns && board.columns

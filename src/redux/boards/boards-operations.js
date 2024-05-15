@@ -114,3 +114,17 @@ export const deleteColumn = createAsyncThunk(
     }
   }
 );
+
+// MODAL editColumn:
+// export const editColumn = createAsyncThunk(
+//   'boards/columns/edit',
+//   async ({ id, title }, thunkAPI) => {
+//     try {
+//       const { data } = await authInstance.patch(`/columns/${id}`, { title });
+//       return data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
