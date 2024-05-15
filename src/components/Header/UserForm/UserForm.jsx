@@ -99,7 +99,7 @@ export const UserForm = ({ onClose }) => {
     event.preventDefault();
     try {
       // const user = {
-      //   avatarURL: avatarUser,
+      //   avatar: avatarUser,
       //   name: nameUser,
       //   email: emailUser,
       //   password,
@@ -121,14 +121,15 @@ export const UserForm = ({ onClose }) => {
       onClose();
       // toast.success('Update accepted!');
     } catch (error) {
-      toast.error('Ooops, there was an error...', {
-        style: {
-          border: '1px solid #713200',
-          padding: '10px',
-          color: '#713200',
-          fontWeight: 700,
-        },
-      });
+      console.error(error.message);
+      // toast.error('Ooops, there was an error...', {
+      //   style: {
+      //     border: '1px solid #713200',
+      //     padding: '10px',
+      //     color: '#713200',
+      //     fontWeight: 700,
+      //   },
+      // });
     }
   };
 
