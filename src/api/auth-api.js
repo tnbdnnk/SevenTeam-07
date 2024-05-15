@@ -40,12 +40,11 @@ export const logoutRequest = async () => {
   return data;
 };
 
-export const sendHelpRequest = async (jsonData, token) => {
+export const sendHelpRequest = async (formData, token) => {
   try {
-    const response = await authInstance.post('/users/help', jsonData, {
+    const response = await authInstance.post('/users/help', formData, {
       headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
       }
     });
     return response.data;

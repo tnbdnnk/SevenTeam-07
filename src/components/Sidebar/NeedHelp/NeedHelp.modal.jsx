@@ -15,15 +15,13 @@ const NeedHelpModal = ({ isOpen, closeModal }) => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-
-      const jsonData = JSON.stringify({
-          email: e.currentTarget.elements.email.value,
-          text: e.currentTarget.elements.text.value,
-        });
-
+      const formData = {
+        email: e.currentTarget.elements.email.value,
+        text: e.currentTarget.elements.text.value,
+      };
 
       try {
-        dispatch(sendHelp(jsonData));
+        dispatch(sendHelp(formData));
         closeModal();
         toast.success(<div style={{ textAlign: 'center' }}>Message sent.<br/>We will get back to you shortly</div>);
       } catch (error) {
