@@ -177,14 +177,14 @@
 }
 
 .date {
-  width: 150px;
+  width: fit-content;
+  max-width: 100%;
     height: 21px;
     font-weight: 500;
       font-size: 14px;
       color: #bedbb0;
       background: none;
       border: none;
-      margin-bottom: 40px;
 }
 
 .date::placeholder{
@@ -201,7 +201,25 @@
   color: #5255bc;
 }
 
+.dateWrap{
+display: inline-flex;
+margin-bottom: 40px;
+}
 
+.dropdownIcon{
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: #bedbb0;
+}
+
+.dropdownIcon.violet{
+  stroke: #5255bc;
+}
+
+.dropdownIcon.light {
+  stroke: #bedbb0;
+}
 
 
 /* радіо кнопки */
