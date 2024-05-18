@@ -171,6 +171,7 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
       title: data.name,
       label: data.priority,
       deadline: data.deadline,
+      description: data.text
     };
     dispatch(addCard({ _id: columnId, newCard }));
     closeModal();
