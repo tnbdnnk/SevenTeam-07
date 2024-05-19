@@ -360,6 +360,11 @@
   margin-bottom: 8px;
 }
 
+.calendarStyles.light :global(.react-datepicker__day-names),
+.calendarStyles.violet :global(.react-datepicker__day-names) {
+  border-top: 1px solid rgba(22, 22, 22, 0.2);
+}
+
 .calendarStyles :global(.react-datepicker__day-name) {
   font-weight: 500;
   color: var(--text-grey);
