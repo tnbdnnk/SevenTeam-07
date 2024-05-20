@@ -60,7 +60,7 @@ const Filters = () => {
                     name="priority"
                     value="Without"
                     checked={radioChoose === 'without' ? true : false}
-                    onClick={chooseBtn}
+                    onChange={chooseBtn}
                   />
                   <div className={css.container}>
                     <div className={[css.circle, css.without].join(' ')}></div>
@@ -77,7 +77,7 @@ const Filters = () => {
                     type="radio"
                     name="priority"
                     value="Low"
-                    onClick={chooseBtn}
+                    onChange={chooseBtn}
                     checked={radioChoose === 'low' ? true : false}
                   />
                   <div className={css.container}>
@@ -96,7 +96,7 @@ const Filters = () => {
                     type="radio"
                     name="priority"
                     value="Medium"
-                    onClick={chooseBtn}
+                    onChange={chooseBtn}
                     checked={radioChoose === 'medium' ? true : false}
                   />
                   <div className={css.container}>
@@ -113,7 +113,7 @@ const Filters = () => {
                     type="radio"
                     name="priority"
                     value="High"
-                    onClick={chooseBtn}
+                    onChange={chooseBtn}
                     checked={radioChoose === 'high' ? true : false}
                   />
                   <div className={css.container}>

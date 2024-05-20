@@ -105,6 +105,11 @@
   text-align: left;
 }
 
+.mainText.light,
+.mainText.violet {
+  color: var(--text-black);
+}
+
 .text {
   font-weight: 400;
   font-size: 12px;
