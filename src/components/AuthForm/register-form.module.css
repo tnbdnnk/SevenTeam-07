@@ -52,15 +52,15 @@
 .registerInput::placeholder {
   font-weight: 400;
   font-size: 14px;
-  opacity: 0.4;
+  /* opacity: 0.4; */
   letter-spacing: -0.02em;
-  color: #fff;
+  /* color: #fff; */
 }
 
 .registerInput {
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
   background: #1f1f1f;
-  border: 1px solid #bedbb093;
+  border: 1px solid #bedbb073;
   border-radius: 8px;
   width: 232px;
   height: 49px;
@@ -85,7 +85,8 @@
 }
 
 .visiblePassword:hover, 
-.visiblePassword:active {
+.visiblePassword:active,
+.visiblePassword:focus {
   opacity: 1;
 }
 
