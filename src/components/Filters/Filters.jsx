@@ -142,14 +142,14 @@ const Filters = () => {
                         )}
                       ></div>
                       <span className={[css.textCheked, css[theme]].join(' ')}>
-                        Low
+                        Medium
                       </span>
                     </div>
                   ) : (
                     <div className={css.container}>
                       <div className={[css.circle, css.medium].join(' ')}></div>
                       <span className={[css.text, css[theme]].join(' ')}>
-                        Low
+                        Medium
                       </span>
                     </div>
                   )}
@@ -171,14 +171,14 @@ const Filters = () => {
                         className={[css.active, css[theme], css.high].join(' ')}
                       ></div>
                       <span className={[css.textCheked, css[theme]].join(' ')}>
-                        Low
+                        High
                       </span>
                     </div>
                   ) : (
                     <div className={css.container}>
                       <div className={[css.circle, css.high].join(' ')}></div>
                       <span className={[css.text, css[theme]].join(' ')}>
-                        Low
+                        High
                       </span>
                     </div>
                   )}
