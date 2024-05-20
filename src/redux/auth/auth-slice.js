@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 import {
   signup,
   login,
@@ -9,7 +8,6 @@ import {
   updateTheme,
   sendHelp,
 } from './auth-operations';
-
 import { pending, rejected } from '../../shared/functions/redux';
 
 const initialState = {
@@ -23,6 +21,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    clearError(state) {
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(signup.pending, pending)
@@ -90,4 +93,5 @@ const authSlice = createSlice({
   },
 });
 
+export const { clearError } = authSlice.actions;
 export default authSlice.reducer;
