@@ -23,7 +23,9 @@
 .icon {
   fill: transparent;
   stroke: #ffffff;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .icon.violet {
   stroke: rgba(0, 0, 0, 0.5);
 }
@@ -36,10 +38,23 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: rgba(255, 255, 255, 0.8);
-
-  transition: text-shadow 500ms cubic-bezier(0, 0, 1, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button:hover .subscribe {
+  color: #bedbb0;
 }
 
+.button:hover .icon {
+  stroke: #bedbb0;
+}
+
+.button:hover .subscribe.violet {
+  color: #5255bc;
+}
+
+.button:hover .icon.violet {
+  stroke: #5255bc;
+}
 .subscribe.violet {
   color: var(--text-black);
 }
@@ -53,6 +68,24 @@
   text-shadow: 3px 1px 4px rgba(157, 200, 136, 0.59);
 }
 
+.btn {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: rgba(22, 22, 22, 0.5);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn.dark {
+  color: rgba(255, 255, 255, 0.5);
+}
+.btn:hover {
+  color: #bedbb0;
+}
+.btn.violet:hover {
+  color: #8fa1d0;
+}
 .vector {
   border: none;
   width: 100%;
@@ -111,7 +144,7 @@
   color: rgba(255, 255, 255, 0.3);
   margin-bottom: 14px;
   text-align: left;
-  transition: all 500ms cubic-bezier(0, 0, 1, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .text:hover,
@@ -120,15 +153,58 @@
 }
 
 .text.violet {
-  color: var(--text-black);
+  color: rgba(22, 22, 22, 0.5);
 }
 
 .text.light {
-  color: var(--text-black);
+  color: rgba(22, 22, 22, 0.5);
 }
-
+.textCheked {
+  font-weight: 400;
+  font-size: 12px;
+  color: #fff;
+  margin-bottom: 14px;
+  text-align: left;
+  letter-spacing: -0.02em;
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
+}
+.textCheked.violet {
+  color: #161616;
+}
+.textCheked.light {
+  color: #161616;
+}
 .container {
   margin-top: 8px;
   display: flex;
   justify-content: space-between;
+}
+.active {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 4px double #161616;
+  background: gray;
+}
+
+.active.violet {
+  border-color: var(--light-modal);
+}
+
+.active.light {
+  border-color: var(--light-modal);
+}
+.active.without {
+  background-color: gray;
+}
+.active.low {
+  background-color: #8fa1d0;
+}
+.active.medium {
+  background-color: #e09cb5;
+}
+.active.high {
+  background-color: #bedbb0;
 }
