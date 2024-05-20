@@ -5,7 +5,7 @@
   min-width: 320px;
 }
 .welcomeTitleWrapper {
-  padding-top: 211px;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -51,8 +51,8 @@
 
 @media screen and (min-width: 768px) {
   .welcomeTitleWrapper {
-    /* padding-top: 293px; */
-    padding: auto 0;
+    padding-top: 140px;
+    /* padding: auto 0; */
     gap: 24px;
   }
   .welcomeTitle {
@@ -70,8 +70,7 @@
 
 @media screen and (min-width: 1140px) {
   .welcomeTitleWrapper {
-    /* padding-top: 166px; */
-    padding: auto 0;
+    padding-top: 180px;
     gap: 24px;
   }
   .welcomeText {
