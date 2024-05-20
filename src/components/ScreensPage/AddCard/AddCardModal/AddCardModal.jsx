@@ -160,7 +160,7 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
   const getFormattedDate = (date) => {
     if (!(date instanceof Date)) return '';
     const options = { weekday: 'long', month: 'long', day: 'numeric' };
-    return date.toLocaleDateString('en-US', options); 
+    return date.toLocaleDateString('en-GB', options);
   };
 
   const { register, handleSubmit, setValue, watch, reset } = useForm();
@@ -170,8 +170,8 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
     const newCard = {
       title: data.name,
       label: data.priority,
-      deadline: data.deadline,
-      description: data.text
+      deadline: data.deadline ? data.deadline.toISOString() : null,
+      description: data.text,
     };
     dispatch(addCard({ _id: columnId, newCard }));
     closeModal();
@@ -184,12 +184,12 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
-          {...register("name", { required: true })}
+          {...register('name', { required: true })}
           placeholder="Card name"
           className={[css.title, css[theme]].join(' ')}
         />
         <textarea
-          {...register("text")}
+          {...register('text')}
           placeholder="Description"
           className={[css.description, css[theme]].join(' ')}
         />
@@ -198,52 +198,48 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
           <label className={[css.circle, css.without].join(' ')}>
             <input
               type="radio"
-              {...register("priority")}
+              {...register('priority')}
               value="without"
-              defaultChecked 
+              defaultChecked
             />
           </label>
           <label className={[css.circle, css.low].join(' ')}>
             <input
               type="radio"
-              {...register("priority")}
+              {...register('priority')}
               value="low"
               className={[css.circle, css.low].join(' ')}
             />
           </label>
           <label className={[css.circle, css.medium].join(' ')}>
-            <input
-              type="radio"
-              {...register("priority")}
-              value="medium"
-            />
+            <input type="radio" {...register('priority')} value="medium" />
           </label>
           <label className={[css.circle, css.high].join(' ')}>
-            <input
-              type="radio"
-              {...register("priority")}
-              value="high"
-            />
+            <input type="radio" {...register('priority')} value="high" />
           </label>
         </div>
         <p className={[css.text, css[theme]].join(' ')}>Deadline</p>
         <label className={css.dateWrap}>
           <DatePicker
             selected={deadline}
-            onChange={(date) => setValue("deadline", date)}
-            dateFormat="eeee, MMMM d"
+            onChange={(date) => setValue('deadline', date)}
+            dateFormat="EEEE, d MMMM yyyy"
             calendarStartDay={1}
             placeholderText={getFormattedDate(minDate)}
             className={[css.date, css[theme]].join(' ')}
             calendarClassName={[css.calendarStyles, css[theme]].join(' ')}
             minDate={minDate}
-            />
+          />
           <div className={css.dropdownIconWrap}>
-              <svg className={[css.dropdownIcon, css[theme]].join(' ')} width="18" height="18">
-                <use href={`${sprite}#icon-chevron-down`} />
+            <svg
+              className={[css.dropdownIcon, css[theme]].join(' ')}
+              width="18"
+              height="18"
+            >
+              <use href={`${sprite}#icon-chevron-down`} />
             </svg>
           </div>
-          </label>
+        </label>
         <button type="submit" className={[css.addBtn, css[theme]].join(' ')}>
           <div className={css.iconWrap}>
             <svg className={css.iconPlus} width="14" height="14">
