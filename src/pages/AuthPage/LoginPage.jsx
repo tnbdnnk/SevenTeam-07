@@ -45,7 +45,14 @@ const LoginPage = () => {
        
         {/* {authLoading && <p>....Login in progress</p>} */}
         <LoginForm onSubmit={handleLogin} />
-        {isLogin ? <Navigate to="/home"/>: authError && <p style={{color: "red"}}>{authError}</p>}
+          {
+            isLogin
+              ? <Navigate to="/home" />
+              : authError
+              && <p className={styles.authError}>
+                {authError}
+              </p>
+          }
         </div>
       </div>
     </div>
