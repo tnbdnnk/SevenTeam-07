@@ -13,8 +13,16 @@ const Filters = () => {
   const { theme } = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  const chooseBtn = (e) => {
+  // const chooseBtn = (e) => {
+  //   setRadioChoose(e.target.value);
+  //   console.log(radioChoose);
+
+  //   dispatch(filterTasksByPriority(e.target.value));
+  // };
+
+  const handleChange = (e) => {
     setRadioChoose(e.target.value);
+    console.log(radioChoose);
 
     dispatch(filterTasksByPriority(e.target.value));
   };
@@ -60,7 +68,8 @@ const Filters = () => {
                     name="priority"
                     value="Without"
                     checked={radioChoose === 'without' ? true : false}
-                    onClick={chooseBtn}
+                    // onClick={chooseBtn}
+                    onChange={handleChange}
                   />
                   <div className={css.container}>
                     <div className={[css.circle, css.without].join(' ')}></div>
@@ -77,7 +86,8 @@ const Filters = () => {
                     type="radio"
                     name="priority"
                     value="Low"
-                    onClick={chooseBtn}
+                    // onClick={chooseBtn}
+                    onChange={handleChange}
                     checked={radioChoose === 'low' ? true : false}
                   />
                   <div className={css.container}>
@@ -96,7 +106,8 @@ const Filters = () => {
                     type="radio"
                     name="priority"
                     value="Medium"
-                    onClick={chooseBtn}
+                    onChange={handleChange}
+                    // onClick={chooseBtn}
                     checked={radioChoose === 'medium' ? true : false}
                   />
                   <div className={css.container}>
@@ -113,7 +124,8 @@ const Filters = () => {
                     type="radio"
                     name="priority"
                     value="High"
-                    onClick={chooseBtn}
+                    // onClick={chooseBtn}
+                    onChange={handleChange}
                     checked={radioChoose === 'high' ? true : false}
                   />
                   <div className={css.container}>
