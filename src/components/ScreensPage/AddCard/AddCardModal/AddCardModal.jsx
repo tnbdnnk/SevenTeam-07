@@ -228,18 +228,21 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
         </div>
         <p className={[css.text, css[theme]].join(' ')}>Deadline</p>
         <label className={css.dateWrap}>
-        <DatePicker
-          selected={deadline}
-          onChange={(date) => setValue("deadline", date)}
-          dateFormat="eeee, MMMM d"
-          placeholderText={getFormattedDate(minDate)}
-          className={[css.date, css[theme]].join(' ')}
-          minDate={minDate}
-          />
-          <div>
-  <svg className={[css.dropdownIcon, css[theme]].join(' ')} width="18" height="18">
-    <use href={`${sprite}#icon-chevron-down`} />
-  </svg></div>
+          <DatePicker
+            selected={deadline}
+            onChange={(date) => setValue("deadline", date)}
+            dateFormat="eeee, MMMM d"
+            calendarStartDay={1}
+            placeholderText={getFormattedDate(minDate)}
+            className={[css.date, css[theme]].join(' ')}
+            calendarClassName={[css.calendarStyles, css[theme]].join(' ')}
+            minDate={minDate}
+            />
+          <div className={css.dropdownIconWrap}>
+              <svg className={[css.dropdownIcon, css[theme]].join(' ')} width="18" height="18">
+                <use href={`${sprite}#icon-chevron-down`} />
+            </svg>
+          </div>
           </label>
         <button type="submit" className={[css.addBtn, css[theme]].join(' ')}>
           <div className={css.iconWrap}>
