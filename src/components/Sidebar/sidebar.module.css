@@ -150,6 +150,8 @@ button {
   position: absolute;
   left: 24px;
   bottom: 24px;
+  transition: all 0.5s;
+
 }
 
 .light .logoutBtn{
@@ -165,6 +167,11 @@ button {
 .iconLogout.violet {
   stroke: var(--text-white);
   transition: all 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.logoutBtn:hover,
+.logoutBtn:focus {
+  transform: scale(1.1);
 }
 
 .logoutBtn:hover .iconLogout,
