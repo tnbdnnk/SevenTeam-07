@@ -94,6 +94,19 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.mainText {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-white);
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.mainText.light,
+.mainText.violet {
+  color: var(--text-black);
+}
+
 .priorityDataWrap {
   gap: 8px;
   align-items: center;
@@ -130,19 +143,6 @@
   background-color: #bedbb0;
 }
 
-.mainText {
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--text-white);
-  margin-bottom: 14px;
-  text-align: left;
-}
-
-.mainText.light,
-.mainText.violet {
-  color: var(--text-black);
-}
-
 .text {
   font-weight: 400;
   font-size: 12px;
@@ -164,6 +164,7 @@
 .text.light {
   color: rgba(22, 22, 22, 0.5);
 }
+
 .textCheked {
   font-weight: 400;
   font-size: 12px;
