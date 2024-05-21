@@ -1,15 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
-
 import LoginForm from '../../components/AuthForm/LoginForm';
-
 import { NavLink, Navigate } from 'react-router-dom';
-
 import { login } from '../../redux/auth/auth-operations';
+import Loader from '../../components/Loader/Loader';
 
 import {
-  // selectAuthLoading,
-  selectAuthError,
-  selectIsLogin
+    selectAuthLoading,
+    selectAuthError,
+    selectIsLogin
 } from '../../redux/auth/auth-selectors';
 
 // import WelcomeAuth from "../../components/Welcome/WelcomeAuth/WelcomeAuth";
@@ -18,45 +16,48 @@ import {
 import styles from '../AuthPage/register-page.module.css';
 
 const LoginPage = () => {
-  // const authLoading = useSelector(selectAuthLoading);
-  const authError = useSelector(selectAuthError);
-  const isLogin = useSelector(selectIsLogin);
+    const authLoading = useSelector(selectAuthLoading);
+    const authError = useSelector(selectAuthError);
+    const isLogin = useSelector(selectIsLogin);
 
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  const handleLogin = (data) => {
-    dispatch(login(data));
-  };
+    const handleLogin = (data) => {
+        dispatch(login(data));
+    };
 
-  return (
-    <div className={styles.registerWrapper}>
-      <div className={styles.register}>
+    return (
+        <div className={styles.registerWrapper}>
+            <div className={styles.register}>
+                {authLoading && (
+                    <div className={styles.loaderWrap}>
+                        <Loader />
+                    </div>
+                )}
+                <div className={styles.blockRegister}>
+                    <div className={styles.navRegister}>
+                        <NavLink to="/auth/register" className={styles.linkRegister}>
+                        Registration
+                        </NavLink>
 
-        <div className={styles.blockRegister}>
-          <div className={styles.navRegister}>
-            <NavLink to="/auth/register" className={styles.linkRegister}>
-              Registration
-            </NavLink>
+                        <NavLink to="/auth/login" className={styles.authActivPage}>
+                        Log In
+                        </NavLink>
+                    </div>
 
-            <NavLink to="/auth/login" className={styles.authActivPage }>
-              Log In
-            </NavLink>
-          </div>
-       
-        {/* {authLoading && <p>....Login in progress</p>} */}
-        <LoginForm onSubmit={handleLogin} />
-          {
-            isLogin
-              ? <Navigate to="/home" />
-              : authError
-              && <p className={styles.authError}>
-                {authError}
-              </p>
-          }
+                    {/* {authLoading && (
+                        <p className={styles.loading}>....Login in progress</p>
+                    )} */}
+                    <LoginForm onSubmit={handleLogin} />
+                    {isLogin ? (
+                        <Navigate to="/home" />
+                    ) : (
+                        authError && <p className={styles.authError}>{authError}</p>
+                    )}
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default LoginPage;

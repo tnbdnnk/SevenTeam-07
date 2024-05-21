@@ -1,4 +1,5 @@
 .loaderWrap {
+  /* margin: 15px; */
   position: fixed;
     top: 0;
     left: 0;
@@ -7,8 +8,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #151515; /* Фон з напівпрозорим білим кольором */
+    background-color: rgba(21, 21, 21, 0.551); 
     z-index: 9999;
+}
+
+.loading {
+  color: #ffffff;
+  margin: 0 auto;
 }
 
 .registerWrapper {
