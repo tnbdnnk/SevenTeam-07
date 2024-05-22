@@ -99,6 +99,18 @@ export const deleteCard = createAsyncThunk(
   }
 );
 
+export const editCard = createAsyncThunk(
+  'boards/editCard',
+  async ({ id, updatedCard }, { rejectWithValue }) => {
+    try {
+      const { data } = await authInstance.patch(`/cards/${id}`, updatedCard);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 export const deleteColumn = createAsyncThunk(
   'boards/columns/delete',
   async (id, thunkAPI) => {
