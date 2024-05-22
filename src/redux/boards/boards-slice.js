@@ -7,6 +7,7 @@ import {
   deleteBoard,
   addColumn,
   addCard,
+  editCard,
   deleteColumn,
   deleteCard,
   editColumn,
@@ -81,7 +82,7 @@ const boardsSlice = createSlice({
           { ...payload, cards: [] },
         ];
       })
-      .addCase(addColumn.rejected, rejected)    
+      .addCase(addColumn.rejected, rejected)
       .addCase(addCard.pending, pending)
       .addCase(addCard.fulfilled, (state, { payload }) => {
         state.isLoading = false;
@@ -104,6 +105,20 @@ const boardsSlice = createSlice({
         });
       })
       .addCase(deleteCard.rejected, rejected)
+      .addCase(editCard.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        const { _id, cardOwner } = payload; // отримаємо id картки та її колонку
+        const column = state.selectBoard.columns.find(
+          (col) => col._id === cardOwner
+        );
+        if (column) {
+          const cardIndex = column.cards.findIndex((card) => card._id === _id);
+          if (cardIndex !== -1) {
+            column.cards[cardIndex] = payload; // оновлюємо картку
+          }
+        }
+      })
+      .addCase(editCard.rejected, rejected)
       .addCase(deleteColumn.pending, pending)
       .addCase(deleteColumn.fulfilled, (state, { payload }) => {
         state.isLoading = false;
@@ -115,8 +130,8 @@ const boardsSlice = createSlice({
       .addCase(editColumn.pending, pending)
       .addCase(editColumn.fulfilled, (state, { payload: { data, title } }) => {
         state.isLoading = false;
-        state.selectBoard.columns = state.selectBoard.columns.map((column) => { 
-          if (column._id === data._id) { 
+        state.selectBoard.columns = state.selectBoard.columns.map((column) => {
+          if (column._id === data._id) {
             column.title = title;
           }
           return column;
