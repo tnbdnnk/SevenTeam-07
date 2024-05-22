@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectBoard } from '../../redux/boards/boards-selectors';
+import { selectBoard, selectAllBoardsList, selectIsLoading } from '../../redux/boards/boards-selectors';
 import { fetchBoard } from '../../redux/boards/boards-operations';
 import { selectUser } from '../../redux/auth/auth-selectors';
 
@@ -16,15 +16,29 @@ import css from './ScreensPage.module.css';
 const ScreensPage = () => {
     
   const dispatch = useDispatch();
-  const { theme } = useSelector(selectUser);
-
+  const navigate = useNavigate();
   let { boardName } = useParams();
+  const isLoading = useSelector(selectIsLoading);
+  const boardList = useSelector(selectAllBoardsList);
   const board = useSelector(selectBoard);
-  // console.log(board);
+  const { theme } = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(fetchBoard(`${boardName}`));
   }, [dispatch, boardName]); 
+
+  useEffect(() => {
+    if (!isLoading) { 
+      if (boardList.length === 0) {
+        navigate("/home");
+      } else { 
+        if (!(boardList.find(item => item._id === boardName))) { 
+          const firstBoard = boardList[0];
+          navigate(`/home/${firstBoard._id}`);
+        }
+      }
+    } 
+  }, [isLoading, boardList, boardName, navigate]); 
 
   // const error = useSelector(selectError);
 
