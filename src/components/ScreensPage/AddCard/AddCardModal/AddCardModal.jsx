@@ -27,7 +27,7 @@ const AddCardModal = ({ isModalOpen, closeModal, columnId }) => {
   const onSubmit = (data) => {
     const newCard = {
       title: data.name,
-      label: data.priority,
+      label: data.label,
       deadline: data.deadline ? data.deadline.toISOString() : null,
       description: data.text,
     };
