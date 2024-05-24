@@ -11,6 +11,7 @@ import {
   deleteColumn,
   deleteCard,
   editColumn,
+  moveCard
 } from './boards-operations';
 
 
@@ -137,7 +138,25 @@ const boardsSlice = createSlice({
           return column;
         });
       })
-      .addCase(editColumn.rejected, rejected);
+      .addCase(editColumn.rejected, rejected)
+      .addCase(moveCard.pending, pending)
+      .addCase(moveCard.fulfilled, (state, { payload: { oldColumnId, data: { data } } }) => {
+        state.isLoading = false;
+        const { cardOwner, _id } = data;
+        // console.log("CARD DATA = ", data);
+        // console.log("cardId = ", _id);
+        // console.log("oldColumnId = ", oldColumnId);
+        // console.log("newColumnId / cardOwner = ", cardOwner);
+        const newColumn = state.selectBoard.columns.find(column => column._id === cardOwner);
+        if (newColumn) {
+          newColumn.cards.push(data);
+        }
+        const oldColumn = state.selectBoard.columns.find(column => column._id === oldColumnId);
+        if (oldColumn) {
+          oldColumn.cards = oldColumn.cards.filter(card => card._id !== _id);
+        }
+      })
+      .addCase(moveCard.rejected, rejected)
   },
 }); 
 
