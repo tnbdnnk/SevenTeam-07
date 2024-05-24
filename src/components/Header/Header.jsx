@@ -8,7 +8,7 @@ import { selectUser } from '../../redux/auth/auth-selectors';
 
 export const Header = ({ openBurger }) => {
   const [isThemeOpen, setisThemeOpen] = useState(false);
-  const [isActive, setisActive] = useState(false);
+
   const { theme } = useSelector(selectUser);
 
   return (
@@ -21,21 +21,15 @@ export const Header = ({ openBurger }) => {
       <div className={css.wraperUser}>
         <button
           className={[css.wrapbtnTheme, css[theme]].join(' ')}
-          // className={css.btnTheme}
           onClick={() => setisThemeOpen((isThemeOpen) => !isThemeOpen)}
         >
           Theme
           <svg
-            //для варіанту popup з перегортанням іконки
-            // className={
-            //   isActive
-            //     ? `${css.svgTheme} ${css.active} ${css[theme]}`
-            //     : `${css.svgTheme} ${css[theme]}`
-            // }
-            className={`${css.svgTheme} ${css[theme]}`}
-            //для варіанту popup з перегортанням іконки
-            // onClick={() => setisActive((isActive) => !isActive)}
-            onClick={() => setisActive(true)}
+            className={
+              isThemeOpen
+                ? `${css.svgTheme} ${css.active} ${css[theme]}`
+                : `${css.svgTheme} ${css[theme]}`
+            }
           >
             <use href={`${sprite}#icon-chevron-down`} />
           </svg>
