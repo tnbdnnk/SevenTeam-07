@@ -90,7 +90,7 @@ const ColumnCard = ({ columnItem }) => {
         </div>
         <ul className={[css.cardsWrap, css[theme]].join(' ')}>
           {filteredCards.map((card) => (
-            <CardItem key={card._id} card={card} />
+            <CardItem key={card._id} card={card} columnId={_id} />
           ))}
         </ul>
       </div>

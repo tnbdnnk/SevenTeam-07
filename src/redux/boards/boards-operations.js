@@ -134,3 +134,15 @@ export const editColumn = createAsyncThunk(
     }
   }
 );
+
+export const moveCard = createAsyncThunk(
+  'cards/move',
+  async({_id, newColumnId, oldColumnId}, thunkAPI) => {
+    try {
+      const { data } = await authInstance.patch(`cards/move/${_id}`, { newColumnId });
+      return {data, oldColumnId};
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
