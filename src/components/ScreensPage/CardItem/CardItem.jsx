@@ -75,7 +75,7 @@ const CardItem = ({ card, columnId }) => {
 
                     <div className={css.buttonsWrap}>
                     {isDeadlineToday && (
-                        <button className={`${css.button} ${css.green}`} type="button">
+                        <button className={`${css.button} ${css.buttonBell}`} type="button">
                             <svg className={css.iconAccent} width="16" height="16">
                                 <use href={icons + '#icon-bell'}></use>
                             </svg>
