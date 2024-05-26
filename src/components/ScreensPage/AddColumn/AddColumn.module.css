@@ -1,7 +1,7 @@
 .button {
   height: 56px;
   min-width: 280px;
-  background-color: #121212;
+  background-color: var(--background-black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,20 +11,16 @@
   transition: all 500ms cubic-bezier(0, 0, 1, 1);
 }
 
-.button.dark {
-  background-color: #121212;
-}
-
 .button.light,
 .button.violet {
-  background-color: #ffffff;
+  background-color: var(--text-white);
 }
 
 .button.dark:hover,
 .button.dark:focus,
 .button.light:hover,
 .button.light:focus {
-  background-color: #9dc888;
+  background-color: var(--accent-dark);
   box-shadow: 12px 11px 14px -7px rgba(0, 0, 0, 0.63);
 }
 
@@ -44,7 +40,7 @@
 .iconBox {
   width: 28px;
   height: 28px;
-  background-color: white;
+  background-color: var(--text-white);
   border-radius: 6px;
   display: flex;
   justify-content: center;
@@ -53,98 +49,84 @@
   transition: background-color 500ms cubic-bezier(0, 0, 1, 1);
 }
 
-.iconBox.dark {
-  background-color: #ffffff;
-}
-
 .iconBox.light {
-  background-color: #161616;
+  background-color: var(--text-black);
 }
 
 .iconBox.violet {
-  background-color: #5255bc;
+  background-color: var(--accent-violet-dark);
 }
 
 .button:hover .iconBox,
 .button:focus .iconBox {
-  background-color: #161616;
+  background-color: var(--text-black);
 }
 
-.button:hover .iconBox.dark,
-.button:focus .iconBox.dark,
 .button:hover .iconBox.light,
 .button:focus .iconBox.light {
-  background-color: #161616;
+  background-color: var(--text-black);
 }
 
 .button:hover .iconBox.violet,
 .button:focus .iconBox.violet {
-  background-color: #fff;
+  background-color: var(--text-white);
 }
 
 .icon {
-  stroke: #121212;
+  stroke: var(--background-black);
   transition: stroke 500ms cubic-bezier(0, 0, 1, 1);
-}
-
-.icon.dark {
-  stroke: #121212;
 }
 
 .icon.light,
 .icon.violet {
-  stroke: #fff;
+  stroke: var(--text-white);
 }
 
 .button:hover .icon,
 .button:focus .icon {
-  stroke: #fff;
+  stroke: var(--text-white);
 }
 
 .button.dark:hover .icon,
 .button.dark:focus .icon,
 .button.light:hover .icon,
 .button.light:focus .icon {
-  stroke: #fff;
+  stroke: var(--text-white);
 }
 
 .button.violet:hover .icon,
 .button.violet:focus .icon {
-  stroke: #161616;
+  stroke: var(--text-black);
 }
 
 .text {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--text-white);
   transition: color 500ms cubic-bezier(0, 0, 1, 1);
-}
-
-.text.dark {
-  color: #fff;
 }
 
 .text.light,
 .text.violet {
-  color: #161616;
+  color: var(--text-black);
 }
 
 .button:hover .text,
 .button:focus .text {
-  color: #161616;
+  color: var(--text-black);
 }
 
 .button.dark:hover .text,
 .button.dark:focus .text,
 .button.light:hover .text,
 .button.light:focus .text {
-  color: #161616;
+  color: var(--text-black);
 }
 
 .button.violet:hover .text,
 .button.violet:focus .text {
-  color: #fff;
+  color: var(--text-white);
 }
 
 /* ==================== MODAL AddColumn ===================== */
@@ -157,10 +139,7 @@
   color: var(--text-white);
 }
 
-.modalHeader.light {
-  color: var(--text-black);
-}
-
+.modalHeader.light,
 .modalHeader.violet {
   color: var(--text-black);
 }
@@ -198,7 +177,7 @@
 .iconWrap {
   width: 28px;
   height: 28px;
-  background: #161616;
+  background: var(--text-black);
   border-radius: 6px;
   display: flex;
   justify-content: center;
@@ -252,10 +231,7 @@
   color: var(--text-white);
 }
 
-.addTitle.light::placeholder {
-  color: var(--text-black);
-}
-
+.addTitle.light::placeholder,
 .addTitle.violet::placeholder {
   color: var(--text-black);
 }

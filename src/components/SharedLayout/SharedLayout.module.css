@@ -3,16 +3,12 @@
 }
 
 .wrapper {
-  background-color: #1f1f1f;
+  background-color: var(--background-grey);
   height: 100vh;
 }
 
-.wrapper.dark {
-  background-color: #1f1f1f;
-}
-
 .wrapper.light {
-  background-color: #f6f6f7;
+  background-color: var(--background-light);
 }
 
 .wrapper.violet {
