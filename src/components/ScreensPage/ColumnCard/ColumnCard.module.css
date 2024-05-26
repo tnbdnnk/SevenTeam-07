@@ -1,5 +1,4 @@
 .item {
-  width: 100%;
   height: calc(100vh - 202px);
   display: flex;
   flex-direction: column;
