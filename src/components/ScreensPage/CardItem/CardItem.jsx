@@ -5,7 +5,6 @@ import { selectBoard } from '../../../redux/boards/boards-selectors.js';
 import { deleteCard } from "../../../redux/boards/boards-operations";
 import { useModal } from '../../../hooks/useModal.js';
 import ModalDragCard from '../../../helpers/ModalWindow/ModalDragCard.jsx';
-import EditCardModal from './EditCard/EditCardModal.jsx';
 import DragCardItem from './DragCardItem/DragCardItem.jsx';
 import { handleSetColor, handleFormatDate, handleCompareDates } from './CardItemFunctions/CardItemFunctions';
 
