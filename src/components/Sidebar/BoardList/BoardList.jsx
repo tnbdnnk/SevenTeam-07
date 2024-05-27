@@ -39,7 +39,7 @@ const BoardList = () => {
                         height="18" 
                         className={[css.boardIcon, css[theme]].join(' ')}
                     >
-                        <use href={sprite + item.icons}></use>
+                        <use href={sprite + item.icon}></use>
                     </svg>
                     <h3 className={css.boardTitle}>{item.title}</h3>
                 </div>
