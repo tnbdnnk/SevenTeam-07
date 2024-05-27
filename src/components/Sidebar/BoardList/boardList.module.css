@@ -9,7 +9,6 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  /* max-width: 100%; */
   overflow-y: auto;
   margin-bottom: 20px;
 }
@@ -26,17 +25,17 @@ h3 {
   height: 100%;
   align-items: center;
   justify-content: space-between;
-    color: rgba(255, 255, 255, 0.5);
-      padding: 0 14px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0 14px;
 }
 
-.boardLink.light{
+.boardLink.light {
   color: var(--text-light-grey-05);
 }
 
-.active .boardLink{
-    color: var(--text-white);
-    background-color: rgba(31, 31, 31, 0.4);
+.active .boardLink {
+  color: var(--text-white);
+  background-color: rgba(31, 31, 31, 0.4);
 }
 
 .active .boardLink.violet {
@@ -48,7 +47,6 @@ h3 {
 .active .boardLink.light {
   background-color: rgba(246, 246, 247, 0.4);
   color: var(--text-black);
-  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
 }
 
 .active .boardInfo svg {
@@ -61,75 +59,86 @@ h3 {
   display: flex;
   align-items: center;
   gap: 4px;
+  overflow: hidden;
 }
 
 .boardIcon {
   stroke: var(--text-white);
   opacity: 0.5;
   fill: none;
+  min-width: 18px;
 }
-.active .boardIcon.light{
-  stroke:var(--text-black) ;
+.active .boardIcon.light {
+  stroke: var(--text-black);
 }
-.boardIcon.light{
+.boardIcon.light {
   stroke: var(--text-light-grey-05);
 }
 
-.boarSettings {
+.boardTitle {
+  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.boardSettings {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: 4px;
 }
 
-
-.boarSettingsSvg {
+.boardSettingsSvg {
   display: none;
 }
 
-.active .boarSettingsSvg {
+.active .boardSettingsSvg {
   display: block;
   fill: none;
   stroke: var(--text-white);
   opacity: 0.5;
 }
 
-.boarSettingsSvg.light{
+.boardSettingsSvg.light {
   stroke: #161616;
 }
 
-.boarSettingsSvg:hover,
-.boarSettingsSvg:focus {
-    stroke: var(--accent-light);
-    opacity: 1;
+.boardSettingsSvg:hover,
+.boardSettingsSvg:focus {
+  stroke: var(--accent-light);
+  opacity: 1;
 }
 
-.violet .boarSettingsSvg:hover,
-.violet .boarSettingsSvg:focus {
+.violet .boardSettingsSvg:hover,
+.violet .boardSettingsSvg:focus {
   stroke: var(--accent-violet-dark);
   opacity: 1;
 }
-    
-@media screen and (min-width: 768px){
-.boardLink{
-  padding: 0 24px;
-}
+
+@media screen and (min-width: 768px) {
+  .boardLink {
+    padding: 0 24px;
+  }
 }
 
-    .list::-webkit-scrollbar {
-      width: 4px;
-      height: 61px;
-    }
-    
-    .list::-webkit-scrollbar-thumb {
-      background-color: var(--accent-light);
-      border-radius: 4px 0 0 4px;
-    }
+.list::-webkit-scrollbar {
+  width: 4px;
+  height: 61px;
+}
 
-        .violet.list::-webkit-scrollbar-thumb {
-          background-color: var(--text-white);
-        }
-    
-    .list::-webkit-scrollbar-track {
-      background-color: transparent;
-      border-radius: 4px 0 0 4px;
-    }
+.list::-webkit-scrollbar-thumb {
+  background-color: var(--accent-light);
+  border-radius: 4px 0 0 4px;
+}
+
+.violet.list::-webkit-scrollbar-thumb {
+  background-color: var(--text-white);
+}
+
+.list::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 4px 0 0 4px;
+}

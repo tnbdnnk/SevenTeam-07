@@ -1,6 +1,7 @@
 .button {
   height: 56px;
-  background-color: #bedbb0;
+  min-width: 280px;
+  background-color: var(--accent-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,26 +11,23 @@
   transition: all 500ms cubic-bezier(0, 0, 1, 1);
 }
 
-.button.dark,
 .button.light {
-  background-color: #bedbb0;
+  background-color: var(--accent-light);
 }
 
 .button.violet {
-  background-color: #5255bc;
+  background-color: var(--accent-violet-dark);
 }
 
 .button:hover,
 .button:focus {
-  background-color: #9dc888;
+  background-color: var(--accent-dark);
   box-shadow: 12px 11px 14px -7px rgba(0, 0, 0, 0.63);
 }
 
-.button.dark:hover,
-.button.dark:focus,
 .button.light:hover,
 .button.light:focus {
-  background-color: #9dc888;
+  background-color: var(--accent-dark);
 }
 
 .button.violet:hover,
@@ -46,47 +44,44 @@
 .iconBox {
   width: 28px;
   height: 28px;
-  background-color: #161616;
+  background-color: var(--text-black);
   border-radius: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.iconBox.dark,
 .iconBox.light {
-  background-color: #161616;
+  background-color: var(--text-black);
 }
 
 .iconBox.violet {
-  background-color: #fff;
+  background-color: var(--text-white);
 }
 
 .icon {
-  stroke: white;
+  stroke: var(--text-white);
 }
 
-.icon.dark,
 .icon.light {
-  stroke: white;
+  stroke: var(--text-white);
 }
 
 .icon.violet {
-  stroke: #161616;
+  stroke: var(--text-black);
 }
 
 .text {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
+  color: var(--text-black);
 }
 
-.text.dark,
 .text.light {
-  color: #161616;
+  color: var(--text-black);
 }
 
 .text.violet {
-  color: #fff;
+  color: var(--text-white);
 }

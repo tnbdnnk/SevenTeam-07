@@ -1,5 +1,4 @@
 .item {
-  width: 100%;
   height: calc(100vh - 202px);
   display: flex;
   flex-direction: column;
@@ -37,17 +36,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #121212;
+  background-color: var(--background-black);
   border-radius: 8px;
-}
-
-.columnCard.dark {
-  background-color: #121212;
 }
 
 .columnCard.light,
 .columnCard.violet {
-  background-color: #fff;
+  background-color: var(--text-white);
 }
 
 @media (min-width: 375px) {
@@ -60,23 +55,20 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--text-white);
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.text.dark {
-  color: #fff;
-}
-
 .text.light,
 .text.violet {
-  color: #161616;
+  color: var(--text-black);
 }
 
 .buttonsWrapper {
   display: flex;
   gap: 8px;
+  margin-left: 8px;
 }
 
 .button {
@@ -100,17 +92,13 @@
 }
 
 .icon {
-  stroke: rgba(255, 255, 255, 0.5);
+  stroke: var(--text-grey);
   transition: all 500ms cubic-bezier(0, 0, 1, 1);
-}
-
-.icon.dark {
-  stroke: rgba(255, 255, 255, 0.5);
 }
 
 .icon.light,
 .icon.violet {
-  stroke: rgba(22, 22, 22, 0.5);
+  stroke: var(--text-light-grey-05);
 }
 
 .cardsWrap {
@@ -148,11 +136,7 @@
   height: 0;
   width: 8px;
   border-radius: 12px;
-  background-color: #161616;
-}
-
-.cardsWrap.dark::-webkit-scrollbar {
-  background-color: #161616;
+  background-color: var(--text-black);
 }
 
 .cardsWrap.light::-webkit-scrollbar {
@@ -160,7 +144,7 @@
 }
 
 .cardsWrap.violet::-webkit-scrollbar {
-  background-color: #fff;
+  background-color: var(--text-white);
 }
 
 .cardsWrap::-webkit-scrollbar-thumb {
@@ -168,16 +152,12 @@
   border-radius: 12px;
 }
 
-.cardsWrap.dark::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
 .cardsWrap.light::-webkit-scrollbar-thumb {
   background-color: rgba(22, 22, 22, 0.1);
 }
 
 .cardsWrap.violet::-webkit-scrollbar-thumb {
-  background-color: #b8bcfd;
+  background-color: var(--accent-violet-light);
 }
 
 /* ==================== MODAL ColumnCard ===================== */
@@ -190,10 +170,7 @@
   color: var(--text-white);
 }
 
-.modalHeader.light {
-  color: var(--text-black);
-}
-
+.modalHeader.light,
 .modalHeader.violet {
   color: var(--text-black);
 }
@@ -231,7 +208,7 @@
 .iconWrap {
   width: 28px;
   height: 28px;
-  background: #161616;
+  background: var(--text-black);
   border-radius: 6px;
   display: flex;
   justify-content: center;
@@ -285,10 +262,7 @@
   color: var(--text-white);
 }
 
-.addTitle.light::placeholder {
-  color: var(--text-black);
-}
-
+.addTitle.light::placeholder,
 .addTitle.violet::placeholder {
   color: var(--text-black);
 }

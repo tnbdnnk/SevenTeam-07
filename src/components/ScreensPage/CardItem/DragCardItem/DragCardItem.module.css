@@ -1,0 +1,57 @@
+.modalItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modalText {
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--text-grey);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.modalText.light,
+.modalText.violet {
+  color: var(--text-black);
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.modalItem:hover .modalText,
+.modalItem:focus .modalText {
+  color: var(--accent-light);
+}
+
+.modalItem:hover .modalText.violet,
+.modalItem:focus .modalText.violet {
+  color: var(--accent-violet-dark);
+}
+
+.modalItem:hover .modalIcon,
+.modalItem:focus .modalIcon {
+  stroke: var(--accent-light);
+}
+
+.modalItem:hover .modalIcon.violet,
+.modalItem:focus .modalIcon.violet {
+  stroke: var(--accent-violet-dark);
+}
+
+.modalButton {
+  margin-left: 8px;
+  display: flex;
+}
+
+.modalIcon {
+  stroke: var(--text-grey);
+  fill: transparent;
+  transition: all 500ms cubic-bezier(0, 0, 1, 1);
+}
+
+.modalIcon.light,
+.modalIcon.violet {
+  stroke: var(--text-black);
+}

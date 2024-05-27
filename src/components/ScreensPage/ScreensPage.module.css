@@ -21,17 +21,13 @@
   width: 0px;
   height: 12px;
   border-radius: 12px;
-  background-color: #161616;
+  background-color: var(--text-black);
   scroll-behavior: smooth;
-}
-
-.section.dark::-webkit-scrollbar {
-  background-color: #161616;
 }
 
 .section.light::-webkit-scrollbar,
 .section.violet::-webkit-scrollbar {
-  background-color: #fff;
+  background-color: var(--text-white);
 }
 
 .section::-webkit-scrollbar-thumb {
@@ -39,16 +35,12 @@
   border-radius: 12px;
 }
 
-.section.dark::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
 .section.light::-webkit-scrollbar-thumb {
   background-color: #e8e8e8;
 }
 
 .section.violet::-webkit-scrollbar-thumb {
-  background-color: #b8bcfd;
+  background-color: var(--accent-violet-light);
 }
 
 .activeSettingsWrapper {
@@ -73,16 +65,12 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
-}
-
-.title.dark {
-  color: #fff;
+  color: var(--text-white);
 }
 
 .title.light,
 .title.violet {
-  color: #161616;
+  color: var(--text-black);
 }
 
 @media (min-width: 768px) {

@@ -1,27 +1,36 @@
-// import DeleteCardModal from './DeleteCard/DeleteCardModal';
-// import { useModal } from '../../../hooks/useModal';
-import { handleSetColor, handleFormatDate, handleCompareDates } from './CardItemFunctions/CardItemFunctions';
-import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../../redux/auth/auth-selectors';
-import { deleteCard } from "../../../redux/boards/boards-operations"
+import { selectBoard } from '../../../redux/boards/boards-selectors.js';
+import { deleteCard } from "../../../redux/boards/boards-operations";
+import { useModal } from '../../../hooks/useModal.js';
+import ModalDragCard from '../../../helpers/ModalWindow/ModalDragCard.jsx';
+import EditCardModal from './EditCard/EditCardModal.jsx';
+import DragCardItem from './DragCardItem/DragCardItem.jsx';
+import { handleSetColor, handleFormatDate, handleCompareDates } from './CardItemFunctions/CardItemFunctions';
+
 import { toast } from 'react-hot-toast';
 import css from './CardItem.module.css';
 import icons from '../../../images/symbol-defs.svg';
+
 import EditCardModal from './EditCard/EditCardModal.jsx';
 import DeleteCardModal from './DeleteCard/DeleteCardModal.jsx';
 
-const CardItem = ({ card }) => {
-    const { _id, title, description, label, deadline } = card;
-    const { theme } = useSelector(selectUser);
+const CardItem = ({ card, columnId }) => {
 
-    const currentDate = Date.now();
-    const formattedDeadline = handleFormatDate(deadline);
-    const isDeadlineToday = handleCompareDates(currentDate, deadline);
-        
     const dispatch = useDispatch();
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+    const { isModalOpen, openModal, closeModal } = useModal();
+
+    const { _id, title, description, label, deadline } = card;
+    const { theme } = useSelector(selectUser);
+    const board = useSelector(selectBoard);
+    const isActiveButton = board.columns.length > 1;
+    
+    const currentDate = Date.now();
+    const formattedDeadline = handleFormatDate(deadline);
+    const isDeadlineToday = handleCompareDates(currentDate, deadline);
 
     const handleDeleteCard = async () => {
         try {
@@ -30,6 +39,7 @@ const CardItem = ({ card }) => {
             setIsDeleteModalOpen(false);
         } catch (error) {
             console.error(error.message);
+
             toast.error('Failed to delete card.');
         }
     }
@@ -79,19 +89,16 @@ const CardItem = ({ card }) => {
 
                     <div className={css.buttonsWrap}>
                     {isDeadlineToday && (
-                        <button className={`${css.button} ${css.green}`} type="button">
+                        <button className={`${css.button} ${css.buttonBell}`} type="button">
                             <svg className={css.iconAccent} width="16" height="16">
                                 <use href={icons + '#icon-bell'}></use>
                             </svg>
                         </button>
                     )}
-                    <button className={`${css.button} ${css.green}`} type="button">
-                        <svg
-                            className={[css.icon, css[theme]].join(' ')}
-                            width="16"
-                            height="16"
-                        >
-                        <use href={icons + '#icon-arrow-circle-broken-right'}></use>
+                    <button className={isActiveButton ? `${css.buttonActive} ${css.green}` : `${css.buttonDisable}`} type="button"
+                        onClick={isActiveButton ? openModal : null}>
+                        <svg className={[css.icon, css[theme]].join(' ')} width="16" height="16">
+                            <use href={icons + '#icon-arrow-circle-broken-right'}></use>
                         </svg>
                     </button>
 
@@ -122,10 +129,23 @@ const CardItem = ({ card }) => {
                         <use href={icons + '#icon-trash'}></use>
                         </svg>
                     </button>
+                    
+                    <ModalDragCard isOpen={isModalOpen} onClose={closeModal}>
+                        <ul className={css.modalList}>
+                            {board.columns && board.columns
+                                .filter(columnItem => Object.hasOwn(columnItem, '_id'))
+                                .filter(columnItem => columnItem._id !== columnId)
+                                .map(columnItem => (
+                                    <DragCardItem onClose={closeModal} key={columnItem._id} columnItem={columnItem} _id={_id} columnId={columnId} />
+                                ))
+                            }
+                        </ul>
+                    </ModalDragCard>
                 </div>
             </div>
         </li>
     );
 };
+
 
 export default CardItem;
