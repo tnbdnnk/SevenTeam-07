@@ -13,12 +13,16 @@ import { toast } from 'react-hot-toast';
 import css from './CardItem.module.css';
 import icons from '../../../images/symbol-defs.svg';
 
+import EditCardModal from './EditCard/EditCardModal.jsx';
+import DeleteCardModal from './DeleteCard/DeleteCardModal.jsx';
 
 const CardItem = ({ card, columnId }) => {
 
     const dispatch = useDispatch();
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const { isModalOpen, openModal, closeModal } = useModal();
+
     const { _id, title, description, label, deadline } = card;
     const { theme } = useSelector(selectUser);
     const board = useSelector(selectBoard);
@@ -27,17 +31,19 @@ const CardItem = ({ card, columnId }) => {
     const currentDate = Date.now();
     const formattedDeadline = handleFormatDate(deadline);
     const isDeadlineToday = handleCompareDates(currentDate, deadline);
-    
-    // Для видалення карточки Маша
-    const handleDeleteCard = async (id) => {
+
+    const handleDeleteCard = async () => {
         try {
-            await dispatch(deleteCard(id));
+            await dispatch(deleteCard(_id));
             toast.success('Сard was deleted successfully!');
+            setIsDeleteModalOpen(false);
         } catch (error) {
             console.error(error.message);
+
+            toast.error('Failed to delete card.');
         }
     }
-    
+
     return (
         <li key={_id} className={[css.card, css[theme]].join(' ')}>
             {isEditModalOpen && (
@@ -45,6 +51,14 @@ const CardItem = ({ card, columnId }) => {
                     isModalOpen={isEditModalOpen}
                     closeModal={() => setIsEditModalOpen(false)}
                     card={card}
+                />
+            )}
+
+            {isDeleteModalOpen && (
+                <DeleteCardModal
+                    isModalOpen={isDeleteModalOpen}
+                    closeModal={() => setIsDeleteModalOpen(false)}
+                    onConfirmDelete={handleDeleteCard}
                 />
             )}
 
@@ -88,6 +102,34 @@ const CardItem = ({ card, columnId }) => {
                         </svg>
                     </button>
 
+                    <button 
+                        className={`${css.button} ${css.green}`}
+                        type="button"
+                        onClick={()=>setIsEditModalOpen(true)}
+                    >
+                        <svg
+                            className={[css.icon, css[theme]].join(' ')}
+                            width="16"
+                            height="16"
+                        >
+                        <use href={icons + '#icon-pen'}></use>
+                        </svg>
+                    </button>
+
+                    <button
+                        className={`${css.button} ${css.red}`}
+                        type="button"
+                        onClick={() => setIsDeleteModalOpen(true)}
+                    >
+                        <svg
+                            className={[css.icon, css[theme]].join(' ')}
+                            width="16"
+                            height="16"
+                        >
+                        <use href={icons + '#icon-trash'}></use>
+                        </svg>
+                    </button>
+                    
                     <ModalDragCard isOpen={isModalOpen} onClose={closeModal}>
                         <ul className={css.modalList}>
                             {board.columns && board.columns
@@ -99,17 +141,6 @@ const CardItem = ({ card, columnId }) => {
                             }
                         </ul>
                     </ModalDragCard>
-
-                    <button className={`${css.button} ${css.green}`} type="button" onClick={()=>setIsEditModalOpen(true)}>
-                        <svg className={[css.icon, css[theme]].join(' ')} width="16" height="16">
-                            <use href={icons + '#icon-pen'}></use>
-                        </svg>
-                    </button>
-                    <button className={`${css.button} ${css.red}`} type="button" onClick={() => handleDeleteCard(_id)}>
-                        <svg className={[css.icon, css[theme]].join(' ')} width="16" height="16">
-                            <use href={icons + '#icon-trash'}></use>
-                        </svg>
-                    </button>
                 </div>
             </div>
         </li>
