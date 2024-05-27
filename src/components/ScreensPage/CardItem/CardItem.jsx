@@ -9,15 +9,9 @@ import { toast } from 'react-hot-toast';
 import css from './CardItem.module.css';
 import icons from '../../../images/symbol-defs.svg';
 import EditCardModal from './EditCard/EditCardModal.jsx';
+import DeleteCardModal from './DeleteCard/DeleteCardModal.jsx';
 
-const CardItem = ({
-    card
-//   card: { id, name, text, priority, deadline },
-//   onDeleteCard,
-//   updateCard,
-//   columnId,
-}) => {
-
+const CardItem = ({ card }) => {
     const { _id, title, description, label, deadline } = card;
     const { theme } = useSelector(selectUser);
 
@@ -25,43 +19,36 @@ const CardItem = ({
     const formattedDeadline = handleFormatDate(deadline);
     const isDeadlineToday = handleCompareDates(currentDate, deadline);
         
-        // Для видалення карточки Маша
     const dispatch = useDispatch();
-    const handleDeleteCard = async (id) => {
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
+    const handleDeleteCard = async () => {
         try {
-            await dispatch(deleteCard(id));
+            await dispatch(deleteCard(_id));
             toast.success('Сard was deleted successfully!');
+            setIsDeleteModalOpen(false);
         } catch (error) {
-        console.error(error.message);
+            console.error(error.message);
+            toast.error('Failed to delete card.');
         }
     }
 
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    
-    //   const {
-    //     openModal: openDeleteModal,
-    //     closeModal: closeDeleteModal,
-    //     isModalOpen: isDeleteModalOpen,
-    //     } = useModal();
-    //   const handleDeleteCard = () => {
-    //     onDeleteCard(id);
-    //     closeDeleteModal();
-    //   };
-
     return (
         <li key={_id} className={[css.card, css[theme]].join(' ')}>
-            {/* {isDeleteModalOpen && (
-                <DeleteCardModal
-                isModalOpen={isDeleteModalOpen}
-                closeModal={closeDeleteModal}
-                onConfirmDelete={handleDeleteCard}
-                />
-            )} */}
             {isEditModalOpen && (
                 <EditCardModal
                     isModalOpen={isEditModalOpen}
                     closeModal={() => setIsEditModalOpen(false)}
                     card={card}
+                />
+            )}
+
+            {isDeleteModalOpen && (
+                <DeleteCardModal
+                    isModalOpen={isDeleteModalOpen}
+                    closeModal={() => setIsDeleteModalOpen(false)}
+                    onConfirmDelete={handleDeleteCard}
                 />
             )}
 
@@ -107,7 +94,7 @@ const CardItem = ({
                         <use href={icons + '#icon-arrow-circle-broken-right'}></use>
                         </svg>
                     </button>
-                    {/* <button className={`${css.button} ${css.green}`} type='button' onClick={openEditCardModal}> */}
+
                     <button 
                         className={`${css.button} ${css.green}`}
                         type="button"
@@ -121,11 +108,11 @@ const CardItem = ({
                         <use href={icons + '#icon-pen'}></use>
                         </svg>
                     </button>
-                    {/* <button className={`${css.button} ${css.red}`} type='button' onClick={openDeleteModal}> */}
+
                     <button
                         className={`${css.button} ${css.red}`}
                         type="button"
-                        onClick={() => handleDeleteCard(_id)}
+                        onClick={() => setIsDeleteModalOpen(true)}
                     >
                         <svg
                             className={[css.icon, css[theme]].join(' ')}

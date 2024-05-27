@@ -7,6 +7,8 @@ import { selectUser } from '../../../../redux/auth/auth-selectors';
 import Modal from '../../../../helpers/ModalWindow/Modal.jsx';
 import css from '../EditCard/EditCardModal.module.css';
 import sprite from '../../../../images/symbol-defs.svg';
+import { toast } from 'react-hot-toast';
+
 
 const EditCardModal = ({ isModalOpen, closeModal, card }) => {
     const dispatch = useDispatch();
@@ -32,6 +34,7 @@ const EditCardModal = ({ isModalOpen, closeModal, card }) => {
         try {
             await dispatch(editCard({ id: _id, updatedCard }));
             closeModal();
+            toast.success('Card was edited successfully!');
         } catch (error) {
             console.error(error.message);
         }
