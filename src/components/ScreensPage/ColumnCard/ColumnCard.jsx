@@ -53,7 +53,7 @@ const ColumnCard = ({ columnItem }) => {
         <div className={[css.columnCard, css[theme]].join(' ')}>
           <p className={[css.text, css[theme]].join(' ')}>{title}</p>
           <div className={css.buttonsWrapper}>
-            <button className={`${css.button} ${css.green}`} type="button" onClick={openModal}>
+            <button className={[css.button, css[theme]].join(' ')} type="button" onClick={openModal}>
               <svg className={[css.icon, css[theme]].join(' ')}
                 width="16"
                 height="16"
