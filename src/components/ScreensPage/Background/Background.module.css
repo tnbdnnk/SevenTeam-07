@@ -1,7 +1,7 @@
 .container,
 .imageStyles {
   height: calc(100vh - 60px);
-  background-color: #1f1f1f;
+  background-color: var(--background-grey);
   padding: 14px 8px 24px 20px;
 }
 
@@ -12,12 +12,8 @@
   }
 }
 
-.container.dark {
-  background-color: #1f1f1f;
-}
-
 .container.light {
-  background-color: #f6f6f7;
+  background-color: var(--background-light);
 }
 
 .container.violet {

@@ -143,6 +143,10 @@
   fill: transparent;
 }
 
+.buttonBell {
+  cursor: default;
+}
+
 .button:hover .icon,
 .button:focus .icon,
 .buttonActive:hover .icon,
