@@ -148,16 +148,30 @@
 }
 
 .button:hover .icon,
-.button:focus .icon,
+.button:focus .icon{
+  scale: 1.3;
+  stroke: var(--accent-light);
+}
+
+.button.violet:hover .icon,
+.button.violet:focus .icon{
+  scale: 1.3;
+  stroke: var(--accent-violet-light);
+}
+
 .buttonActive:hover .icon,
 .buttonActive:focus .icon {
   scale: 1.3;
 }
 
-.green:hover .icon,
+.buttonActive.violet:hover .icon,
+.buttonActive.violet:focus .icon {
+  scale: 1.3;
+}
+/* .green:hover .icon,
 .green:focus .icon {
   stroke: var(--accent-light);
-}
+} */
 
 .buttonDisable {
   display: flex;
@@ -182,6 +196,10 @@
 
 .iconAccent {
   stroke: var(--accent-light);
+}
+
+.iconAccent.violet {
+  stroke: var(--accent-violet-light);
 }
 
 .modalList {

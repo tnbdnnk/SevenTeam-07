@@ -22,43 +22,50 @@ import { getAllBoards } from '../../redux/boards/boards-operations.js';
 
 
 const Sidebar = ({ className }) => {
-  const { theme } = useSelector(selectUser);
-// для модалки
-  const { isModalOpen, openModal, closeModal } = useModal();
+    const { theme } = useSelector(selectUser);
+    // для модалки
+    const { isModalOpen, openModal, closeModal } = useModal();
 
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  const handleLogout = () => {
-    dispatch(logout());
-  };
-  useEffect(() => {
-    dispatch(getAllBoards());
-  }, [dispatch]);
+    const handleLogout = () => {
+        dispatch(logout());
+    };
 
-  return <aside className={`${[css.sidebar, css[theme]].join(' ')} ${className}`}>
-    <div className={css.partSidebar}>
-    <LogoComponent />
-    <h3 className={css.text}>My boards</h3>
-    <div className={[css.createBox, css[theme]].join(' ')}>
-      <p className={css.createText}>Create a new board</p>
-      <button className={[css.createBtn, css[theme]].join(' ')} type="button"   onClick={openModal}>
-      <svg className={css.iconPlus} width="20" height="20">
-      <use href={icons + '#icon-plus'}></use>
-    </svg></button></div>
-    </div>
-    <Modal isOpen={isModalOpen} onClose={closeModal}>{ <NewBoard onClose={closeModal}/>}</Modal>
+    useEffect(() => {
+        dispatch(getAllBoards());
+    }, [dispatch]);
 
-    <BoardList />
-    <div className={css.partSidebar}>
-    <NeedHelp />
-    <button onClick={handleLogout} className={css.logoutBtn}>
-          <svg className={[css.iconLogout, css[theme]].join(' ')} width="32" height="32">
-            <use href={icons + '#icon-logout'}></use>
-          </svg>
-          Log out
-        </button>
-    </div>
-  </aside>
+    return(
+        <aside className={`${[css.sidebar, css[theme]].join(' ')} ${className}`}>
+            <div className={css.partSidebar}>
+                <LogoComponent />
+                <h3 className={css.text}>My boards</h3>
+                <div className={[css.createBox, css[theme]].join(' ')}>
+                    <p className={css.createText}>Create a new board</p>
+                    <button className={[css.createBtn, css[theme]].join(' ')} type="button" onClick={openModal}>
+                        <svg className={css.iconPlus} width="20" height="20">
+                            <use href={icons + '#icon-plus'}></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <Modal isOpen={isModalOpen} onClose={closeModal}>
+                {<NewBoard onClose={closeModal} />}
+            </Modal>
+
+            <BoardList />
+            <div className={css.partSidebar}>
+                <NeedHelp />
+                <button onClick={handleLogout} className={css.logoutBtn}>
+                    <svg className={[css.iconLogout, css[theme]].join(' ')} width="32" height="32">
+                        <use href={icons + '#icon-logout'}></use>
+                    </svg>
+                    Log out
+                </button>
+            </div>
+        </aside>
+    )
 }
 
 export default Sidebar;

@@ -88,21 +88,28 @@ const CardItem = ({ card, columnId }) => {
 
                     <div className={css.buttonsWrap}>
                     {isDeadlineToday && (
-                        <button className={`${css.button} ${css.buttonBell}`} type="button">
-                            <svg className={css.iconAccent} width="16" height="16">
+                        <button className={`${css.button} ${css.buttonBell} ${css[theme]}`} type="button">
+                            <svg className={[css.iconAccent, css[theme]].join(' ')} width="16" height="16">
                                 <use href={icons + '#icon-bell'}></use>
                             </svg>
                         </button>
                     )}
-                    <button className={isActiveButton ? `${css.buttonActive} ${css.green}` : `${css.buttonDisable}`} type="button"
-                        onClick={isActiveButton ? openModal : null}>
+                    <button
+                        className={`
+                            ${css.button} 
+                            ${isActiveButton ? css.buttonActive : css.buttonDisable} 
+                            ${css[theme]}
+                        `}
+                        type="button"
+                        onClick={isActiveButton ? openModal : null}
+                    >
                         <svg className={[css.icon, css[theme]].join(' ')} width="16" height="16">
                             <use href={icons + '#icon-arrow-circle-broken-right'}></use>
                         </svg>
                     </button>
 
                     <button 
-                        className={`${css.button} ${css.green}`}
+                        className={[css.button, css[theme]].join(' ')}
                         type="button"
                         onClick={()=>setIsEditModalOpen(true)}
                     >
