@@ -114,7 +114,6 @@ export const NewBoard = ({ onClose }) => {
 
     const onSubmit = async ({ title, icon, background}) => {
         try {
-            // console.log({ title, icons, background})
             await dispatch(addBoard({ title, icon, background}));
             onClose();
         } catch (error) {
@@ -136,58 +135,94 @@ export const EditBoard = ({ boardData, onClose }) => {
     
     const onSubmit = async ({ title, icon, background}) => {
         try {
-        const editData = { title, icon, background };
-        await dispatch(editBoard({ _id: boardData._id, newBoardData: editData }));
-        onClose()
-
+            const editData = { title, icon, background };
+            await dispatch(editBoard({ _id: boardData._id, newBoardData: editData }));
+            onClose()
         } catch (error) {
-        console.error( error.messege);
+            console.error( error.messege);
         }
     }
 
     const iconsList = arrayIcons.map((icon) => {
-        return (<label key={icon}>
-            <input type="radio" {...register("icon")} value={icon} defaultChecked={boardData.icon === icon} />
-            <div className={css.iconWrapper}>
-            <svg className={[css.modalIcons, css[theme]].join(' ')} width="18" height="18" >
-                <use href={sprite + icon}></use></svg>
-            </div>
-            </label>)
+        return (
+            <label key={icon}>
+                <input
+                    type="radio"
+                    {...register("icon")}
+                    value={icon}
+                    defaultChecked={boardData.icon === icon}
+                />
+                <div className={css.iconWrapper}>
+                    <svg className={[css.modalIcons, css[theme]].join(' ')}
+                        width="18"
+                        height="18"
+                    >
+                        <use href={sprite + icon}></use>
+                    </svg>
+                </div>
+            </label>
+        )
     })
 
     const bgList = arrayBg.map((bg) => {
-        return (<label key={bg.value}>
-            <input type="radio" {...register("background")} value={bg.value} defaultChecked={boardData.background === bg.value} />
-        <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
-            <img  src={bg.path} alt={bg.value} />
-            </div>
-            </label>)
+        return (
+            <label key={bg.value}>
+                <input
+                    type="radio"
+                    {...register("background")}
+                    value={bg.value}
+                    defaultChecked={boardData.background === bg.value}
+                />
+                <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
+                    <img  src={bg.path} alt={bg.value} />
+                </div>
+            </label>
+        )
     })
 
     return <>
         <h2 className={[css.modalHeader, css[theme]].join(' ')}>Edit board</h2>
-    <form onSubmit={handleSubmit(onSubmit) }>
-        <input {...register("title")} placeholder="Title" className={[css.title, css[theme]].join(' ')} defaultValue={boardData.title} required />
-    <h3 className={[css.text, css[theme]].join(' ')}>Icons</h3>
-        <div className={css.iconRadios}>
-            { iconsList}
-        </div>
-    <h3 className={[css.text, css[theme]].join(' ')}>Background</h3>
-        <div className={css.backgroundRadios}>
-            <label key={"noBg"}>
-            <input type="radio" {...register("background")} value="noBg" defaultChecked={boardData.background === "noBg"} />
-        <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
-            <svg className={[css.noBgIcon, css[theme]].join(' ')} width="28" height="28" >
-                <use href={sprite + "#noBg"}></use></svg>
+        <form onSubmit={handleSubmit(onSubmit) }>
+            <input
+                {...register("title")}
+                placeholder="Title"
+                className={[css.title, css[theme]].join(' ')}
+                defaultValue={boardData.title}
+                required
+            />
+            <h3 className={[css.text, css[theme]].join(' ')}>Icons</h3>
+            <div className={css.iconRadios}>
+                { iconsList}
             </div>
-            </label>
-            {bgList}
-        </div>
-        <button type="submit" className={[css.createBtn, css[theme]].join(' ')}>
-            <div className={css.iconWrap}>
-            <svg className={css.iconPlus} width="14" height="14">
-                <use href={sprite + '#icon-plus'}></use>
-        </svg></div>Edit</button>      
+        
+            <h3 className={[css.text, css[theme]].join(' ')}>Background</h3>
+            <div className={css.backgroundRadios}>
+                <label key={"noBg"}>
+                    <input
+                        type="radio"
+                        {...register("background")}
+                        value="noBg"
+                        defaultChecked={boardData.background === "noBg"}
+                    />
+                    <div className={[css.backgroundWrapper, css[theme]].join(' ')}>
+                        <svg className={[css.noBgIcon, css[theme]].join(' ')}
+                            width="28"
+                            height="28"
+                        >
+                            <use href={sprite + "#noBg"}></use>
+                        </svg>
+                    </div>
+                </label>
+                {bgList}
+            </div>
+            <button type="submit" className={[css.createBtn, css[theme]].join(' ')}>
+                <div className={css.iconWrap}>
+                    <svg className={css.iconPlus} width="14" height="14">
+                        <use href={sprite + '#icon-plus'}></use>
+                    </svg>
+                </div>
+                Edit
+            </button>      
         </form>
     </>
 }

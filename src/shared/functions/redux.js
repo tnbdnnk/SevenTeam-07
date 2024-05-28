@@ -1,4 +1,3 @@
-
 export const pending = (state) => {
     state.isLoading = true;
     state.error = null;

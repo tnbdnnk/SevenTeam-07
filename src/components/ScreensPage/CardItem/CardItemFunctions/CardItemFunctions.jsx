@@ -1,4 +1,3 @@
-
 export const handleSetColor = (label) => { 
     switch (label) {
         case label = 'without':
@@ -15,25 +14,25 @@ export const handleSetColor = (label) => {
 }
 
 export const handleFormatDate = (deadline) => {
-  if (!deadline) return 'No deadline';
-  const date = new Date(deadline);
-  const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-  return date.toLocaleDateString('en-GB', options); // Using en-GB to get day/month/year format
+    if (!deadline) return 'No deadline';
+    const date = new Date(deadline);
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return date.toLocaleDateString('en-GB', options); // Using en-GB to get day/month/year format
 };
 
 export const handleCompareDates = (date1, date2) => {
-  const currentDate = new Date(date1);
-  const deadlineDate = new Date(date2);
+    const currentDate = new Date(date1);
+    const deadlineDate = new Date(date2);
 
-  const day1 = currentDate.getDate();
-  const month1 = currentDate.getMonth();
-  const year1 = currentDate.getFullYear();
+    const day1 = currentDate.getDate();
+    const month1 = currentDate.getMonth();
+    const year1 = currentDate.getFullYear();
 
-  const day2 = deadlineDate.getDate();
-  const month2 = deadlineDate.getMonth();
-  const year2 = deadlineDate.getFullYear();
+    const day2 = deadlineDate.getDate();
+    const month2 = deadlineDate.getMonth();
+    const year2 = deadlineDate.getFullYear();
 
-  return day1 === day2 && month1 === month2 && year1 === year2;
+    return day1 === day2 && month1 === month2 && year1 === year2;
 };
 
 // export const handleFormatDate = (deadline) => {

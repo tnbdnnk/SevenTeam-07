@@ -12,9 +12,7 @@ import Background from './Background/Background';
 
 import css from './ScreensPage.module.css';
 
-
 const ScreensPage = () => {
-    
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let { boardName } = useParams();
