@@ -43,7 +43,11 @@ const Sidebar = ({ className }) => {
                 <h3 className={css.text}>My boards</h3>
                 <div className={[css.createBox, css[theme]].join(' ')}>
                     <p className={css.createText}>Create a new board</p>
-                    <button className={[css.createBtn, css[theme]].join(' ')} type="button" onClick={openModal}>
+                    <button
+                        className={[css.createBtn, css[theme]].join(' ')}
+                        type="button"
+                        onClick={openModal}
+                    >
                         <svg className={css.iconPlus} width="20" height="20">
                             <use href={icons + '#icon-plus'}></use>
                         </svg>
