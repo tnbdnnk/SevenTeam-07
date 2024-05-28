@@ -25,7 +25,7 @@
 @media (min-width: 1440px) {
   .item {
     width: 350px;
-    height: calc(100vh - 161px);
+    height: calc(100vh - 191px);
   }
 }
 
@@ -135,7 +135,7 @@
 
 @media (min-width: 1440px) {
   .cardsWrap {
-    max-height: calc(100vh - 299px);
+    max-height: calc(100vh - 329px);
   }
 }
 
